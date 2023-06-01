@@ -6,6 +6,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { stayServiceLocal } from '../services/stay.service.local.js'
 
 import { StayList } from '../cmps/StayList.jsx'
+import {StayDetails} from './StayDetails.jsx'
 
 export function StayIndex() {
     const [stay, setStay] = useState(null)
@@ -54,7 +55,8 @@ export function StayIndex() {
             </section>
 
             {isLoading && <h4>Loading...</h4>}
-            {stay && <pre>{JSON.stringify(stay)}</pre>}
+            {/* {stay && <pre>{JSON.stringify(stay)}</pre>} */}
+            {stay && <StayDetails stay = {stay}/>}
             <StayList
                 stays={stays}
                 onRemoveStay={onRemoveStay}
