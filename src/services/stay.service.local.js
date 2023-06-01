@@ -5,13 +5,17 @@ import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'stay'
 
+
+let gStays
+_createStays()
+
 export const stayServiceLocal = {
     query,
     getById,
     save,
     remove,
-    getEmptystay,
-    addstayMsg
+    getEmptystay
+    // addstayMsg
 }
 window.cs = stayServiceLocal
 
@@ -49,50 +53,50 @@ async function save(stay) {
     return savedstay
 }
 
-async function addstayMsg(stayId, txt) {
-    // Later, this is all done by the backend
-    const stay = await getById(stayId)
-    if (!stay.msgs) stay.msgs = []
+// async function addstayMsg(stayId, txt) {
+//     // Later, this is all done by the backend
+//     const stay = await getById(stayId)
+//     if (!stay.msgs) stay.msgs = []
 
-    const msg = {
-        id: utilService.makeId(),
-        by: userService.getLoggedinUser(),
-        txt
-    }
-    stay.msgs.push(msg)
-    await storageService.put(STORAGE_KEY, stay)
+//     const msg = {
+//         id: utilService.makeId(),
+//         by: userService.getLoggedinUser(),
+//         txt
+//     }
+//     stay.msgs.push(msg)
+//     await storageService.put(STORAGE_KEY, stay)
 
-    return msg
-}
+//     return msg
+// }
 
 function getEmptystay() {
-const stay = {
-    name: '',
-    type:'',
-    imgUrls: '',
-    price: '',
-    summary: '',
-    capacity: '',
-    amenities: [],
-    labels: [ ],
-    host: {
-      _id: "u101",
-      fullname: "Davit Pok",
-      imgUrl: "",
-    },
-    loc: {
-      country: '',
-      countryCode: '',
-      city: '',
-      address: '',
-      lat:'',
-      lng: ''
-    },
-    reviews: [],
-    likedByUsers: []
-  }
+    const stay = {
+        name: '',
+        type: '',
+        imgUrls: '',
+        price: '',
+        summary: '',
+        capacity: '',
+        amenities: [],
+        labels: [],
+        host: {
+            _id: "u101",
+            fullname: "Davit Pok",
+            imgUrl: "",
+        },
+        loc: {
+            country: '',
+            countryCode: '',
+            city: '',
+            address: '',
+            lat: '',
+            lng: ''
+        },
+        reviews: [],
+        likedByUsers: []
+    }
 
-  return stay
+    return stay
 }
 
 
@@ -101,4 +105,142 @@ const stay = {
 
 
 
+function _createStays() {
+    gStays = utilService.loadFromStorage(STORAGE_KEY)
+    if (gStays && gStays.length > 0) return
 
+    gStays = [
+
+        {
+            "_id": "s101",
+            "name": "Ribeira Charming Duplex",
+            "type": "House",
+            "imgUrls": [
+                "https://e26e9b.jpg",
+                "otherImg.jpg"
+            ],
+            "price": 80.00,
+            "summary": "Fantastic duplex apartment...",
+            "capacity": 8,
+            "amenities": [
+                "TV",
+                "Wifi",
+                "Kitchen",
+                "Smoking allowed",
+                "Pets allowed",
+                "Cooking basics"
+            ],
+            "labels": [
+                "Top of the world",
+                "Trending",
+                "Play",
+                "Tropical"
+            ],
+            "host": {},
+            "loc": {},
+            "reviews": [],
+            "likedByUsers": []
+        }, {
+            "_id": "s102",
+            "name": "Ribeira",
+            "type": "House",
+            "imgUrls": [
+                "https://e26e9b.jpg",
+                "otherImg.jpg"
+            ],
+            "price": 90.00,
+            "summary": "Fantastic duplex apartment...",
+            "capacity": 7,
+            "amenities": [
+                "Cooking basics"
+            ],
+            "labels": [
+                "Tropical"
+            ],
+            "host": {},
+            "loc": {},
+            "reviews": [],
+            "likedByUsers": []
+        }, {
+            "_id": "s103",
+            "name": "Charming",
+            "type": "House",
+            "imgUrls": [
+                "https://e26e9b.jpg",
+                "otherImg.jpg"
+            ],
+            "price": 100.00,
+            "summary": "Fantastic duplex apartment...",
+            "capacity": 2,
+            "amenities": [
+                "Kitchen",
+                "Smoking allowed"
+            ],
+            "labels": [
+                "Trending"
+            ],
+            "host": {},
+            "loc": {},
+            "reviews": [],
+            "likedByUsers": []
+        }, {
+            "_id": "s104",
+            "name": "Duplex",
+            "type": "House",
+            "imgUrls": [
+                "https://e26e9b.jpg",
+                "otherImg.jpg"
+            ],
+            "price": 70.00,
+            "summary": "Fantastic duplex apartment...",
+            "capacity": 2,
+            "amenities": [
+                "Smoking allowed",
+                "Pets allowed",
+                "Cooking basics"
+            ],
+            "labels": [
+                "Play",
+                "Tropical"
+            ],
+            "host": {},
+            "loc": {},
+            "reviews": [],
+            "likedByUsers": []
+        }, {
+            "_id": "s105",
+            "name": "TARANTULA",
+            "type": "House",
+            "imgUrls": [
+                "https://e26e9b.jpg",
+                "otherImg.jpg"
+            ],
+            "price": 200.00,
+            "summary": "Fantastic duplex apartment...",
+            "capacity": 10,
+            "amenities": [
+                "TV",
+                "Wifi",
+                "Kitchen",
+                "Smoking allowed",
+                "Pets allowed",
+                "Cooking basics"
+            ],
+            "labels": [
+                "Top of the world",
+                "Trending",
+                "Play",
+                "Tropical"
+            ],
+            "host": {},
+            "loc": {},
+            "reviews": [],
+            "likedByUsers": []
+        }
+    ]
+    _saveStays()
+}
+
+function _saveStays() {
+    utilService.saveToStorage(STORAGE_KEY, gStays)
+}
