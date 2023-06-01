@@ -6,17 +6,17 @@ export const StayDetails = ({ stayId }) => {
     <section className="stay-details">
       <header>
         <h1>Unique and Secluded AirShip with Breathtaking Highland Views</h1>
-        <div className="sub-header">
-          <div className="rating">
+        <div className="sub-header-details">
+          <div className="rating-details">
             <span>⭐️</span>
             <span>346 reviews</span>
           </div>
-          <div className="super-host">
+          <div className="super-host-details">
             <span>Super host</span>
           </div>
           <span>Drimnin, Scotland, United Kingdom</span>
         </div>
-        <div className="save-share">
+        <div className="save-share-details">
           <a href="">Save</a>
           <a href="">Share</a>
         </div>
@@ -36,9 +36,9 @@ export const StayDetails = ({ stayId }) => {
 
       <div className="stay-details-info">
         <div className="stay-details-info-left">
-          <div className="basic-info">
+          <div className="basic-info-details">
             <h2>Tiny home hosted by Amanda</h2>
-            <div className="capacity">
+            <div className="capacity-details">
               <span>2 guests</span>
               <span>1 bedrooms</span>
               <span>1 beds</span>
@@ -47,7 +47,7 @@ export const StayDetails = ({ stayId }) => {
             <img src="" alt="" />
           </div>
 
-          <div className="important-info">
+          <div className="important-info-details">
             <div className="important-1">
               <h2>Airbnb Plus</h2>
               <p>
@@ -65,7 +65,7 @@ export const StayDetails = ({ stayId }) => {
             </div>
           </div>
 
-          <div className="description">
+          <div className="description-details">
             <p>
               Retreat to the deck of this sustainable getaway and gaze at the
               twinkling constellations under a cosy tartan blanket. AirShip 2 is
@@ -79,14 +79,14 @@ export const StayDetails = ({ stayId }) => {
             <a href="">Show more</a>
           </div>
 
-          <div className="sleep">
+          <div className="sleep-details">
             <h1>Where you'll sleep</h1>
             <img src="" alt="bed-img" />
             <h2>Bedroom</h2>
             <p>1 queen bed</p>
           </div>
 
-          <div className="amenities">
+          <div className="amenities-details">
             <h1>What this place offers</h1>
             <div className="amenities-list">
               <ul>
@@ -113,8 +113,8 @@ export const StayDetails = ({ stayId }) => {
             </div>
           </div>
 
-          <div className="reviews">
-            <div className="rating">
+          <div className="reviews-details">
+            <div className="rating-details">
               <span>⭐️4.95</span>
               <span>346 reviews</span>
             </div>
@@ -150,20 +150,20 @@ export const StayDetails = ({ stayId }) => {
         </p>
         <a href="">Show more</a>
       </div>
-      <div className="host">
+      <div className="host-details">
         <div className="hosted-by-txt">
           <h1>Hosted by Amanda</h1>
           <p>Joined in November 2015</p>
           <img src="" alt="host-img" />
         </div>
-        <div className="host-info">
+        <div className="host-info-details">
           <ul>
             <li>682 Reviews</li>
             <li>Identity verified</li>
             <li>Superhost</li>
           </ul>
         </div>
-        <div className="host-description">
+        <div className="host-description-details">
           <h2>Amanda is a Superhost</h2>
           <p>
             Superhosts are experienced, highly rated hosts who are committed to
