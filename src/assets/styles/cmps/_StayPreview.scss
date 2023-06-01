@@ -1,7 +1,25 @@
-.stay-preview {
+.stay-preview-container {
+background-color: aqua;
+height: 363px;
+width: 100%;
+list-style: none;
 
 
+.stay-preview{
+    height: 100%;
+        width: 100%;
+}
+
+.stay-preview-image-container{
+
+    width: 100%;
+    height: 72.6%;
+    background-color: pink;
+
+
+}
     .stay-preview-image {
+        border-radius: 4%;
         height: 100%;
         width: 100%;
         object-fit: cover;

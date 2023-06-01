@@ -12,9 +12,9 @@ function App() {
   return (
     <Provider store={store}>
     <Router>
-      <section className="main-layout app">
+      <section className="main-layout">
         <AppHeader />
-        <main className='main-app'>
+        <main className="main-app">
           <Routes>
             <Route path="/" element={<StayIndex/>} />
             <Route path="/:stayId" element={<StayDetails />} />
