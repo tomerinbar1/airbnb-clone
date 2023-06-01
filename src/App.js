@@ -5,23 +5,26 @@ import { StayDetails } from './pages/StayDetails'
 import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'
 import '../src/assets/styles/main.scss'
+import { StayIndex } from './pages/StayIndex'
+import { store } from './store/store'
 
 function App() {
   return (
-    // <Provider>
+    <Provider store={store}>
     <Router>
       <section className="main-layout app">
         <AppHeader />
-        <main>
+        <main className='main-app'>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<StayIndex/>} />
             <Route path="/:stayId" element={<StayDetails />} />
+
           </Routes>
         </main>
         <AppFooter />
       </section>
     </Router>
-    // </Provider>
+    </Provider>
   )
 }
 
