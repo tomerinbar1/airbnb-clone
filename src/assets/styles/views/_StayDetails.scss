@@ -1,0 +1,44 @@
+.stay-details {
+  .header-details {
+    h1 {
+      font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+        Helvetica Neue, sans-serif;
+      font-size: rem(26px);
+      color: #222222;
+      font-weight: inherit;
+    }
+    .sub-header-details {
+      display: flex;
+      justify-content: space-between;
+      .sub-header-details-left {
+        display: flex;
+        align-items: center;
+        .space{
+          padding-inline: 4px;
+        }
+        .rating-details {
+          display: flex;
+          align-items: center;
+        }
+        .super-host-details {
+          display: flex;
+          align-items: center;
+          > * {
+            margin-inline-end: 4px;
+          }
+        }
+        > * {
+          display: flex;
+          margin-inline-end: 8px;
+        }
+      }
+      .sub-header-details-right{
+        .save-share-details{
+          > * {
+            padding: 8px;
+          }
+        }
+      }
+    }
+  }
+}

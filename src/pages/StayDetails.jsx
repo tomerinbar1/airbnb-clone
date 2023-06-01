@@ -4,21 +4,28 @@ export const StayDetails = ({ stayId }) => {
   // const { name, reviews, location, summary } = stayId
   return (
     <section className="stay-details">
-      <header>
+      <header className="header-details">
         <h1>Unique and Secluded AirShip with Breathtaking Highland Views</h1>
         <div className="sub-header-details">
-          <div className="rating-details">
-            <span>⭐️</span>
-            <span>346 reviews</span>
+          <div className="sub-header-details-left">
+            <div className="rating-details">
+              <span>⭐️4.95</span>
+              <span className='space'>.</span>
+              <a href=''>346 reviews</a>
+              <span className='space'>.</span>
+            </div>
+            <div className="super-host-details">
+              <span>Super host</span>
+              <span className='space'>.</span>
+            </div>
+            <a href=''>Drimnin, Scotland, United Kingdom</a>
           </div>
-          <div className="super-host-details">
-            <span>Super host</span>
+          <div className="sub-header-details-right">
+            <div className="save-share-details">
+              <a href="">Save</a>
+              <a href="">Share</a>
+            </div>
           </div>
-          <span>Drimnin, Scotland, United Kingdom</span>
-        </div>
-        <div className="save-share-details">
-          <a href="">Save</a>
-          <a href="">Share</a>
         </div>
       </header>
 
