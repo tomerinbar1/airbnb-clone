@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { loadStays, saveStay, removeStay } from '../store/stay.actions.js'
 
@@ -8,9 +8,10 @@ import { stayServiceLocal } from '../services/stay.service.local.js'
 import { StayList } from '../cmps/StayList.jsx'
 
 export function StayIndex() {
-
+    const [stay, setStay] = useState(null)
     const isLoading = useSelector((storeState) => storeState.stayModule.isLoading)
     const stays = useSelector(storeState => storeState.stayModule.stays)
+
     useEffect(() => {
         loadStays()
     }, [])
@@ -36,24 +37,29 @@ export function StayIndex() {
     }
 
 
+    async function onStayDetails(stayId) {
+        const stay = stays.find(stay => stay._id === stayId)
+        if (stay) setStay(stay)
+    }
 
     console.log(stays)
 
     return (
         <section className='index-container'>
-        <section className='stays-filter-container'>
+            <section className='stays-filter-container'>
 
-            {/* <button className='add-stay-btn'>
+                {/* <button className='add-stay-btn'>
                 <Link to={`/stay/edit`}>Add Stay</Link>
             </button> */}
+            </section>
+
+            {isLoading && <h4>Loading...</h4>}
+            {stay && <pre>{JSON.stringify(stay)}</pre>}
+            <StayList
+                stays={stays}
+                onRemoveStay={onRemoveStay}
+                onStayDetails= {onStayDetails}
+            />
         </section>
-
-        {isLoading && <h4>Loading...</h4>}
-
-        <StayList
-            stays={stays}
-            onRemoveStay={onRemoveStay}
-        />
-    </section>
     )
 }
