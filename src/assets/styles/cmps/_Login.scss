@@ -1,0 +1,35 @@
+.login-header-btn {
+    width:77px;
+    height: 42px;
+    background-color: aqua;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.6rem;
+    padding: 0 24px;
+    align-self: center;
+    padding: 5px 5px 5px 12px;
+
+    .login-burger {
+        width: 16px;
+        height: 16px;
+        background-image: url("../../img/icons/burger.png");
+        background-position: center;
+        background-size: cover;
+    }
+
+    .login-user-pic-container {
+        width: 30px;
+        height: 30px;
+        background-color: black;
+        background-image: url("../../img/icons/user-default.png");
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+    }
+
+
+
+}
