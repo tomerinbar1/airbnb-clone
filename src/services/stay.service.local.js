@@ -110,13 +110,12 @@ function _createStays() {
     if (gStays && gStays.length > 0) return
 
     gStays = [
-
         {
             "_id": "s101",
             "name": "Ribeira Charming Duplex",
             "type": "House",
             "imgUrls": [
-                "https://e26e9b.jpg",
+                "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628524/3_zipgos.jpg",
                 "otherImg.jpg"
             ],
             "price": 80.00,
@@ -129,23 +128,23 @@ function _createStays() {
                 "Smoking allowed",
                 "Pets allowed",
                 "Cooking basics"
-            ],
-            "labels": [
+              ],
+              "labels": [
                 "Top of the world",
                 "Trending",
                 "Play",
                 "Tropical"
-            ],
-            "host": {},
-            "loc": {},
-            "reviews": [],
-            "likedByUsers": []
-        }, {
+              ],
+              "host":"Christi-Anna",
+              "loc": {},
+              "reviews":[],
+              "likedByUsers": []
+        },  {
             "_id": "s102",
             "name": "Ribeira",
             "type": "House",
             "imgUrls": [
-                "https://e26e9b.jpg",
+                "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628692/1_kb8ojv.jpg",
                 "otherImg.jpg"
             ],
             "price": 90.00,
@@ -153,20 +152,20 @@ function _createStays() {
             "capacity": 7,
             "amenities": [
                 "Cooking basics"
-            ],
-            "labels": [
+              ],
+              "labels": [
                 "Tropical"
-            ],
-            "host": {},
-            "loc": {},
-            "reviews": [],
-            "likedByUsers": []
-        }, {
+              ],
+              "host":"Valentina",
+              "loc": {},
+              "reviews":[],
+              "likedByUsers": []
+        },  {
             "_id": "s103",
             "name": "Charming",
             "type": "House",
             "imgUrls": [
-                "https://e26e9b.jpg",
+                "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628692/main_wsayog.jpg",
                 "otherImg.jpg"
             ],
             "price": 100.00,
@@ -175,20 +174,20 @@ function _createStays() {
             "amenities": [
                 "Kitchen",
                 "Smoking allowed"
-            ],
-            "labels": [
+              ],
+              "labels": [
                 "Trending"
-            ],
-            "host": {},
-            "loc": {},
-            "reviews": [],
-            "likedByUsers": []
-        }, {
+              ],
+              "host":"Russell",
+              "loc": {},
+              "reviews":[],
+              "likedByUsers": []
+        },  {
             "_id": "s104",
             "name": "Duplex",
             "type": "House",
             "imgUrls": [
-                "https://e26e9b.jpg",
+                "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628687/1_ll5ymx.jpg",
                 "otherImg.jpg"
             ],
             "price": 70.00,
@@ -198,21 +197,21 @@ function _createStays() {
                 "Smoking allowed",
                 "Pets allowed",
                 "Cooking basics"
-            ],
-            "labels": [
+              ],
+              "labels": [
                 "Play",
                 "Tropical"
-            ],
-            "host": {},
-            "loc": {},
-            "reviews": [],
-            "likedByUsers": []
-        }, {
+              ],
+              "host":"Sara",
+              "loc": {},
+              "reviews":[],
+              "likedByUsers": []
+        },  {
             "_id": "s105",
             "name": "TARANTULA",
             "type": "House",
             "imgUrls": [
-                "https://e26e9b.jpg",
+                "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628692/3_rlm0lq.jpg",
                 "otherImg.jpg"
             ],
             "price": 200.00,
@@ -225,17 +224,17 @@ function _createStays() {
                 "Smoking allowed",
                 "Pets allowed",
                 "Cooking basics"
-            ],
-            "labels": [
+              ],
+              "labels": [
                 "Top of the world",
                 "Trending",
                 "Play",
                 "Tropical"
-            ],
-            "host": {},
-            "loc": {},
-            "reviews": [],
-            "likedByUsers": []
+              ],
+              "host":"Patricia",
+              "loc": {},
+              "reviews":[],
+              "likedByUsers": []
         }
     ]
     _saveStays()
