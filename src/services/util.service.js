@@ -5,6 +5,7 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     animateCSS,
+    randomPastTime,
     debounce
 }
 
@@ -42,6 +43,15 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
+}
+
+function randomPastTime() {
+    const HOUR = 1000 * 60 * 60
+    const DAY = 1000 * 60 * 60 * 24
+    const WEEK = 1000 * 60 * 60 * 24 * 7
+
+    const pastTime = getRandomIntInclusive(HOUR, WEEK)
+    return Date.now() - pastTime
 }
 
 // In our utilService
