@@ -1,4 +1,4 @@
-import { stayServiceLocal } from "../services/stay.service.js"
+import { stayServiceLocal } from "../services/stay.service.local.js"
 import { store } from './store.js'
 import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_IS_LOADING, UPDATE_STAY } from './stay.reducer.js'
 
@@ -10,7 +10,7 @@ export async function loadStays() {
     // console.log(sortAndFilter)
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
-        const stays = await stayServiceLocal.query(sortAndFilter)
+        const stays = await stayServiceLocal.query()
         store.dispatch({ type: SET_STAYS, stays })
         return stays
     }
