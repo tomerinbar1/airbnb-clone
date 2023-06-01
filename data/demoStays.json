@@ -1,128 +1,128 @@
 [
-    {
-        "_id": "s101",
-        "name": "Ribeira Charming Duplex",
-        "type": "House",
-        "imgUrls": [
-            "https://e26e9b.jpg",
-            "otherImg.jpg"
+  {
+      "_id": "s101",
+      "name": "Ribeira Charming Duplex",
+      "type": "House",
+      "imgUrls": [
+          "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628524/3_zipgos.jpg",
+          "otherImg.jpg"
+      ],
+      "price": 80.00,
+      "summary": "Fantastic duplex apartment...",
+      "capacity": 8,
+      "amenities": [
+          "TV",
+          "Wifi",
+          "Kitchen",
+          "Smoking allowed",
+          "Pets allowed",
+          "Cooking basics"
         ],
-        "price": 80.00,
-        "summary": "Fantastic duplex apartment...",
-        "capacity": 8,
-        "amenities": [
-            "TV",
-            "Wifi",
-            "Kitchen",
-            "Smoking allowed",
-            "Pets allowed",
-            "Cooking basics"
-          ],
-          "labels": [
-            "Top of the world",
-            "Trending",
-            "Play",
-            "Tropical"
-          ],
-          "host":"Christi-Anna",
-          "loc": {},
-          "reviews":[],
-          "likedByUsers": []
-    },  {
-        "_id": "s102",
-        "name": "Ribeira",
-        "type": "House",
-        "imgUrls": [
-            "https://e26e9b.jpg",
-            "otherImg.jpg"
+        "labels": [
+          "Top of the world",
+          "Trending",
+          "Play",
+          "Tropical"
         ],
-        "price": 90.00,
-        "summary": "Fantastic duplex apartment...",
-        "capacity": 7,
-        "amenities": [
-            "Cooking basics"
-          ],
-          "labels": [
-            "Tropical"
-          ],
-          "host":"Valentina",
-          "loc": {},
-          "reviews":[],
-          "likedByUsers": []
-    },  {
-        "_id": "s103",
-        "name": "Charming",
-        "type": "House",
-        "imgUrls": [
-            "https://e26e9b.jpg",
-            "otherImg.jpg"
+        "host":"Christi-Anna",
+        "loc": {},
+        "reviews":[],
+        "likedByUsers": []
+  },  {
+      "_id": "s102",
+      "name": "Ribeira",
+      "type": "House",
+      "imgUrls": [
+          "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628692/1_kb8ojv.jpg",
+          "otherImg.jpg"
+      ],
+      "price": 90.00,
+      "summary": "Fantastic duplex apartment...",
+      "capacity": 7,
+      "amenities": [
+          "Cooking basics"
         ],
-        "price": 100.00,
-        "summary": "Fantastic duplex apartment...",
-        "capacity": 2,
-        "amenities": [
-            "Kitchen",
-            "Smoking allowed"
-          ],
-          "labels": [
-            "Trending"
-          ],
-          "host":"Russell",
-          "loc": {},
-          "reviews":[],
-          "likedByUsers": []
-    },  {
-        "_id": "s104",
-        "name": "Duplex",
-        "type": "House",
-        "imgUrls": [
-            "https://e26e9b.jpg",
-            "otherImg.jpg"
+        "labels": [
+          "Tropical"
         ],
-        "price": 70.00,
-        "summary": "Fantastic duplex apartment...",
-        "capacity": 2,
-        "amenities": [
-            "Smoking allowed",
-            "Pets allowed",
-            "Cooking basics"
-          ],
-          "labels": [
-            "Play",
-            "Tropical"
-          ],
-          "host":{},
-          "loc": {},
-          "reviews":[],
-          "likedByUsers": []
-    },  {
-        "_id": "s105",
-        "name": "TARANTULA",
-        "type": "House",
-        "imgUrls": [
-            "https://e26e9b.jpg",
-            "otherImg.jpg"
+        "host":"Valentina",
+        "loc": {},
+        "reviews":[],
+        "likedByUsers": []
+  },  {
+      "_id": "s103",
+      "name": "Charming",
+      "type": "House",
+      "imgUrls": [
+          "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628692/main_wsayog.jpg",
+          "otherImg.jpg"
+      ],
+      "price": 100.00,
+      "summary": "Fantastic duplex apartment...",
+      "capacity": 2,
+      "amenities": [
+          "Kitchen",
+          "Smoking allowed"
         ],
-        "price": 200.00,
-        "summary": "Fantastic duplex apartment...",
-        "capacity": 10,
-        "amenities": [
-            "TV",
-            "Wifi",
-            "Kitchen",
-            "Smoking allowed",
-            "Pets allowed",
-            "Cooking basics"
-          ],
-          "labels": [
-            "Top of the world",
-            "Trending",
-            "Play",
-            "Tropical"
-          ],
-          "host":{},
-          "loc": {},
-          "reviews":[],
-          "likedByUsers": []
-    }
+        "labels": [
+          "Trending"
+        ],
+        "host":"Russell",
+        "loc": {},
+        "reviews":[],
+        "likedByUsers": []
+  },  {
+      "_id": "s104",
+      "name": "Duplex",
+      "type": "House",
+      "imgUrls": [
+          "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628687/1_ll5ymx.jpg",
+          "otherImg.jpg"
+      ],
+      "price": 70.00,
+      "summary": "Fantastic duplex apartment...",
+      "capacity": 2,
+      "amenities": [
+          "Smoking allowed",
+          "Pets allowed",
+          "Cooking basics"
+        ],
+        "labels": [
+          "Play",
+          "Tropical"
+        ],
+        "host":"Sara",
+        "loc": {},
+        "reviews":[],
+        "likedByUsers": []
+  },  {
+      "_id": "s105",
+      "name": "TARANTULA",
+      "type": "House",
+      "imgUrls": [
+          "https://res.cloudinary.com/ddryx9aj0/image/upload/v1685628692/3_rlm0lq.jpg",
+          "otherImg.jpg"
+      ],
+      "price": 200.00,
+      "summary": "Fantastic duplex apartment...",
+      "capacity": 10,
+      "amenities": [
+          "TV",
+          "Wifi",
+          "Kitchen",
+          "Smoking allowed",
+          "Pets allowed",
+          "Cooking basics"
+        ],
+        "labels": [
+          "Top of the world",
+          "Trending",
+          "Play",
+          "Tropical"
+        ],
+        "host":"Patricia",
+        "loc": {},
+        "reviews":[],
+        "likedByUsers": []
+  }
 ]
