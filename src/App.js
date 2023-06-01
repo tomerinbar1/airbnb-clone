@@ -1,6 +1,5 @@
 import { Route, HashRouter as Router, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { HomePage } from './pages/HomePage'
 import { StayDetails } from './pages/StayDetails'
 import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'

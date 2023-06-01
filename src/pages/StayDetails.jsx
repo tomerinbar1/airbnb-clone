@@ -1,40 +1,36 @@
-import { Link } from 'react-router-dom'
+import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
+import { useState, useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { loadStays } from '../store/stay.actions.js'
 
-export const StayDetails = ({ stayId }) => {
-  // const { name, reviews, location, summary } = stayId
+export const StayDetails = () => {
+  const [stay, setStay] = useState(null)
+  const { stayId } = useParams()
+
+  useEffect(() => {
+    const loadStaysOnDetails = async () => {
+      const stays = await loadStays()
+      const stayFromParams = stays.find(stay => stay._id === stayId)
+      setStay(stayFromParams)
+    } 
+    loadStaysOnDetails()
+  }, [])
+    
+
+  if (!stay) return <div>Loading...</div>
   return (
     <section className="stay-details">
-      <header className="header-details">
-        <h1>Unique and Secluded AirShip with Breathtaking Highland Views</h1>
-        <div className="sub-header-details">
-          <div className="sub-header-details-left">
-            <div className="rating-details">
-              <span>⭐️4.95</span>
-              <span className='space'>.</span>
-              <a href=''>346 reviews</a>
-              <span className='space'>.</span>
-            </div>
-            <div className="super-host-details">
-              <span>Super host</span>
-              <span className='space'>.</span>
-            </div>
-            <a href=''>Drimnin, Scotland, United Kingdom</a>
-          </div>
-          <div className="sub-header-details-right">
-            <div className="save-share-details">
-              <a href="">Save</a>
-              <a href="">Share</a>
-            </div>
-          </div>
-        </div>
-      </header>
-
+      <StayDetailsHeader stayTitle={stay.name} />
       <div className="stay-details-img">
-        <img src="" alt="main-img" />
-        <img src="" alt="small-img1" />
-        <img src="" alt="small-img2" />
-        <img src="" alt="small-img3" />
-        <img src="" alt="small-img4" />
+        <div className="main-photo">
+          <img src="" alt="main-img" />
+        </div>
+        <div className="small-photos">
+          <img src="" alt="small-img-1" />
+          <img src="" alt="small-img-2" />
+          <img src="" alt="small-img-3" />
+          <img src="" alt="small-img-4" />
+        </div>
 
         <div className="all-imgs-btn">
           <button>Show all photos</button>

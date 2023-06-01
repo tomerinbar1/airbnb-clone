@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import {} from "../assets/img/stays/stay2/1.jpg"
 
 export function StayPreview({ stay, onRemoveStay, onStayDetails }) {
@@ -20,4 +21,3 @@ export function StayPreview({ stay, onRemoveStay, onStayDetails }) {
         </article>
     )
 }
-
