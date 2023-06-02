@@ -1,0 +1,19 @@
+
+.sub-header-details-right {
+    .save-share-details {
+      display: flex;
+      align-items: center;
+      a {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        text-decoration: underline;
+        font-size: rem(14px);
+      }
+      img {
+        margin-inline: 8px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }

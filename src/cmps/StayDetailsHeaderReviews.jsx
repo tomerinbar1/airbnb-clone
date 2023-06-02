@@ -1,3 +1,5 @@
+import star from '../assets/img/icons/common/reviews-star.svg'
+
 export const StayDetailsHeaderReviews = ({ reviews }) => {
   const getAvg = () => {
     let sum = 0
@@ -16,10 +18,10 @@ export const StayDetailsHeaderReviews = ({ reviews }) => {
   if (!reviews) return <div>Loading...</div>
   return (
     <div className="rating-details">
-      <span>⭐️{getAvg()}</span>
-      <span className="space">.</span>
+      <span> <img src={star} alt="" />{getAvg()}</span>
+      <span className="space">·</span>
       <a href="">{numOfReviews()} reviews</a>
-      <span className="space">.</span>
+      <span className="space">·</span>
     </div>
   )
 }

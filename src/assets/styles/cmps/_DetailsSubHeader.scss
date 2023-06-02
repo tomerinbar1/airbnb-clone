@@ -1,0 +1,36 @@
+.sub-header-details-left {
+    display: flex;
+    align-items: center;
+    .space {
+      padding-inline: 4px;
+    }
+    .rating-details {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 14px;
+        height: 14px;
+        margin-right: 4px;
+      }
+      a {
+        text-decoration: underline;
+        font-weight: 600;
+      }
+    }
+    .super-host-details {
+      display: flex;
+      align-items: center;
+      > * {
+        margin-inline-end: 4px;
+      }
+      a {
+        text-decoration: underline;
+        font-weight: 600;
+      }
+    }
+    > * {
+      display: flex;
+      margin-inline-end: 8px;
+    }
+  }

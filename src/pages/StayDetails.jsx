@@ -1,4 +1,5 @@
 import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
+import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
@@ -20,23 +21,8 @@ export const StayDetails = () => {
   if (!stay) return <div>Loading...</div>
   return (
     <section className="stay-details">
-      <StayDetailsHeader stayTitle={stay.name} reviews={stay.reviews} />
-      <div className="stay-details-img">
-        <div className="main-photo">
-          <img src="" alt="main-img" />
-        </div>
-        <div className="small-photos">
-          <img src="" alt="small-img-1" />
-          <img src="" alt="small-img-2" />
-          <img src="" alt="small-img-3" />
-          <img src="" alt="small-img-4" />
-        </div>
-
-        <div className="all-imgs-btn">
-          <button>Show all photos</button>
-        </div>
-      </div>
-
+      <StayDetailsHeader stayTitle={stay.name} reviews={stay.reviews} loc={stay.loc.address} />
+      <StayDetailsGallery imgUrls={stay.imgUrls} />
       <div className="stay-details-info">
         <div className="stay-details-info-left">
           <div className="basic-info-details">

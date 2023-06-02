@@ -1,0 +1,73 @@
+.stay-details-img {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-top: 24px;
+  height: 560px;
+  grid-gap: 8px;
+
+  .main-photo {
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-top-left-radius: 1em;
+      border-bottom-left-radius: 1em;
+      cursor: pointer;
+    }
+    &:hover {
+      filter: brightness(80%);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .small-photos {
+    position: relative;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+    
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+    :hover:not(button) {
+      filter: brightness(80%);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .all-imgs-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+
+      button {
+        display: flex;
+        align-items: center;
+        background-color: #f7f7f7;
+        color: black;
+        border: 1px solid black;
+        padding: 7px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+          Helvetica Neue, sans-serif;
+        font-size: rem(14px);
+        color: #222222;
+        font-weight: 600;
+
+        img {
+          margin-right: 8px;
+          height: 16px;
+          width: 16px;
+        }
+      }
+      &:hover {
+        filter: brightness(95%);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+}
