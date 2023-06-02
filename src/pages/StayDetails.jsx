@@ -26,7 +26,7 @@ export const StayDetails = () => {
       <StayDetailsGallery imgUrls={stay.imgUrls} />
       <div className="stay-details-info">
         <div className="stay-details-info-left">
-        <DetailsBasicInfo capacity={stay.capacity} host={stay.host.fullname} />
+        <DetailsBasicInfo capacity={stay.capacity} host={stay.host.fullname} imgUrl={stay.host.imgUrl} />
 
           <div className="important-info-details">
             <div className="important-1">

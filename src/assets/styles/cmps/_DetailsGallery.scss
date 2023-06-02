@@ -4,7 +4,8 @@
   padding-top: 24px;
   grid-gap: 8px;
   height: 560px;
-  max-width: 100%;
+  max-width: auto;
+  margin-bottom: 26px;
 
   .main-photo {
     img {
@@ -27,7 +28,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 8px;
-    
+
     img {
       height: 100%;
       width: 100%;

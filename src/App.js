@@ -6,6 +6,7 @@ import { AppFooter } from './cmps/AppFooter'
 import '../src/assets/styles/main.scss'
 import { StayIndex } from './pages/StayIndex'
 import { store } from './store/store'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
