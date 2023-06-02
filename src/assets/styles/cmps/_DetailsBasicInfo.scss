@@ -1,12 +1,22 @@
-.basic-info-details{
-h2{
-    font-size: rem(22px);
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-    Helvetica Neue, sans-serif;
-}
-.capacity-details{
-    .span{
-        margin-inline: 5px;
+.basic-info-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  .capacity-details {
+    h2 {
+      font-size: rem(22px);
+      font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+        Helvetica Neue, sans-serif;
+      margin-bottom: 5px;
     }
-}
+    .space {
+      margin-inline: 5px;
+    }
+  }
+  img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+  }
 }
