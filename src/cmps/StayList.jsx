@@ -2,7 +2,7 @@
 
 import { StayPreview } from "./StayPreview";
 
-export function StayList({ stays, onRemoveStay, onStayDetails}) {
+export function StayList({ stays, onRemoveStay}) {
     return <ul className="stay-list">
         {stays.map(stay =>
 

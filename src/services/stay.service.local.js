@@ -1,13 +1,12 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
-import {default as demoStays} from '../data/demoStays.json'
-console.log(demoStays);
+import {default as data} from '../data/data.json'
 
 const STORAGE_KEY = 'stay'
 
 let gStays
-// _createStays()
+_createStays()
 
 export const stayServiceLocal = {
   query,
@@ -107,7 +106,7 @@ function _createStays() {
   gStays = utilService.loadFromStorage(STORAGE_KEY)
   if (gStays && gStays.length > 0) return
 
-  gStays = demoStays
+  gStays = data
   _saveStays()
 }
 

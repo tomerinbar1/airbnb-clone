@@ -20,7 +20,7 @@ export const StayDetails = () => {
   if (!stay) return <div>Loading...</div>
   return (
     <section className="stay-details">
-      <StayDetailsHeader stayTitle={stay.name} />
+      <StayDetailsHeader stayTitle={stay.name} reviews={stay.reviews} />
       <div className="stay-details-img">
         <div className="main-photo">
           <img src="" alt="main-img" />

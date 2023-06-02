@@ -20,7 +20,7 @@ export function StayPreview({ stay }) {
         src={stay.imgUrls[0]}
         alt="stay-image"
       />
-      <span className="stay-preview-location"> Haifa, Israel</span>
+      <span className="stay-preview-location">{stay.loc.address}</span>
       <span className="stay-preview-distance"> X kilometers away </span>
       <span className="stay-preview-dates"> Jan 9 - 14 </span>
       <span className="price-stay-preview">
