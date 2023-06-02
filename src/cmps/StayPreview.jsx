@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-// import {} from "../assets/img/stays/stay2/1.jpg"
+import { StayPreviewCarousel } from './StayPreviewCarousle'
 
 export function StayPreview({ stay, onRemoveStay, onStayDetails }) {
   const navigate = useNavigate()
@@ -10,12 +10,18 @@ export function StayPreview({ stay, onRemoveStay, onStayDetails }) {
   }
 
   return (
-    <article onClick={() => onStayDetails(stay._id)} className="stay-preview">
+
+
+
+
+    <article onClick={() => onStayDetails(stay._id)} className="stay-preview ">
       {/* <Link className="details-a-link" to={`/${stay._id}`}>
         Details
       </Link> */}
 
       <section className='stay-preview-image-container'>
+      {/* {stay && <StayPreviewCarousel stay={stay}/>} */}
+
         <img className="stay-preview-image" src={stay.imgUrls[0]} alt="stay-image" />
       </section>
 
