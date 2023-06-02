@@ -11,22 +11,21 @@ export function StayPreview({ stay, onRemoveStay, onStayDetails }) {
 
   return (
     <article onClick={() => onStayDetails(stay._id)} className="stay-preview">
-      <Link className="details-a-link" to={`/${stay._id}`}>
+      {/* <Link className="details-a-link" to={`/${stay._id}`}>
         Details
-      </Link>
+      </Link> */}
+
       <section className='stay-preview-image-container'>
-        <img
-          className="stay-preview-image"
-          src={stay.imgUrls[0]}
-          alt="stay-image"
-        />
+        <img className="stay-preview-image" src={stay.imgUrls[0]} alt="stay-image" />
       </section>
-      <span className="stay-preview-location">{stay.loc.address}</span>
-      <span className="stay-preview-distance"> X kilometers away </span>
-      <span className="stay-preview-dates"> Jan 9 - 14 </span>
-      <span className="price-stay-preview">
-        {stay.price}$ <span> night </span>
-      </span>
+
+      <section className="stay-preview-txt">
+        <span className="stay-preview-location">{stay.loc.address}</span>
+        <span className="stay-preview-star">star</span>
+        <span className="stay-preview-distance"> X kilometers away </span>
+        <span className="stay-preview-dates"> Jan 9 - 14 </span>
+        <span className="stay-preview-price">{stay.price}$ <span> night </span></span>
+      </section>
     </article>
   )
 }
