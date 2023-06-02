@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding-top: 24px;
-  height: 560px;
   grid-gap: 8px;
+  height: 560px;
+  max-width: 100%;
 
   .main-photo {
     img {
