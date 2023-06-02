@@ -1,19 +1,16 @@
 import { SearchBar } from "./SearchBar"
 import { Login } from "./Login"
+import { Logo } from "./Logo"
 
 export const AppHeader = () => {
 
 
 
-  function onLogoClick() {
-
-  }
-
   return (
     <header className="app-header flex">
-        <h1 onClick={onLogoClick}>Air-BNB</h1>
-        <SearchBar />
-        <Login />
+      <Logo />
+      <SearchBar />
+      <Login />
     </header>
   )
 }
