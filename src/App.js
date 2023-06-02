@@ -10,18 +10,19 @@ import { store } from './store/store'
 function App() {
   return (
     <Provider store={store}>
-      <Router>
-        <section className="main-layout app">
-          <AppHeader />
-          <main className="main-app">
-            <Routes>
-              <Route path="/" element={<StayIndex />} />
-              <Route path="/:stayId" element={<StayDetails />} />
-            </Routes>
-          </main>
-          <AppFooter />
-        </section>
-      </Router>
+    <Router>
+      <section className="main-layout">
+        <AppHeader />
+        <main className="main-app">
+          <Routes>
+            <Route path="/" element={<StayIndex/>} />
+            <Route path="/:stayId" element={<StayDetails />} />
+
+          </Routes>
+        </main>
+        <AppFooter />
+      </section>
+    </Router>
     </Provider>
   )
 }
