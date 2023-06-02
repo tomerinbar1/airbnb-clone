@@ -16,14 +16,21 @@
 @import 'views/StayDetails';
 @import 'views/StayIndex';
 
+
 // Components
+//Header
 @import 'cmps/AppHeader';
-@import 'cmps/AppFooter';
-@import 'cmps/SearchBar';
-@import 'cmps/StayPreview';
 @import 'cmps/Login';
+@import 'cmps/SearchBar';
+@import 'cmps/AppFooter';
+
+//Index
+@import 'cmps/StayList';
+@import 'cmps/StayPreview';
+
+//Detail
 @import 'cmps/DetailsHeader';
 @import 'cmps/DetailsGallery';
 @import 'cmps/DetailsSaveShare';
 @import 'cmps/DetailsSubHeader';
-@import 'cmps/StayList';
+@import 'cmps/DetailsBasicInfo';

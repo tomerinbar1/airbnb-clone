@@ -3,6 +3,10 @@
     .save-share-details {
       display: flex;
       align-items: center;
+      & :hover{
+        background-color: #F7F7F7;
+        border-radius: 8px;
+      }
       a {
         display: flex;
         align-items: center;

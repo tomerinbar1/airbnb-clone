@@ -1,5 +1,6 @@
 import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
+import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
@@ -25,16 +26,7 @@ export const StayDetails = () => {
       <StayDetailsGallery imgUrls={stay.imgUrls} />
       <div className="stay-details-info">
         <div className="stay-details-info-left">
-          <div className="basic-info-details">
-            <h2>Tiny home hosted by Amanda</h2>
-            <div className="capacity-details">
-              <span>2 guests</span>
-              <span>1 bedrooms</span>
-              <span>1 beds</span>
-              <span>1 bath</span>
-            </div>
-            <img src="" alt="" />
-          </div>
+        <DetailsBasicInfo capacity={stay.capacity} host={stay.host.fullname} />
 
           <div className="important-info-details">
             <div className="important-1">
