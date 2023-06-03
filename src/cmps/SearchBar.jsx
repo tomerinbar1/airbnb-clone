@@ -5,26 +5,23 @@ export function SearchBar() {
     const [isSearchOpen, setIsSearchOpen] = useState(false)
 
     useEffect(() => {
-
-    }, [isSearchOpen])
+    }, [])
 
 
     function onSearchHandle(key) {
         setIsSearchOpen(prevState => !prevState)
-        console.log("cscscsc",isSearchOpen)
         toggleOpenClass()
     }
 
     function toggleOpenClass() {
         seachBarRef.current.classList.toggle('search-bar-open')
     }
-    console.log("dddddd",isSearchOpen)
 
     return (
         <div ref={seachBarRef} className="search-bar">
 
             {isSearchOpen &&
-                <div onClick={toggleOpenClass} className="main-screen-full"></div>}
+                <div onClick={() => onSearchHandle('s')} className="main-screen-full"></div>}
 
 
             <button onClick={() => onSearchHandle("where")} className="anywhere-search-btn">Anywhere</button>
