@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 export function StayPreviewCarousel({stay}) {
     const [activeIndex, setActiveIndex] = useState(0);

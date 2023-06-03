@@ -1,4 +1,4 @@
-import star from '../assets/img/icons/common/reviews-star.svg'
+import star from '../assets/img/common/reviews-star.svg'
 
 export const StayDetailsHeaderReviews = ({ reviews }) => {
   const getAvg = () => {

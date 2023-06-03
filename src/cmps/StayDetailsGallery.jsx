@@ -1,4 +1,4 @@
-import showAllPhotos from '../assets/img/icons/common/show-all-photos.svg'
+import showAllPhotos from '../assets/img/common/show-all-photos.svg'
 
 export const StayDetailsGallery = ({ imgUrls }) => {
   return (
