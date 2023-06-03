@@ -74,7 +74,7 @@
         "host": {
             "_id": "u101",
             "fullname": "Muki Host",
-            "imgUrl": "https://robohash.org/mukihost"
+            "imgUrl": "https://res.cloudinary.com/dhlhk84nh/image/upload/v1685797662/Airbnb_imgDB/hosts/host-img1_w304al.jpg"
         },
         "loc": {
             "country": "Portugal",
@@ -276,7 +276,7 @@
         "host": {
             "_id": "u101",
             "fullname": "Muki Host",
-            "imgUrl": "https://robohash.org/mukihost"
+            "imgUrl": "https://res.cloudinary.com/dhlhk84nh/image/upload/v1685797662/Airbnb_imgDB/hosts/host-img2_oukdde.jpg"
         },
         "loc": {
             "country": "Canada",
@@ -429,7 +429,7 @@
         "host": {
             "_id": "u101",
             "fullname": "Muki Host",
-            "imgUrl": "https://robohash.org/mukihost"
+            "imgUrl": "https://res.cloudinary.com/dhlhk84nh/image/upload/v1685797663/Airbnb_imgDB/hosts/host-img10_gpvbf3.jpg"
         },
         "loc": {
             "country": "Portugal",
