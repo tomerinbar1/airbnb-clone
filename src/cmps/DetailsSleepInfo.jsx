@@ -1,4 +1,4 @@
-export const DetailsSleep = ({ imgUrl }) => {
+export const DetailsSleepInfo = ({ imgUrl }) => {
     return(
         <div className="sleep-details">
         <h1>Where you'll sleep</h1>
