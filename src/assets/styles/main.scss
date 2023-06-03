@@ -23,6 +23,7 @@
 @import 'cmps/Login';
 @import 'cmps/SearchBar';
 @import 'cmps/AppFooter';
+@import 'cmps/Navbar';
 
 //Index
 @import 'cmps/StayList';
@@ -36,9 +37,6 @@
 @import 'cmps/DetailsSubHeader';
 @import 'cmps/DetailsImportantInfo';
 @import 'cmps/DetailsBasicInfo';
-
-
-
-
-
-
+@import 'cmps/DetailsDescription';
+@import 'cmps/DetailsSleep';
+@import 'cmps/DetailsAmenities';

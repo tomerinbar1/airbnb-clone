@@ -13,4 +13,16 @@
       max-width: 466.67px;
     }
   }
+  .horizontal-line {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid #000;
+      opacity: 0.2;
+    }
+  }
 }

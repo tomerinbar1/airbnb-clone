@@ -2,6 +2,9 @@ import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
 import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
 import { DetailsImportantInfo } from '../cmps/DetailsImportantInfo.jsx'
+import { DetailsSleep } from '../cmps/DetailsSleep.jsx'
+import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
+import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
@@ -35,48 +38,20 @@ export const StayDetails = () => {
             host={stay.host.fullname}
             imgUrl={stay.host.imgUrl}
           />
+          <div className="horizontal-line"></div>
 
-        <DetailsImportantInfo />
+          <DetailsImportantInfo />
+          <div className="horizontal-line"></div>
+          <DetailsDescription summary={stay.summary} />
 
-          <div className="description-details">
-            <p>
-              Retreat to the deck of this sustainable getaway and gaze at the
-              twinkling constellations under a cosy tartan blanket. AirShip 2 is
-              an iconic, insulated aluminum pod designed by Roderick James with
-              views of the Sound of Mull from dragonfly windows. Airship002 is
-              comfortable, quirky and cool. It does not pretend to be a five
-              star hotel. The reviews tell the story. If booked for the dates
-              you want check out our new listing The Pilot House, Drimnin which
-              is on the...
-            </p>
-            <a href="">Show more</a>
-          </div>
+          <div className="horizontal-line"></div>
 
-          <div className="sleep-details">
-            <h1>Where you'll sleep</h1>
-            <img src="" alt="bed-img" />
-            <h2>Bedroom</h2>
-            <p>1 queen bed</p>
-          </div>
+          <DetailsSleep imgUrl={stay.imgUrls[3]} />
+          
+          <div className="horizontal-line"></div>
+          <DetailsAmenities amenities={stay.amenities} />
 
-          <div className="amenities-details">
-            <h1>What this place offers</h1>
-            <div className="amenities-list">
-              <ul>
-                <li>Kitchen</li>
-                <li>Free parking on premises</li>
-                <li>Patio or balcony</li>
-                <li>Indoor fireplace</li>
-                <li>Refrigerator</li>
-                <li>Wifi</li>
-                <li>Pets allowed</li>
-                <li>Backyard</li>
-                <li>Hair dryer</li>
-                <li>Microwave</li>
-              </ul>
-              <button>Show all 32 amenities</button>
-            </div>
-          </div>
+          <div className="horizontal-line"></div>
 
           <div className="date-range-select">
             <h1>7 nights in Drimnin</h1>
@@ -89,10 +64,7 @@ export const StayDetails = () => {
         <div className="stay-details-info-right">
           <div>reserved-modal render here</div>
         </div>
-
-// left side end here
-
-
+        // left side end here
         <div className="reviews-details">
           <div className="rating-details">
             <span>⭐️4.95</span>

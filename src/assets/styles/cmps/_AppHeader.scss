@@ -6,6 +6,13 @@
     height: 100%;
     width: 100%;
     justify-content: space-between;
+    
+    z-index: 50;
+
+    &:has(.search-bar-open){
+        height: 200%;
+
+    }
 
     .main-logo-container {
         width: 30px;
@@ -20,6 +27,12 @@
         cursor: pointer;
         justify-content: space-between;
         align-items: center;
+
+        img{
+            
+            width: 30px;
+            height: 30px;
+        }
     }
 
     .logo-txt {

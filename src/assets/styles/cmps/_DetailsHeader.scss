@@ -7,12 +7,12 @@
     font-weight: inherit;
     padding-top: 26px;
     margin: 0;
+    line-height: inherit;
   }
   .sub-header-details {
     display: flex;
     justify-content: space-between;
     font-size: rem(14px);
-    padding-top: 10px;
-
+    line-height: 20px;
   }
 }
