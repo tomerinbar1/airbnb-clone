@@ -8,10 +8,16 @@
     h2 {
       font-size: rem(22px);
       font-family: $font1;
-      margin-bottom: 5px;
+      line-height: inherit;
+      margin-block: 0;
     }
     .space {
-      margin-inline: 5px;
+      margin-inline: 3px;
+    }
+    span{
+      line-height: 20px;
+      font-family: $font1;
+      font-size: rem(16px);
     }
   }
   img {
