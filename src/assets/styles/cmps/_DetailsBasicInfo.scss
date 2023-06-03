@@ -1,14 +1,14 @@
 .basic-info-details {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 24px;
+
   .capacity-details {
     h2 {
       font-size: rem(22px);
       font-family: $font1;
       margin-bottom: 5px;
-      margin-top: 48px;
     }
     .space {
       margin-inline: 5px;
@@ -20,17 +20,5 @@
     border-radius: 50%;
     background-color: #c4c4c4;
   }
-  .horizontal-line {
-    position: relative;
-    
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -0.5em;
-      left: 0;
-      width: 100%;
-      border-bottom: 1px solid #000;
-    }
-  }
-  
+
 }

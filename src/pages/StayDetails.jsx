@@ -35,8 +35,9 @@ export const StayDetails = () => {
             host={stay.host.fullname}
             imgUrl={stay.host.imgUrl}
           />
+          <div className="horizontal-line"></div>
 
-        <DetailsImportantInfo />
+          <DetailsImportantInfo />
 
           <div className="description-details">
             <p>
@@ -89,10 +90,7 @@ export const StayDetails = () => {
         <div className="stay-details-info-right">
           <div>reserved-modal render here</div>
         </div>
-
-// left side end here
-
-
+        // left side end here
         <div className="reviews-details">
           <div className="rating-details">
             <span>⭐️4.95</span>
