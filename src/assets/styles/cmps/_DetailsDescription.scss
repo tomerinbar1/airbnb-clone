@@ -1,0 +1,21 @@
+.description-details {
+  padding-top: 32px;
+  padding-bottom: 48px;
+  font-family: $font1;
+  p {
+    font-size: rem(16px);
+    line-height: 24px;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    text-decoration: underline;
+    font-size: rem(16px);
+    font-weight: 600;
+    img {
+      margin-left: 8px;
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
