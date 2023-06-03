@@ -1,12 +1,5 @@
-
-.test{
-    width: 100px;
-    height: 100px;
-}
-
 .stay-preview-container {
     // background-color: aqua;
-    height: 363px;
     width: 100%;
     list-style: none;
 
@@ -14,53 +7,70 @@
         height: 100%;
         width: 100%;
         font-size: 15px;
-        line-height: 19px;
-
-        .stay-preview-star {
-            grid-column: -2 / -1;
-            grid-row: 1;
-            justify-self: end;
-            width: 100%;
-        }
-
-        .stay-preview-location {
-            color: rgb(34, 34, 34);
-            font-family: Circular, sans-serif;
-            font-weight: 600;
-        }
-
-        .stay-preview-distance {
-            grid-column: 1;
-            color: rgb(113, 113, 113);
-
-
-        }
-
-        .stay-preview-price {
-            grid-column: 1;
-
-        }
+        line-height: 20px;
 
         .stay-preview-txt {
             margin: 0;
             display: grid;
             grid-template-columns: 1fr 16.5%;
+            font-family: Circular, sans-serif;
+
+
+
+            .stay-preview-star {
+                grid-column: -2 / -1;
+                grid-row: 1;
+                justify-self: end;
+                display: flex;
+                // width: 100%;
+
+                img {
+                    width: 12px;
+                    height: 12px;
+                    position: relative;
+                    top: 4px;
+                    right: 4px;
+                }
+            }
+
+            .stay-preview-location {
+                color: rgb(34, 34, 34);
+                font-weight: 600;
+            }
+
+            .stay-preview-distance {
+                grid-column: 1;
+                color: rgb(113, 113, 113);
+            }
+
+            .stay-preview-price {
+                grid-column: 1;
+                line-height: 36px;
+                font-weight: 600;
+                color: #222222;
+
+                .night {
+                    font-weight: 400;
+                }
+            }
+
+            .stay-preview-dates {
+                grid-column: 1;
+                line-height: 21px;
+                color: #717171;
+            }
         }
 
-        .stay-preview-dates {
-            grid-column: 1;
+        @include for-extra-wide-layout {
+            @media (min-width: $extra-wide-breakpoint) {
+                height: 363px;
 
+            }
         }
 
-        .carousel-item,
-        .carousel-inner,
-        .carousel-slide {
-            height: 100%;
+        @media (min-width: 1750px) {
+            height: 350px;
         }
-
-
-
-
     }
 
     .stay-preview-image-container {

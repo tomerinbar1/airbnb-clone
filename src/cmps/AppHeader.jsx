@@ -1,10 +1,8 @@
 import { SearchBar } from "./SearchBar"
-import { Login } from "./Login"
 import { Logo } from "./Logo"
 import { Navbar } from "./Navbar"
 
 export const AppHeader = () => {
-
 
 
   return (
@@ -12,7 +10,6 @@ export const AppHeader = () => {
       <Logo />
       <SearchBar />
       <Navbar />
-      {/* <Login /> */}
     </header>
   )
 }
