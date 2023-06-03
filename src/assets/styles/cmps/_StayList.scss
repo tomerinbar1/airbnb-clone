@@ -14,7 +14,6 @@
     height: 100%;
     margin-top: 25px;
     column-gap: 24px;
-    row-gap: 40px;
 
 
     @include for-mobile-layout {
@@ -40,14 +39,22 @@
     @include for-wide-layout {
         @media (min-width: $wide-breakpoint) {
             grid-template-columns: repeat(4, 1fr);
+            // row-gap: 40px;
+
         }
     }
 
     @include for-extra-wide-layout {
         @media (min-width: $extra-wide-breakpoint) {
             grid-template-columns: repeat(5, 1fr);
-            max-width: 1550px;
+            row-gap: 40px;
         }
+    }
+
+    @media (min-width: 1750px ) {
+        grid-template-columns: repeat(6, 1fr);
+        row-gap: 47px;
+
     }
 
 

@@ -1,11 +1,11 @@
 .main-layout {
     display: grid;
     grid-template-columns: 80px 1fr 80px;
-    grid-template-rows: 80px 98px 1fr ;
+    grid-template-rows: 80px 98px 1fr;
     height: 100vh;
     // width: 100vw;
 
-    > * {
+    >* {
         grid-column: 2;
         // grid-row: 1;
 
@@ -14,29 +14,29 @@
         }
     }
 
-.app-header{
-    grid-row: 1;
-}
+    .app-header {
+        grid-row: 1;
+    }
 
-    .index-container{
+    .index-container {
         width: 100%;
         height: 100%;
     }
 
-.main-app{
-    width: 100%;
-    height: 100%;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    // padding: 0 80px;
-}
+    .main-app {
+        width: 100%;
+        height: 100%;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        // padding: 0 80px;
+    }
 
-.stays-filter-container{
-    height: 98px ;
-    width: 100%;
-    background-color:bisque;
-    grid-row: 2;
-}
+    .stays-filter-container {
+        height: 98px;
+        width: 100%;
+        background-color: bisque;
+        grid-row: 2;
+    }
 
     // @include for-narrow-layout {
     //     grid-template-columns: 
@@ -57,5 +57,3 @@
     //         minmax(20px, 1fr);
     // }
 }
-
-
