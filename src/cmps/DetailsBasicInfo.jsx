@@ -1,5 +1,4 @@
 export const DetailsBasicInfo = ({ host, capacity, imgUrl }) => {
-  console.log(imgUrl)
   return (
     <div className="basic-info-details">
       <div className="capacity-details">
@@ -11,6 +10,7 @@ export const DetailsBasicInfo = ({ host, capacity, imgUrl }) => {
         <span>1 beds</span>
         <span className="space">·</span>
         <span>1 bath</span>
+        <div className="horizontal-line"></div>
       </div>
         <img src={imgUrl} alt="host image" />
     </div>
