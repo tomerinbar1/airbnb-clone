@@ -1,6 +1,6 @@
 import star from '../assets/img/common/reviews-star.svg'
 
-export const StayDetailsHeaderReviews = ({ reviews }) => {
+export const StayReviewsStat = ({ reviews }) => {
   const getAvg = () => {
     let sum = 0
     reviews.forEach(review => {
