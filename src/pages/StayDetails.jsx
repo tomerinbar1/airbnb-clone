@@ -1,6 +1,7 @@
 import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
 import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
+import { DetailsImportantInfo } from '../cmps/DetailsImportantInfo.jsx'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
@@ -14,37 +15,28 @@ export const StayDetails = () => {
       const stays = await loadStays()
       const stayFromParams = stays.find(stay => stay._id === stayId)
       setStay(stayFromParams)
-    } 
+    }
     loadStaysOnDetails()
   }, [])
-    
 
   if (!stay) return <div>Loading...</div>
   return (
     <section className="stay-details">
-      <StayDetailsHeader stayTitle={stay.name} reviews={stay.reviews} loc={stay.loc.address} />
+      <StayDetailsHeader
+        stayTitle={stay.name}
+        reviews={stay.reviews}
+        loc={stay.loc.address}
+      />
       <StayDetailsGallery imgUrls={stay.imgUrls} />
       <div className="stay-details-info">
         <div className="stay-details-info-left">
-        <DetailsBasicInfo capacity={stay.capacity} host={stay.host.fullname} imgUrl={stay.host.imgUrl} />
+          <DetailsBasicInfo
+            capacity={stay.capacity}
+            host={stay.host.fullname}
+            imgUrl={stay.host.imgUrl}
+          />
 
-          <div className="important-info-details">
-            <div className="important-1">
-              <h2>Airbnb Plus</h2>
-              <p>
-                Every Plus home is reviewed for quality.
-                <a href="">Learn more</a>
-              </p>
-            </div>
-            <div className="important-2">
-              <h2>Featured in</h2>
-              <p>Designboom, January 2019 Coast, February 2022.</p>
-            </div>
-            <div className="important-3">
-              <h2>Designed by</h2>
-              <p>Roderick James Amanda Markham, Out of the Blue</p>
-            </div>
-          </div>
+        <DetailsImportantInfo />
 
           <div className="description-details">
             <p>
@@ -93,31 +85,34 @@ export const StayDetails = () => {
               // calender library will render here
             </div>
           </div>
-
-          <div className="reviews-details">
-            <div className="rating-details">
-              <span>⭐️4.95</span>
-              <span>346 reviews</span>
-            </div>
-            <div className="reviews-avg-data">
-              <ul>
-                <li>Cleanliness</li>
-                <li>Accuracy</li>
-                <li>Communication</li>
-                <li>Location</li>
-                <li>Check-in</li>
-                <li>Value</li>
-              </ul>
-            </div>
-            <div className="reviews-wrapper">
-              <div className="reviews-left">review-cards render here</div>
-              <div className="reviews-right">review-cards render here</div>
-              <button>Show all 346 reviews</button>
-            </div>
-          </div>
         </div>
         <div className="stay-details-info-right">
           <div>reserved-modal render here</div>
+        </div>
+
+// left side end here
+
+
+        <div className="reviews-details">
+          <div className="rating-details">
+            <span>⭐️4.95</span>
+            <span>346 reviews</span>
+          </div>
+          <div className="reviews-avg-data">
+            <ul>
+              <li>Cleanliness</li>
+              <li>Accuracy</li>
+              <li>Communication</li>
+              <li>Location</li>
+              <li>Check-in</li>
+              <li>Value</li>
+            </ul>
+          </div>
+          <div className="reviews-wrapper">
+            <div className="reviews-left">review-cards render here</div>
+            <div className="reviews-right">review-cards render here</div>
+            <button>Show all 346 reviews</button>
+          </div>
         </div>
       </div>
       <div className="map">map render here</div>

@@ -1,5 +1,5 @@
-import share from '../assets/img/icons/common/share.svg'
-import heart from '../assets/img/icons/common/heart.svg'
+import share from '../assets/img/common/share.svg'
+import heart from '../assets/img/common/heart.svg'
 
 export const StayDetailsSaveShare = () => {
   return (

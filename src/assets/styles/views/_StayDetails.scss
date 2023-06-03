@@ -1,7 +1,16 @@
 .stay-details {
   max-width: 1120px;
   margin: auto;
-  .stay-details-info{
-    
+  .stay-details-info {
+    .stay-details-info-left {
+      display: flex;
+      flex-direction: column;
+      max-width: 653.33px;
+    }
+    .stay-details-info-right {
+      display: flex;
+      flex-direction: column;
+      max-width: 466.67px;
+    }
   }
 }
