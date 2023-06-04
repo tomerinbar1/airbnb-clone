@@ -1,12 +1,10 @@
-import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { StayPreviewStar } from './StayPreviewStar'
 import { Carousel } from './Carousel';
 
 
-export function StayPreview({ stay, onRemoveStay, onStayDetails }) {
+export function StayPreview({ stay, onStayDetails }) {
   const navigate = useNavigate()
-
   const reviews = stay.reviews
 
   function onStayDetails(stayId) {

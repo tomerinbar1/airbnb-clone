@@ -11,11 +11,10 @@ export const StayPreviewStar = ({ reviews }) => {
     return (sum / reviews.length / 6).toFixed(2)
   }
 
-
   if (!reviews) return <div>Loading...</div>
   return (
     <div className="stay-preview-star">
-    <img src={star} alt="" />{getAvg()}
+      <img src={star} alt="" />{getAvg()}
     </div>
   )
 }
