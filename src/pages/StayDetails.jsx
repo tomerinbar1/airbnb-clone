@@ -1,7 +1,7 @@
 import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
 import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
-import { DetailsImportantInfo } from '../cmps/DetailsImportantInfo.jsx'
+import { DetailsFeaturesInfo } from '../cmps/DetailsFeaturesInfo.jsx'
 import { DetailsSleepInfo } from '../cmps/DetailsSleepInfo.jsx'
 import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
 import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
@@ -12,12 +12,10 @@ import { useParams, Link } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
 import { MultiModals } from '../cmps/MultiModals.jsx'
 
-
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
   // const [modalToOpen, setModalToOpen] = useState('')
   const { stayId } = useParams()
-
 
   useEffect(() => {
     const loadStaysOnDetails = async () => {
@@ -44,20 +42,20 @@ export const StayDetails = () => {
             host={stay.host.fullname}
             imgUrl={stay.host.imgUrl}
           />
-          <div className="horizontal-line"></div>
+          <hr className="custom-hr" />
 
-          <DetailsImportantInfo />
-          <div className="horizontal-line"></div>
+          <DetailsFeaturesInfo />
+          <hr className="custom-hr" />
           <DetailsDescription summary={stay.summary} />
 
-          <div className="horizontal-line"></div>
+          <hr className="custom-hr" />
 
           <DetailsSleepInfo imgUrl={stay.imgUrls[3]} />
 
-          <div className="horizontal-line"></div>
+          <hr className="custom-hr" />
           <DetailsAmenities amenities={stay.amenities} />
 
-          <div className="horizontal-line"></div>
+          <hr className="custom-hr" />
 
           <DetailsDateRange />
         </div>

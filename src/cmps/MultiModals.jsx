@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { GalleryModal } from './GalleryModal'
+import { useSelector } from 'react-redux'
 
-export const MultiModals = ({ type, props }) => {
+export const MultiModals = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalType, setModalType] = useState('')
   const [modalProps, setModalProps] = useState({})
+  const modalToOpen = useSelector(state => state.modal.modalToOpen)
 
   const closeModal = () => {
     setIsModalOpen(false)
@@ -13,12 +15,12 @@ export const MultiModals = ({ type, props }) => {
   }
 
   useEffect(() => {
-    if (type) {
+    if (modalToOpen) {
       setIsModalOpen(true)
-      setModalType(type)
-      setModalProps(props)
+      setModalType(modalToOpen.type)
+      setModalProps(modalToOpen.props)
     }
-  }, [type, props])
+  }, [modalToOpen])
 
   const renderModal = () => {
     switch (modalType) {

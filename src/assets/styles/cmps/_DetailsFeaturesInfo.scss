@@ -1,8 +1,8 @@
-.important-info-details {
+.feature-info-details {
   padding-block: 32px;
   display: flex;
   flex-direction: column;
-  .important {
+  .feature {
     h2 {
       font-family: $font1;
       font-size: rem(16px);
@@ -22,7 +22,7 @@
       text-decoration: underline;
     }
   }
-  .important-wrapper {
+  .feature-wrapper {
     display: flex;
     img {
       width: 24px;
