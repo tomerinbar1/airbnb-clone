@@ -2,7 +2,7 @@ import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
 import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
 import { DetailsImportantInfo } from '../cmps/DetailsImportantInfo.jsx'
-import { DetailsSleep } from '../cmps/DetailsSleep.jsx'
+import { DetailsSleepInfo } from '../cmps/DetailsSleepInfo.jsx'
 import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
 import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
 import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
@@ -48,7 +48,7 @@ export const StayDetails = () => {
 
           <div className="horizontal-line"></div>
 
-          <DetailsSleep imgUrl={stay.imgUrls[3]} />
+          <DetailsSleepInfo imgUrl={stay.imgUrls[3]} />
 
           <div className="horizontal-line"></div>
           <DetailsAmenities amenities={stay.amenities} />
@@ -58,9 +58,7 @@ export const StayDetails = () => {
           <DetailsDateRange />
         </div>
 
-        <div className="stay-details-info-right">
-          {/* <OrderModal /> */}
-        </div>
+        <div className="stay-details-info-right">{/* <OrderModal /> */}</div>
       </div>
       <div className="reviews-details">
         <div className="rating-details">
@@ -153,7 +151,6 @@ export const StayDetails = () => {
           </div>
         </div>
       </div>
-      <Link to="/">Home</Link>
     </section>
   )
 }
