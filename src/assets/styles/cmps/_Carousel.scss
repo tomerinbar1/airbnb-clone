@@ -8,83 +8,83 @@
   align-items: center;
   position: relative;
 
-}
+  .inner {
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    transition: transform 0.3s;
+    // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
 
-.inner {
-  width: 100%;
-  height: 100%;
-  white-space: nowrap;
-  transition: transform 0.3s;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
+  .carousel-item {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+  }
 
-.carousel-item {
-  width: 100%;
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-}
+  .indicators,
+  .carousel-arrows {
+    display: flex;
+    position: absolute;
+  }
 
+  .carousel-arrows {
+    width: 100%;
+    justify-content: space-between;
+    cursor: pointer;
+  }
 
+  .indicators {
+    display: flex;
+    align-items: center;
+    bottom: 0;
 
-.indicators,
-.carousel-arrows {
-  display: flex;
-  position: absolute;
-}
+    .indicator-button {
+      cursor: pointer;
+      width: fit-content;
+      height: fit-content;
+      margin: 3px;
+      padding: 0;
+      margin-bottom: 9px;
+      background-color: rgba(255, 255, 255, 0);
+    }
 
-.carousel-arrows {
-  width: 100%;
-  justify-content: space-between;
-  cursor: pointer;
+    .indicator-symbol {
+      color: #ffffffa4;
+      font-size: 5px;
+    }
 
-}
-
-
-
-.button-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-
-  .material-symbols-outlined {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 400;
+    .indicator-symbol-active {
+      color: #ffffff;
+      font-size: 5px;
+    }
   }
 }
 
-.indicators {
-  display: flex;
-  align-items: center;
-  bottom: 0;
+.button-arrow{
+  display: none;
 }
 
+.stay-preview:hover{
+  .button-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.906);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
 
-.indicator-buttons {
-  cursor: pointer;
-  width: fit-content;
-  height: fit-content;
-  margin: 3px;
-  padding: 0;
-  margin-bottom: 9px;
-  background-color: rgba(255, 255, 255, 0);
-}
-
-
-.indicator-symbol {
-  color: #ffffffa4;
-  font-size: 5px;
-}
-
-.indicator-symbol-active {
-  color: #ffffff;
-  font-size: 5px;
+    .material-symbols-outlined {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+      transition: transform 0.25s ease;
+    }
+  }
 }

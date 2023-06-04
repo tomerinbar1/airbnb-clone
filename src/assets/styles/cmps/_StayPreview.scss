@@ -8,6 +8,7 @@
         width: 100%;
         font-size: 15px;
         line-height: 20px;
+        cursor: pointer;
 
         .stay-preview-txt {
             margin: 0;
@@ -15,14 +16,11 @@
             grid-template-columns: 1fr 16.5%;
             font-family: Circular, sans-serif;
 
-
-
             .stay-preview-star {
                 grid-column: -2 / -1;
                 grid-row: 1;
                 justify-self: end;
                 display: flex;
-                // width: 100%;
 
                 img {
                     width: 12px;

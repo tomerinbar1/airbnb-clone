@@ -15,7 +15,6 @@ export function Carousel({ stay }) {
   }
 
   return (
-
     <div className="carousel">
       <div
         className="inner"
@@ -35,7 +34,7 @@ export function Carousel({ stay }) {
             updateIndex(activeIndex - 1, ev)
           }}
         >
-          <span className="material-symbols-outlined">arrow_back_ios</span>{" "}
+          <span className="material-symbols-outlined">arrow_back_ios</span>
         </button>
 
         <button
@@ -46,7 +45,6 @@ export function Carousel({ stay }) {
         >
           <span className="material-symbols-outlined">arrow_forward_ios</span>
         </button>
-
       </div>
 
       <div className="indicators">
@@ -54,14 +52,13 @@ export function Carousel({ stay }) {
           return (
             <button
               key={index}
-              className="indicator-buttons"
+              className="indicator-button"
             >
               <span
                 className={`fa-solid fa-circle ${index === activeIndex
                   ? "indicator-symbol-active"
                   : "indicator-symbol"
                   }`}
-
               >
               </span>
             </button>
