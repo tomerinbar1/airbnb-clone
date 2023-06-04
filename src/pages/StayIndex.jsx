@@ -6,6 +6,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { stayServiceLocal } from '../services/stay.service.local.js'
 
 import { StayList } from '../cmps/StayList.jsx'
+import { LabelsFilter } from '../cmps/LabelsFilter.jsx'
 
 
 export function StayIndex() {
@@ -41,7 +42,7 @@ export function StayIndex() {
 
   return (
     <section className="index-container">
-      <section className="stays-filter-container"></section>
+      <LabelsFilter/>
       <StayList stays={stays} onRemoveStay={onRemoveStay} />
     </section>
   )

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { StayPreviewStar } from './StayPreviewStar'
 import { Carousel } from './Carousel';
-
+import { HeartIcon } from './PreviewHeart';
 
 export function StayPreview({ stay, onStayDetails }) {
   const navigate = useNavigate()
@@ -13,12 +13,15 @@ export function StayPreview({ stay, onStayDetails }) {
 
   return (
     <article onClick={() => onStayDetails(stay._id)} className="stay-preview ">
-  
+
       <section className='stay-preview-image-container'>
         <Carousel stay={stay} />
         {/* <img className="stay-preview-image" src={stay.imgUrls[0]} alt="stay-image" /> */}
       </section>
-
+      <section className='stay-preview-hurt'>
+        {/* <img src={hurt} alt="wishlist icon" /> */}
+        <HeartIcon />
+      </section>
       <section className="stay-preview-txt">
         <span className="stay-preview-location">{stay.loc.address}</span>
         <StayPreviewStar reviews={reviews} />

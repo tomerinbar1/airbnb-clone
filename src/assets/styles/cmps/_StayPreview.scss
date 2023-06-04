@@ -9,6 +9,17 @@
         font-size: 15px;
         line-height: 20px;
         cursor: pointer;
+        position: relative;
+
+        .stay-preview-hurt{
+            // margin-top: 16px;
+            width: 24px;
+            height: 24px;
+            opacity: 0.5;
+            position: absolute;
+            top: 14px;
+            right: 14px;
+        }
 
         .stay-preview-txt {
             margin: 0;
@@ -58,6 +69,14 @@
                 color: #717171;
             }
         }
+
+        
+    @include for-wide-layout {
+        @media (min-width: $wide-breakpoint) {
+            // grid-template-columns: repeat(4, 1fr);
+            height: 390px;
+        }
+    }
 
         @include for-extra-wide-layout {
             @media (min-width: $extra-wide-breakpoint) {
