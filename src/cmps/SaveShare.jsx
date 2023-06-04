@@ -13,9 +13,9 @@ export const SaveShare = ({ stayId }) => {
         <img src={share} alt="share" />
         Share
       </a>
-      <a>
+      <div>
         <Link to={`/stay/edit/${stayId}`}>Edit</Link>
-      </a>
+      </div>
     </div>
   )
 }
