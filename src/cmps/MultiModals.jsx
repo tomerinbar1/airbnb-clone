@@ -24,10 +24,6 @@ export const MultiModals = ({ type, props }) => {
     switch (modalType) {
       case 'gallery':
         return <GalleryModal {...modalProps} />
-      case 'reviews':
-    //     return <ReviewsModal {...modalProps} />
-    //   case 'order':
-    //     return <OrderModal {...modalProps} />
       default:
         return null
     }

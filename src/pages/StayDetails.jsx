@@ -10,10 +10,14 @@ import { OrderModal } from '../cmps/OrderModal.jsx'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
+import { MultiModals } from '../cmps/MultiModals.jsx'
+
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
+  // const [modalToOpen, setModalToOpen] = useState('')
   const { stayId } = useParams()
+
 
   useEffect(() => {
     const loadStaysOnDetails = async () => {
@@ -151,6 +155,7 @@ export const StayDetails = () => {
           </div>
         </div>
       </div>
+      {/* {modalToOpen && <MultiModals modalToOpen={modalToOpen} />} */}
     </section>
   )
 }
