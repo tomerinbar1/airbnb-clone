@@ -2,9 +2,11 @@ import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
 import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
 import { DetailsImportantInfo } from '../cmps/DetailsImportantInfo.jsx'
-import { DetailsSleep } from '../cmps/DetailsSleep.jsx'
+import { DetailsSleepInfo } from '../cmps/DetailsSleepInfo.jsx'
 import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
+import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
 import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
+import { OrderModal } from '../cmps/OrderModal.jsx'
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
@@ -46,45 +48,37 @@ export const StayDetails = () => {
 
           <div className="horizontal-line"></div>
 
-          <DetailsSleep imgUrl={stay.imgUrls[3]} />
-          
+          <DetailsSleepInfo imgUrl={stay.imgUrls[3]} />
+
           <div className="horizontal-line"></div>
           <DetailsAmenities amenities={stay.amenities} />
 
           <div className="horizontal-line"></div>
 
-          <div className="date-range-select">
-            <h1>7 nights in Drimnin</h1>
-            <p>Nov 16, 2023 - Nov 23, 2023</p>
-            <div className="calender-wrapper">
-              // calender library will render here
-            </div>
-          </div>
+          <DetailsDateRange />
         </div>
-        <div className="stay-details-info-right">
-          <div>reserved-modal render here</div>
+
+        <div className="stay-details-info-right">{/* <OrderModal /> */}</div>
+      </div>
+      <div className="reviews-details">
+        <div className="rating-details">
+          <span>⭐️4.95</span>
+          <span>346 reviews</span>
         </div>
-        // left side end here
-        <div className="reviews-details">
-          <div className="rating-details">
-            <span>⭐️4.95</span>
-            <span>346 reviews</span>
-          </div>
-          <div className="reviews-avg-data">
-            <ul>
-              <li>Cleanliness</li>
-              <li>Accuracy</li>
-              <li>Communication</li>
-              <li>Location</li>
-              <li>Check-in</li>
-              <li>Value</li>
-            </ul>
-          </div>
-          <div className="reviews-wrapper">
-            <div className="reviews-left">review-cards render here</div>
-            <div className="reviews-right">review-cards render here</div>
-            <button>Show all 346 reviews</button>
-          </div>
+        <div className="reviews-avg-data">
+          <ul>
+            <li>Cleanliness</li>
+            <li>Accuracy</li>
+            <li>Communication</li>
+            <li>Location</li>
+            <li>Check-in</li>
+            <li>Value</li>
+          </ul>
+        </div>
+        <div className="reviews-wrapper">
+          <div className="reviews-left">review-cards render here</div>
+          <div className="reviews-right">review-cards render here</div>
+          <button>Show all 346 reviews</button>
         </div>
       </div>
       <div className="map">map render here</div>
@@ -157,7 +151,6 @@ export const StayDetails = () => {
           </div>
         </div>
       </div>
-      <Link to="/">Home</Link>
     </section>
   )
 }

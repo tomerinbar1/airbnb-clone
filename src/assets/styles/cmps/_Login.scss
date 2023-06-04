@@ -1,5 +1,5 @@
 .login-header-btn {
-    width:77px;
+    width: 77px;
     height: 42px;
     background-color: $clr11;
     border-radius: 25px;
@@ -21,13 +21,16 @@
     .login-user-pic-container {
         width: 30px;
         height: 30px;
-        background-color: black;
-        background-image: url("../../img/icons/user-default.png");
+        background-image: url("../../img/icons/user-default2.svg");
         background-position: center;
         background-size: cover;
         border-radius: 50%;
+        opacity: 55%;
     }
 
-
-
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        cursor: pointer;
+        transition: 0.4s;
+    }
 }
