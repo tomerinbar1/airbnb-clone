@@ -7,7 +7,7 @@ export function StayList({ stays, onRemoveStay }) {
         {stays.map(stay =>
 
             <li className="stay-preview-container" key={stay._id}>
-                <button><Link to={`/stay/edit/${stay._id}`}>Edit</Link></button>
+                {/* <button><Link to={`/stay/edit/${stay._id}`}>Edit</Link></button> */}
                 <StayPreview stay={stay} onRemoveStay={onRemoveStay} />
             </li>)}
         {stays.map(stay =>
