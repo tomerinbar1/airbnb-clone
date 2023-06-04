@@ -40,6 +40,7 @@ export const StayDetails = () => {
         stayTitle={stay.name}
         reviews={stay.reviews}
         loc={stay.loc.address}
+        stayId={stay._id}
       />
       <StayDetailsGallery imgUrls={stay.imgUrls} onOpenModal={onOpenModal} />
       <div className="stay-details-info">

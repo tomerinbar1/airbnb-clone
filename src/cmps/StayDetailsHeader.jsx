@@ -1,7 +1,7 @@
 import { StayReviewsStat } from './StayReviewsStat'
-import { StayDetailsSaveShare } from './StayDetailsSaveShare'
+import { SaveShare } from './SaveShare'
 
-export const StayDetailsHeader = ({ stayTitle, reviews, loc }) => {
+export const StayDetailsHeader = ({ stayTitle, reviews, loc, stayId }) => {
   return (
     <header className="header-details">
       <h1>{stayTitle}</h1>
@@ -15,7 +15,7 @@ export const StayDetailsHeader = ({ stayTitle, reviews, loc }) => {
           </div>
         </div>
           <div className="sub-header-details-right">
-            <StayDetailsSaveShare />
+            <SaveShare stayId={stayId} />
           </div>
       </div>
     </header>
