@@ -6,16 +6,15 @@ import { DetailsSleepInfo } from '../cmps/DetailsSleepInfo.jsx'
 import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
 import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
 import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
-import { OrderModal } from '../cmps/OrderModal.jsx'
+import { GalleryModal } from '../cmps/GalleryModal.jsx'
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
-import { MultiModals } from '../cmps/MultiModals.jsx'
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
-  // const [modalToOpen, setModalToOpen] = useState('')
   const { stayId } = useParams()
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   useEffect(() => {
     const loadStaysOnDetails = async () => {
@@ -26,6 +25,14 @@ export const StayDetails = () => {
     loadStaysOnDetails()
   }, [])
 
+  const onOpenModal = () => {
+    setModalIsOpen(true)
+  }
+
+  const onCloseModal = () => {
+    setModalIsOpen(false)
+  }
+
   if (!stay) return <div>Loading...</div>
   return (
     <section className="stay-details">
@@ -34,7 +41,7 @@ export const StayDetails = () => {
         reviews={stay.reviews}
         loc={stay.loc.address}
       />
-      <StayDetailsGallery imgUrls={stay.imgUrls} />
+      <StayDetailsGallery imgUrls={stay.imgUrls} onOpenModal={onOpenModal} />
       <div className="stay-details-info">
         <div className="stay-details-info-left">
           <DetailsBasicInfo
@@ -153,7 +160,13 @@ export const StayDetails = () => {
           </div>
         </div>
       </div>
-      {/* {modalToOpen && <MultiModals modalToOpen={modalToOpen} />} */}
+      <div className="modals">
+        <GalleryModal
+          imgUrls={stay.imgUrls}
+          modalIsOpen={modalIsOpen}
+          onCloseModal={onCloseModal}
+        ></GalleryModal>
+      </div>
     </section>
   )
 }

@@ -1,18 +1,9 @@
 import showAllPhotos from '../assets/img/common/show-all-photos.svg'
-import { useDispatch } from 'react-redux'
 
-export const StayDetailsGallery = ({ imgUrls }) => {
-  const dispatch = useDispatch()
-
-  const onOpenModal = () => {
-    dispatch({
-      type: 'SET_MODAL_TO_OPEN',
-      payload: { type: 'gallery', props: imgUrls },
-    })
-  }
-
+export const StayDetailsGallery = ({ imgUrls, onOpenModal }) => {
+  
   return (
-    <div onClick={() => onOpenModal()} className="stay-details-img">
+    <div  onClick={() => onOpenModal()} className="stay-details-img">
       <div className="main-photo">
         <img src={`${imgUrls[0]}`} alt="main-img" />
       </div>
