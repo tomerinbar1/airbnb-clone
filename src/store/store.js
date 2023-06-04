@@ -1,11 +1,13 @@
 import { combineReducers, legacy_createStore as createStore } from 'redux'
 
 import { stayReducer } from './stay.reducer.js'
+import { modalReducer } from './modal.reducer.js'
 // import { userReducer } from './user.reducer.js'
 // import { reviewReducer } from './review.reducer'
 
 const rootReducer = combineReducers({
     stayModule: stayReducer,
+    modalModule: modalReducer,
     // userModule: userReducer,
     // reviewModule: reviewReducer,
 })
