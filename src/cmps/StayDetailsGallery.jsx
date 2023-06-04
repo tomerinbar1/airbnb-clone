@@ -1,16 +1,9 @@
-import { useState } from 'react'
-import { MultiModals } from './MultiModals'
 import showAllPhotos from '../assets/img/common/show-all-photos.svg'
 
-export const StayDetailsGallery = ({ imgUrls }) => {
-  const [modalToOpen, setModalToOpen] = useState('')
-
-  const onOpenModal = type => {
-    setModalToOpen(type)
-  }
-
+export const StayDetailsGallery = ({ imgUrls, onOpenModal }) => {
+  
   return (
-    <div onClick={() => onOpenModal('gallery')} className="stay-details-img">
+    <div  onClick={() => onOpenModal()} className="stay-details-img">
       <div className="main-photo">
         <img src={`${imgUrls[0]}`} alt="main-img" />
       </div>
@@ -34,9 +27,6 @@ export const StayDetailsGallery = ({ imgUrls }) => {
           </button>
         </div>
       </div>
-      {modalToOpen === 'gallery' && (
-        <MultiModals type="gallery" props={{ imgUrls: imgUrls }} />
-      )}
     </div>
   )
 }

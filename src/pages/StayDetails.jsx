@@ -1,19 +1,20 @@
 import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
 import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
-import { DetailsImportantInfo } from '../cmps/DetailsImportantInfo.jsx'
+import { DetailsFeaturesInfo } from '../cmps/DetailsFeaturesInfo.jsx'
 import { DetailsSleepInfo } from '../cmps/DetailsSleepInfo.jsx'
 import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
 import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
 import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
-import { OrderModal } from '../cmps/OrderModal.jsx'
+import { GalleryModal } from '../cmps/GalleryModal.jsx'
 import { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
   const { stayId } = useParams()
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
   useEffect(() => {
     const loadStaysOnDetails = async () => {
@@ -24,6 +25,14 @@ export const StayDetails = () => {
     loadStaysOnDetails()
   }, [])
 
+  const onOpenModal = () => {
+    setModalIsOpen(true)
+  }
+
+  const onCloseModal = () => {
+    setModalIsOpen(false)
+  }
+
   if (!stay) return <div>Loading...</div>
   return (
     <section className="stay-details">
@@ -31,8 +40,9 @@ export const StayDetails = () => {
         stayTitle={stay.name}
         reviews={stay.reviews}
         loc={stay.loc.address}
+        stayId={stay._id}
       />
-      <StayDetailsGallery imgUrls={stay.imgUrls} />
+      <StayDetailsGallery imgUrls={stay.imgUrls} onOpenModal={onOpenModal} />
       <div className="stay-details-info">
         <div className="stay-details-info-left">
           <DetailsBasicInfo
@@ -40,20 +50,20 @@ export const StayDetails = () => {
             host={stay.host.fullname}
             imgUrl={stay.host.imgUrl}
           />
-          <div className="horizontal-line"></div>
+          <hr className="custom-hr" />
 
-          <DetailsImportantInfo />
-          <div className="horizontal-line"></div>
+          <DetailsFeaturesInfo />
+          <hr className="custom-hr" />
           <DetailsDescription summary={stay.summary} />
 
-          <div className="horizontal-line"></div>
+          <hr className="custom-hr" />
 
           <DetailsSleepInfo imgUrl={stay.imgUrls[3]} />
 
-          <div className="horizontal-line"></div>
+          <hr className="custom-hr" />
           <DetailsAmenities amenities={stay.amenities} />
 
-          <div className="horizontal-line"></div>
+          <hr className="custom-hr" />
 
           <DetailsDateRange />
         </div>
@@ -150,6 +160,13 @@ export const StayDetails = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="modals">
+        <GalleryModal
+          imgUrls={stay.imgUrls}
+          modalIsOpen={modalIsOpen}
+          onCloseModal={onCloseModal}
+        ></GalleryModal>
       </div>
     </section>
   )
