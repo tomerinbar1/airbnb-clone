@@ -3,7 +3,6 @@ import share from '../assets/img/common/share.svg'
 import heart from '../assets/img/common/heart.svg'
 
 export const SaveShare = ({ stayId }) => {
-  console.log('stayId', stayId)
   return (
     <div className="save-share-details">
       <a href="#">
