@@ -18,6 +18,7 @@ export function StayIndex() {
     loadStays()
   }, [])
 
+
   async function onRemoveStay(stayId) {
     try {
       await removeStay(stayId)
@@ -27,16 +28,16 @@ export function StayIndex() {
     }
   }
 
-  async function onAddStay() {
-    const stay = stayServiceLocal.getEmptystay()
-    stay.vendor = prompt('Vendor?')
-    try {
-      const savedStay = await saveStay(stay)
-      showSuccessMsg(`Stay added (id: ${savedStay._id})`)
-    } catch (err) {
-      showErrorMsg('Cannot add stay')
-    }
-  }
+  // async function onAddStay() {
+  //   const stay = stayServiceLocal.getEmptystay()
+  //   stay.vendor = prompt('Vendor?')
+  //   try {
+  //     const savedStay = await saveStay(stay)
+  //     showSuccessMsg(`Stay added (id: ${savedStay._id})`)
+  //   } catch (err) {
+  //     showErrorMsg('Cannot add stay')
+  //   }
+  // }
 
   if (isLoading) return <div>Loading...</div>
 
