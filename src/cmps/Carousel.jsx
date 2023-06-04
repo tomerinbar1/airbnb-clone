@@ -5,7 +5,7 @@ export function Carousel({ stay }) {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const updateIndex = (newIndex, ev) => {
-    ev.stopPropagation()
+    ev.preventDefault()
     if (newIndex < 0) {
       newIndex = stay.imgUrls.length - 1
     } else if (newIndex >= stay.imgUrls.length) {

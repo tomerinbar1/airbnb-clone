@@ -3,11 +3,9 @@
     grid-template-columns: 80px 1fr 80px;
     grid-template-rows: 80px 98px 1fr;
     height: 100vh;
-    // width: 100vw;
 
     >* {
         grid-column: 2;
-        // grid-row: 1;
 
         &.full {
             grid-column: 1 /-1;
@@ -28,7 +26,6 @@
         height: 100%;
         grid-row-start: 2;
         grid-row-end: 3;
-        // padding: 0 80px;
     }
 
     .stays-filter-container {
