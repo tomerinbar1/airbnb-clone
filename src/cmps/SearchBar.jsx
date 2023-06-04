@@ -7,8 +7,6 @@ export function SearchBar({ onExpandSearch }) {
         onExpandSearch()
     }
 
-
-
     return (
         <div className="search-bar">
             <button onClick={() => onSearchHandle("where")} className="anywhere-search-btn">Anywhere</button>

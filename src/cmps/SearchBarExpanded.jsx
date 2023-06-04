@@ -1,34 +1,48 @@
 
 
-export function SearchBarExpanded() {
+export function SearchBarExpanded({ setSelectedTab, isSearchOpen }) {
 
 
 
 
+    function handleSearchType(type) {
+        // stateChangeHandle(type)
+    }
 
-
-
+    const dynClass = isSearchOpen ? "expand" : "folded"
     return (
-        <div className="expanded-search-bar">
+        <div className={`expanded-search-bar ${dynClass}`}>
 
-            <div className="location">
-                <p>Location</p>
+            <div onClick={()=>setSelectedTab("location")} className="location">
+                <h3>Where</h3>
                 <input type="text" placeholder="Where are you going?" />
             </div>
 
-            <div className="check-in">
-                <p>Check in</p>
-                <input type="text" placeholder="Add dates" />
+            {/* <div className={`locatin-pick  ${dynClass}`}></div> */}
+
+            <div onClick={handleSearchType("check-in")} className="check-in">
+                <h3>Check in</h3>
+                <div>Add dates</div>
+
             </div>
 
-            <div class="check-out">
-                <p>Check out</p>
-                <input type="text" placeholder="Add dates" />
+            <div className={`check-in-pick  ${dynClass}`}></div>
+
+
+            <div onClick={handleSearchType("check-out")} className="check-out">
+                <h3>Check out</h3>
+                <div>Add dates</div>
             </div>
-            <div class="guests">
-                <p>Guests</p>
-                <input type="text" placeholder="Add guests" />
-                <span><i class="lni lni-search-alt"></i></span>
+
+            <div onClick={handleSearchType("guests")} className="guests">
+                <div>
+                    <h3 className="guests-txt">Who</h3>
+                    <div>Add guests</div>
+                </div>
+
+                <button className="search-btn">
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
         </div>
 
