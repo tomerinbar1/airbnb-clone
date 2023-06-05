@@ -4,13 +4,13 @@ import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_IS_LOADING, UPDATE_STAY } from '.
 
 
 
-export async function loadStays() {
+export async function loadStays(filterBy) {
 // export async function loadStays(filterBy, sortBy) {
     // const sortAndFilter = {filterBy , sortBy}
     // console.log(sortAndFilter)
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
-        const stays = await stayServiceLocal.query()
+        const stays = await stayServiceLocal.query(filterBy)
         store.dispatch({ type: SET_STAYS, stays })
         return stays
     }

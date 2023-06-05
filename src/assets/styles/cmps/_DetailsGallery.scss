@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding-top: 16px;
-  grid-gap: 8px;
+  grid-gap: 7px;
   height: 560px;
   max-width: auto;
 
@@ -30,7 +30,7 @@
     width: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 8px;
+    grid-gap: 7px;
 
     img {
       max-height: 560px;
@@ -47,7 +47,7 @@
     .all-imgs-btn {
       position: absolute;
       bottom: 20px;
-      right: 20px;
+      right: 25px;
 
       button {
         display: flex;
@@ -55,7 +55,7 @@
         background-color: #f7f7f7;
         color: black;
         border: 1px solid black;
-        padding: 7px 15px;
+        padding: 7px 14px;
         border-radius: 8px;
         cursor: pointer;
         font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto

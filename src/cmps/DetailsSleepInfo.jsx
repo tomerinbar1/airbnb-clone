@@ -1,10 +1,7 @@
-export const DetailsSleepInfo = ({ imgUrl }) => {
+export const DetailsSleepInfo = ({ imgUrl, onOpenModal }) => {
     
-  const onOpenModal = type => {
-  }
-
   return(
-        <div onClick={() => onOpenModal('gallery')} className="sleep-details">
+        <div onClick={() => onOpenModal()} className="sleep-details">
         <h1>Where you'll sleep</h1>
         <img src={imgUrl} alt="bed-img" />
         <h2>Bedroom</h2>
