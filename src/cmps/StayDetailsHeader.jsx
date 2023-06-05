@@ -8,8 +8,9 @@ export const StayDetailsHeader = ({ stayTitle, reviews, loc, stayId }) => {
       <div className="sub-header-details">
         <div className="sub-header-details-left">
           <StayReviewsStat reviews={reviews} />
+            <span className="space">·</span>
           <div className="super-host-details">
-            <span>Super host</span>
+            <span>Superhost</span>
             <span className="space">·</span>
             <a href="">{loc}</a>
           </div>

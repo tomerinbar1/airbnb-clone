@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { stayServiceLocal } from "../services/stay.service.local"
 import { loadStays } from "../store/stay.actions"
 import { LocationSelect } from "./LocationSelect"
-import { StayFilter } from "./StayFilter"
+import { StayFilterByTxt } from "./StayFilterByTxt"
 import { GuestSelect } from "./GuestSelect"
 
 
@@ -11,18 +11,13 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
 
     useEffect(() => {
         loadStays(filterBy)
-        // setSelectedTab("")
         console.log(filterBy)
     }, [filterBy])
 
-    function onSetFilter(filterBy) {
 
+    function onSetFilter(filterBy) {
         setFilterBy(filterBy)
         if (filterBy.txt.length > 0) setSelectedTab("")
-        // setSelectedTab("")
-    }
-
-    function handleSearchType(type) {
     }
 
     const dynClass = isSearchOpen ? "expand" : "folded"
@@ -31,10 +26,9 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
 
             <div onClick={() => setSelectedTab("location")} className="location">
                 <h3>Where</h3>
-                <StayFilter onSetFilter={onSetFilter} />
+                <StayFilterByTxt onSetFilter={onSetFilter} />
 
             </div>
-            {/* {selectedTab === 'location' && <div className={`locatin-pick  ${dynClass}`}></div>} */}
             {selectedTab === 'location' && <LocationSelect dynClass={dynClass} />}
 
             <div onClick={() => setSelectedTab("checkIn")} className="check-in">

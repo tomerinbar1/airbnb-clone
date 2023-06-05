@@ -1,12 +1,12 @@
 import Modal from 'react-modal'
 
-export const GalleryModal = ({ imgUrls, modalIsOpen, onCloseModal }) => {
+export const GalleryModal = ({ imgUrls, galleryModalIsOpen, onCloseModal }) => {
   return (
     <Modal
-      isOpen={modalIsOpen}
+      isOpen={galleryModalIsOpen}
       onRequestClose={onCloseModal}
-      className="Modal"
-      overlayClassName="Overlay"
+      className="Modal-Gallery"
+      overlayClassName="Overlay-Gallery"
     >
       <button onClick={() => onCloseModal()}>{"\u003C"}</button>
       <div className="imgs-container">
