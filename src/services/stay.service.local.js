@@ -13,13 +13,8 @@ export const stayServiceLocal = {
   getById,
   save,
   remove,
-<<<<<<< HEAD
   getEmptyStay,
-=======
-  getEmptystay,
   getDefaultFilter
-
->>>>>>> 29a7b8de0bdcf282331123b65f2edf547fdd29f4
   // addstayMsg
 }
 window.cs = stayServiceLocal
