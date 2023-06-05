@@ -6,6 +6,7 @@ import { DetailsSleepInfo } from '../cmps/DetailsSleepInfo.jsx'
 import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
 import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
 import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
+import { DetailsReviews } from '../cmps/DetailsReviews.jsx'
 import { GalleryModal } from '../cmps/GalleryModal.jsx'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
@@ -70,27 +71,7 @@ export const StayDetails = () => {
 
         <div className="stay-details-info-right"> // Order Modal // </div>
       </div>
-      <div className="reviews-details">
-        <div className="rating-details">
-          <span>⭐️4.95</span>
-          <span>346 reviews</span>
-        </div>
-        <div className="reviews-avg-data">
-          <ul>
-            <li>Cleanliness</li>
-            <li>Accuracy</li>
-            <li>Communication</li>
-            <li>Location</li>
-            <li>Check-in</li>
-            <li>Value</li>
-          </ul>
-        </div>
-        <div className="reviews-wrapper">
-          <div className="reviews-left">review-cards render here</div>
-          <div className="reviews-right">review-cards render here</div>
-          <button>Show all 346 reviews</button>
-        </div>
-      </div>
+      <DetailsReviews reviews={stay.reviews} />
       <div className="map">map render here</div>
       <div className="host-info">
         <h2>Drimnin, Scotland, United Kingdom</h2>
