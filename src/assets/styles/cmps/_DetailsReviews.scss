@@ -1,0 +1,22 @@
+.reviews-details-wrapper {
+    padding-top: 48px;
+  .rating-details {
+    display: flex;
+    align-items: center;
+    font-size: rem(22px);
+    font-family: cereal-Medium;
+    img {
+      width: 14px;
+      height: 14px;
+      margin-right: 8px;
+    }
+    .space-dot {
+      padding-inline: 4px;
+    }
+  }
+  .reviews-avg-data{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 36px);
+  }
+}

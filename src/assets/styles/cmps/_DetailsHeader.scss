@@ -1,15 +1,15 @@
 .header-details {
   h1 {
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
-      Helvetica Neue, sans-serif;
-    font-size: rem(26px);
+    font-family: cereal-Book;
+    font-size: rem(24px);
     color: #222222;
-    font-weight: inherit;
     padding-top: 25px;
     margin: 0;
+    letter-spacing: 1px;
   }
   .sub-header-details {
     display: flex;
+    font-family: cereal-regular;
     justify-content: space-between;
     font-size: rem(14px);
     line-height: 20px;
