@@ -13,7 +13,7 @@
     height: 100%;
     white-space: nowrap;
     transition: transform 0.3s;
-    // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   }
 
   .carousel-item {
@@ -29,12 +29,22 @@
   .carousel-arrows {
     display: flex;
     position: absolute;
+    // height: fit-content;
   }
 
   .carousel-arrows {
-    width: 100%;
+    width: 94%;
     justify-content: space-between;
     cursor: pointer;
+    display: flex;
+
+    .show-arrow {
+      opacity: 1;
+    }
+    
+    .hide-arrow {
+      opacity: 0;
+    }
   }
 
   .indicators {
@@ -64,27 +74,44 @@
   }
 }
 
-.button-arrow{
-  display: none;
+.button-arrow-back,
+.button-arrow-forward {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  
+  &:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+  background: rgba(255, 255, 255, 0.95);
+}
 }
 
-.stay-preview:hover{
-  .button-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.906);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: transform 0.25s ease;
+.stay-preview:hover {
+  .button-arrow-back,
+  .button-arrow-forward {
+    opacity: 1;
+    transition: opacity 0.35s ease;
+  }
+}
 
-    .material-symbols-outlined {
-      text-align: center;
-      font-size: 12px;
-      font-weight: 500;
-      transition: transform 0.25s ease;
-    }
+.material-symbols-outlined {
+  align-self: center;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  transition: transform 0.35s ease;
+  padding-left: 2px;
+
+  &:hover {
+    font-weight: 650;
+
   }
 }

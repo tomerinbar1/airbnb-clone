@@ -7,3 +7,5 @@ export const CarouselItem = ({ imageUrl, width }) => {
     </div>
   )
 }
+
+
