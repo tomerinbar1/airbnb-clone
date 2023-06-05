@@ -6,8 +6,7 @@ export const utilService = {
     saveToStorage,
     animateCSS,
     randomPastTime,
-    debounce,
-    getTimeDiffBy
+    debounce
 }
 
 function makeId(length = 6) {
@@ -80,20 +79,3 @@ function debounce(func, timeout = 300){
       timer = setTimeout(() => { func.apply(this, args) }, timeout)
     }
   }
-
-  
-function getTimeDiffBy(item) {
-    const MINUTE = 1000 * 60
-    const HOUR = MINUTE * 60
-    const DAY = HOUR * 24
-    const WEEK = DAY * 7
-    const MONTH = WEEK * 4
-    const YEAR = MONTH * 12
-
-    if (item === 'minute') return MINUTE
-    if (item === 'hour') return HOUR
-    if (item === 'day') return DAY
-    if (item === 'week') return WEEK
-    if (item === 'month') return MONTH
-    if (item === 'year') return YEAR
-}

@@ -3,10 +3,9 @@ import { Logo } from "./Logo"
 import { Navbar } from "./Navbar"
 import { useRef, useState } from 'react'
 import { SearchBarExpanded } from "./SearchBarExpanded"
-import { utilService } from "../services/util.service"
 
 export const AppHeader = () => {
-  const seachBarRef = useRef(null)
+  const searchBarRef = useRef(null)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [selectedTab, setSelectedTab] = useState("location")
 
@@ -23,11 +22,11 @@ export const AppHeader = () => {
   }
 
   function toggleOpenClass() {
-    seachBarRef.current.classList.toggle('search-bar-open')
+    searchBarRef.current.classList.toggle('search-bar-open')
   }
 
   return (
-    <header ref={seachBarRef} className="app-header">
+    <header ref={searchBarRef} className="app-header">
 
       {isSearchOpen &&
         <div onClick={() => onExpandSearch()} className="main-screen-full">
@@ -36,13 +35,8 @@ export const AppHeader = () => {
       <Logo />
 
       {!isSearchOpen && <SearchBar onExpandSearch={onExpandSearch} />}
-      {/* {isSearchOpen && <SearchBarExpanded stateChangeHandle={stateChangeHandle} />} */}
-      <SearchBarExpanded setSelectedTab={setSelectedTab} isSearchOpen={isSearchOpen} />
+      <SearchBarExpanded setSelectedTab={setSelectedTab} isSearchOpen={isSearchOpen} selectedTab={selectedTab} />
       <Navbar />
-
-      {/* <section className="filter-cmps"> */}
-      {/* <DateFilter filterBy={filterBy} setFilterDates={setFilterDates} /> */}
-      {/* </section> */}
 
     </header>
   )

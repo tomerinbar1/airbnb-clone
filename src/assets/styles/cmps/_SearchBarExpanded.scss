@@ -2,7 +2,7 @@
     width: 85.3%;
     max-width: 700px;
     height: 80px;
-    background-color: #EBEBEB;
+    background-color: $clr13;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 100vw;
     display: flex;
@@ -26,7 +26,7 @@
     }
 
     &>*:hover {
-        background-color: white;
+        background-color:$clr11;
     }
 
     h3 {
@@ -55,37 +55,24 @@
         justify-content: space-between;
 
         .search-btn {
-            background-color: #FF385C;
+            background-color:$clr1;
             border-radius: 50%;
             width: 40px;
             height: 40px;
             padding-top: 3px;
             margin-top: 7px;
-            color: white;
+            color:$clr11;
             align-self: center;
 
             i {
-                color: white;
+                color:$clr11;
             }
         }
     }
 
-    .locatin-pick{
-        position: absolute;
-        background-color: aqua;
-        top: 0;
-        left: 0;
-        width: 60%;
-        height: 450px;
-        border-radius: 15px;
-        margin-top: 10px;
-        transform: translateY(20%);
-        visibility: visible;
-    }
-
     .check-in-pick{
         position: absolute;
-        background-color: aqua;
+        background-color: $clr11;
         top: 0;
         left: 0;
         width: 100%;
@@ -95,6 +82,21 @@
         transform: translateY(20%);
         visibility: visible;
     }
+
+    .guests-pick{
+        position: absolute;
+        background-color:$clr11;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 450px;
+        border-radius: 15px;
+        margin-top: 10px;
+        transform: translateY(20%);
+        visibility: visible;
+    }
+
+
 
     .folded{
         visibility: hidden;

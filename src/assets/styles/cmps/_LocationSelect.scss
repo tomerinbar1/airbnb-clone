@@ -1,0 +1,57 @@
+
+.location-pick{
+    position: absolute;
+    background-color:$clr11;
+    top: 0;
+    left: 0;
+    width: 65%;
+    height: 450px;
+    border-radius: 15px;
+    margin-top: 10px;
+    transform: translateY(20%);
+    visibility: visible;
+
+    .location-pick-header{
+        font-size: rem(14px);
+        font-family: cerealBold;
+        line-height: rem(18px);
+        margin: 0 0 28px 5px;
+    }
+
+    .location-grid-container{
+        display: grid;
+        grid-template-columns: repeat(3, min-content);
+        column-gap: 5px;
+        row-gap: 24px;
+        margin-bottom: 40px;
+    }
+
+    .location {
+        height: 158px;
+        width: 132px;
+        
+        .location-name{
+            font-size: rem(14px);
+            line-height: rem(18px);
+            margin-top: 8px;
+
+        }
+    }
+
+    .location-btn {
+        height: 122px;
+        width: 122px;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        transition: border 0.15s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            border: 1px solid rgb(0, 0, 0);
+        }
+    }
+}
