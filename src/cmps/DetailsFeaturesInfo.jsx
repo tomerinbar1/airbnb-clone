@@ -21,7 +21,7 @@ export const DetailsFeaturesInfo = () => {
         <img src={features} alt="features" />
         <div className="feature">
           <h2>Featured in</h2>
-          <p>Designboom, January 2019 Coast, February 2022.</p>
+          <p>Designboom, January 2019 Coast, <br/> February 2022.</p>
         </div>
       </div>
 
