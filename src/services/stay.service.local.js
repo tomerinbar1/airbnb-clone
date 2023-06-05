@@ -14,10 +14,6 @@ export const stayServiceLocal = {
   save,
   remove,
   getEmptyStay,
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b4cb1a0201ee85f521a5777ddb52a9689aebe8f6
   getDefaultFilter
   // addstayMsg
 }
