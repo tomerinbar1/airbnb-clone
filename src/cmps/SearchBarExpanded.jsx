@@ -3,6 +3,7 @@ import { stayServiceLocal } from "../services/stay.service.local"
 import { loadStays } from "../store/stay.actions"
 import { LocationSelect } from "./LocationSelect"
 import { StayFilter } from "./StayFilter"
+import { GuestSelect } from "./GuestSelect"
 
 
 export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen }) {
@@ -10,15 +11,18 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
 
     useEffect(() => {
         loadStays(filterBy)
+        // setSelectedTab("")
         console.log(filterBy)
     }, [filterBy])
 
     function onSetFilter(filterBy) {
+
         setFilterBy(filterBy)
+        if (filterBy.txt.length > 0) setSelectedTab("")
+        // setSelectedTab("")
     }
 
     function handleSearchType(type) {
-        // stateChangeHandle(type)
     }
 
     const dynClass = isSearchOpen ? "expand" : "folded"
@@ -59,8 +63,9 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                 </button>
             </div>
 
-            {selectedTab === "guest" && <div className={`guests-pick  ${dynClass}`}></div>}
-
+            {selectedTab === "guest" && <div className={`guests-pick  ${dynClass}`}>
+                <GuestSelect />
+            </div>}
         </div>
 
     )

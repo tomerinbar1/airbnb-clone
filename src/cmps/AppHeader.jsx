@@ -9,7 +9,7 @@ export const AppHeader = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [selectedTab, setSelectedTab] = useState("location")
 
-
+  console.log(selectedTab)
 
   function stateChangeHandle(fieldToChange) {
     setSelectedTab(fieldToChange)

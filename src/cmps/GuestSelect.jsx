@@ -1,24 +1,19 @@
-import { Counter } from '../counter.jsx'
-
-export function GuestSelect({ onSetField, guests }) {
+import {Counter} from "./Counter"
+export function GuestSelect({dynClass}) {
 
     function handleChange(field, value) {
         if (value <= 0) value = 0
         if (field === 'adults') {
-            onSetField('guests', { ...guests, adults: value })
         }
         if (field === 'children') {
-            onSetField('guests', { ...guests, children: value })
         }
         if (field === 'infants') {
-            onSetField('guests', { ...guests, infants: value })
         }
         if (field === 'pets') {
-            onSetField('guests', { ...guests, pets: value })
         }
     }
 
-    const guestSelectOpts = [
+    const guestSelectOptions = [
         {
         label: 'Adults',
         subLabel: 'Ages 13 or above',
@@ -42,15 +37,15 @@ export function GuestSelect({ onSetField, guests }) {
 ]
 
     return (
-        <div className='guest-select-list'>
-        {guestSelectOpts.map((opt, idx) => {
+        <div className='guest-select-container'>
+        {guestSelectOptions.map((option, idx) => {
             return (
                 <div className="guest-select-row" key={idx}>
                     <div className="guest-select-label">
-                        <div className="guest-select-label-header">{opt.label}</div>
-                        <div className="guest-select-label-sub-header">{opt.subLabel}</div>
+                        <div className="guest-select-title">{option.label}</div>
+                        <div className="guest-select-sub-title">{option.subLabel}</div>
                     </div>
-                        <Counter field={opt.field} value={guests[opt.field]} onChange={handleChange} />
+                        <Counter field={option.field} onChange={handleChange} />
                 </div>
             )
         })}
