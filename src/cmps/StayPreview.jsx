@@ -1,17 +1,10 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { StayPreviewStar } from './StayPreviewStar'
-import { Carousel } from './Carousel';
-import { HeartIcon } from './PreviewHeart';
+import { Carousel } from './Carousel'
+import { HeartIcon } from './PreviewHeart'
 
-export function StayPreview({ stay, onStayDetails }) {
-  const navigate = useNavigate()
+export function StayPreview({stay}) {
   const reviews = stay.reviews
-
-  // function onStayDetails(stayId) {
-  //   navigate(`/${stayId}`)
-  // }
-  // <article onClick={() => onStayDetails(stay._id)} className="stay-preview ">
-    // </article> 
 
   return (
     <section className='stay-preview'>
@@ -30,7 +23,7 @@ export function StayPreview({ stay, onStayDetails }) {
           <StayPreviewStar reviews={reviews} />
           <span className="stay-preview-distance"> X kilometers away </span>
           <span className="stay-preview-dates"> Aug 4 - 9 </span>
-          <span className="stay-preview-price">${stay.price}<span className="night"> night </span></span>
+          <span className="stay-preview-price">${stay.price}<span className="stay-preview-night"> night </span></span>
         </section>
         
       </Link>

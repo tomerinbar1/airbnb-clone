@@ -13,7 +13,7 @@ export const stayServiceLocal = {
   getById,
   save,
   remove,
-  getEmptystay,
+  getEmptyStay,
   // addstayMsg
 }
 window.cs = stayServiceLocal
@@ -69,7 +69,7 @@ async function save(stay) {
 //     return msg
 // }
 
-function getEmptystay() {
+function getEmptyStay() {
   const stay = {
     name: '',
     type: '',
