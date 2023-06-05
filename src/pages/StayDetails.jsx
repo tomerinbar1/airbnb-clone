@@ -68,7 +68,7 @@ export const StayDetails = () => {
           <DetailsDateRange />
         </div>
 
-        <div className="stay-details-info-right"></div>
+        <div className="stay-details-info-right"> // Order Modal // </div>
       </div>
       <div className="reviews-details">
         <div className="rating-details">

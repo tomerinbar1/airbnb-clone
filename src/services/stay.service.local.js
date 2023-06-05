@@ -13,12 +13,12 @@ export const stayServiceLocal = {
   getById,
   save,
   remove,
-<<<<<<< HEAD
   getEmptyStay,
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b4cb1a0201ee85f521a5777ddb52a9689aebe8f6
   getDefaultFilter
-
->>>>>>> 29a7b8de0bdcf282331123b65f2edf547fdd29f4
   // addstayMsg
 }
 window.cs = stayServiceLocal
@@ -48,13 +48,11 @@ function getById(stayId) {
 }
 
 async function remove(stayId) {
-  // throw new Error('Nope')
   await storageService.remove(STORAGE_KEY, stayId)
 }
 
 async function save(stay) {
   let savedstay
-  // console.log(stay)
   if (stay._id) {
     savedstay = await storageService.put(STORAGE_KEY, stay)
   } else {
@@ -109,9 +107,6 @@ function getEmptyStay() {
 
   return stay
 }
-
-// TEST DATA
-// storageService.post(STORAGE_KEY, {vendor: 'Subali Rahok 2', price: 980}).then(x => console.log(x))
 
 function _createStays() {
   gStays = utilService.loadFromStorage(STORAGE_KEY)

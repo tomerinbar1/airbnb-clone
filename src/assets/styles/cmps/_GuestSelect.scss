@@ -1,0 +1,40 @@
+.guests-pick{
+    position: absolute;
+    background-color:$clr11;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 450px;
+    border-radius: 15px;
+    margin-top: 10px;
+    transform: translateY(20%);
+    visibility: visible;
+
+    // .guest-select-row{
+    //     color: $clr11;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: space-between;
+    //     padding-top: 24px;
+    //     padding-bottom: 24px;
+    //     padding-right: 4px;
+    //     border-bottom: 1px solid;
+
+    //     &:last-child {
+    //         border-bottom: none;
+    //     }
+    // }
+
+    // .guest-select-title{
+    //     font-size: rem(16px) ;
+    //     line-height: 20px;
+    //     font-family: cereal;
+    //     padding-bottom: em(6px);
+    // }
+
+    // .guest-select-sub-title{
+    //     font-size: rem(14px);
+    //     line-height: 18px;
+    //     font-family: cereal;
+    // }
+}
