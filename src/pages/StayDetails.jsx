@@ -58,7 +58,7 @@ export const StayDetails = () => {
 
           <hr className="custom-hr" />
 
-          <DetailsSleepInfo imgUrl={stay.imgUrls[3]} />
+          <DetailsSleepInfo imgUrl={stay.imgUrls[3]} onOpenModal={onOpenModal} />
 
           <hr className="custom-hr" />
           <DetailsAmenities amenities={stay.amenities} />
@@ -68,7 +68,7 @@ export const StayDetails = () => {
           <DetailsDateRange />
         </div>
 
-        <div className="stay-details-info-right">{/* <OrderModal /> */}</div>
+        <div className="stay-details-info-right"></div>
       </div>
       <div className="reviews-details">
         <div className="rating-details">
