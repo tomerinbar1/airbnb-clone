@@ -4,7 +4,7 @@ import { utilService } from "../services/util.service.js"
 import { stayServiceLocal } from "../services/stay.service.local.js"
 
 
-export function StayFilter({ onSetFilter }) {
+export function StayFilterByTxt({ onSetFilter }) {
     const [filterByToEdit, setFilterByToEdit] = useState(stayServiceLocal.getDefaultFilter())
 
     onSetFilter = useRef(utilService.debounce(onSetFilter))

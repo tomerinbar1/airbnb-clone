@@ -15,7 +15,10 @@
     translate: 25%  -200%;
 
     &.expand{
-        translate: 25% 100%;
+        translate: 0 0;
+        position: relative;
+        align-self: end;
+        bottom: 0;
     }
 
     &>* {

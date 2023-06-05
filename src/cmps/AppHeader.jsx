@@ -9,12 +9,6 @@ export const AppHeader = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [selectedTab, setSelectedTab] = useState("location")
 
-  console.log(selectedTab)
-
-  function stateChangeHandle(fieldToChange) {
-    setSelectedTab(fieldToChange)
-    console.log(selectedTab)
-  }
 
   function onExpandSearch() {
     setIsSearchOpen(prevState => !prevState)
@@ -35,6 +29,7 @@ export const AppHeader = () => {
       <Logo />
 
       {!isSearchOpen && <SearchBar onExpandSearch={onExpandSearch} />}
+      {/* <SearchBar onExpandSearch={onExpandSearch}/> */}
       <SearchBarExpanded setSelectedTab={setSelectedTab} isSearchOpen={isSearchOpen} selectedTab={selectedTab} />
       <Navbar />
 
