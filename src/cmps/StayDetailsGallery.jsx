@@ -3,7 +3,7 @@ import showAllPhotos from '../assets/img/common/show-all-photos.svg'
 export const StayDetailsGallery = ({ imgUrls, onOpenModal }) => {
   
   return (
-    <div  onClick={() => onOpenModal()} className="stay-details-img">
+    <div onClick={(e) => onOpenModal(e, 'gallery-modal')} data-modal="gallery-modal" className="stay-details-img">
       <div className="main-photo">
         <img src={`${imgUrls[0]}`} alt="main-img" />
       </div>

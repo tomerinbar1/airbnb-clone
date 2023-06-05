@@ -29,7 +29,6 @@ export const StayReviewsStat = ({ reviews }) => {
       </span>
       <span className="space-dot">·</span>
       <a href="">{numOfReviews()} reviews</a>
-      <span className="space-dot">·</span>
     </div>
   )
 }

@@ -1,10 +1,20 @@
 @font-face {
-    font-family: cereal;
-    src: url(../../fonts/AirbnbCereal_W_Lt.otf);
+  font-family: cereal-regular;
+  src: url(../../fonts/cereal/AirbnbCerealLight.ttf);
 }
 @font-face {
-    font-family: cerealBold;
-    src: url(../../fonts/AirbnbCereal_W_Bd.otf);
+  font-family: cereal-Bold;
+  src: url(../../fonts/cereal/AirbnbCerealBold.ttf);
 }
-
-
+@font-face {
+  font-family: cereal-Book;
+  src: url(../../fonts/cereal/AirbnbCerealBook.ttf);
+}
+@font-face {
+  font-family: cereal-Black;
+  src: url(../../fonts/cereal/AirbnbCerealBlack.ttf);
+}
+@font-face {
+  font-family: cereal-Medium;
+  src: url(../../fonts/cereal/AirbnbCerealMedium.ttf);
+}

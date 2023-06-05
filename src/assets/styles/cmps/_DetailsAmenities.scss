@@ -2,7 +2,7 @@
   padding-top: 50px;
   padding-bottom: 48px;
   h1 {
-    font-family: $font1;
+    font-family: Cereal-Book;
     font-size: rem(22px);
     padding-bottom: 12px;
     margin: 0;
@@ -12,8 +12,7 @@
     grid-template-columns: repeat(2, 1fr);
     height: 200px;
     font-size: rem(16px);
-    font-family: $font1;
-    font-weight: 400;
+    font-family: Cereal-Regular;
     line-height: 23px;
     margin-bottom: 38px;
     ul {
@@ -29,10 +28,8 @@
     margin: 0;
     border: 1px solid black;
     padding: 13px 20px;
-    color: #222222;
-    font-weight: $font1;
+    font-family: Cereal-Medium;
     font-size: rem(16px);
-    font-weight: 600;
     border-radius: 8px;
     line-height: 20px;
     &:hover {

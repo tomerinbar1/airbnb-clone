@@ -9,9 +9,6 @@
   .rating-details {
     display: flex;
     align-items: center;
-    span {
-      font-weight: 600;
-    }
 
     img {
       width: 14px;
@@ -20,7 +17,6 @@
     }
     a {
       text-decoration: underline;
-      font-weight: 600;
     }
   }
   .super-host-details {
@@ -31,7 +27,6 @@
     }
     a {
       text-decoration: underline;
-      font-weight: 600;
     }
   }
   > * {

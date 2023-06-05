@@ -6,16 +6,19 @@ import { DetailsSleepInfo } from '../cmps/DetailsSleepInfo.jsx'
 import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
 import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
 import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
+import { DetailsReviews } from '../cmps/DetailsReviews.jsx'
 import { GalleryModal } from '../cmps/GalleryModal.jsx'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
+import { LearnMoreModal } from '../cmps/LearnMoreModal.jsx'
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
   const { stayId } = useParams()
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-
+  const [galleryModalIsOpen, setGalleryModalIsOpen] = useState(false)
+  const [learnMoreModalIsOpen, setLearnMoreModalIsOpen] = useState(false)
+  
   useEffect(() => {
     const loadStaysOnDetails = async () => {
       const stays = await loadStays()
@@ -25,13 +28,27 @@ export const StayDetails = () => {
     loadStaysOnDetails()
   }, [])
 
-  const onOpenModal = () => {
-    setModalIsOpen(true)
+  const onOpenModal = (event, modal) => {
+    event.preventDefault()
+    if (modal === 'gallery-modal') {
+      setGalleryModalIsOpen(true)
+    } else if (modal === 'learn-more-modal') {
+      setLearnMoreModalIsOpen(true)
+    }
   }
 
   const onCloseModal = () => {
-    setModalIsOpen(false)
+    setGalleryModalIsOpen(false)
+    setLearnMoreModalIsOpen(false)
   }
+
+  // const onOpenModal = () => {
+  //   setModalIsOpen(true)
+  // }
+
+  // const onCloseModal = () => {
+  //   setModalIsOpen(false)
+  // }
 
   if (!stay) return <div>Loading...</div>
   return (
@@ -52,13 +69,16 @@ export const StayDetails = () => {
           />
           <hr className="custom-hr" />
 
-          <DetailsFeaturesInfo />
+          <DetailsFeaturesInfo onOpenModal={onOpenModal} />
           <hr className="custom-hr" />
           <DetailsDescription summary={stay.summary} />
 
           <hr className="custom-hr" />
 
-          <DetailsSleepInfo imgUrl={stay.imgUrls[3]} onOpenModal={onOpenModal} />
+          <DetailsSleepInfo
+            imgUrl={stay.imgUrls[3]}
+            onOpenModal={onOpenModal}
+          />
 
           <hr className="custom-hr" />
           <DetailsAmenities amenities={stay.amenities} />
@@ -68,29 +88,9 @@ export const StayDetails = () => {
           <DetailsDateRange />
         </div>
 
-        <div className="stay-details-info-right"></div>
+        <div className="stay-details-info-right"> // Order Modal // </div>
       </div>
-      <div className="reviews-details">
-        <div className="rating-details">
-          <span>⭐️4.95</span>
-          <span>346 reviews</span>
-        </div>
-        <div className="reviews-avg-data">
-          <ul>
-            <li>Cleanliness</li>
-            <li>Accuracy</li>
-            <li>Communication</li>
-            <li>Location</li>
-            <li>Check-in</li>
-            <li>Value</li>
-          </ul>
-        </div>
-        <div className="reviews-wrapper">
-          <div className="reviews-left">review-cards render here</div>
-          <div className="reviews-right">review-cards render here</div>
-          <button>Show all 346 reviews</button>
-        </div>
-      </div>
+      <DetailsReviews reviews={stay.reviews} />
       <div className="map">map render here</div>
       <div className="host-info">
         <h2>Drimnin, Scotland, United Kingdom</h2>
@@ -164,9 +164,14 @@ export const StayDetails = () => {
       <div className="modals">
         <GalleryModal
           imgUrls={stay.imgUrls}
-          modalIsOpen={modalIsOpen}
+          galleryModalIsOpen={galleryModalIsOpen}
           onCloseModal={onCloseModal}
-        ></GalleryModal>
+        />
+
+        <LearnMoreModal
+          learnMoreModalIsOpen={learnMoreModalIsOpen}
+          onCloseModal={onCloseModal}
+        />
       </div>
     </section>
   )
