@@ -64,7 +64,7 @@
 
 .category-carousel-item {
     opacity: 0.65;
-
+cursor: pointer;
     .category-name {
         color: #717171;
         font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif; // height: 100%;
@@ -116,10 +116,18 @@
             height: 100%;
             background-color: rgba(152, 14, 14, 0);
 
-            img {
-                width: 10.5px;
-                height: 10.5px;
+            .filter-Icon-labels{
+                width: 13px;
+                height: 13px;
+                margin-right: 9px;
+                margin-left: 1px;
+                
             }
+
+            // img {
+            //     width: 10.5px;
+            //     height: 10.5px;
+            // }
         }
     }
 }

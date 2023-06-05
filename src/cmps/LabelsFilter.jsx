@@ -31,7 +31,7 @@ export  function LabelsFilter() {
 
       </section>
       <section className="categories-filter-buttons">
-      <button className="categories-filter-button"> <img className=""  src={filterIcon} alt="" /> Filters</button>
+      <button className="categories-filter-button"> <img className="filter-Icon-labels"  src={filterIcon} alt="" /> Filters</button>
       </section>
     </section>
   )
