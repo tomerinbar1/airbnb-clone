@@ -7,6 +7,7 @@ import '../src/assets/styles/main.scss'
 import { StayIndex } from './pages/StayIndex'
 import { store } from './store/store'
 import { StayEdit } from './pages/StayEdit'
+import { UserMsg } from './cmps/user-msg'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </Routes>
           </main>
           <AppFooter />
+          <UserMsg/>
         </section>
       </Router>
     </Provider>

@@ -50,11 +50,11 @@ async function remove(stayId) {
 }
 
 async function save(stay) {
-  var savedstay
+  let savedstay
+  // console.log(stay)
   if (stay._id) {
     savedstay = await storageService.put(STORAGE_KEY, stay)
   } else {
-    // Later, owner is set by the backend
     // stay.owner = userService.getLoggedinUser()
     savedstay = await storageService.post(STORAGE_KEY, stay)
   }

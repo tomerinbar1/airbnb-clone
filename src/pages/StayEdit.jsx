@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom"
-
+import { removeStay } from '../store/stay.actions.js'
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
 import { Link } from 'react-router-dom'
 import { uploadService } from '../services/upload.service.js'
@@ -13,24 +13,33 @@ export function StayEdit() {
 
 
     const { stayId } = useParams()
-    console.log(stayId)
+    console.log(stayToEdit)
     const navigate = useNavigate()
 
     useEffect(() => {
        loadStay()
     }, [])
 
-
-
+    
     async function onHandleImg(ev) {
         try {
             const imgUrl = await uploadService.uploadImg(ev)
-            setStayToEdit((preStayToEdit) => ({ ...stayToEdit, image: imgUrl }))
+            setStayToEdit((preStayToEdit) => ({ ...stayToEdit, imgUrls:[...stayToEdit.imgUrls , imgUrl] }))
         } catch (err) {
-            console.log('Cannot upload image right now..', err);
+            console.log('Cannot upload image right now..', err)
         }
     }
 
+    
+  async function onRemoveStay() {
+    try {
+      await removeStay(stayId)
+      showSuccessMsg('Stay removed')
+      navigate('/')
+    } catch (err) {
+      showErrorMsg('Cannot remove stay')
+    }
+  }
 
     async function loadStay() {
         try {
@@ -46,9 +55,7 @@ export function StayEdit() {
 
     function handleChange({ target }) {
         const field = target.name
-        const value = target.type === 'number' ? (+target.value || '') :
-            (target.type === 'checkbox') ? target.checked :
-                target.value
+        const value = target.type === 'number' ? (+target.value || '') : target.value
         setStayToEdit(prevStayToEdit => ({ ...prevStayToEdit, [field]: value }))
     }
 
@@ -57,8 +64,8 @@ export function StayEdit() {
         try {
             const savedStay = await stayServiceLocal.save(stayToEdit)
             // saveStay(stayToEdit)
-            console.log('stay saved', savedStay);
-            navigate('/stay')
+            // console.log('stay saved', savedStay)
+            navigate('/')
             showSuccessMsg(`Stay '${savedStay._id}' saved!`)
         }
         catch (err) {
@@ -73,6 +80,9 @@ export function StayEdit() {
         <section className="stay-edit-container">
             <h2>{stayToEdit._id ? 'Edit this stay' : 'Add a new stay'}</h2>
 
+            <button onClick={onRemoveStay}>Remove Stay</button>
+
+
             <form className="stay-edit-inputs" onSubmit={onSaveStay}>
                 <input type="file" accept="image/png/jpeg" onChange={onHandleImg} />
 
@@ -86,11 +96,11 @@ export function StayEdit() {
 
                 <label htmlFor="title">Name:</label>
                 <input type="text" required
-                    name="title"
-                    id="title"
-                    placeholder="Enter name"
+                    name="name"
+                    id="name"
+                    placeholder="Enter new stay name"
                     onChange={handleChange}
-                    value={stayToEdit.title}
+                    value={stayToEdit.name}
                 />
 
                 <label htmlFor="price">Price:</label>
@@ -101,22 +111,13 @@ export function StayEdit() {
                     onChange={handleChange}
                     value={stayToEdit.price}
                 />
-                <article>
-                    <input type="checkbox" name="inStock" value={stayToEdit.inStock} checked={stayToEdit.inStock} onChange={handleChange} />
-                    <label>Stay In Stock</label>
-                </article>
-
-
+      
                 <div className="button-group">
                     <button>{stayToEdit._id ? 'Save' : 'Add'}</button>
                     <Link to="/">Cancel</Link>
                 </div>
 
-                <div className="edit-btn">
-                    <button>Edit</button>
-                    <Link to="/"/>
-                </div>
-
+             
             </form>
         </section>
     )

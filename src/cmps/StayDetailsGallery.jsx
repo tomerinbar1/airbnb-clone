@@ -12,13 +12,13 @@ export const StayDetailsGallery = ({ imgUrls, onOpenModal }) => {
         <img
           src={`${imgUrls[2]}`}
           alt="small-img-2"
-          style={{ borderTopRightRadius: '1em' }}
+          style={{ borderTopRightRadius: '0.5em' }}
         />
         <img src={`${imgUrls[3]}`} alt="small-img-3" />
         <img
           src={`${imgUrls[4]}`}
           alt="small-img-4"
-          style={{ borderBottomRightRadius: '1em' }}
+          style={{ borderBottomRightRadius: '0.5em' }}
         />
         <div className="all-imgs-btn">
           <button>
