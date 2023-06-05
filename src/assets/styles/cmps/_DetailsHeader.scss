@@ -9,9 +9,15 @@
   }
   .sub-header-details {
     display: flex;
-    font-family: cereal-regular;
     justify-content: space-between;
     font-size: rem(14px);
     line-height: 20px;
+    font-family: cereal-Medium;
+    .super-host-details {
+      font-family: Cereal-Regular;
+    }
+    a {
+      font-family: cereal-Medium;
+    }
   }
 }

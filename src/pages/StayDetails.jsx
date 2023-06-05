@@ -11,12 +11,14 @@ import { GalleryModal } from '../cmps/GalleryModal.jsx'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
+import { LearnMoreModal } from '../cmps/LearnMoreModal.jsx'
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
   const { stayId } = useParams()
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-
+  const [galleryModalIsOpen, setGalleryModalIsOpen] = useState(false)
+  const [learnMoreModalIsOpen, setLearnMoreModalIsOpen] = useState(false)
+  
   useEffect(() => {
     const loadStaysOnDetails = async () => {
       const stays = await loadStays()
@@ -26,13 +28,27 @@ export const StayDetails = () => {
     loadStaysOnDetails()
   }, [])
 
-  const onOpenModal = () => {
-    setModalIsOpen(true)
+  const onOpenModal = (event, modal) => {
+    event.preventDefault()
+    if (modal === 'gallery-modal') {
+      setGalleryModalIsOpen(true)
+    } else if (modal === 'learn-more-modal') {
+      setLearnMoreModalIsOpen(true)
+    }
   }
 
   const onCloseModal = () => {
-    setModalIsOpen(false)
+    setGalleryModalIsOpen(false)
+    setLearnMoreModalIsOpen(false)
   }
+
+  // const onOpenModal = () => {
+  //   setModalIsOpen(true)
+  // }
+
+  // const onCloseModal = () => {
+  //   setModalIsOpen(false)
+  // }
 
   if (!stay) return <div>Loading...</div>
   return (
@@ -53,13 +69,16 @@ export const StayDetails = () => {
           />
           <hr className="custom-hr" />
 
-          <DetailsFeaturesInfo />
+          <DetailsFeaturesInfo onOpenModal={onOpenModal} />
           <hr className="custom-hr" />
           <DetailsDescription summary={stay.summary} />
 
           <hr className="custom-hr" />
 
-          <DetailsSleepInfo imgUrl={stay.imgUrls[3]} onOpenModal={onOpenModal} />
+          <DetailsSleepInfo
+            imgUrl={stay.imgUrls[3]}
+            onOpenModal={onOpenModal}
+          />
 
           <hr className="custom-hr" />
           <DetailsAmenities amenities={stay.amenities} />
@@ -145,9 +164,14 @@ export const StayDetails = () => {
       <div className="modals">
         <GalleryModal
           imgUrls={stay.imgUrls}
-          modalIsOpen={modalIsOpen}
+          galleryModalIsOpen={galleryModalIsOpen}
           onCloseModal={onCloseModal}
-        ></GalleryModal>
+        />
+
+        <LearnMoreModal
+          learnMoreModalIsOpen={learnMoreModalIsOpen}
+          onCloseModal={onCloseModal}
+        />
       </div>
     </section>
   )

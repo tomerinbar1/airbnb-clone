@@ -14,13 +14,15 @@ export const DetailsDateRange = () => {
   ])
 
   return (
-    <DateRangePicker
-      onChange={item => setState([item.selection])}
-      showSelectionPreview={true}
-      moveRangeOnFirstSelection={false}
-      months={2}
-      ranges={state}
-      direction="horizontal"
-    />
+    <div className="date-range-wrapper">
+      <DateRangePicker
+        onChange={item => setState([item.selection])}
+        showSelectionPreview={true}
+        moveRangeOnFirstSelection={false}
+        months={2}
+        ranges={state}
+        direction="horizontal"
+      />
+    </div>
   )
 }
