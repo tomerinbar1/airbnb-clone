@@ -1,3 +1,5 @@
+// Cereal
+
 @font-face {
   font-family: cereal-regular;
   src: url(../../fonts/cereal/AirbnbCerealLight.ttf);
@@ -6,6 +8,11 @@
   font-family: cereal-Bold;
   src: url(../../fonts/cereal/AirbnbCerealBold.ttf);
 }
+@font-face {
+  font-family: cereal-ExBold;
+  src: url(../../fonts/cereal/AirbnbCerealExtraBold.ttf);
+}
+
 @font-face {
   font-family: cereal-Book;
   src: url(../../fonts/cereal/AirbnbCerealBook.ttf);
@@ -17,4 +24,51 @@
 @font-face {
   font-family: cereal-Medium;
   src: url(../../fonts/cereal/AirbnbCerealMedium.ttf);
+}
+
+
+// Circular
+
+
+@font-face {
+  font-family: circular-Black;
+  src: url(../../fonts/Circular/Circular-Light.ttf);
+}
+@font-face {
+  font-family: circular-Regular;
+  src: url(../../fonts/Circular/Circular-Regular.ttf);
+}
+
+@font-face {
+  font-family: circular-Book;
+  src: url(../../fonts/Circular/Circular-Medium.ttf);
+}
+@font-face {
+  font-family: circular-Bold;
+  src: url(../../fonts/Circular/Circular-Bold.ttf);
+}
+
+// Montserrat
+
+
+@font-face {
+  font-family: montserrat-Regular;
+  src: url(../../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: montserrat-Bold;
+  src: url(../../fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: montserrat-Variable;
+  src: url(../../fonts/Montserrat/Montserrat-VariableFont_weight.ttf);
+}
+
+// Quicksand
+
+@font-face {
+  font-family: quickSand;
+  src: url(../../fonts/misc/Quicksand.ttf);
 }
