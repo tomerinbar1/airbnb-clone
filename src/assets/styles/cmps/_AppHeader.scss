@@ -5,8 +5,7 @@
     border-bottom-color: $clr12;
     min-height: 80px;
     width: 100%;
-    z-index: 50;
-    position: fixed;
+    z-index: 100;
     padding-left: 80px;
     padding-right: 80px;
     display: flex;
@@ -52,7 +51,7 @@
     }
 
     .logo-txt {
-        font-family: cerealBold, sans-serif;
+        font-family: cereal-Bold, sans-serif;
         color: $clr1;
         font-size: 20px;
     }
