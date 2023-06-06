@@ -31,7 +31,10 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
       <li key={idx}>
         <div className="avg-data-wrapper">
           <div className="avg-type">{rate.type}</div>
-          <div className="avg-num">{rate.avg}</div>
+          <div className="avg-num">
+            <progress id="file" value={rate.avg} max="5" />
+            {rate.avg}
+          </div>
         </div>
       </li>
     )
@@ -63,15 +66,18 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
       className="Modal-reviews"
       overlayClassName="Overlay-reviews"
     >
-        {/* <button onClick={() => onCloseModal()}>X</button> */}
-      <div className="reviews-modal-wrapper flex space-between">
+      <div className="reviews-modal-wrapper">
+        <button onClick={() => onCloseModal()}>X</button>
         <section className="rating-details flex column">
-          <div className="rateStat">
-            <StayReviewsStat reviews={reviews} />
-          </div>
+          <StayReviewsStat reviews={reviews} />
           <ul>{avgRatesList}</ul>
         </section>
-        <section className="reviews-list">{renderReview(reviews)}</section>
+        <section className="reviews-list">
+          <div className="search-reviews">
+            <input type="text" placeholder="Search reviews" />
+          </div>
+          <div className="list-reviews">{renderReview(reviews)}</div>
+        </section>
       </div>
     </Modal>
   )

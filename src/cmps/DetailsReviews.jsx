@@ -1,6 +1,7 @@
 import { StayReviewsStat } from './StayReviewsStat'
 
 export const DetailsReviews = ({ reviews, onOpenModal }) => {
+  
   // average rates
 
   const averageRates = reviews => {
@@ -32,8 +33,11 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
       <li key={idx}>
         <div className="avg-data-wrapper">
           <div className="avg-type">{rate.type}</div>
-          <div className="avg-num">{rate.avg}</div>
-        </div>
+          <div className="avg-num">
+          <progress id="file" value={rate.avg} max="5" />
+            {rate.avg}
+          </div>
+        </div> 
       </li>
     ))
   }
@@ -42,9 +46,9 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
 
   function renderReview(review) {
     const truncatedTxt =
-      review.txt.length > 200 ? review.txt.slice(0, 200) + '...' : review.txt
+      review.txt.length > 150 ? review.txt.slice(0, 150) + '...' : review.txt
     const showMoreButton =
-      review.txt.length > 200 ? (
+      review.txt.length > 150 ? (
         <a
           onClick={e => onOpenModal(e, 'reviews-modal')}
           data-modal="reviews-modal"

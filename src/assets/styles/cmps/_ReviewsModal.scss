@@ -16,15 +16,14 @@
   background-color: white;
   overflow-y: hidden;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15);
-  animation: modal-slide-in 0.3s ease-out forwards;
+  animation: modal-slide-in 0.4s ease-out forwards;
   border-radius: 1em;
   padding-top: 72px;
-  padding-inline: 24px;
 
   @keyframes modal-slide-in {
     0% {
       opacity: 0;
-      transform: translate(-50%, -40%);
+      transform: translate(-50%, 100%);
     }
     100% {
       opacity: 1;
@@ -53,6 +52,10 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9999;
   .reviews-modal-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding-left: 24px;
     button {
       position: absolute;
       display: flex;
@@ -72,8 +75,8 @@
       background-color: rgba(0, 0, 0, 0.03);
     }
     .rating-details {
+      width: 300px;
       display: flex;
-    //   flex-direction: column;
       font-size: rem(32px);
       font-family: cereal-Bold;
       color: black;
@@ -96,25 +99,38 @@
         .avg-data-wrapper {
           display: flex;
           justify-content: space-between;
-          width: 311px;
-          margin: 0;
           .avg-type {
             font-size: rem(14px);
             font-family: cereal-Regular;
             color: black;
+            text-transform: capitalize;
           }
           .avg-num {
             font-size: rem(12px);
             font-family: cereal-Bold;
             color: black;
+            display: flex;
+            align-items: center;
+            progress {
+              display: flex;
+              align-items: flex-end;
+              border-radius: 2px;
+              box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26) inset;
+              height: 4px;
+              max-width: 100px;
+              margin-inline-end: 12px;
+            }
+            progress::-webkit-progress-bar {
+              background-color: #b9b9b9;
+            }
+            progress::-webkit-progress-value {
+              background-color: rgb(0, 0, 0);
+            }
           }
         }
         li {
           margin-bottom: 12px;
         }
-      }
-      .rateStat{
-        display: flex;
       }
     }
 
@@ -133,6 +149,58 @@
       }
       100% {
         opacity: 0;
+      }
+    }
+
+    .reviews-list {
+      width: 600px;
+      .list-reviews{
+        overflow-y: scroll;
+        height: 90%;
+      }
+      .user-review {
+        margin-bottom: 40px;
+        .user-review-header {
+          display: flex;
+          align-items: center;
+        }
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin-inline-end: 16px;
+        }
+        h2 {
+          margin: 0;
+          font-size: rem(16px);
+          font-family: cereal-Regular;
+          color: black;
+        }
+
+        p {
+          margin: 0;
+          font-size: rem(14px);
+          font-family: cereal-Regular;
+          color: black;
+        }
+      }
+      .search-reviews{
+        width: 100%;
+        background-color: #ffffff;
+        input {
+          height: 44px;
+          width: 95%;
+          border: 1px solid #29292969;
+          background-color: #f7f7f7;
+          border-radius: 100px;
+          padding-left: 16px;
+          padding-right: 12px;
+          margin-bottom: 24px;
+          font-size: rem(14px);
+        }
+        input:focus {
+          outline: none;
+        }
       }
     }
   }

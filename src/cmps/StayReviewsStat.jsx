@@ -28,7 +28,7 @@ export const StayReviewsStat = ({ reviews }) => {
         {averageRates(reviews)}
       </span>
       <span className="space-dot">·</span>
-      <a href="">{numOfReviews()} reviews</a>
+      <a href="#">{numOfReviews()} reviews</a>
     </div>
   )
 }
