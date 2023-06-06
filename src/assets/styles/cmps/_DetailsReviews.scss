@@ -1,4 +1,5 @@
 .reviews-details-wrapper {
+  position: relative;
   padding-top: 48px;
   .rating-details {
     display: flex;
@@ -19,6 +20,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 36px);
     padding-top: 24px;
+    padding-bottom: 24px;
     ul {
       list-style: none;
       padding-inline: 0;
@@ -39,6 +41,66 @@
           font-size: rem(12px);
           font-family: cereal-Bold;
         }
+      }
+    }
+  }
+  .reviews-wrapper {
+    display: flex;
+    position: relative;
+    max-width: 1136px;
+    height: 588px;
+    .user-review {
+      padding-bottom: 40px;
+      margin-inline-end: 100px;
+      .user-review-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-inline-end: 16px;
+      }
+      .review-head-txt {
+        h2 {
+          margin: 0;
+          font-size: rem(16px);
+          font-family: cereal-Regular;
+        }
+        p {
+          margin: 0;
+          font-size: rem(16px);
+          font-family: cereal-Regular;
+        }
+      }
+    }
+    .user-review-body {
+      p {
+        font-size: rem(16px);
+        font-family: cereal-Regular;
+        margin: 0;
+      }
+    }
+  }
+  .show-all-reviews-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    button {
+      background-color: #f7f7f7;
+      color: black;
+      border: 1px solid black;
+      padding: 13px 23px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: cereal-Medium;
+      font-size: rem(14px);
+      color: #222222;
+      &:hover {
+        filter: brightness(95%);
+        transition: all 0.3s ease-in-out;
       }
     }
   }

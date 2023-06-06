@@ -26,6 +26,13 @@
   src: url(../../fonts/cereal/AirbnbCerealMedium.ttf);
 }
 
+// Cereal WIDE
+@font-face {
+  font-family: cereal-wide-bold;
+  src: url(../../fonts/airbnb-cereal-font/AirbnbCereal_W_XBd.otf);
+}
+
+
 
 // Circular
 
@@ -69,6 +76,23 @@
 // Quicksand
 
 @font-face {
-  font-family: quickSand;
-  src: url(../../fonts/misc/Quicksand.ttf);
+  font-family: quickSand-Regular;
+  src: url(../../fonts/misc/Quicksand-Regular.ttf);
 }
+@font-face {
+  font-family: quickSand-Light;
+  src: url(../../fonts/misc/Quicksand-Light.ttf);
+}
+@font-face {
+  font-family: quickSand-Medium;
+  src: url(../../fonts/misc/Quicksand-Medium.ttf);
+}
+@font-face {
+  font-family: quickSand-SemiBold;
+  src: url(../../fonts/misc/Quicksand-SemiBold.ttf);
+}
+@font-face {
+  font-family: quickSand-Bold;
+  src: url(../../fonts/misc/Quicksand-Bold.ttf);
+}
+
