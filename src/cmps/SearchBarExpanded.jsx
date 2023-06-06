@@ -20,13 +20,27 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
         if (filterBy.txt.length > 0) setSelectedTab("")
     }
 
+    const onChangeTxt = (value) => {
+        console.log(filterBy);
+        onSetFilter({ ...filterBy, txt: value })
+    }
+    // Build function for each inputs
+    // pass the value of the input / select to parent component
+    // parent component will set the filter
+    // the parent component will submit the filter.
+
+
+    const submitFilter = (ev) => {
+        ev.preventDefault()
+    }
+
     const dynClass = isSearchOpen ? "" : "folded"
     return (
-        <div className={`expanded-search-bar ${dynClass}`}>
+        <form onSubmit={submitFilter} className={`expanded-search-bar ${dynClass}`}>
 
             <div onClick={() => setSelectedTab("location")} className="location">
                 <h3>Where</h3>
-                <StayFilterByTxt onSetFilter={onSetFilter} />
+                <StayFilterByTxt onChangeTxt={onChangeTxt} onSetFilter={onSetFilter} />
 
             </div>
             {(selectedTab === 'location' && isSearchOpen) && <LocationSelect dynClass={dynClass} />}
@@ -34,7 +48,6 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
             <div onClick={() => setSelectedTab("checkIn")} className="check-in">
                 <h3>Check in</h3>
                 <div>Add dates</div>
-
             </div>
 
             {(selectedTab === "checkIn" && isSearchOpen) && <div className={`check-in-pick  ${dynClass}`}></div>}
@@ -52,7 +65,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
 
 
 
-                <button className="search-btn">
+                <button type="submit" className="search-btn">
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
@@ -60,7 +73,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
             {(selectedTab === "guest" && isSearchOpen) && <div className={`guests-pick  ${dynClass}`}>
                 <GuestSelect />
             </div>}
-        </div>
+        </form>
 
     )
 }
