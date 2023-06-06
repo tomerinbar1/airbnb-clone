@@ -43,6 +43,7 @@
         justify-self: flex-start;
         justify-content: space-between;
         align-items: center;
+        height: fit-content;
 
         img {
             width: 30px;
@@ -51,7 +52,8 @@
     }
 
     .logo-txt {
-        font-family: cereal-Bold, sans-serif;
+        font-family: cereal-wide-bold, sans-serif;
+        font-weight: bolder;
         color: $clr1;
         font-size: 20px;
     }

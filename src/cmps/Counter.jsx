@@ -1,23 +1,16 @@
-export function Counter({ field, value = 0, onChange }) {
+export function Counter({guestCountChange,guestsCount,field}) {
 
-    function incrementCount() {
-        onChange(field, value + 1)
-    }
 
-    function decrementCount() {
-        onChange(field, value - 1)
-    }
+
+
 
     return (
-        <div className="counter-container flex">
-            <button disabled={!value>0} className="counter-decrease-btn" onClick={decrementCount}>
-              ➖
-            </button>
-            <p className="counter-value">{value}</p>
-            <button className="counter-increase-btn" onClick={incrementCount}>
-            ➕
-            </button>
-        </div>
+        <section className="guest-select-counter">
+
+            <button className="counter-btn" onClick={() => guestCountChange(field, -1)} disabled={guestsCount[field] === 0}>-</button>
+            <span>{guestsCount[field]}</span>
+            <button className="counter-btn" onClick={() => guestCountChange(field, 1)} disabled={guestsCount[field] === 5}>+</button>
+
+        </section>
     )
 }
-
