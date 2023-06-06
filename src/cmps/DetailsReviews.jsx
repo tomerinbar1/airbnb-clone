@@ -1,6 +1,7 @@
 import { StayReviewsStat } from './StayReviewsStat'
 
 export const DetailsReviews = ({ reviews }) => {
+  
   // average rates
 
   const averageRates = reviews => {
