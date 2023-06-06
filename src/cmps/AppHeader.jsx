@@ -28,8 +28,8 @@ export const AppHeader = () => {
 
       <Logo />
 
-      {!isSearchOpen && <SearchBar onExpandSearch={onExpandSearch} />}
-      {/* <SearchBar onExpandSearch={onExpandSearch}/> */}
+      {/* {!isSearchOpen && <SearchBar onExpandSearch={onExpandSearch} />} */}
+      <SearchBar onExpandSearch={onExpandSearch} isSearchOpen={isSearchOpen}/>
       <SearchBarExpanded setSelectedTab={setSelectedTab} isSearchOpen={isSearchOpen} selectedTab={selectedTab} />
       <Navbar />
 

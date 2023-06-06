@@ -15,6 +15,10 @@
         transition: 0.3s;
     }
 
+    &.hide {
+        visibility: hidden;
+    }
+
     button {
         background-color: inherit;
         color: black;
@@ -51,7 +55,7 @@
         margin-left: 4%;
 
         i {
-            color:white;
+            color: white;
         }
     }
 }

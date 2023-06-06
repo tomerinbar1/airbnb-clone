@@ -20,7 +20,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
         if (filterBy.txt.length > 0) setSelectedTab("")
     }
 
-    const dynClass = isSearchOpen ? "expand" : "folded"
+    const dynClass = isSearchOpen ? "" : "folded"
     return (
         <div className={`expanded-search-bar ${dynClass}`}>
 
@@ -29,7 +29,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                 <StayFilterByTxt onSetFilter={onSetFilter} />
 
             </div>
-            {selectedTab === 'location' && <LocationSelect dynClass={dynClass} />}
+            {(selectedTab === 'location' && isSearchOpen) && <LocationSelect dynClass={dynClass} />}
 
             <div onClick={() => setSelectedTab("checkIn")} className="check-in">
                 <h3>Check in</h3>
@@ -37,7 +37,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
 
             </div>
 
-            {selectedTab === "checkIn" && <div className={`check-in-pick  ${dynClass}`}></div>}
+            {(selectedTab === "checkIn" && isSearchOpen) && <div className={`check-in-pick  ${dynClass}`}></div>}
 
             <div onClick={() => setSelectedTab("checkIn")} className="check-out">
                 <h3>Check out</h3>
@@ -57,7 +57,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                 </button>
             </div>
 
-            {selectedTab === "guest" && <div className={`guests-pick  ${dynClass}`}>
+            {(selectedTab === "guest" && isSearchOpen) && <div className={`guests-pick  ${dynClass}`}>
                 <GuestSelect />
             </div>}
         </div>
