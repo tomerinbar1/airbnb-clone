@@ -1,40 +1,68 @@
-.guests-pick{
+.guests-pick {
     position: absolute;
-    background-color:$clr11;
+    background-color: $clr11;
     top: 0;
     right: 0;
     width: 60%;
     height: 450px;
-    border-radius: 15px;
-    margin-top: 10px;
-    transform: translateY(20%);
+    border-radius: 25px;
+    transform: translateY(17%);
     visibility: visible;
+    cursor: auto;
+    padding: 0;
 
-    // .guest-select-row{
-    //     color: $clr11;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: space-between;
-    //     padding-top: 24px;
-    //     padding-bottom: 24px;
-    //     padding-right: 4px;
-    //     border-bottom: 1px solid;
+    .guest-select-container {
+        height: 100%;
+        margin: auto;
+        width: 85%;
+        display: flex;
+        flex-direction: column;
 
-    //     &:last-child {
-    //         border-bottom: none;
-    //     }
-    // }
+    }
 
-    // .guest-select-title{
-    //     font-size: rem(16px) ;
-    //     line-height: 20px;
-    //     font-family: cereal;
-    //     padding-bottom: em(6px);
-    // }
+    .guest-select-row {
+        // width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid;
+        flex:1;
 
-    // .guest-select-sub-title{
-    //     font-size: rem(14px);
-    //     line-height: 18px;
-    //     font-family: cereal;
-    // }
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .guest-select-title {
+        font-size: rem(16px);
+        line-height: 20px;
+        // font-family: cereal;
+        padding-bottom: em(6px);
+    }
+
+    .guest-select-sub-title {
+        font-size: rem(14px);
+        line-height: 18px;
+        // font-family: cereal;
+    }
+
+    .guest-select-counter {
+        width: 104px;
+        height: 32px;
+    }
+
+    .counter-btn {
+        border-radius: 50%;
+        height: 35px;
+        width: 35px;
+        background-color: $clr11;
+        border: 1px solid $clr14 ;
+
+        &:disabled {
+            cursor: not-allowed;
+
+        }
+    }
 }

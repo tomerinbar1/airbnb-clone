@@ -16,8 +16,8 @@
 @import 'views/StayDetails';
 @import 'views/StayIndex';
 
-
 // Components
+
 //Header
 @import 'cmps/AppHeader';
 @import 'cmps/Login';
@@ -49,3 +49,8 @@
 @import 'cmps/DetailsReviews';
 @import 'cmps/_DateRangePicker';
 @import 'cmps/LearnMoreModal';
+
+//multiuse
+@import 'cmps/counter';
+
+
