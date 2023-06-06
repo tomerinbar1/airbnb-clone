@@ -1,7 +1,7 @@
+import { render } from '@testing-library/react'
 import { StayReviewsStat } from './StayReviewsStat'
 
 export const DetailsReviews = ({ reviews }) => {
-  
   // average rates
 
   const averageRates = reviews => {
@@ -41,27 +41,35 @@ export const DetailsReviews = ({ reviews }) => {
 
   // reviews
 
-  const userReview = reviews.map(review => {
+  function renderReview(review) {
     return (
-      <div className="review-wrapper" key={review.id}>
-        <div className="user-review">
-          <div className="userName">
-            <h2>{review.by.fullname}</h2>
-          </div>
-          <div className="createdAt">May 2023</div>
-        </div>
-        <div className="user-img">
+      <div className="user-review" key={review.id}>
+        <div className="user-review-header">
           <img src={review.by.imgUrl} alt="" />
+          <div className="review-head-txt">
+            <h2>{review.by.fullname}</h2>
+            <p>Sep 2023</p>
+          </div>
         </div>
-        <div className="review">
+        <div className="user-review-body">
           <p>{review.txt}</p>
         </div>
       </div>
     )
-  })
+  }
 
-  const sliceReviews = (start, end) => {
-    return userReview.slice(start, end)
+  function renderReviews(column) {
+    if (column === 'left') {
+      const leftReviews = reviews.slice(0, 3)
+      return leftReviews.map(review => renderReview(review))
+    }
+
+    if (column === 'right') {
+      const rightReviews = reviews.slice(3, 6)
+      return rightReviews.map(review => renderReview(review))
+    }
+
+    return []
   }
 
   return (
@@ -69,19 +77,21 @@ export const DetailsReviews = ({ reviews }) => {
       <div className="rating-details">
         <StayReviewsStat reviews={reviews} />
       </div>
-      <div className="reviews-avg-data">
+      <section className="reviews-avg-data">
         <div className="reviews-avg-data-left">
           <ul>{sliceAvgRates(0, 3)}</ul>
         </div>
         <div className="reviews-avg-data-right">
           <ul>{sliceAvgRates(3, 6)}</ul>
         </div>
-      </div>
-      <div className="reviews-wrapper">
-        <div className="reviews-left">{sliceReviews(0, 3)}</div>
-        <div className="reviews-right">{sliceAvgRates(3, 6)}</div>
-        <button>Show all {reviews.length} reviews</button>
-      </div>
+      </section>
+      <section className="reviews-wrapper">
+        <div className="left-reviews"> {renderReviews('left')}</div>
+        <div className="right-reviews">{renderReviews('right')}</div>
+      </section>
+        <div className="show-all-reviews-btn">
+          <button>Show all {reviews.length} reviews</button>
+        </div>
     </div>
   )
 }

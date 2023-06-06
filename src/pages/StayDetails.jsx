@@ -42,14 +42,6 @@ export const StayDetails = () => {
     setLearnMoreModalIsOpen(false)
   }
 
-  // const onOpenModal = () => {
-  //   setModalIsOpen(true)
-  // }
-
-  // const onCloseModal = () => {
-  //   setModalIsOpen(false)
-  // }
-
   if (!stay) return <div>Loading...</div>
   return (
     <section className="stay-details">
@@ -90,6 +82,9 @@ export const StayDetails = () => {
 
         <div className="stay-details-info-right"> // Order Modal // </div>
       </div>
+      
+      <hr className="custom-hr" />
+
       <DetailsReviews reviews={stay.reviews} />
       <div className="map">map render here</div>
       <div className="host-info">
