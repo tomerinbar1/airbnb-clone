@@ -8,16 +8,20 @@
     z-index: 100;
     padding-left: 80px;
     padding-right: 80px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     position: relative;
     position: fixed;
     flex: 1;
+    transition: 0.5s;
+
 
     &.search-bar-open {
+        // transform: scaleY(2); 
         height: 160px;
-        transition: 0.3s;
-
+        // transform-origin: top;
+        transition: 0.5s;
     }
 
     .main-screen-full {
@@ -40,10 +44,11 @@
 
     .main-logo {
         cursor: pointer;
-        justify-self: flex-start;
+        justify-self:start;
         justify-content: space-between;
         align-items: center;
         height: fit-content;
+        align-self: center;
 
         img {
             width: 30px;

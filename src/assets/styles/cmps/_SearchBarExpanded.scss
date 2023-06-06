@@ -3,22 +3,27 @@
     max-width: 700px;
     height: 66px;
     background-color: $clr13;
-    // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 100vw;
     display: flex;
     cursor: pointer;
     font-size: rem(14px);
     font-family: cereal, sans-serif;
     position: absolute;
-    top: 0;
-    left: 0;
-    translate: 25%  -200%;
+    top: 50%;
+    left: 50%;
+    translate: -50% 15%;
+    // scale: 0.57 0.74;
+    transition: all 0.4s;
 
-    &.expand{
-        translate: 0 0;
-        position: relative;
-        align-self: end;
-        bottom: 0;
+    &.folded {
+        visibility: hidden;
+        // top: 50%;
+        // left: 50%;
+        translate: -50% -50%;
+        scale: 0.57 0.74;
+        
+        // opacity: 0;
+
     }
 
     &>* {
@@ -29,7 +34,7 @@
     }
 
     &>*:hover {
-        background-color:$clr11;
+        background-color: $clr11;
     }
 
     h3 {
@@ -58,22 +63,22 @@
         justify-content: space-between;
 
         .search-btn {
-            background-color:$clr1;
+            background-color: $clr1;
             border-radius: 50%;
             width: 40px;
             height: 40px;
             padding-top: 3px;
             margin-top: 7px;
-            color:$clr11;
+            color: $clr11;
             align-self: center;
 
             i {
-                color:$clr11;
+                color: $clr11;
             }
         }
     }
 
-    .check-in-pick{
+    .check-in-pick {
         position: absolute;
         background-color: $clr11;
         top: 0;
@@ -101,9 +106,6 @@
 
 
 
-    .folded{
-        visibility: hidden;
 
-    }
 
 }
