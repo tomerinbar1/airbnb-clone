@@ -11,7 +11,7 @@ export  function LabelsFilter() {
 // console.log(categories)
   return (
     <section className="categories-container">
-      <section className="categories">
+      {/* <section className="categories"> */}
         <CarouselLabels categories = {categories} />
 
       {/* {categories.map((category) => { */}
@@ -29,7 +29,7 @@ export  function LabelsFilter() {
         ) */}
       {/* })} */}
 
-      </section>
+      {/* </section> */}
       <section className="categories-filter-buttons">
       <button className="categories-filter-button"> <img className="filter-Icon-labels"  src={filterIcon} alt="" /> Filters</button>
       </section>
