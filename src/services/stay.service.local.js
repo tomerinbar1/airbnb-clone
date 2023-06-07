@@ -24,7 +24,7 @@ function getDefaultFilter() {
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
-  console.log(filterBy)
+  // console.log(filterBy)
   var stays = await storageService.query(STORAGE_KEY)
   let staysToDisplay = stays
   if (filterBy.txt) {
