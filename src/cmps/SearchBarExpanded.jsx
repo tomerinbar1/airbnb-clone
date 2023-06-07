@@ -1,4 +1,4 @@
-import {  useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { stayServiceLocal } from "../services/stay.service.local"
 import { loadStays } from "../store/stay.actions"
@@ -9,7 +9,7 @@ import { DateSelect } from "./DateSelect"
 import fi from "date-fns/locale/fi"
 
 
-export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,staySearchParams }) {
+export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, staySearchParams }) {
     const [filterBy, setFilterBy] = useState(stayServiceLocal.getDefaultFilter())
     const navigate = useNavigate()
     const [guestsCount, setGuestsCount] = useState({
@@ -41,7 +41,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,st
         onSetFilter({ ...filterBy, guests: totalCount })
     }
 
-    
+
 
 
     const getGuestsSubTitleCount = (guestsCount) => {
@@ -64,18 +64,16 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,st
         return guestSubTitle
     }
 
- 
+
 
 
     function checkForActiveClass(category) {
         return (selectedTab === category) ? ' active' : ''
     }
-    // submits on every click of guests for some reason
+
     const submitFilter = (ev) => {
         ev.preventDefault()
-        // loadStays(filterBy)
-        // put filter on query params
-         navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${filterBy.guests || 1}`)
+        navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${filterBy.guests || 1}`)
     }
 
     const dynClass = isSearchOpen ? "" : "folded"
@@ -94,7 +92,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,st
                 <h3>Check in</h3>
                 <div>Add dates</div>
             </div>
-            {(selectedTab === "checkIn" && isSearchOpen) && <DateSelect/>}
+            {(selectedTab === "checkIn" && isSearchOpen) && <DateSelect />}
 
 
             <div onClick={() => setSelectedTab("checkOut")} className={`check-out  ${checkForActiveClass("checkOut")} `}>
@@ -102,7 +100,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,st
                 <div>Add dates</div>
             </div>
             {/* {(selectedTab === "checkOut" && isSearchOpen) && <div className={`check-in-pick  ${dynClass}`}></div>} */}
-            {(selectedTab === "checkOut" && isSearchOpen) && <DateSelect/>}
+            {(selectedTab === "checkOut" && isSearchOpen) && <DateSelect />}
 
 
 
@@ -112,7 +110,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,st
                     <div>{getGuestsSubTitleCount(guestsCount)}</div>
                 </div>
             </div>
-            
+
             <button type="submit" className="search-btn">
                 <i className="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -121,7 +119,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,st
                     onChangeGuests={onChangeGuests}
                     guestsCount={guestsCount}
                     setGuestsCount={setGuestsCount}
-                    />
+                />
             </div>}
 
 

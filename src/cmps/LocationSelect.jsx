@@ -19,7 +19,7 @@ export function LocationSelect({ onChangeLocation }) {
             <div className="location-grid-container">
                 {locations.map(location => {
                     return (
-                        <div className="location" key={location.name}>
+                        <div className="location-card" key={location.name}>
                             <div className="location-btn" onClick={() => onChangeLocation(location.name)}>
                                 <img src={location.imgUrl} alt={location.name} />
                             </div>

@@ -1,12 +1,8 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
-<<<<<<< HEAD
-import { default as data } from '../data/data.json'
-=======
 // import {default as data} from '../data/data.json'
 import {default as stay} from '../data/stay.json'
->>>>>>> 0f3392f1416ddbdc843061e26f91a6cf9f9d67c1
 
 const STORAGE_KEY = 'stayDB'
 

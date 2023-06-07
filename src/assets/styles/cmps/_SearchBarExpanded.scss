@@ -7,7 +7,7 @@
     display: flex;
     cursor: pointer;
     font-size: rem(14px);
-    font-family: cereal, sans-serif;
+    font-family: circular-Regular, sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,7 +34,7 @@
 
     h3 {
         font-size: rem(12px);
-        font-family: cerealBold, sans-serif;
+        font-family: circular-Book;
         height: 18px;
     }
 
@@ -122,8 +122,8 @@
         left: 0;
         width: 100%;
         height: 450px;
-        border-radius: 15px;
-        margin-top: 10px;
+        border-radius: 30px;
+        border: 1px solid $clr12;        margin-top: 10px;
         transform: translateY(15%);
         visibility: visible;
     }
