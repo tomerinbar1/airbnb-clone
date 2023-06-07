@@ -4,43 +4,44 @@ import { utilService } from "../services/util.service.js"
 import { stayServiceLocal } from "../services/stay.service.local.js"
 
 
-export function StayFilterByTxt({ onSetFilter }) {
+export function StayFilterByTxt({ onSetFilter,onChangeTxt }) {
     const [filterByToEdit, setFilterByToEdit] = useState(stayServiceLocal.getDefaultFilter())
 
-    onSetFilter = useRef(utilService.debounce(onSetFilter))
+    // onSetFilter = useRef(utilService.debounce(onSetFilter))
 
-    const elInputRef = useRef(null)
+    // const elInputRef = useRef(null)
 
-    useEffect(() => {
-        elInputRef.current.focus()
-    }, [])
+    // useEffect(() => {
+    //     elInputRef.current.focus()
+    // }, [])
 
-    useEffect(() => {
-        onSetFilter.current(filterByToEdit)
-    }, [filterByToEdit])
+    // useEffect(() => {
+    //     onSetFilter.current(filterByToEdit)
+    // }, [filterByToEdit])
 
-    function handleChange({ target }) {
-        const field = target.name
-        const value = target.type === 'number' ? (+target.value || '') : target.value
-        setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, [field]: value }))
-    }
+    // function handleChange({ target }) {
+    //     const field = target.name
+    //     const value = target.type === 'number' ? (+target.value || '') : target.value
+    //     setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, [field]: value }))
+    // }
 
-    function onSubmitFilter(ev) {
+    const onSubmitFilter = (ev) => {
         ev.preventDefault()
         onSetFilter(filterByToEdit)
     }
 
 
     return <section className="stay-filter">
-        <form onSubmit={onSubmitFilter}>
+        {/* <form onSubmit={onSubmitFilter}> */}
             <input type="text"
                 id="txt"
                 name="txt"
                 placeholder="Where are you going?"
-                onChange={handleChange}
-                ref={elInputRef}
+                // onChange={handleChange}
+                onChange={({target}) => utilService.debounce(onChangeTxt(target.value))}
+                // ref={elInputRef}
             />
-        </form>
+        {/* </form> */}
 
     </section>
 }

@@ -1,7 +1,7 @@
-import { render } from '@testing-library/react'
 import { StayReviewsStat } from './StayReviewsStat'
 
-export const DetailsReviews = ({ reviews }) => {
+export const DetailsReviews = ({ reviews, onOpenModal }) => {
+  
   // average rates
 
   const averageRates = reviews => {
@@ -33,8 +33,11 @@ export const DetailsReviews = ({ reviews }) => {
       <li key={idx}>
         <div className="avg-data-wrapper">
           <div className="avg-type">{rate.type}</div>
-          <div className="avg-num">{rate.avg}</div>
-        </div>
+          <div className="avg-num">
+          <progress id="file" value={rate.avg} max="5" />
+            {rate.avg}
+          </div>
+        </div> 
       </li>
     ))
   }
@@ -42,6 +45,18 @@ export const DetailsReviews = ({ reviews }) => {
   // reviews
 
   function renderReview(review) {
+    const truncatedTxt =
+      review.txt.length > 150 ? review.txt.slice(0, 150) + '...' : review.txt
+    const showMoreButton =
+      review.txt.length > 150 ? (
+        <a
+          onClick={e => onOpenModal(e, 'reviews-modal')}
+          data-modal="reviews-modal"
+        >
+          Show More
+        </a>
+      ) : null
+
     return (
       <div className="user-review" key={review.id}>
         <div className="user-review-header">
@@ -52,7 +67,8 @@ export const DetailsReviews = ({ reviews }) => {
           </div>
         </div>
         <div className="user-review-body">
-          <p>{review.txt}</p>
+          <p>{truncatedTxt}</p>
+          {showMoreButton}
         </div>
       </div>
     )
@@ -86,12 +102,18 @@ export const DetailsReviews = ({ reviews }) => {
         </div>
       </section>
       <section className="reviews-wrapper">
-        <div className="left-reviews"> {renderReviews('left')}</div>
-        <div className="right-reviews">{renderReviews('right')}</div>
-      </section>
+        {renderReviews('left')}
+        {renderReviews('right')}
+
         <div className="show-all-reviews-btn">
-          <button>Show all {reviews.length} reviews</button>
+          <button
+            onClick={e => onOpenModal(e, 'reviews-modal')}
+            data-modal="reviews-modal"
+          >
+            Show all {reviews.length} reviews
+          </button>
         </div>
+      </section>
     </div>
   )
 }
