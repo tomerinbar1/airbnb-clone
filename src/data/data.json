@@ -10,9 +10,9 @@
             "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436952/aef9ajipinpjhkley1e3.jpg",
             "http://res.cloudinary.com/dmtlr2viw/image/upload/v1663436948/vgfxpvmcpd2q40qxtuv3.jpg"
         ],
-        "price": "82",
+        "price": 82,
         "summary": "Moshe's house, stays under 7 night $38/res - Inquire about availability, I review then offer/approve if available :) - READ \"The Space\" for cleaning/etc AND brief explanation about timeshare reservations - Want guaranteed view for additional cost? Must be weekly rental, other restrictions - Wheelchair accessible / ADA, call resort directly to ensure U receive. If U need ADA U MUST inform us BEFORE booking.",
-        "capacity": "5",
+        "capacity": 5,
         "amenities": [
             "TV",
             "Wifi",
@@ -762,7 +762,7 @@
         ],
         "price": 79,
         "summary": "A spacious, art-filled one-bedroom apartment near the express train (28 minutes to Times Square) and a Citibike station. Sample Bed-Stuy life at a nearby French restaurant,  a sunny Haitian cafe, a boutique grocery and more. We do NOT discriminate based on race, religion or sexual orientation.",
-        "capacity": 2,
+        "capacity": 10,
         "amenities": [
             "Wifi",
             "Air conditioning",
@@ -2027,7 +2027,7 @@
         ],
         "price": 29,
         "summary": "If the dates you wish are not available, we have other options in the same location. You can find them on my profile. My goal is for you to have your days with the most comfort i can propose. I want you to taste all the feelings in Porto, as our food, as our best places, our best pointviews. I just love to help you enjoying this beautiful city :)",
-        "capacity": 2,
+        "capacity": 4,
         "amenities": [
             "TV",
             "Wifi",
@@ -2569,7 +2569,7 @@
         ],
         "price": 105,
         "summary": "Welcome if you want to stay at a cozy flat with local experience.:) It is in the center of Istanbul.The neighborhood is safe and close to attractions.Transportation is easy. I will help you always.",
-        "capacity": 2,
+        "capacity": 6,
         "amenities": [
             "TV",
             "Wifi",
