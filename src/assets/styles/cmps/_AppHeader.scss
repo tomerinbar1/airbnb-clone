@@ -1,27 +1,21 @@
 .app-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    min-height: 80px;
     background-color: $clr11;
+    position: fixed;
     padding: 10px;
     border-bottom: 1px solid;
     border-bottom-color: $clr12;
-    min-height: 80px;
-    width: 100%;
     z-index: 100;
     padding-left: 80px;
     padding-right: 80px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
-    position: relative;
-    position: fixed;
-    flex: 1;
-    transition: 0.5s;
-
 
     &.search-bar-open {
-        // transform: scaleY(2); 
         height: 160px;
-        // transform-origin: top;
-        transition: 0.5s;
+        align-content: baseline;
     }
 
     .main-screen-full {
