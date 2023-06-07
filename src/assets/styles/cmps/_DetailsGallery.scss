@@ -3,13 +3,11 @@
   grid-template-columns: repeat(2, 1fr);
   padding-top: 16px;
   grid-gap: 7px;
-  height: 560px;
-  max-width: auto;
+  width: 100%;
 
   .main-photo {
     img {
-      height: 560px;
-      width: auto;
+      width: 100%;
       object-fit: cover;
       aspect-ratio: 1/1;
       border-top-left-radius: 0.5em;
@@ -26,7 +24,6 @@
     position: relative;
     flex: 1;
     aspect-ratio: 1/1;
-    height: 560px;
     width: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

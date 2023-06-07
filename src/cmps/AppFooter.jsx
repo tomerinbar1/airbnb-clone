@@ -1,6 +1,10 @@
 import footer from '../assets/img/icons/footer-icon.jpeg'
 
+
 export const AppFooter = () => {
+
+    
+
     return (
         <footer className="app-footer full">
 

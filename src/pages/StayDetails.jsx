@@ -12,13 +12,15 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
 import { LearnMoreModal } from '../cmps/LearnMoreModal.jsx'
+import { ReviewsModal } from '../cmps/ReviewsModal.jsx'
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
   const { stayId } = useParams()
   const [galleryModalIsOpen, setGalleryModalIsOpen] = useState(false)
   const [learnMoreModalIsOpen, setLearnMoreModalIsOpen] = useState(false)
-  
+  const [reviewsModalIsOpen, setReviewsModalIsOpen] = useState(false)
+
   useEffect(() => {
     const loadStaysOnDetails = async () => {
       const stays = await loadStays()
@@ -34,12 +36,15 @@ export const StayDetails = () => {
       setGalleryModalIsOpen(true)
     } else if (modal === 'learn-more-modal') {
       setLearnMoreModalIsOpen(true)
+    } else if (modal === 'reviews-modal') {
+      setReviewsModalIsOpen(true)
     }
   }
 
   const onCloseModal = () => {
     setGalleryModalIsOpen(false)
     setLearnMoreModalIsOpen(false)
+    setReviewsModalIsOpen(false)
   }
 
   if (!stay) return <div>Loading...</div>
@@ -85,7 +90,11 @@ export const StayDetails = () => {
       
       <hr className="custom-hr" />
 
-      <DetailsReviews reviews={stay.reviews} />
+      <DetailsReviews reviews={stay.reviews} onOpenModal={onOpenModal} />
+
+      <hr className="custom-hr" />
+
+      
       <div className="map">map render here</div>
       <div className="host-info">
         <h2>Drimnin, Scotland, United Kingdom</h2>
@@ -166,6 +175,11 @@ export const StayDetails = () => {
         <LearnMoreModal
           learnMoreModalIsOpen={learnMoreModalIsOpen}
           onCloseModal={onCloseModal}
+        />
+        <ReviewsModal
+          reviewsModalIsOpen={reviewsModalIsOpen}
+          onCloseModal={onCloseModal}
+          reviews={stay.reviews}
         />
       </div>
     </section>
