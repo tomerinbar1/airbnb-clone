@@ -131,7 +131,7 @@
     padding: 4px 0;
     position: relative;
     min-width: 56px;
-    color: #717171;
+    color: $clr15;
     font-family: circular-Bold;
     font-weight: 600;
     display: flex;
@@ -145,7 +145,7 @@
     }
 
     .category-name {
-        color: #717171;
+        color: $clr15;
         font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif; // height: 100%;
         line-height: 0.8888em;
         white-space: nowrap;

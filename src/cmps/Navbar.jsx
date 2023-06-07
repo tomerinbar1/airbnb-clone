@@ -1,4 +1,4 @@
-import { Login } from "./Login";
+import { UserMenu } from "./user/UserMenu";
 import { FiGlobe } from 'react-icons/fi';
 
 
@@ -12,7 +12,7 @@ export function Navbar() {
         <div className="main-nav">
             <div className="add-own-homw-btn">Airist your home</div>
             <button className="language-btn"><FiGlobe /></button>
-            <Login/>
+            <UserMenu/>
         </div>
     )
 }

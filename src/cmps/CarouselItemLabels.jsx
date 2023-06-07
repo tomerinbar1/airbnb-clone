@@ -3,9 +3,9 @@ import React from "react";
 export const CarouselItemLabels = ({ page, width }) => {
   return (
     <div className="carousel-item" style={{ width: width }}>
-      {page.map((icon) => {
+      {page.map((icon , index) => {
         return (
-          <span className="category-carousel-item">
+          <span key={index} className="category-carousel-item">
             <img
               style={{ width: '25px', height: '25px' }}
               src={require(`../assets/img/categories/${icon.url}.png`)}

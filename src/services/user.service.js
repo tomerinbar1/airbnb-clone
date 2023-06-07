@@ -13,7 +13,7 @@ export const userService = {
     getById,
     remove,
     update,
-    changeScore
+    getEmptyCredentials,
 }
 
 window.userService = userService
@@ -57,8 +57,8 @@ async function login(userCred) {
     }
 }
 async function signup(userCred) {
-    userCred.score = 10000
-    if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
+    // userCred.score = 10000
+    // if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
     const user = await storageService.post('user', userCred)
     // const user = await httpService.post('auth/signup', userCred)
     return saveLocalUser(user)
@@ -68,13 +68,22 @@ async function logout() {
     // return await httpService.post('auth/logout')
 }
 
-async function changeScore(by) {
-    const user = getLoggedinUser()
-    if (!user) throw new Error('Not loggedin')
-    user.score = user.score + by || by
-    await update(user)
-    return user.score
-}
+function getEmptyCredentials() {
+    return {
+      fullname: '',
+      username: '',
+      password: '',
+      isAdmin: false,
+    }
+  }
+
+// async function changeScore(by) {
+//     const user = getLoggedinUser()
+//     if (!user) throw new Error('Not loggedin')
+//     user.score = user.score + by || by
+//     await update(user)
+//     return user.score
+// }
 
 
 function saveLocalUser(user) {
