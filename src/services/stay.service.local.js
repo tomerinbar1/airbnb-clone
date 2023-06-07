@@ -1,9 +1,14 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+<<<<<<< HEAD
 import { default as data } from '../data/data.json'
+=======
+// import {default as data} from '../data/data.json'
+import {default as stay} from '../data/stay.json'
+>>>>>>> 0f3392f1416ddbdc843061e26f91a6cf9f9d67c1
 
-const STORAGE_KEY = 'stay'
+const STORAGE_KEY = 'stayDB'
 
 let gStays
 _createStays()
@@ -117,7 +122,7 @@ function _createStays() {
   gStays = utilService.loadFromStorage(STORAGE_KEY)
   if (gStays && gStays.length > 0) return
 
-  gStays = data
+  gStays = stay
   _saveStays()
 }
 

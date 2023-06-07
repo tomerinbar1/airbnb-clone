@@ -43,7 +43,7 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
   function renderReview(reviews) {
     return reviews.map(review => {
       return (
-        <div className="user-review" key={review.id}>
+        <div className="user-review" key={review._id}>
           <div className="user-review-header">
             <img src={review.by.imgUrl} alt="" />
             <div className="review-head-txt">

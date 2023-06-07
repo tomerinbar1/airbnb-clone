@@ -3,11 +3,13 @@ import { Provider } from 'react-redux'
 import { StayDetails } from './pages/StayDetails'
 import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'
-import '../src/assets/styles/main.scss'
 import { StayIndex } from './pages/StayIndex'
 import { store } from './store/store'
 import { StayEdit } from './pages/StayEdit'
-import { UserMsg } from './cmps/user-msg'
+import { UserMsg } from './cmps/user/user-msg'
+import { Wishlist } from './cmps/user/WishList'
+import { Trips } from './cmps/user/Trips'
+import '../src/assets/styles/main.scss'
 
 function App() {
   return (
@@ -17,14 +19,15 @@ function App() {
           <AppHeader />
           <main className="main-app">
             <Routes>
-              <Route  path="/" element={<StayIndex />} />
-              <Route path="/stay/edit/:stayId" element={<StayEdit />}  />
+              <Route path="/" element={<StayIndex />} />
+              <Route path="/stay/edit/:stayId" element={<StayEdit />} />
               <Route path="/:stayId" element={<StayDetails />} />
-              {/* <Route element={<StayEdit />} path="/stay/edit" /> */}
+              <Route path='/trip' element={<Trips />}/>
+              <Route path='/wishlist' element={<Wishlist />} />
             </Routes>
           </main>
           <AppFooter />
-          <UserMsg/>
+          <UserMsg />
         </section>
       </Router>
     </Provider>

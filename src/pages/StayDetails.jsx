@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { loadStays } from '../store/stay.actions.js'
 import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
 import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
@@ -8,9 +11,6 @@ import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
 import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
 import { DetailsReviews } from '../cmps/DetailsReviews.jsx'
 import { GalleryModal } from '../cmps/GalleryModal.jsx'
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { loadStays } from '../store/stay.actions.js'
 import { LearnMoreModal } from '../cmps/LearnMoreModal.jsx'
 import { ReviewsModal } from '../cmps/ReviewsModal.jsx'
 
@@ -63,6 +63,8 @@ export const StayDetails = () => {
             capacity={stay.capacity}
             host={stay.host.fullname}
             imgUrl={stay.host.imgUrl}
+            bathrooms={stay.bathrooms}
+            bedrooms={stay.bedrooms}
           />
           <hr className="custom-hr" />
 
