@@ -1,9 +1,10 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
-import {default as data} from '../data/data.json'
+// import {default as data} from '../data/data.json'
+import {default as stay} from '../data/stay.json'
 
-const STORAGE_KEY = 'stay'
+const STORAGE_KEY = 'stayDB'
 
 let gStays
 _createStays()
@@ -19,7 +20,7 @@ export const stayServiceLocal = {
 }
 window.cs = stayServiceLocal
 
-function getDefaultFilter() {
+export function getDefaultFilter() {
   return { txt: '' }
 }
 
@@ -108,7 +109,7 @@ function _createStays() {
   gStays = utilService.loadFromStorage(STORAGE_KEY)
   if (gStays && gStays.length > 0) return
 
-  gStays = data
+  gStays = stay
   _saveStays()
 }
 

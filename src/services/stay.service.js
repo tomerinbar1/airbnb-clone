@@ -1,14 +1,14 @@
 
-// import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
+import { storageService } from './async-storage.service.js'
 import { userService } from './user.service.js'
 
-
+const BASE_URL = '/'
 const STORAGE_KEY = 'Stay'
 
 export const StayService = {
-    query,
+    getStays,
     getById,
     save,
     remove,
@@ -21,21 +21,21 @@ window.cs = StayService
 function getDefaultFilter() {
     return { title: '' }
 }
-async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(STORAGE_KEY, filterBy)
+async function getStays(filterBy = getDefaultFilter()) {
+    return await httpService.get(BASE_URL, filterBy)
 }
 
 function getById(StayId) {
-    return httpService.get(`Stay/${StayId}`)
+    return httpService.get(`/${StayId}`)
 }
 
 async function remove(StayId) {
-    return httpService.delete(`Stay/${StayId}`)
+    return httpService.delete(`/${StayId}`)
 }
 async function save(Stay) {
     var savedStay
     if (Stay._id) {
-        savedStay = await httpService.put(`Stay/${Stay._id}`, Stay)
+        savedStay = await httpService.put(`/${Stay._id}`, Stay)
 
     } else {
         savedStay = await httpService.post('Stay', Stay)
@@ -44,7 +44,7 @@ async function save(Stay) {
 }
 
 async function addStayMsg(StayId, txt) {
-    const savedMsg = await httpService.post(`Stay/${StayId}/msg`, { txt })
+    const savedMsg = await httpService.post(`/${StayId}/msg`, { txt })
     return savedMsg
 }
 
