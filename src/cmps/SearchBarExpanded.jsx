@@ -77,7 +77,6 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, s
     }
 
     const dynClass = isSearchOpen ? "" : "folded"
-    console.log(selectedTab);
     return (
         <form onSubmit={submitFilter} className={`expanded-search-bar ${dynClass}`}>
 

@@ -19,10 +19,9 @@ export const stayService = {
 window.cs = stayService
 
 function getDefaultFilter() {
-    return { title: '' }
+    return { txt: '', location:'', guests:1 }
 }
 async function getStays(filterBy = getDefaultFilter()) {
-    console.log('hello');
     return await httpService.get(BASE_URL, filterBy)
 }
 
