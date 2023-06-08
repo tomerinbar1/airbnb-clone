@@ -4,11 +4,11 @@ import { removeStay , saveStay} from '../store/stay.actions.js'
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
 import { Link } from 'react-router-dom'
 import { uploadService } from '../services/upload.service.js'
-import { stayServiceLocal } from '../services/stay.service.local.js'
+import { stayService } from '../services/stay.service.js'
 
 export function StayEdit() {
 
-    const [stayToEdit, setStayToEdit] = useState(stayServiceLocal.getEmptyStay())
+    const [stayToEdit, setStayToEdit] = useState(stayService.getEmptyStay())
     const [stayImage, setStayImage] = useState(null)
 
 
@@ -32,7 +32,7 @@ export function StayEdit() {
 
 
     async function onAddStay() {
-        const newStay = stayServiceLocal.getEmptyStay()
+        const newStay = stayService.getEmptyStay()
         newStay.name = prompt('Stay\'s name?')
         newStay.price = prompt('Stay\'s price?')
         setStayToEdit(newStay)
@@ -58,7 +58,7 @@ export function StayEdit() {
 
     async function loadStay() {
         try {
-            const stay = await stayServiceLocal.getById(stayId)
+            const stay = await stayService.getById(stayId)
             setStayToEdit(stay)
         }
         catch (err) {
@@ -77,7 +77,7 @@ export function StayEdit() {
     async function onSaveStay(ev) {
         ev.preventDefault()
         try {
-            const savedStay = await stayServiceLocal.save(stayToEdit)
+            const savedStay = await stayService.save(stayToEdit)
             // saveStay(stayToEdit)
             // console.log('stay saved', savedStay)
             navigate('/')

@@ -24,14 +24,14 @@ export function stayReducer(state = initialState, action) {
             return { ...state, isLoading: action.isLoading }
         case REQUEST_STAYS:
             // get stay from local storage
-            const stays = JSON.parse(localStorage.getItem('stays'))
+            // const stays = JSON.parse(localStorage.getItem('stays'))
             if (stays && stays.length) {
                 return { ...state, stays, isLoading: false }
             }
             return { ...state, isLoading: true }
         case SET_STAYS:
             // set localstorage
-            localStorage.setItem('stays', JSON.stringify(action.stays))
+            // localStorage.setItem('stays', JSON.stringify(action.stays))
             return { ...state, stays: action.stays }
         case REMOVE_STAY:
             stays = state.stays.filter(c => c._id !== action.stayId)

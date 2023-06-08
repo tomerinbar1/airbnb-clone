@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux'
 import { loadStays, saveStay, removeStay } from '../store/stay.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
-import { stayServiceLocal } from '../services/stay.service.local.js'
 
 import { StayList } from '../cmps/StayList.jsx'
 import { LabelsFilter } from '../cmps/LabelsFilter.jsx'

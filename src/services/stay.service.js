@@ -7,7 +7,7 @@ import { userService } from './user.service.js'
 const BASE_URL = '/'
 const STORAGE_KEY = 'Stay'
 
-export const StayService = {
+export const stayService = {
     getStays,
     getById,
     save,
@@ -16,12 +16,13 @@ export const StayService = {
     addStayMsg,
     getDefaultFilter
 }
-window.cs = StayService
+window.cs = stayService
 
 function getDefaultFilter() {
     return { title: '' }
 }
 async function getStays(filterBy = getDefaultFilter()) {
+    console.log('hello');
     return await httpService.get(BASE_URL, filterBy)
 }
 
