@@ -2,13 +2,15 @@ import { Link} from 'react-router-dom'
 import { StayPreviewStar } from './StayPreviewStar'
 import { Carousel } from './Carousel'
 import { HeartIcon } from './PreviewHeart'
+import { useLocation } from 'react-router-dom'
 
 export function StayPreview({stay}) {
+  const location = useLocation()
   const reviews = stay.reviews
 
   return (
     <section className='stay-preview'>
-      <Link className="details-a-link" to={`/${stay._id}`}>
+      <Link className="details-a-link" to={`/${stay._id}/${location.search}`}>
 
         <section className='stay-preview-image-container'>
           <Carousel stay={stay} />

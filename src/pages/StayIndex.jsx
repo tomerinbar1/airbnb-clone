@@ -7,24 +7,28 @@ import { stayServiceLocal } from '../services/stay.service.local.js'
 
 import { StayList } from '../cmps/StayList.jsx'
 import { LabelsFilter } from '../cmps/LabelsFilter.jsx'
+import { useLocation, useParams } from 'react-router-dom'
 
 
 export function StayIndex() {
   const [stay, setStay] = useState(null)
   const isLoading = useSelector(storeState => storeState.stayModule.isLoading)
   const stays = useSelector(storeState => storeState.stayModule.stays)
+  const location = useLocation()
+  console.log(location.search);
+  const searchParams = new URLSearchParams(location.search)
+  const { txt, location: locationFromParams } = Object.fromEntries(searchParams.entries())
 
   useEffect(() => {
-    loadStays()
-  }, [])
-
- 
+    const filterBy = { txt, location: locationFromParams }
+    loadStays(filterBy)
+  }, [txt, locationFromParams])
 
   if (isLoading) return <div>Loading...</div>
 
   return (
     <section className="index-container">
-      <LabelsFilter/>
+      <LabelsFilter />
       <StayList stays={stays} />
     </section>
   )

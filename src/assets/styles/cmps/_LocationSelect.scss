@@ -4,13 +4,15 @@
     background-color:$clr11;
     top: 0;
     left: 0;
-    width: 65%;
-    height: 450px;
-    border-radius: 15px;
+    width: 478px;
+    height: 500px;
+    border-radius: 30px;
+    border: 1px solid $clr12;
     margin-top: 10px;
-    transform: translateY(20%);
+    transform: translateY(13%);
     visibility: visible;
     cursor: auto;
+
 
     .location-pick-header{
         font-size: rem(14px);
@@ -27,9 +29,10 @@
         margin-bottom: 40px;
     }
 
-    .location {
+    .location-card {
         height: 158px;
         width: 132px;
+
         
         .location-name{
             font-size: rem(14px);
@@ -49,6 +52,7 @@
         width: 100%;
         border-radius: 12px;
         transition: border 0.15s ease-in-out;
+        border: 1px solid $clr12;
         cursor: pointer;
 
         &:hover {

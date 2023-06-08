@@ -1,4 +1,4 @@
-export function LocationSelect({dynClass}) {
+export function LocationSelect({ onChangeLocation }) {
 
 
 
@@ -14,14 +14,13 @@ export function LocationSelect({dynClass}) {
 
 
     return (
-        <div className={`location-pick  ${dynClass}`}>
+        <div className="location-pick">
             <div className="location-pick-header">Search by region</div>
             <div className="location-grid-container">
                 {locations.map(location => {
                     return (
-                        <div className="location" key={location.name}>
-                            {/* <div className="region-btn" onClick={() => onRegionSelect(region.name)}> */}
-                            <div className="location-btn">
+                        <div className="location-card" key={location.name}>
+                            <div className="location-btn" onClick={() => onChangeLocation(location.name)}>
                                 <img src={location.imgUrl} alt={location.name} />
                             </div>
                             <div className="location-name">{location.name}</div>
@@ -29,8 +28,6 @@ export function LocationSelect({dynClass}) {
                     )
                 })}
             </div>
-
-
         </div>
     )
 }

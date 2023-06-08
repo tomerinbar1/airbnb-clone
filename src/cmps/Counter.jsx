@@ -1,9 +1,4 @@
 export function Counter({guestCountChange,guestsCount,field}) {
-
-
-
-
-
     return (
         <section className="guest-select-counter">
 

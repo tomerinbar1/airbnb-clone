@@ -1,8 +1,7 @@
 // import { stayServiceLocal } from "../services/stay.service.local.js"
 import {StayService} from '../services/stay.service.js'
 import { store } from './store.js'
-
-import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_IS_LOADING, UPDATE_STAY } from './stay.reducer.js'
+import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_IS_LOADING, UPDATE_STAY,REQUEST_STAYS } from './stay.reducer.js'
 
 
 

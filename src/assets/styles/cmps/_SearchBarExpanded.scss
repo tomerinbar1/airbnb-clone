@@ -1,55 +1,81 @@
 .expanded-search-bar {
     width: 85.3%;
-    max-width: 700px;
-    height: 66px;
+    width: 850px;
+    height: 65px;
     background-color: $clr13;
     border-radius: 100vw;
     display: flex;
     cursor: pointer;
     font-size: rem(14px);
-    font-family: cereal, sans-serif;
+    font-family: circular-Regular, sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
-    translate: -50% 15%;
+    translate: -50% 0%;
+    align-items: center;
+    border: solid 1px $clr12;
+    
     transition: all 0.4s;
-
+    
     &.folded {
         visibility: hidden;
         translate: -50% -50%;
         scale: 0.1 0.1;
         opacity: 0;
+
     }
 
     &>* {
-        height: inherit;
+        height: 100%;
         border-radius: 100vw;
         flex-grow: 1;
         padding-left: 30px;
     }
 
-    &>*:hover {
-        background-color: $clr11;
-    }
-
     h3 {
         font-size: rem(12px);
-        font-family: cerealBold, sans-serif;
+        font-family: circular-Book;
         height: 18px;
     }
 
     .location {
         width: 38%;
-
         input {
             border: none;
             background-color: inherit;
+
         }
+        input[type="text"]:focus {
+            outline: none;
+            border: none;
+        }
+
+        &.active {
+            background-color: $clr11;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+        }
+
+
+    }
+
+    .location:not(.active):hover {
+        background-color: $clr12;
     }
 
     .check-in,
     .check-out {
         width: 15%;
+
+        &.active {
+            background-color: $clr11;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+
+        }
+
+        &:not(.active):hover {
+            background-color: $clr12;
+        }
     }
 
     .guests {
@@ -57,19 +83,35 @@
         display: flex;
         justify-content: space-between;
 
-        .search-btn {
-            background-color: $clr1;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            padding-top: 3px;
-            margin-top: 7px;
-            color: $clr11;
-            align-self: center;
+        &.active {
+            background-color: $clr11;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+        }
 
-            i {
-                color: $clr11;
-            }
+        &:not(.active):hover {
+            background-color: $clr12;
+        }
+    }
+
+    .search-btn {
+        background-color: $clr1;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        padding-top: 3px;
+        margin-top: 7px;
+        color: $clr11;
+        align-self: center;
+        position: fixed;
+        right: 10px;
+
+        i {
+            position: absolute;
+            top:0;
+            left: 0;
+            translate: 100% 100%;
+            color: $clr11;
+            font-size: larger;
         }
     }
 
@@ -80,27 +122,10 @@
         left: 0;
         width: 100%;
         height: 450px;
-        border-radius: 15px;
-        margin-top: 10px;
-        transform: translateY(20%);
+        border-radius: 30px;
+        border: 1px solid $clr12;        margin-top: 10px;
+        transform: translateY(15%);
         visibility: visible;
     }
-
-    // .guests-pick{
-    //     position: absolute;
-    //     background-color:$clr11;
-    //     top: 0;
-    //     right: 0;
-    //     width: 60%;
-    //     height: 450px;
-    //     border-radius: 15px;
-    //     margin-top: 10px;
-    //     transform: translateY(20%);
-    //     visibility: visible;
-    // }
-
-
-
-
 
 }

@@ -1,4 +1,4 @@
-import { Route, HashRouter as Router, Routes } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { StayDetails } from './pages/StayDetails'
 import { AppHeader } from './cmps/AppHeader'
@@ -15,7 +15,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <section className="main-layout">
+        <section className="main-layosiut">
           <AppHeader />
           <main className="main-app">
             <Routes>

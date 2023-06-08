@@ -1,13 +1,6 @@
-import { useState } from "react"
 import { Counter } from "./Counter"
 
-export function GuestSelect() {
-    const [guestsCount, setGuestsCount] = useState({
-        adults: 0,
-        children: 0,
-        infants: 0,
-        pets: 0,
-    })
+export function GuestSelect({onChangeGuests,guestsCount,setGuestsCount}) {
 
     const guestSelectOptions = [
         {
@@ -33,10 +26,10 @@ export function GuestSelect() {
     ]
 
 
+
     function guestCountChange(type, value) {
         setGuestsCount((prevGuestCounts) => ({ ...prevGuestCounts, [type]: prevGuestCounts[type] + value }))
-        const capacityTotal = guestsCount.adults + guestsCount.children
-        // setFilterBy((prevFilter) => ({ ...prevFilter, capacity: capacityTotal, guests: guestsCount }))
+        onChangeGuests({ ...guestsCount, [type]: guestsCount[type] + value })
     }
 
     return (
@@ -48,7 +41,7 @@ export function GuestSelect() {
                             <div className="guest-select-title">{option.label}</div>
                             <div className="guest-select-sub-title">{option.subLabel}</div>
                         </div>
-                        <Counter guestCountChange={guestCountChange} guestsCount={guestsCount} field={option.field}/>
+                        <Counter guestCountChange={guestCountChange} guestsCount={guestsCount} field={option.field} />
                     </div>
                 )
             })}

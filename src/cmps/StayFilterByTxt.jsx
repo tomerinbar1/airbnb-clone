@@ -1,11 +1,11 @@
 
-import { useEffect, useRef, useState } from "react"
+// import { useEffect, useRef, useState } from "react"
 import { utilService } from "../services/util.service.js"
-import { stayServiceLocal } from "../services/stay.service.local.js"
+// import { stayServiceLocal } from "../services/stay.service.local.js"
 
 
-export function StayFilterByTxt({ onSetFilter,onChangeTxt }) {
-    const [filterByToEdit, setFilterByToEdit] = useState(stayServiceLocal.getDefaultFilter())
+export function StayFilterByTxt({onChangeTxt}) {
+    // const [filterByToEdit, setFilterByToEdit] = useState(stayServiceLocal.getDefaultFilter())
 
     // onSetFilter = useRef(utilService.debounce(onSetFilter))
 
@@ -25,10 +25,10 @@ export function StayFilterByTxt({ onSetFilter,onChangeTxt }) {
     //     setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, [field]: value }))
     // }
 
-    const onSubmitFilter = (ev) => {
-        ev.preventDefault()
-        onSetFilter(filterByToEdit)
-    }
+    // const onSubmitFilter = (ev) => {
+    //     ev.preventDefault()
+    //     onSetFilter(filterByToEdit)
+    // }
 
 
     return <section className="stay-filter">

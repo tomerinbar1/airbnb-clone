@@ -20,23 +20,32 @@ export const stayServiceLocal = {
 }
 window.cs = stayServiceLocal
 
-export function getDefaultFilter() {
-  return { txt: '' }
+function getDefaultFilter() {
+  return { txt: '', location: '', capacity: 0 }
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
-  // console.log(filterBy)
   var stays = await storageService.query(STORAGE_KEY)
   let staysToDisplay = stays
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i')
     staysToDisplay = staysToDisplay.filter(
-      stay => regex.test(stay.loc.country)||regex.test(stay.loc.city)
+      stay => regex.test(stay.loc.country) || regex.test(stay.loc.city)
     )
   }
-  // if (filterBy.price) {
-  //   stays = stays.filter(stay => stay.price <= filterBy.price)
-  // }
+  if (filterBy.location) {
+    const regex = new RegExp(filterBy.location, 'i')
+    staysToDisplay = staysToDisplay.filter(
+      stay => regex.test(stay.loc.country) || regex.test(stay.loc.city)
+    )
+  }
+
+  if (filterBy.capacity) {
+    staysToDisplay = staysToDisplay.filter(
+      stay => stay.capacity >= filterBy.capacity
+    )
+  } 
+console.log(staysToDisplay);
   return staysToDisplay
 }
 
