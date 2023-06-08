@@ -14,11 +14,36 @@ export const DetailsMap = ({ name, summary, loc }) => {
     zoom: 14,
   }
 
+  const CustomMarker = ({ text }) => (
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      <div
+        style={{
+          position: 'absolute',
+          top: '-20px', // Adjust the vertical position as needed
+          left: '-20px', // Adjust the horizontal position as needed
+          backgroundColor: 'white',
+          color: 'black',
+          padding: '5px',
+          borderRadius: '5px',
+        }}
+      >
+        {text}
+      </div>
+      <div
+        style={{
+          width: '40px',
+          height: '40px',
+          backgroundColor: 'red', // Change the marker color as needed
+          borderRadius: '50%',
+        }}
+      ></div>
+    </div>
+  )
+
   const apiIsLoaded = (map, maps) => {
     return new maps.Marker({
       position: { lat: lat, lng: lan },
       map,
-      title: 'Exact location provided after booking',
     })
   }
 
@@ -34,6 +59,11 @@ export const DetailsMap = ({ name, summary, loc }) => {
           defaultZoom={defaultProps.zoom}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => apiIsLoaded(map, maps)}
+        />
+        <CustomMarker
+          lat={lat}
+          lng={lan}
+          text="Exact location provided after booking"
         />
       </div>
 
