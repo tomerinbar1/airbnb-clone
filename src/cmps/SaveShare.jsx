@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom'
 import share from '../assets/img/common/share.svg'
 import heart from '../assets/img/common/heart.svg'
+import { useLocation } from 'react-router-dom'
 
 export const SaveShare = ({ stayId }) => {
+
+  const location = useLocation()
+
   return (
     <div className="save-share-details">
       <a href="#">
@@ -14,7 +18,7 @@ export const SaveShare = ({ stayId }) => {
         Share
       </a>
       <div>
-        <Link to={`/stay/edit/${stayId}`}>Edit</Link>
+        <Link to={`/edit/${stayId}/${location.search}`}>Edit</Link>
       </div>
     </div>
   )

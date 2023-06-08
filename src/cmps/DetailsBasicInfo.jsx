@@ -1,11 +1,11 @@
 export const DetailsBasicInfo = ({ host, capacity, bathrooms, bedrooms }) => {
   const getHostImg = () => {
     const gender = Math.random() < 0.5 ? 'male' : 'female'
-    console.log(gender);
+    // console.log(gender);
     const randomNumber = Math.floor(Math.random() * 78)
-    console.log(randomNumber);
+    // console.log(randomNumber);
     const imagePath = `../assets/img/usersImgs/${gender}/${randomNumber}.jpg`
-    console.log(imagePath);
+    // console.log(imagePath);
     return imagePath
   }
 
