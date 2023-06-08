@@ -1,7 +1,6 @@
 import GoogleMapReact from 'google-map-react'
 
 export const DetailsMap = ({ name, summary, loc }) => {
-    
   const KEY_API = 'AIzaSyCSTYpS7R9HWo0VhmC5M81BkN-O0jP-o0I'
 
   const lan = loc.lat
@@ -9,15 +8,15 @@ export const DetailsMap = ({ name, summary, loc }) => {
 
   const defaultProps = {
     center: {
-      lat: -30.5595,
-      lng: 22.9375,
+      lat: lat,
+      lng: lan,
     },
-    zoom: 11,
+    zoom: 14,
   }
 
   const apiIsLoaded = (map, maps) => {
     return new maps.Marker({
-      position: { lat: -30.5595, lng: 22.9375 },
+      position: { lat: lat, lng: lan },
       map,
       title: 'Exact location provided after booking',
     })
