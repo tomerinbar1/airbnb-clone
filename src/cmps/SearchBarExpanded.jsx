@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { stayServiceLocal } from "../services/stay.service.local"
+import { stayService } from "../services/stay.service"
 import { loadStays } from "../store/stay.actions"
 import { LocationSelect } from "./LocationSelect"
 import { StayFilterByTxt } from "./StayFilterByTxt"
@@ -10,7 +10,7 @@ import fi from "date-fns/locale/fi"
 
 
 export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, staySearchParams }) {
-    const [filterBy, setFilterBy] = useState(stayServiceLocal.getDefaultFilter())
+    const [filterBy, setFilterBy] = useState(stayService.getDefaultFilter())
     const navigate = useNavigate()
     const [guestsCount, setGuestsCount] = useState({
         adults: 0,

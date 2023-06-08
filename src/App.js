@@ -15,7 +15,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <section className="main-layosiut">
+        <section className="main-layout">
           <AppHeader />
           <main className="main-app">
             <Routes>
