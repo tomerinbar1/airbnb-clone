@@ -27,9 +27,9 @@
 
 
     .picker-container {
-        position: absolute;
-        margin-bottom: 15px;
-        border-radius: 8px;
+        // position: absolute;
+        // margin-bottom: 15px;
+        // border-radius: 8px;
 
         .picker-btns {
             display: flex;
@@ -53,13 +53,12 @@
         position: relative;
         height: rem(509px);
         width: rem(661px);
-        background-color: aqua;
         border: 1px solid #ccc;
         // left: 50%;
         top: 40px;
         transform: translateX(-50%);
 
-    
+
 
         .close-open-picker-btn {
             position: absolute;
@@ -90,85 +89,93 @@
 
 .rdrCalendarWrapper {
     padding-top: 20px;
-
-    .rdrMonthAndYearWrapper {
-      position: absolute;
-      right: 28px;
-      left: 25px;
-    }
-
-    .rdrMonthAndYearPickers {
-      display: none;
-    }
-
-    .rdrMonthName {
-      text-align: center;
-    //   color: $clr-text-primary;
-      font-size: 1rem;
-      font-family: cereal-medium;
-    }
-
-  }
-
-    // width: 50%;
-    // height: 345px;
-    // background-color: rgba(255, 255, 255, 0);
-    // position: absolute;
-    // z-index: 5;
+width: 100%;
+    position: absolute;
+    right: 28px;
+    left: 25px;
 
 
-    .rdrMonthAndYearWrapper {
-        position: absolute;
-        right: 28px;
-        left: 25px;
-    }
+    // .rdrMonts {
+    //     width: 100%;
+    // }
 
     .rdrMonthAndYearPickers {
-        visibility: hidden;
+        display: none;
     }
 
     .rdrMonthName {
         text-align: center;
-        // color: $clr-text-primary;
+        //   color: $clr-text-primary;
         font-size: 1rem;
-        font-family: cereal-medium;
+        font-family: $font1 ;
     }
 
-    .rdrCalendarWrapper {
+}
 
-        .rdrDay{
-font-family: $font1;
-        }
-
-        // width: 100%;
-
-        .rdrNextPrevButton {
-            background-color: transparent;
-        }
-
-        .rdrMonthName {
-            font-size: 1rem;
-            // color: $clr-text-primary;
-            text-align: center;
-            font-family: 'cereal-Bold';
-        }
+// width: 50%;
+// height: 345px;
+// background-color: rgba(255, 255, 255, 0);
+// position: absolute;
+// z-index: 5;
 
 
-        .rdrMonthAndYearWrapper {
-            min-width: minmax(500px,100vw);
-        }
+.rdrMonthAndYearWrapper {
+    position: absolute;
+    right: 28px;
+    left: 25px;
+}
 
-        .rdrMonthAndYearPickers {
-            display: none;
-        }
+.rdrMonthAndYearPickers {
+    visibility: hidden;
+}
 
-        .rdrMonths {
-            min-width: 100%;
-        }
+.rdrMonthName {
+    text-align: center;
+    // color: $clr-text-primary;
+    font-size: 1rem;
+    font-family: $font1;
+}
 
-        .rdrMonth {
-            min-width: 100% ;
-            width: inherit;
-        }
+.rdrCalendarWrapper {
 
+    .rdrDay {
+        font-family: $font1;
     }
+
+    .rdrDays {
+        font-family: $font1;
+        line-height: 18px;
+    }
+
+    .rdrDayPassive {
+display: none;    }
+
+    // width: 100%;
+
+    .rdrNextPrevButton {
+        background-color: transparent;
+    }
+
+
+
+    .rdrMonthAndYearWrapper {
+        min-width: minmax(500px, 100vw);
+    }
+
+    .rdrMonthAndYearPickers {
+        display: none;
+    }
+
+
+    // .rdrMonth {
+    //     min-width: 100%;
+    //     width: inherit;
+    // }
+
+    .rdrWeekDay {
+        font-family: $font1;
+    }
+
+
+
+}

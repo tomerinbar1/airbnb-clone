@@ -14,7 +14,6 @@ export function StayIndex() {
   const isLoading = useSelector(storeState => storeState.stayModule.isLoading)
   const stays = useSelector(storeState => storeState.stayModule.stays)
   const location = useLocation()
-  console.log(location.search);
   const searchParams = new URLSearchParams(location.search)
   const { txt, location: locationFromParams } = Object.fromEntries(searchParams.entries())
 

@@ -1,23 +1,32 @@
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DatePicker } from './DatePicker';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 
+import { useLocation, useParams } from 'react-router-dom'
+import { loadStays } from '../../../store/stay.actions';
 
 
 
 export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
-    const [searchParams, setSearchParams] = useSearchParams()
+    // const { stayId } = useParams()
+    // const [stay, setStay] = useState(null)
+    const location = useLocation()
+    const searchParams = new URLSearchParams(location.search)
+    const params = Object.fromEntries(searchParams.entries())
+    // const { txt, location: locationFromParams } = Object.fromEntries(searchParams.entries())
+    console.log('params ', params);
+    console.log('stay from order', stay)
 
 
 
     const orderParams = {
-        checkIn: searchParams.get('checkIn')
-            ? new Date(+searchParams.get('checkIn'))
+        checkIn: params.checkIn
+            ? new Date(+params.checkIn)
             : '',
-        checkOut: searchParams.get('checkOut')
-            ? new Date(+searchParams.get('checkOut'))
+        checkOut: params.checkOut
+            ? new Date(+params.checkOut)
             : '',
         guests: {
             adults: +searchParams.get('adults') || 1,
@@ -47,15 +56,14 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
             }
             searchParams.set(field, value)
         }
-        setSearchParams(searchParams)
+        // setSearchParams(searchParams)
     }
 
-    console.log(stay)
     return (
         <section className='order-modal'>
             <section className='user-prefs'>
                 <section className='order-modal-header'>
-                    <span>{stay.price}</span>
+                    {/* <span>{stay.price}</span> */}
                     <span>night</span>
                     <span>rate</span>
                     <span>1 review</span>

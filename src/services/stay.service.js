@@ -5,7 +5,7 @@ import { storageService } from './async-storage.service.js'
 import { userService } from './user.service.js'
 
 const BASE_URL = '/'
-const STORAGE_KEY = 'Stay'
+const STORAGE_KEY = 'stay'
 
 export const stayService = {
     getStays,
@@ -22,41 +22,67 @@ function getDefaultFilter() {
     return { title: '' }
 }
 async function getStays(filterBy = getDefaultFilter()) {
-    console.log('hello');
+    // console.log('hello');
     return await httpService.get(BASE_URL, filterBy)
 }
 
-function getById(StayId) {
-    return httpService.get(`/${StayId}`)
+function getById(stayId) {
+    console.log('from stayservice front' , stayId)
+    return httpService.get(BASE_URL + stayId)
+    // return httpService.get(`/${stayId}`)
 }
 
-async function remove(StayId) {
-    return httpService.delete(`/${StayId}`)
+async function remove(stayId) {
+    return httpService.delete(BASE_URL + stayId)
 }
-async function save(Stay) {
+async function save(stay) {
     var savedStay
-    if (Stay._id) {
-        savedStay = await httpService.put(`/${Stay._id}`, Stay)
+    if (stay._id) {
+        savedStay = await httpService.put(BASE_URL+stay._id, stay)
 
     } else {
-        savedStay = await httpService.post('Stay', Stay)
+        savedStay = await httpService.post(BASE_URL, stay)
     }
     return savedStay
 }
 
-async function addStayMsg(StayId, txt) {
-    const savedMsg = await httpService.post(`/${StayId}/msg`, { txt })
+async function addStayMsg(stayId, txt) {
+    const savedMsg = await httpService.post(`/${stayId}/msg`, { txt })
     return savedMsg
 }
 
 
-function getEmptyStay() {
-    return {
-        vendor: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
-    }
-}
 
+function getEmptyStay() {
+    const stay = {
+      name: '',
+      type: '',
+      imgUrls: '',
+      price: '',
+      summary: '',
+      capacity: '',
+      amenities: [],
+      labels: [],
+      host: {
+        _id: 'u101',
+        fullname: 'Davit Pok',
+        imgUrl: '',
+      },
+      loc: {
+        country: '',
+        countryCode: '',
+        city: '',
+        address: '',
+        lat: '',
+        lng: '',
+      },
+      reviews: [],
+      likedByUsers: [],
+    }
+  
+    return stay
+  }
+  
 
 
 
