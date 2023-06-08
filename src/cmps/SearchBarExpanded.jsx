@@ -22,7 +22,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, s
 
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
-        if (filterBy.txt.length > 0) setSelectedTab("")
+        // if (filterBy.txt.length > 0) setSelectedTab("")
     }
 
 
@@ -66,14 +66,15 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, s
 
 
 
-
+const guestsParams = JSON.stringify(guestsCount)
     function checkForActiveClass(category) {
         return (selectedTab === category) ? ' active' : ''
     }
 
     const submitFilter = (ev) => {
         ev.preventDefault()
-        navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${filterBy.guests || 1}`)
+        navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${ guestsParams|| 1}`)
+        // navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${filterBy.guests || 1}`)
     }
 
     const dynClass = isSearchOpen ? "" : "folded"

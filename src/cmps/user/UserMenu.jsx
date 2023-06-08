@@ -1,33 +1,20 @@
+import React from 'react'
 import { useState } from "react"
 import { useSelector } from 'react-redux'
-
-import { userService } from "../../services/user.service"
 import { Link, useNavigate } from 'react-router-dom'
 import { UserMenuOpen } from "./UserMenuOpen"
-import React from 'react'
 import { LoginModal } from "./LoginModal"
-import { SignupModal } from "./SignupModal"
 import { logout } from "../../store/user.action"
 import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service"
 
 
 export function UserMenu() {
-
     const user = useSelector((storeState) => storeState.userModule.user)
-    // const [user, setUser] = useState(Storeuser)
-    // console.log(user)
     const navigate = useNavigate()
-
 
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
     const [isSignup, setIsSignup] = useState(false)
-    // const [isSignupModalOpen, setIsSignupModalOpen] = useState(false)
-
-    // function onLogout() {
-    //     userService.logout()
-    //         .then(() => { setUser(null) })
-    // }
 
 
     async function onLogout() {
@@ -46,12 +33,6 @@ export function UserMenu() {
         // setUser(user)
     }
 
-    function closeUserMenu() {
-        setIsUserMenuOpen(prev => false)
-        // console.log(isUserMenuOpen)
-    }
-
-
     const onOpenModal = (event, modal, boolean) => {
         event.preventDefault()
 
@@ -69,8 +50,6 @@ export function UserMenu() {
     function toggleUserMenu() {
         setIsUserMenuOpen((prev) => !prev)
     }
-
-    // console.log(isUserMenuOpen)
 
     return (
         <React.Fragment>

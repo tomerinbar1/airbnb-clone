@@ -20,7 +20,7 @@ function App() {
           <main className="main-app">
             <Routes>
               <Route path="/" element={<StayIndex />} />
-              <Route path="/stay/edit/:stayId" element={<StayEdit />} />
+              <Route path="/edit/:stayId" element={<StayEdit />} />
               <Route path="/:stayId" element={<StayDetails />} />
               <Route path='/trip' element={<Trips />}/>
               <Route path='/wishlist' element={<Wishlist />} />
