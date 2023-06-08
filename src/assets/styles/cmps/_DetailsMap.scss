@@ -1,0 +1,33 @@
+.details-map-wrapper {
+  padding-block: 48px;
+  h1 {
+    font-family: Cereal-Book;
+    font-size: rem(22px);
+    margin: 0;
+    padding-bottom: 24px;
+  }
+  .details-map {
+    height: 480px;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+  .place-info {
+    h3 {
+      font-family: Cereal-book;
+      font-size: rem(16px);
+      margin: 0;
+      margin-bottom: 16px;
+    }
+    p {
+      font-family: Cereal-Light;
+      font-size: rem(14px);
+      margin: 0;
+      padding-bottom: 8px;
+    }
+  }
+  a {
+    text-decoration: underline;
+    font-family: circular-Book;
+    font-size: rem(16px);
+  }
+}

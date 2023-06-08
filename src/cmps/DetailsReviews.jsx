@@ -1,4 +1,5 @@
 import { StayReviewsStat } from './StayReviewsStat'
+import {makeId} from '../services/util.service.js'
 
 export const DetailsReviews = ({ reviews, onOpenModal }) => {
   
@@ -29,8 +30,8 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
   const avgRates = averageRates(reviews)
 
   const sliceAvgRates = (start, end) => {
-    return avgRates.slice(start, end).map((rate, idx) => (
-      <li key={idx}>
+    return avgRates.slice(start, end).map((rate) => (
+      <li key={makeId()}>
         <div className="avg-data-wrapper">
           <div className="avg-type">{rate.type}</div>
           <div className="avg-num">
@@ -60,7 +61,11 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
     return (
       <div className="user-review" key={review._id}>
         <div className="user-review-header">
-          <img src={review.by.imgUrl} alt="" />
+          <img src={review.by.imgUrl} alt="guest"
+        onError={e =>
+          (e.target.src =
+            'http://xsgames.co/randomusers/assets/avatars/male/2.jpg')
+        } />
           <div className="review-head-txt">
             <h2>{review.by.fullname}</h2>
             <p>Sep 2023</p>

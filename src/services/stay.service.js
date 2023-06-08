@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 
 import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
@@ -14,7 +16,7 @@ export const stayService = {
     remove,
     getEmptyStay,
     addStayMsg,
-    getDefaultFilter
+    getDefaultFilter,
 }
 window.cs = stayService
 
@@ -22,7 +24,6 @@ function getDefaultFilter() {
     return { title: '' }
 }
 async function getStays(filterBy = getDefaultFilter()) {
-    console.log('hello');
     return await httpService.get(BASE_URL, filterBy)
 }
 
@@ -56,8 +57,3 @@ function getEmptyStay() {
         price: utilService.getRandomIntInclusive(1000, 9000),
     }
 }
-
-
-
-
-
