@@ -21,15 +21,13 @@ export const stayService = {
 window.cs = stayService
 
 function getDefaultFilter() {
-    return { txt: '', location:'', guests:1 }
+    return { txt: '', location:'', guests:1 ,checkIn:'',checkOut:'' }
 }
 async function getStays(filterBy = getDefaultFilter()) {
-    console.log('from stayservice front' , filterBy);
     return await httpService.get(BASE_URL, filterBy)
 }
 
 function getById(stayId) {
-    console.log('from stayservice front' , stayId)
     return httpService.get(BASE_URL + stayId)
     // return httpService.get(`/${stayId}`)
 }
