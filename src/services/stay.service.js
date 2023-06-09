@@ -27,7 +27,7 @@ async function getStays(filterBy = getDefaultFilter()) {
 }
 
 function getById(stayId) {
-    console.log('from stayservice front' , stayId)
+    // console.log('from stayservice front' , stayId)
     return httpService.get(BASE_URL + stayId)
     // return httpService.get(`/${stayId}`)
 }

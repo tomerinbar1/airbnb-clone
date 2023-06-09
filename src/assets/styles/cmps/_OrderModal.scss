@@ -6,9 +6,28 @@
     color: $clr8;
     background-color: $clr11;
     width: 372px;
-    height: 496px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
 
-    .order-modal-header {}
+    
+
+    .order-modal-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .reservation-details {
+        display: flex;
+        flex-direction: column;
+        .no-charge-msg {
+            align-self: center;
+        }
+        
+        .reserve-btn {
+            height: rem(48px);
+        }
+    }
 
     .user-prefs {
         display: flex;
@@ -18,10 +37,6 @@
         position: relative;
 
 
-        .reserve-btn {
-            height: 48px;
-
-        }
 
     }
 
@@ -37,12 +52,13 @@
             // padding-inline-start: 20px;
             // padding-top: 10px;
             // border-radius: 8px;
-            position: absolute;
             top: 0;
-            // &.active {
-            //     border-radius: 8px;
-            //     z-index: 3;
-            //   }
+
+            &.active {
+                position: absolute;
+                border-radius: 8px;
+                z-index: 3;
+            }
         }
     }
 
@@ -89,7 +105,7 @@
 
 .rdrCalendarWrapper {
     padding-top: 20px;
-width: 100%;
+    width: 100%;
     position: absolute;
     right: 28px;
     left: 25px;
@@ -148,7 +164,8 @@ width: 100%;
     }
 
     .rdrDayPassive {
-display: none;    }
+        display: none;
+    }
 
     // width: 100%;
 

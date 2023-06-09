@@ -6,7 +6,10 @@ export const utilService = {
     saveToStorage,
     animateCSS,
     randomPastTime,
-    debounce
+    debounce,
+    totalDays,
+    ShortFormattedDate
+    
 }
 
 function makeId(length = 6) {
@@ -53,6 +56,19 @@ function randomPastTime() {
     const pastTime = getRandomIntInclusive(HOUR, WEEK)
     return Date.now() - pastTime
 }
+
+
+function totalDays(startDate, endDate) {
+    const diffTime = Math.abs(endDate - startDate)
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+  
+  }
+
+  function ShortFormattedDate(timeStamp) {
+    const date = new Date(timeStamp)
+    return date.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})
+  }
+  
 
 // In our utilService
 function animateCSS(el, animation) {
