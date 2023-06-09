@@ -1,5 +1,6 @@
 import Modal from 'react-modal'
 import { StayReviewsStat } from './StayReviewsStat'
+import { makeId } from '../services/util.service'
 
 export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
   const averageRates = reviews => {
@@ -26,9 +27,9 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
 
   const avgRates = averageRates(reviews)
 
-  const avgRatesList = avgRates.map((rate, idx) => {
+  const avgRatesList = avgRates.map((rate) => {
     return (
-      <li key={idx}>
+      <li key={makeId()}>
         <div className="avg-data-wrapper">
           <div className="avg-type">{rate.type}</div>
           <div className="avg-num">

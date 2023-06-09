@@ -1,6 +1,7 @@
 .sleep-details {
   padding-top: 51px;
   padding-bottom: 48px;
+  max-width: fit-content;
   h1 {
     font-size: rem(22px);
     margin: 0;
@@ -13,7 +14,6 @@
     border-radius: 8px;
     object-fit: fill;
     cursor: pointer;
-    aspect-ratio: 1/1;
   }
   h2 {
     font-family: Cereal-Book;

@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 
 import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
@@ -14,7 +16,7 @@ export const stayService = {
     remove,
     getEmptyStay,
     addStayMsg,
-    getDefaultFilter
+    getDefaultFilter,
 }
 window.cs = stayService
 
