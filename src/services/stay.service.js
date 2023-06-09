@@ -24,6 +24,7 @@ function getDefaultFilter() {
     return { txt: '', location:'', guests:1 }
 }
 async function getStays(filterBy = getDefaultFilter()) {
+    console.log('from stayservice front' , filterBy);
     return await httpService.get(BASE_URL, filterBy)
 }
 

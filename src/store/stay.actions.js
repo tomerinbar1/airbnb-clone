@@ -11,20 +11,22 @@ import {
 } from './stay.reducer.js'
 
 export async function loadStays(filterBy) {
-  // export async function loadStays(filterBy, sortBy) {
-  // const sortAndFilter = {filterBy , sortBy}
-  // console.log(sortAndFilter)
-  store.dispatch({ type: SET_IS_LOADING, isLoading: true })
-  try {
-    const stays = await stayService.getStays(filterBy)
-    store.dispatch({ type: SET_STAYS, stays })
-    return stays
-  } catch (err) {
-    console.log('stay action -> Cannot load stays', err)
-    throw err
-  } finally {
-    store.dispatch({ type: SET_IS_LOADING, isLoading: false })
-  }
+// export async function loadStays(filterBy, sortBy) {
+    // const sortAndFilter = {filterBy , sortBy}
+    console.log("filterby actions front",filterBy)
+    store.dispatch({ type: SET_IS_LOADING, isLoading: true })
+    try {
+        const stays = await stayService.getStays(filterBy)
+        store.dispatch({ type: SET_STAYS, stays })
+        return stays
+    }
+    catch (err) {
+        console.log('stay action -> Cannot load stays', err)
+        throw err
+    }
+    finally {
+        store.dispatch({ type: SET_IS_LOADING, isLoading: false })
+    }
 }
 
 export async function removeStay(stayId) {

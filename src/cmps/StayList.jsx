@@ -9,10 +9,10 @@ export function StayList({ stays }) {
                 <StayPreview stay={stay} />
             </li>)}
 
-        {stays.map(stay =>
+        {/* {stays.map(stay =>
             <li className="stay-preview-container" key={stay._id}>
                 <StayPreview stay={stay}  />
-            </li>)}
+            </li>)} */}
     </ul>
 }
 
