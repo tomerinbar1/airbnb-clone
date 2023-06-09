@@ -1,8 +1,10 @@
 import { userService } from "../../services/user.service.js"
 
 import { useEffect, useState } from 'react'
+import { signup } from "../../store/user.action.js"
 
-export function CredentialsForm({ onSubmit, isSignup }) {
+export function CredentialsForm({ onSubmit  }) {
+    const [isSignUp , setIsSignUp]= useState(false)
 
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
 
@@ -13,7 +15,7 @@ export function CredentialsForm({ onSubmit, isSignup }) {
 
     function handleSubmit(ev) {
         ev.preventDefault()
-        onSubmit(credentials)
+        onSubmit(credentials , isSignUp)
     }
 
     return (
@@ -34,15 +36,18 @@ export function CredentialsForm({ onSubmit, isSignup }) {
                 onChange={handleChange}
                 required
             />
-            {isSignup && <input
+            {isSignUp && <input
                 type="text"
                 name="fullname"
                 placeholder="Full name"
                 onChange={handleChange}
                 required
             />}
-            <button>{isSignup ? 'Signup' : 'Login'}</button>
+            <button>{isSignUp ? "Sign up" : "Log in"}</button>
         </form>
+        {!isSignUp &&
+            <button onClick={()=> setIsSignUp(true)}>Sign up</button>
+        }
         </section>
     )
 }
