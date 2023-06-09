@@ -8,7 +8,7 @@ import { ADD_STAY, REMOVE_STAY, SET_STAYS, SET_IS_LOADING, UPDATE_STAY,REQUEST_S
 export async function loadStays(filterBy) {
 // export async function loadStays(filterBy, sortBy) {
     // const sortAndFilter = {filterBy , sortBy}
-    // console.log(sortAndFilter)
+    console.log("filterby actions front",filterBy)
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
         const stays = await stayService.getStays(filterBy)

@@ -21,8 +21,9 @@ export function StayIndex() {
 
   useEffect(() => {
     const filterBy = { txt, location: locationFromParams, guests: capacityfromparams }
+    console.log('filterBy index', filterBy)
     loadStays(filterBy)
-  }, [txt, locationFromParams])
+  }, [txt, locationFromParams,capacityfromparams])
 
   if (isLoading) return <div>Loading...</div>
 
