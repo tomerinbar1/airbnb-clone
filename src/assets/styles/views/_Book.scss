@@ -1,46 +1,96 @@
-.book-wrapper {
+.book-page-wrapper {
+  margin: auto;
   max-width: 1120px;
-  .book-return-btn {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    font-size: 25px;
-    height: 35px;
-    width: 35px;
-    border-radius: 50%;
-    left: 32px;
-    top: 101px;
-  }
-  & :hover {
-    background-color: rgba(0, 0, 0, 0.03);
-  }
-  .book-details-header {
+  position: relative;
+  display: flex;
+  .book-details-wrapper {
+    width: 50%;
+    .custom-hr {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      border: none;
+      background-color: #ebebeb;
+      margin: 0;
+    }
+    .book-details-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       h1 {
-      font-family: montserrat-Bold;
-      font-size: rem(32px);
-      padding-bottom: 32px;
+        font-family: montserrat-Bold;
+        font-size: rem(32px);
+        padding-bottom: 32px;
+      }
+      .book-return-btn {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        font-size: 25px;
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        left: -47px;
+        top: 21px;
+      }
+      & :hover {
+        background-color: rgba(0, 0, 0, 0.03);
+      }
     }
-  }
-  .book-details{
-    h1{
+    .book-details {
+      h2 {
         font-family: montserrat-Regular;
         font-size: rem(22px);
         padding-bottom: 24px;
-    }
-    .book-details-trip-info{
+        margin: 0;
+      }
+      .book-details-trip-info {
         display: flex;
-        .book-details-trip-date{
-h3{
-    font-family: circular-Regular;
-}
+        flex-direction: column;
+        .book-details-trip-date {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          padding-bottom: 24px;
+          h3 {
+            font-family: circular-Regular;
+            margin: 0;
+          }
+          p {
+            font-family: circular-Medium;
+            padding-top: 8px;
+            margin: 0;
+          }
         }
-        .book-details-trip-guests{
-
+        .book-details-trip-guests {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          h3 {
+            font-family: circular-Regular;
+            margin: 0;
+          }
+          p {
+            font-family: circular-Medium;
+            padding-top: 8px;
+            margin: 0;
+          }
         }
+      }
+      .book-payments-form {
+        h2 {
+          font-family: montserrat-Regular;
+          font-size: rem(22px);
+          padding-top: 32px;
+          margin: 0;
+        }
+      }
     }
+  }
+  .book-summary-details {
+    width: 50%;
   }
 }
