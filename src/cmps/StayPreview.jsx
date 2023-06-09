@@ -10,7 +10,7 @@ export function StayPreview({stay}) {
 
   return (
     <section className='stay-preview'>
-      <Link className="details-a-link" to={`/${stay._id}/${location.search}`}>
+      <Link className="details-a-link" to={`/stay/${stay._id}/${location.search}`}>
 
         <section className='stay-preview-image-container'>
           <Carousel stay={stay} />

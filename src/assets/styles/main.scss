@@ -15,6 +15,7 @@
 @import 'views/HomePage';
 @import 'views/StayDetails';
 @import 'views/StayIndex';
+@import 'views/Book';
 
 // Components
 
@@ -28,6 +29,7 @@
 @import 'cmps/LabelsFilter';
 @import 'cmps/LocationSelect';
 @import 'cmps/GuestSelect';
+@import 'cmps/DateSelect';
 
 //Index
 @import 'cmps/StayList';
@@ -50,6 +52,7 @@
 @import 'cmps/_DateRangePicker';
 @import 'cmps/LearnMoreModal';
 @import 'cmps/ReviewsModal';
+@import 'cmps/DetailsMap';
 
 //multiuse
 @import 'cmps/counter';

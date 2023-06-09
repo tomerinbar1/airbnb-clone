@@ -1,0 +1,46 @@
+.book-wrapper {
+  max-width: 1120px;
+  .book-return-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    font-size: 25px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    left: 32px;
+    top: 101px;
+  }
+  & :hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  .book-details-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h1 {
+      font-family: montserrat-Bold;
+      font-size: rem(32px);
+      padding-bottom: 32px;
+    }
+  }
+  .book-details{
+    h1{
+        font-family: montserrat-Regular;
+        font-size: rem(22px);
+        padding-bottom: 24px;
+    }
+    .book-details-trip-info{
+        display: flex;
+        .book-details-trip-date{
+h3{
+    font-family: circular-Regular;
+}
+        }
+        .book-details-trip-guests{
+
+        }
+    }
+  }
+}

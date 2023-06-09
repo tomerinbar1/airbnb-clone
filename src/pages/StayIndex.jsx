@@ -15,12 +15,14 @@ export function StayIndex() {
   const stays = useSelector(storeState => storeState.stayModule.stays)
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
-  const { txt, location: locationFromParams } = Object.fromEntries(searchParams.entries())
+
+  const i = Object.fromEntries(searchParams.entries())
+  const { txt, location: locationFromParams, guests: capacityfromparams, checkIn:checkinFromParams, checkOut:checkOutFromParams } = Object.fromEntries(searchParams.entries())
 
   useEffect(() => {
-    const filterBy = { txt, location: locationFromParams }
+    const filterBy = { txt, location: locationFromParams, guests: capacityfromparams,checkIn:checkinFromParams, checkOut:checkOutFromParams }
     loadStays(filterBy)
-  }, [txt, locationFromParams])
+  }, [txt, locationFromParams,capacityfromparams])
 
   if (isLoading) return <div>Loading...</div>
 

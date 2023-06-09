@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 
 import { httpService } from './http.service.js'
 import { utilService } from './util.service.js'
@@ -14,20 +16,18 @@ export const stayService = {
     remove,
     getEmptyStay,
     addStayMsg,
-    getDefaultFilter
+    getDefaultFilter,
 }
 window.cs = stayService
 
 function getDefaultFilter() {
-    return { title: '' }
+    return { txt: '', location:'', guests:1 ,checkIn:'',checkOut:'' }
 }
 async function getStays(filterBy = getDefaultFilter()) {
-    // console.log('hello');
     return await httpService.get(BASE_URL, filterBy)
 }
 
 function getById(stayId) {
-    // console.log('from stayservice front' , stayId)
     return httpService.get(BASE_URL + stayId)
     // return httpService.get(`/${stayId}`)
 }

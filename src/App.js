@@ -9,6 +9,7 @@ import { StayEdit } from './pages/StayEdit'
 import { UserMsg } from './cmps/user/user-msg'
 import { Wishlist } from './cmps/user/WishList'
 import { Trips } from './cmps/user/Trips'
+import { Book } from './pages/Book'
 import { BookStay } from './pages/bookStay'
 import '../src/assets/styles/main.scss'
 
@@ -22,11 +23,9 @@ function App() {
             <Routes>
               <Route path="/" element={<StayIndex />} />
               <Route path="/edit/:stayId" element={<StayEdit />} />
-              <Route path="/:stayId" element={<StayDetails />} />
+              <Route path="/stay/:stayId" element={<StayDetails />} />
               <Route path='/trip' element={<Trips />}/>
               <Route path='/wishlist' element={<Wishlist />} />
-              <Route path='/book/:stayId' element={<BookStay />} />
-            
             </Routes>
           </main>
           <AppFooter />

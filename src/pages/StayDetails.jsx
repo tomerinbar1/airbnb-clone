@@ -13,6 +13,7 @@ import { DetailsReviews } from '../cmps/DetailsReviews.jsx'
 import { GalleryModal } from '../cmps/GalleryModal.jsx'
 import { LearnMoreModal } from '../cmps/LearnMoreModal.jsx'
 import { ReviewsModal } from '../cmps/ReviewsModal.jsx'
+import { DetailsMap } from '../cmps/DetailsMap.jsx'
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
@@ -89,25 +90,17 @@ export const StayDetails = () => {
 
         <div className="stay-details-info-right"> // Order Modal // </div>
       </div>
-      
+
       <hr className="custom-hr" />
 
       <DetailsReviews reviews={stay.reviews} onOpenModal={onOpenModal} />
 
       <hr className="custom-hr" />
 
-      
-      <div className="map">map render here</div>
-      <div className="host-info">
-        <h2>Drimnin, Scotland, United Kingdom</h2>
-        <p>
-          The AirShip is situated in a beautiful, secluded position on a
-          four-acre site. Stunning views reach across the Sound of Mull towards
-          Tobermory on the Isle of Mull and out to sea toward Ardnamurchan
-          Point.
-        </p>
-        <a href="">Show more</a>
-      </div>
+      <DetailsMap loc={stay.loc} summary={stay.summary} name={stay.name} />
+
+      <hr className="custom-hr" />
+
       <div className="host-details">
         <div className="hosted-by-txt">
           <h1>Hosted by Amanda</h1>

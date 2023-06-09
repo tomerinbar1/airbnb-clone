@@ -1,17 +1,19 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { stayService } from "../services/stay.service"
-import { loadStays } from "../store/stay.actions"
 import { LocationSelect } from "./LocationSelect"
 import { StayFilterByTxt } from "./StayFilterByTxt"
 import { GuestSelect } from "./GuestSelect"
 import { DateSelect } from "./DateSelect"
-import fi from "date-fns/locale/fi"
 
 
-export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, staySearchParams }) {
-    const [filterBy, setFilterBy] = useState(stayService.getDefaultFilter())
+export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen }) {
     const navigate = useNavigate()
+
+    const [selected, setSelected] = useState([])
+    const [fromValue, setFromValue] = useState('')
+    const [toValue, setToValue] = useState('')
+    const [filterBy, setFilterBy] = useState(stayService.getDefaultFilter())
     const [guestsCount, setGuestsCount] = useState({
         adults: 0,
         children: 0,
@@ -19,13 +21,10 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, s
         pets: 0,
     })
 
-
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
         // if (filterBy.txt.length > 0) setSelectedTab("")
     }
-
-
 
     const onChangeTxt = (value) => {
         onSetFilter({ ...filterBy, txt: value })
@@ -41,44 +40,53 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, s
         onSetFilter({ ...filterBy, guests: totalCount })
     }
 
-
+    const onChangeDates = (value) => {
+        const fromValueTimeStmp = new Date(value.checkIn).getTime()
+        const toValueTimeStmp = Date.parse(value.checkOut)
+        onSetFilter({ ...filterBy, checkIn: fromValueTimeStmp, checkOut: toValueTimeStmp })
+    }
 
 
     const getGuestsSubTitleCount = (guestsCount) => {
         const { adults, children, infants, pets } = guestsCount
-        const totalGuests = adults + children + infants + pets
         var guestSubTitle = ''
-        if (!totalGuests) guestSubTitle = 'Add guests'
-
-        if (adults) guestSubTitle += `${guestsCount.adults} adults`
-        if (children) guestSubTitle += `, ${guestsCount.children} children`
-        if (infants) guestSubTitle += `, ${guestsCount.infants} infants`
-        if (pets) guestSubTitle += `, ${guestsCount.pets} pets`
-
-        if (guestSubTitle.includes('1 adults' || '1 children' || '1 infants' || '1 pets')) {
-            guestSubTitle = guestSubTitle.replace('1 adults', '1 adult')
-            guestSubTitle = guestSubTitle.replace('1 children', '1 child')
-            guestSubTitle = guestSubTitle.replace('1 infants', '1 infant')
-            guestSubTitle = guestSubTitle.replace('1 pets', '1 pet')
+        const totalGuests = adults + children
+        if (!totalGuests) {
+            guestSubTitle = 'Add guests'
+            return guestSubTitle
+        }
+        guestSubTitle += `${totalGuests} ${totalGuests > 1 ? 'guests' : 'guest'}`
+        if (infants) {
+            guestSubTitle += ` ,${infants} ${infants > 1 ? 'infants' : 'infant'}`
+        }
+        if (pets) {
+            guestSubTitle += ` ,${pets} ${pets > 1 ? 'pets' : 'pet'}`
         }
         return guestSubTitle
     }
 
+    const checkInSubtitle = (fromValue) => {
+        if (!fromValue) return 'Add dates'
+        return fromValue
+    }
 
+    const checkOutSubtitle = (toValue) => {
+        if (!toValue) return 'Add dates'
+        return toValue
+    }
 
-const guestsParams = JSON.stringify(guestsCount)
+    const guestsParams = JSON.stringify(guestsCount)
+
     function checkForActiveClass(category) {
         return (selectedTab === category) ? ' active' : ''
     }
 
     const submitFilter = (ev) => {
         ev.preventDefault()
-        navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${ guestsParams|| 1}`)
-        // navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${filterBy.guests || 1}`)
+        navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${guestsParams || 1}&checkIn=${filterBy.checkIn}&checkOut=${filterBy.checkOut}`)
     }
 
     const dynClass = isSearchOpen ? "" : "folded"
-    console.log(selectedTab);
     return (
         <form onSubmit={submitFilter} className={`expanded-search-bar ${dynClass}`}>
 
@@ -91,17 +99,37 @@ const guestsParams = JSON.stringify(guestsCount)
 
             <div onClick={() => setSelectedTab("checkIn")} className={`check-in  ${checkForActiveClass("checkIn")} `}>
                 <h3>Check in</h3>
-                <div>Add dates</div>
+                <div>{checkInSubtitle(fromValue)}</div>
             </div>
-            {(selectedTab === "checkIn" && isSearchOpen) && <DateSelect />}
+            {(selectedTab === "checkIn" && isSearchOpen) &&
+                <DateSelect
+                    fromValue={fromValue}
+                    setFromValue={setFromValue}
+                    toValue={toValue}
+                    setToValue={setToValue}
+                    setSelected={setSelected}
+                    selected={selected}
+                    onChangeDates={onChangeDates}
+                />
+
+            }
 
 
             <div onClick={() => setSelectedTab("checkOut")} className={`check-out  ${checkForActiveClass("checkOut")} `}>
                 <h3>Check out</h3>
-                <div>Add dates</div>
+                <div>{checkOutSubtitle(toValue)}</div>
             </div>
             {/* {(selectedTab === "checkOut" && isSearchOpen) && <div className={`check-in-pick  ${dynClass}`}></div>} */}
-            {(selectedTab === "checkOut" && isSearchOpen) && <DateSelect />}
+            {(selectedTab === "checkOut" && isSearchOpen) &&
+                <DateSelect
+                    fromValue={fromValue}
+                    setFromValue={setFromValue}
+                    toValue={toValue}
+                    setToValue={setToValue}
+                    setSelected={setSelected}
+                    selected={selected}
+                    onChangeDates={onChangeDates}
+                />}
 
 
 
@@ -112,7 +140,7 @@ const guestsParams = JSON.stringify(guestsCount)
                 </div>
             </div>
 
-            <button type="submit" className="search-btn">
+            <button  className="search-btn">
                 <i className="fa-solid fa-magnifying-glass"></i>
             </button>
             {(selectedTab === "guest" && isSearchOpen) && <div className={`guests-pick  ${dynClass}`}>
