@@ -13,7 +13,6 @@ import {
 export async function loadStays(filterBy) {
 // export async function loadStays(filterBy, sortBy) {
     // const sortAndFilter = {filterBy , sortBy}
-    console.log("filterby actions front",filterBy)
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     try {
         const stays = await stayService.getStays(filterBy)

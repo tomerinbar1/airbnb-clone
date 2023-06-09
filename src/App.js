@@ -22,7 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<StayIndex />} />
               <Route path="/edit/:stayId" element={<StayEdit />} />
-              <Route path="/:stayId" element={<StayDetails />} />
+              <Route path="/stay/:stayId" element={<StayDetails />} />
               <Route path='/trip' element={<Trips />}/>
               <Route path='/wishlist' element={<Wishlist />} />
               <Route path='/book/:stayId' element={<Book />}/>

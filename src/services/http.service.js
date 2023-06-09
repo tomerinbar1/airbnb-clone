@@ -9,7 +9,6 @@ var axios = Axios.create({
 
 export const httpService = {
   get(endpoint, data) {
-    console.log('from http' , endpoint , data)
     return ajax(endpoint, 'GET', data)
   },
   post(endpoint, data) {
@@ -31,7 +30,6 @@ async function ajax(endpoint, method = 'GET', data = null) {
       data,
       params: method === 'GET' ? data : null,
     })
-    // console.log( 'from http back' , res.data )
     return res.data
   } catch (err) {
     console.log(

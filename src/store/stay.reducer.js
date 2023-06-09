@@ -14,9 +14,8 @@ const initialState = {
 }
 
 export function stayReducer(state = initialState, action) {
-  // console.log('action', action)
-  let stays
-  // let shoppingStayt
+    let stays
+    // let shoppingStayt
 
   switch (action.type) {
     // Stays

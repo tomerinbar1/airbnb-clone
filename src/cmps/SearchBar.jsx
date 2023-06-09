@@ -8,8 +8,9 @@ export function SearchBar({ onExpandSearch, isSearchOpen }) {
     }
 
 
-    const dynClass = isSearchOpen? "hide":""
+    const dynClass = isSearchOpen ? "hide" : ""
     return (
+
         <div className={`search-bar  ${dynClass}`}>
             <button onClick={() => onSearchHandle("where")} className="anywhere-search-btn">Anywhere</button>
             <button onClick={() => onSearchHandle("week")} className="anyweek-search-btn">Any week</button>
