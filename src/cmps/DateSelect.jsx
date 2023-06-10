@@ -2,7 +2,7 @@ import { DayPicker } from "react-day-picker"
 import { format } from 'date-fns'
 import 'react-day-picker/dist/style.css'
 
-export function DateSelect({ onChangeDates, selected, setSelected, fromValue, setFromValue, toValue, setToValue }) {
+export function DateSelect({ onChangeDates, selected, setSelected, setFromValue, setToValue }) {
 
     const handleRangeSelect = (range) => {
         setSelected(range)
