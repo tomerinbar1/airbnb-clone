@@ -33,10 +33,12 @@
             height: 100%;
             background-color: rgba(152, 14, 14, 0);
 
-            button{
+
+            button {
                 font-size: 12px;
 
             }
+
             .filter-Icon-labels {
                 width: 13px;
                 height: 13px;
@@ -58,6 +60,48 @@
     align-items: center;
     position: relative;
 
+    .carousel-label-back {
+        align-self: flex-start;
+        position: absolute;
+        color: #2F2F2F;
+        z-index: 2;
+
+
+        button {
+            border: 1px solid #B3ADAD;
+            background-color: rgb(255, 255, 255);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0;
+        }
+
+    }
+
+    .carousel-label-forward {
+        align-self: flex-end;
+        position: absolute;
+        color: #2F2F2F;
+        z-index: 2;
+
+        button {
+            border: 1px solid #B3ADAD;
+            background-color: rgb(255, 255, 255);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0;
+        }
+
+
+    }
+
     &::after {
         content: "";
         position: absolute;
@@ -66,6 +110,7 @@
         width: 100%;
         height: 100%;
         background-image: linear-gradient(90deg, #fff 0, transparent 100px, transparent calc(100% - 100px), #fff 100%);
+        pointer-events: none;
     }
 
     .inner-labels {
@@ -92,31 +137,35 @@
             background-color: #fff;
             gap: 32px;
             margin: 0 25px;
+            background: none;
+
         }
     }
 
-    .carousel-labels-arrows {
-        color: #2F2F2F;
-        position: absolute;
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        cursor: pointer;
-        margin-top: 20px;
-        z-index: 2;
+    // .carousel-labels-arrows {
+    //     color: #2F2F2F;
+    //     position: absolute;
+    //     display: flex;
+    //     // width: 100%;
+    //     justify-content: space-between;
+    //     cursor: pointer;
+    //     margin-top: 20px;
+    //     // z-index: 2;
+    //     // pointer-events: none;
 
-        button {
-            border: 1px solid #B3ADAD;
-            background-color: rgb(255, 255, 255);
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin: 0;
-        }
-    }
+
+    //     button {
+    //         border: 1px solid #B3ADAD;
+    //         background-color: rgb(255, 255, 255);
+    //         width: 28px;
+    //         height: 28px;
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         border-radius: 50%;
+    //         margin: 0;
+    //     }
+    // }
 }
 
 
@@ -131,7 +180,7 @@
     padding: 4px 0;
     position: relative;
     min-width: 56px;
-    color: $clr15;
+    // color: $clr15;
     font-family: circular-Bold;
     font-weight: 600;
     display: flex;
@@ -140,8 +189,11 @@
     align-self: flex-end;
     gap: 10px;
 
-    img {
+
+
+    .category-icon {
         opacity: 0.6425339;
+        // opacity: 1;
     }
 
     .category-name {
@@ -152,6 +204,21 @@
         text-align: center;
     }
 }
+
+.category-carousel-item:hover .category-name::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: $clr12;
+    bottom: 0;
+    left: 0;
+}
+
+.category-carousel-item:hover .category-icon {
+    opacity: 1;
+}
+
 
 
 

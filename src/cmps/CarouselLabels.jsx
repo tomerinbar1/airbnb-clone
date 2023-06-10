@@ -4,7 +4,7 @@ import { CarouselItemLabels } from "./CarouselItemLabels"
 export function CarouselLabels({ categories }) {
   const [activeIndex, setActiveIndex] = useState(0)
 
- 
+
   // console.log(categories)
   const pagesCalc = (categories) => {
     const iconsPerPage = 15
@@ -22,7 +22,7 @@ export function CarouselLabels({ categories }) {
     ev.preventDefault()
     if (newIndex < 0) {
       newIndex = pages.length - 1
-    // } else if (newIndex >= pages.length) {
+      // } else if (newIndex >= pages.length) {
     } else if (newIndex >= 3) {
       newIndex = 0
     }
@@ -54,7 +54,7 @@ export function CarouselLabels({ categories }) {
           )
         })} */}
 
-      <div className="carousel-labels-arrows">
+      <span className="carousel-label-back">
         <button
           className="button-arrow-back-labels"
           onClick={(ev) => {
@@ -63,7 +63,9 @@ export function CarouselLabels({ categories }) {
         >
           <span className="material-symbols-outlined arrow-back">arrow_back_ios</span>
         </button>
+      </span>
 
+      <span className="carousel-label-forward">
         <button
           className="button-arrow-forward-labels"
           onClick={(ev) => {
@@ -72,7 +74,7 @@ export function CarouselLabels({ categories }) {
         >
           <span className="material-symbols-outlined">arrow_forward_ios</span>
         </button>
-      </div>
+      </span>
 
 
     </div>

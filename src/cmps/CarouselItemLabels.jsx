@@ -1,12 +1,19 @@
-import React from "react";
+import { useState } from "react"
 
 export const CarouselItemLabels = ({ page, width }) => {
+  const[isActive, setIsActive] = useState(false)
+
+
+  function helloFromLabel(name) {
+    console.log('hello from ' + name)
+  }
+
   return (
     <div className="carousel-item" style={{ width: width }}>
-      {page.map((icon , index) => {
+      {page.map((icon, index) => {
         return (
-          <span key={index} className="category-carousel-item">
-            <img
+          <span onClick={() => helloFromLabel(icon.name)} key={index} className="category-carousel-item">
+            <img className="category-icon" 
               style={{ width: '25px', height: '25px' }}
               src={require(`../assets/img/categories/${icon.url}.png`)}
               alt={icon.url}
