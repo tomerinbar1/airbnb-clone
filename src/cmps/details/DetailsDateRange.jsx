@@ -5,8 +5,8 @@ import { useParams, useSearchParams, useNavigate } from 'react-router-dom'
 
 export const DetailsDateRange = () => {
   const [selected, setSelected] = useState([])
-  const [fromValue, setFromValue] = useState('')
-  const [toValue, setToValue] = useState('')
+  let [fromValue, setFromValue] = useState('')
+  let [toValue, setToValue] = useState('')
   const [filterBy, setFilterBy] = useState(stayService.getDefaultFilter())
   const [stay, setStay] = useState(null)
   const { stayId } = useParams()
@@ -93,7 +93,7 @@ export const DetailsDateRange = () => {
         selected={selected}
         onChangeDates={onChangeDates}
       />
-      <a href="">Clear dates</a>
+   <a onClick={() => { setFromValue(''); setToValue(''); }}>Clear dates</a>
     </div>
   )
 }
