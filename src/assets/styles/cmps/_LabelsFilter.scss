@@ -189,11 +189,8 @@
     align-self: flex-end;
     gap: 10px;
 
-
-
     .category-icon {
         opacity: 0.6425339;
-        // opacity: 1;
     }
 
     .category-name {
@@ -215,9 +212,34 @@
     left: 0;
 }
 
+.category-carousel-item:hover .category-name {
+    color: black;
+}
+
 .category-carousel-item:hover .category-icon {
     opacity: 1;
 }
+
+.category-carousel-item.active .category-name::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+}
+
+.category-carousel-item.active .category-icon {
+    opacity: 1;
+}
+
+.category-carousel-item.active .category-name {
+    color: black;
+}
+
+
+
 
 
 
