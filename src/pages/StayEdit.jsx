@@ -7,13 +7,13 @@ import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service.js"
 import { Link } from 'react-router-dom'
 import { uploadService } from '../services/upload.service.js'
 import { stayService } from '../services/stay.service.js'
-import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
+// import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
 
 export function StayEdit() {
 
     const [stayToEdit, setStayToEdit] = useState(stayService.getEmptyStay())
     const [stayImage, setStayImage] = useState(null)
-    const [openTab, setOpenTab] = useState(null)
+    // const [openTab, setOpenTab] = useState(null)
     const [stay, setStay] = useState(stayService.getEmptyStay())
 
 
@@ -147,7 +147,7 @@ export function StayEdit() {
                     </form>
                 </section>
 
-                <StayDetailsOrder stay={stay} openTab={openTab} setOpenTab={setOpenTab} />
+                {/* <StayDetailsOrder stay={stay} openTab={openTab} setOpenTab={setOpenTab} /> */}
             </div>
         </React.Fragment>
 
