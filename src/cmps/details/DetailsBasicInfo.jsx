@@ -8,7 +8,7 @@ export const DetailsBasicInfo = ({ host, capacity, bathrooms, bedrooms }) => {
     // console.log(gender);
     const randomNumber = Math.floor(Math.random() * 78)
     // console.log(randomNumber);
-    import( `../assets/img/usersImgs/${gender}/${randomNumber}.jpg`).then((image) => {
+    import( `../../assets/img/usersImgs/${gender}/${randomNumber}.jpg`).then((image) => {
       // console.log(image);
       setHostImg(image.default)
     })

@@ -1,5 +1,5 @@
 import { StayReviewsStat } from './StayReviewsStat'
-import {makeId} from '../services/util.service.js'
+import {makeId} from '../../services/util.service.js'
 
 export const DetailsReviews = ({ reviews, onOpenModal }) => {
   

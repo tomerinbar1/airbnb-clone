@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { stayService } from '../services/stay.service'
-import { StayReviewsStat } from '../cmps/StayReviewsStat'
+import { StayReviewsStat } from '../cmps/details/StayReviewsStat'
 
 export const Book = () => {
   const [stay, setStay] = useState(null)

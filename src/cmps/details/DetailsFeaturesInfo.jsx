@@ -1,6 +1,6 @@
-import airbnb from '../assets/img/common/airbnb.svg'
-import features from '../assets/img/common/features.svg'
-import design from '../assets/img/common/design.svg'
+import airbnb from '../../assets/img/common/airbnb.svg'
+import features from '../../assets/img/common/features.svg'
+import design from '../../assets/img/common/design.svg'
 
 export const DetailsFeaturesInfo = ({onOpenModal}) => {
   return (

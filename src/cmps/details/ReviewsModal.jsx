@@ -1,6 +1,6 @@
 import Modal from 'react-modal'
 import { StayReviewsStat } from './StayReviewsStat'
-import { makeId } from '../services/util.service'
+import { makeId } from '../../services/util.service'
 
 export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
   const averageRates = reviews => {
