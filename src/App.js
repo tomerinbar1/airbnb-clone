@@ -30,7 +30,7 @@ function App() {
             </Routes>
           </main>
           <AppFooter />
-          <UserMsg />
+          {/* <UserMsg /> */}
         </section>
       </Router>
     </Provider>

@@ -17,6 +17,10 @@
         height: 160px;
         align-content: baseline;
     }
+    &.header-block {
+       position: relative;
+       padding:0;
+    }
 
     .main-screen-full {
         position: fixed;
