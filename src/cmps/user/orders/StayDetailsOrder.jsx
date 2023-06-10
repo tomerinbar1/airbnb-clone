@@ -6,13 +6,19 @@ import { useState, useEffect } from 'react'
 import { useLocation, useSearchParams, useNavigate } from 'react-router-dom'
 import { utilService } from '../../../services/util.service';
 import { GuestOrderSelect } from './GuestOrderSelect';
+import { DateSelect } from '../../DateSelect';
 
 
 
 export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
     const location = useLocation()
-    let [searchParams, setSearchParams] = useSearchParams(new URLSearchParams(location.search))
+    // const [toValue, setToValue] = useState('')
+    // const [fromValue, setFromValue] = useState('')
+    // const [selected, setSelected] = useState([])
 
+    let [searchParams, setSearchParams] = useSearchParams(new URLSearchParams(location.search))
+    const cleaningFee = 6
+    const serviceFee = 15
     const [updatedsearchParams, setUpdatedsearchParams] = useState(
         {
             checkIn: '',
@@ -28,12 +34,10 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
 
 
     const navigate = useNavigate()
-
-    //  searchParams = new URLSearchParams(location.search)
     const params = Object.fromEntries(searchParams.entries())
     const guestsFromParams = (params.guests) ? JSON.parse(params.guests) : 1
     // console.log('params ', params)
-    // console.log('updatedsearchParams ', updatedsearchParams)
+    console.log('updatedsearchParams ', updatedsearchParams)
 
 
     useEffect(() => {
@@ -56,21 +60,8 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
         }
     }
 
-    // const orderParams = {
-    //     checkIn: params.checkIn
-    //         ? new Date(+params.checkIn)
-    //         : '',
-    //     checkOut: params.checkOut
-    //         ? new Date(+params.checkOut)
-    //         : '',
-    //     guests: {
-    //         adults: +guestsFromParams.adults || 1,
-    //         children: +guestsFromParams.children || 0,
-    //         infants: +guestsFromParams.infants || 0,
-    //         pets: +guestsFromParams.pets || 0,
-    //     }
-    // }
 
+   
 
     function getGuestsCount() {
         const guestsCount = Object.values(updatedsearchParams.guests)
@@ -85,9 +76,21 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
         return buttonText
     }
 
-    function onReserveBtn(){
+    function onReserveBtn() {
         const paramsForBookingGuests = JSON.stringify(updatedsearchParams.guests)
-        navigate(`/book/${stay._id}?checkIn=${updatedsearchParams.checkIn}&checkOut=${updatedsearchParams.checkOut}&guests=${ paramsForBookingGuests|| 1}&stayName=${stay.name}`)
+        navigate(`/book/${stay._id}?checkIn=${updatedsearchParams.checkIn}&checkOut=${updatedsearchParams.checkOut}&guests=${paramsForBookingGuests || 1}&stayName=${stay.name}`)
+
+    }
+
+    function onChangeDates(value){
+        const updatedCheckIn = new Date(value.checkIn).getTime()
+        const updatedCheckOut = new Date(value.checkOut).getTime()
+        setUpdatedsearchParams(prevParams => ({ ...prevParams, checkIn: updatedCheckIn, checkOut:updatedCheckOut }))
+
+        // setFilterBy({ ...filterBy, checkIn: fromValueTimeStmp, checkOut: toValueTimeStmp })
+
+
+        // onChangeDates({ checkIn: range.from, checkOut: range.to })
 
     }
 
@@ -117,11 +120,11 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
             <section className='user-prefs'>
                 <section className='order-modal-header'>
                     <section className='price-per-night'>
-                        <span>${stay.price}</span>
-                        <span className='word-night' >night</span>
+                        <span className='price'>${stay.price}</span>
+                        <span className='word-night'>night</span>
                     </section>
-                    <span>rate</span>
-                    <span>1 review</span>
+                    {/* <span>rate</span> */}
+                    {/* <span>1 review</span> */}
 
                 </section>
 
@@ -130,20 +133,20 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
                 <section className='picker-container'>
                     {(openTab === 'checkIn' || openTab === 'checkOut') && (           //calander open
                         <section className='date-picker-container'>
+                            <section className='date-picker-header'>
                             {(updatedsearchParams.checkIn && updatedsearchParams.checkOut) ? (<h4>{utilService.totalDays(updatedsearchParams.checkIn, updatedsearchParams.checkOut)} nights</h4>) : <h4>Select dates</h4>}
                             {(updatedsearchParams.checkIn && updatedsearchParams.checkOut) ? (<h5>{utilService.ShortFormattedDate(updatedsearchParams.checkIn)}-{utilService.ShortFormattedDate(updatedsearchParams.checkOut)}</h5>) : <h5>Add your travel dates for exact pricing</h5>}
-
+                            </section>
                             <DatePicker
+                            setUpdatedsearchParams={setUpdatedsearchParams}
                                 checkIn={updatedsearchParams.checkIn}
                                 checkOut={updatedsearchParams.checkOut}
-                                onSetField={onSetField}
-                                style={{
-                                    backgroundColor: 'black',
-                                }}
                             />
+
                             <section className='open-picker-btns'>
-                                <button className='clear-open-picker-btn' onClick={() => { onSetField('checkIn', ''); onSetField('checkOut', '') }}>Clear dates</button>
+                                {/* <button className='clear-open-picker-btn' onClick={() => { onSetField('checkIn', ''); onSetField('checkOut', '') }}>Clear dates</button> */}
                                 <button className='close-open-picker-btn' onClick={() => setOpenTab('')}>Close</button>
+                          
                             </section>
                         </section>
 
@@ -185,10 +188,10 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
                     </section>
                 </section>
             </section>
-            
-            {(!updatedsearchParams.checkIn || !updatedsearchParams.checkOut) &&(
-            <button className="check-availability" onClick={()=> setOpenTab('checkIn')}>
-                Check availability</button>)}
+
+            {(!updatedsearchParams.checkIn || !updatedsearchParams.checkOut) && (
+                <button className="check-availability" onClick={() => setOpenTab('checkIn')}>
+                    Check availability</button>)}
 
             {(updatedsearchParams.checkIn && updatedsearchParams.checkOut) &&
                 <section className="reservation-details">
@@ -198,12 +201,12 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
                     <section className='no-charge-msg'>
                         You won't be charged yet
                     </section>
-                    <section className='price-summary'>
+                    {/* <section className='price-summary'>
                         <p> $ * nights</p>
-                        <p>Cleaning fee</p>
+                        <p>Cleaning fee <span>{getTotalCleaningFee()}</span></p>
                         <p>Airbnb service fee</p>
                         <p>Total</p>
-                    </section>
+                    </section> */}
                 </section>
             }
         </section>

@@ -2,6 +2,15 @@
   margin: auto;
   max-width: 1120px;
   position: relative;
+
+.my-trips-btn,
+  .confirm-btn{
+    width: 100%;
+    height: 56px;
+    font-size: 16px;
+    font-family: $font1;
+    margin-top: 7px;
+  }
   .book-details-header {
     display: flex;
     justify-content: space-between;
@@ -62,10 +71,14 @@
               font-family: circular-Regular;
               margin: 0;
             }
-            p {
-              font-family: circular-Medium;
-              padding-top: 8px;
-              margin: 0;
+
+            .date-info{
+
+              p {
+                font-family: $font1;
+                padding-top: 8px;
+                margin: 0;
+              }
             }
             .book-details-edit {
               a {
@@ -87,6 +100,21 @@
               font-family: circular-Medium;
               padding-top: 8px;
               margin: 0;
+            }
+
+            .guest-info{
+              font-family: $font1;
+              padding-top: 8px;
+              margin: 0;
+              height: 70px;
+              .guest-count{
+                padding-right: 5px;
+                padding-top: 10px;
+              }
+              h3{
+                margin-bottom: 5px;
+              }
+
             }
             .book-details-edit {
               a {
@@ -264,6 +292,8 @@
             .per-night-price {
               display: flex;
               align-items: baseline;
+              font-size: 16px;
+              font-family: $font1;
               h3 {
                 font-family: cereal-regular;
                 font-size: rem(16px);

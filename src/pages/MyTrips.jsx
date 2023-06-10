@@ -7,7 +7,7 @@ import { orderService } from '../services/order.service'
 export function MyTrips() {
     const user = useSelector((state) => state.userModule.user)
     const [localUser, setLocalUser] = useState(null)
-    console.log('localUser', localUser)
+    // console.log('localUser', localUser)
 
     useEffect(() => {
         loadUser()
@@ -20,7 +20,7 @@ export function MyTrips() {
         try {
             const userFromDb = await userService.getById(user._id)
             setLocalUser(userFromDb)
-            console.log('userFromDb', userFromDb)
+            // console.log('userFromDb', userFromDb)
         } catch (err) {
             console.log('Had issues in getting user', err)
         }
@@ -36,7 +36,7 @@ export function MyTrips() {
         const userOrders = localUser.orders
         const idx = userOrders.indexOf(order)
         userOrders.splice(idx, 1)
-        console.log(userOrders)
+        // console.log(userOrders)
         setLocalUser({ ...localUser, orders: userOrders })
         //    { ...localUser, orders: [...localUser.orders, order] };
     }
@@ -44,7 +44,7 @@ export function MyTrips() {
     async function updateUserDb() {
         try {
             const updatedUser = await userService.update(localUser)
-            console.log('updatedUser', updatedUser)
+            // console.log('updatedUser', updatedUser)
             console.log('User updated')
         } catch {
             console.log('Cannot remove order')
@@ -54,8 +54,6 @@ export function MyTrips() {
 
 
     async function removeFromOrderCollection(orderId) {
-        console.log(orderId)
-
         try {
             await orderService.remove(orderId)
             console.log('Order removed')
@@ -65,12 +63,6 @@ export function MyTrips() {
         }
     }
 
-
-
-    // function onDeleteOrder(orderId) {
-    //     console.log(orderId)
-    //     orderService.remove(orderId)
-    // }
 
     function getGuestsCount(guests) {
         const guestsCount = Object.values(guests)
@@ -85,8 +77,6 @@ export function MyTrips() {
         <section className="my-trips-page">
             {(localUser.orders.length === 0) && <h2>No trips</h2>}
 
-
-
             {(localUser.orders.length > 0) &&
                 <section className='orders'>
                     <h2 className="my-trips-header">My trips</h2>
@@ -99,6 +89,7 @@ export function MyTrips() {
                                 <th key="key4" >Guests</th>
                                 <th key="key5" > Total price</th>
                                 <th key="key6">Status</th>
+                                <th key="key7">Actions</th>
                             </tr>
                         </thead>
                         <tbody>

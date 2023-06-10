@@ -21,7 +21,7 @@ export function StayIndex() {
 
   useEffect(() => {
     const filterBy = { txt, location: locationFromParams, guests: totalGuestsFromParams, checkIn: checkinFromParams, checkOut: checkOutFromParams }
-    console.log('filterBy', filterBy)
+    // console.log('filterBy', filterBy)
     loadStays(filterBy)
   }, [txt, locationFromParams, totalGuestsFromParams, checkinFromParams, checkOutFromParams])
 

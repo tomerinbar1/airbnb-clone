@@ -25,7 +25,7 @@ export function BookStay() {
     const serviceFee = 15
     // console.log('addedOrder', addedOrder)
     // console.log('order', order)
-    console.log('localUser', localUser)
+    // console.log('localUser', localUser)
 
 
     useEffect(() => {
@@ -65,7 +65,7 @@ export function BookStay() {
             const updatedUser = { ...localUser, orders: [...localUser.orders, order] };
             setLocalUser(updatedUser)
            const savedUser = await userService.update(updatedUser)
-            console.log('savedUser' , savedUser)
+            // console.log('savedUser' , savedUser)
             console.log('User DB updated')
 
         } catch (err) {
