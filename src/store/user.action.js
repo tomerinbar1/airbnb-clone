@@ -45,6 +45,7 @@ export async function updateUser(user) {
 }
 
 export async function logout() {
+
   try {
     // const user = await userService.logout()
     await userService.logout()

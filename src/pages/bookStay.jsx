@@ -6,9 +6,6 @@ import { orderService } from '../services/order.service'
 import { utilService } from '../services/util.service'
 import { LoginSignup } from '../cmps/user/LoginSignup'
 import { userService } from '../services/user.service'
-import { store } from '../store/store'
-import { SET_USER } from '../store/user.reducer'
-
 
 
 export function BookStay() {
@@ -21,17 +18,20 @@ export function BookStay() {
     const location = useLocation()
     const navigate = useNavigate()
     const user = useSelector((state) => state.userModule.user)
-    
+
     const searchParams = new URLSearchParams(location.search)
-    const { checkIn, checkOut, guests } = Object.fromEntries(searchParams.entries())
+    const { checkIn, checkOut, guests, stayName } = Object.fromEntries(searchParams.entries())
     const cleaningFee = 6
     const serviceFee = 15
- 
+    // console.log('addedOrder', addedOrder)
+    // console.log('order', order)
+    console.log('localUser', localUser)
+
+
     useEffect(() => {
         async function loadData() {
-           const res = await loadUser()
+            const userFromDb = await loadUser()
             loadOrderDetails()
-            store.dispatch({ type: SET_USER, user })
         }
         loadData()
     }, [user])
@@ -39,9 +39,20 @@ export function BookStay() {
 
     async function onConfirmBtn() {
         try {
-            await orderService.save(order)
-            updateUserDb()
+            await saveOrder()
+             updateUserDb()
             setIsBooked(true)
+        } catch (err) {
+            console.log('Had issues in booking', err);
+        }
+    }
+    
+
+    async function saveOrder() {
+        try {
+            const addedOrder = await orderService.save(order)
+            setOrder(addedOrder)
+            // setLocalUser((prevUser) => ({ ...prevUser, orders: [...prevUser.orders, addedOrder] }))
         } catch (err) {
             console.log('Had issues in booking', err)
         }
@@ -49,9 +60,12 @@ export function BookStay() {
 
 
     async function updateUserDb() {
+
         try {
-            console.log('localUser', localUser)
-            await userService.update(localUser)
+            const updatedUser = { ...localUser, orders: [...localUser.orders, order] };
+            setLocalUser(updatedUser)
+           const savedUser = await userService.update(updatedUser)
+            console.log('savedUser' , savedUser)
             console.log('User DB updated')
 
         } catch (err) {
@@ -68,16 +82,14 @@ export function BookStay() {
         } catch (err) {
             console.log('Had issues in getting user', err)
         }
-
     }
 
     async function loadOrderDetails() {
         try {
             const stay = await stayService.getById(stayId)
             const orderToSet = handleOrder(stay)
-            if(user) setLocalUser((prevUser) => ({ ...prevUser, orders: [...prevUser.orders, orderToSet] }))
             setOrder(orderToSet)
-            // console.log('orderToSet', orderToSet)
+            // if(user) setLocalUser((prevUser) => ({ ...prevUser, orders: [...prevUser.orders, orderToSet] }))
         } catch (err) {
             console.log('Had issues loading reservation', err)
         }
@@ -86,22 +98,24 @@ export function BookStay() {
     function handleOrder(stay) {
         const orderToSet = orderService.getEmptyOrder()
         orderToSet.stayId = stayId
+        orderToSet.stayName = stayName
         orderToSet.hostId = stay.host._id
         orderToSet.guests = JSON.parse(guests)
-        orderToSet.startDate = checkIn || Date.now()
-        orderToSet.endDate = checkOut || Date.now() + 1000 * 60 * 60 * 24
+        orderToSet.startDate = +checkIn || Date.now()
+        orderToSet.endDate = +checkOut || Date.now() + 1000 * 60 * 60 * 24
         orderToSet.totalDays = +utilService.totalDays(orderToSet.startDate, orderToSet.endDate)
         orderToSet.nightsPrice = +(orderToSet.totalDays * stay.price).toFixed(2)
         orderToSet.serviceFee = +((serviceFee * orderToSet.nightsPrice) / 100).toFixed(2)
         orderToSet.cleaningFee = +((cleaningFee * orderToSet.nightsPrice) / 100).toFixed(2)
         orderToSet.totalPrice = +(orderToSet.nightsPrice + orderToSet.cleaningFee + orderToSet.serviceFee).toFixed(2)
         orderToSet.renter = user || ''
-        // console.log(orderToSet)
+        orderToSet.createdAt= +new Date()
         return orderToSet
     }
 
     function onMyTripsBtn() {
-        // navigate(`/trip/?user=${filterBy.txt}`)
+
+        navigate(`/trip`)
         // navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${guestsParams || 1}&checkIn=${filterBy.checkIn}&checkOut=${filterBy.checkOut}`)
 
     }

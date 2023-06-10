@@ -26,8 +26,8 @@ function App() {
               <Route path="/stay/:stayId" element={<StayDetails />} />
               <Route path='/trip' element={<MyTrips />}/>
               <Route path='/wishlist' element={<Wishlist />} />
-              <Route path='/book/:stayId' element ={<BookStay/>} />
-              {/* <Route path="/book/:stayId" element={<Book />} /> */}
+              {/* <Route path='/book/:stayId' element ={<BookStay/>} /> */}
+              <Route path="/book/:stayId" element={<Book />} />
             </Routes>
           </main>
           <AppFooter />
