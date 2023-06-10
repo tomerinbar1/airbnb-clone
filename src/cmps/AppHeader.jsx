@@ -1,20 +1,16 @@
 import { SearchBar } from "./SearchBar"
 import { Logo } from "./Logo"
 import { Navbar } from "./Navbar"
-import { useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { SearchBarExpanded } from "./SearchBarExpanded"
-import { useLocation } from 'react-router-dom'
+import { useSelector } from "react-redux"
 
 
 export const AppHeader = () => {
-  const location = useLocation()
-  const urlSearchParams = new URLSearchParams(location.search)
-  console.log('params', urlSearchParams);
-  
   const searchBarRef = useRef(null)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [selectedTab, setSelectedTab] = useState("location")
-
+  const stayId = useSelector(storeState => storeState.stayModule.stayId)
 
   function handleTabsUBMIT() {
     if (selectedTab === 'location') setSelectedTab('checkIn')
@@ -33,14 +29,14 @@ export const AppHeader = () => {
   }
 
   return (
-    <header ref={searchBarRef} className="app-header">
+    <header ref={searchBarRef}  className={`app-header ${stayId ? 'header-block' : ''}`}>
 
       {isSearchOpen &&
         <div onClick={() => onExpandSearch()} className="main-screen-full">
         </div>}
       <Logo />
       {/* {!isSearchOpen && <SearchBar onExpandSearch={onExpandSearch} />} */}
-      <SearchBar onExpandSearch={onExpandSearch} isSearchOpen={isSearchOpen} />
+      <SearchBar isStayId={stayId} onExpandSearch={onExpandSearch} isSearchOpen={isSearchOpen} />
       <SearchBarExpanded
         setSelectedTab={setSelectedTab}
         isSearchOpen={isSearchOpen}

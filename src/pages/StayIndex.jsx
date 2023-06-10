@@ -7,6 +7,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { StayList } from '../cmps/StayList.jsx'
 import { LabelsFilter } from '../cmps/LabelsFilter.jsx'
 import { useLocation, useParams } from 'react-router-dom'
+import {setStayId} from '../store/stay.actions.js'
 
 
 export function StayIndex() {
@@ -23,6 +24,10 @@ export function StayIndex() {
     const filterBy = { txt, location: locationFromParams, guests: capacityfromparams,checkIn:checkinFromParams, checkOut:checkOutFromParams }
     loadStays(filterBy)
   }, [txt, locationFromParams,capacityfromparams])
+
+  useEffect(() => {
+    setStayId(null)
+  }, [])
 
   if (isLoading) return <div>Loading...</div>
 

@@ -14,6 +14,7 @@ import { GalleryModal } from '../cmps/GalleryModal.jsx'
 import { LearnMoreModal } from '../cmps/LearnMoreModal.jsx'
 import { ReviewsModal } from '../cmps/ReviewsModal.jsx'
 import { DetailsMap } from '../cmps/DetailsMap.jsx'
+import { setStayId } from '../store/stay.actions.js'
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
@@ -29,6 +30,7 @@ export const StayDetails = () => {
       setStay(stayFromParams)
     }
     loadStaysOnDetails()
+    setStayId(stayId)
   }, [])
 
   const onOpenModal = (event, modal) => {
@@ -58,6 +60,7 @@ export const StayDetails = () => {
         stayId={stay._id}
       />
       <StayDetailsGallery imgUrls={stay.imgUrls} onOpenModal={onOpenModal} />
+      {/* <StayDetailsGallery elGallery={elGallery} imgUrls={stay.imgUrls} onOpenModal={onOpenModal} /> */}
       <div className="stay-details-info">
         <div className="stay-details-info-left">
           <DetailsBasicInfo

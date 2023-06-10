@@ -4,11 +4,13 @@ export const ADD_STAY = 'ADD_STAY'
 export const UPDATE_STAY = 'UPDATE_STAY'
 export const SET_IS_LOADING = 'SET_IS_LOADING'
 export const REQUEST_STAYS = 'REQUEST_STAYS'
+export const SET_STAY_ID = 'SET_STAY_ID'
 // export const UNDO_REMOVE_STAY = 'UNDO_REMOVE_STAY'
 
 const initialState = {
     stays: [],
     isLoading: false,
+    stayId: null,
     // lastRemovedStay: null
 }
 
@@ -42,7 +44,8 @@ export function stayReducer(state = initialState, action) {
             stays = state.stays.map(stay => stay._id === action.stay._id ? action.stay : stay)
             return { ...state, stays }
 
-
+        case SET_STAY_ID:
+            return { ...state, stayId: action.stayId }
         default:
             return state
     }
