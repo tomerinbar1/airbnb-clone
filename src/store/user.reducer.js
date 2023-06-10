@@ -10,7 +10,6 @@ const initialState = {
   users: [],
   watchedUser: null,
   notifications: []
-
 }
 
 export function userReducer(state = initialState, action) {

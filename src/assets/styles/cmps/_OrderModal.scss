@@ -1,106 +1,98 @@
-.order-modal {
-    border: 1px solid $clr9;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-    color: $clr8;
-    background-color: $clr11;
-    width: 372px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
+.stay-details-order-container {
+//   margin-top: 41px;
 
-    
-
-    .order-modal-header {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .reservation-details {
+    .order-modal {
+        // position: relative;
+        border: 1px solid $clr9;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+        color: $clr8;
+        background-color: $clr11;
+        width: 372px;
+        height: fit-content;
         display: flex;
         flex-direction: column;
-        .no-charge-msg {
-            align-self: center;
+
+
+        .order-modal-header {
+            display: flex;
+            justify-content: space-between;
         }
-        
-        .reserve-btn {
-            height: rem(48px);
-        }
-    }
 
-    .user-prefs {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 227px;
-        position: relative;
-
-
-
-    }
-
-
-    .picker-container {
-        // position: absolute;
-        // margin-bottom: 15px;
-        // border-radius: 8px;
-
-        .picker-btns {
+        .reservation-details {
             display: flex;
             flex-direction: column;
-            // padding-inline-start: 20px;
-            // padding-top: 10px;
-            // border-radius: 8px;
-            top: 0;
 
-            &.active {
-                position: absolute;
-                border-radius: 8px;
-                z-index: 3;
+            .no-charge-msg {
+                align-self: center;
+            }
+
+            .reserve-btn {
+                height: rem(48px);
             }
         }
-    }
 
-
-    // 661 / 509
-    .date-picker-container {
-        display: inline-flex;
-        position: relative;
-        height: rem(509px);
-        width: rem(661px);
-        border: 1px solid #ccc;
-        // left: 50%;
-        top: 40px;
-        transform: translateX(-50%);
+        .user-prefs {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 227px;
+            position: relative;
 
 
 
-        .close-open-picker-btn {
-            position: absolute;
-            // top: 100%;
-            // z-index: 6;
-            bottom: 100%;
         }
 
 
+        .picker-container {
+            // position: absolute;
+            // margin-bottom: 15px;
+            // border-radius: 8px;
+
+            .picker-btns {
+                display: flex;
+                flex-direction: column;
+                // padding-inline-start: 20px;
+                // padding-top: 10px;
+                // border-radius: 8px;
+                top: 0;
+
+                &.active {
+                    position: absolute;
+                    border-radius: 8px;
+                    z-index: 3;
+                }
+            }
+        }
+
+
+        // 661 / 509
+        .date-picker-container {
+            display: inline-flex;
+            position: relative;
+            height: rem(509px);
+            width: rem(661px);
+            border: 1px solid #ccc;
+            // left: 50%;
+            top: 40px;
+            transform: translateX(-50%);
+
+
+
+            .close-open-picker-btn {
+                position: absolute;
+                // top: 100%;
+                // z-index: 6;
+                bottom: 100%;
+            }
+
+
+        }
     }
+
 }
 
-
-
-
-.main-edit-page {
-    padding: 20px;
-    display: flex;
-    height: 100vh;
-    justify-content: space-around;
-}
-
-
-// .rdrMonthAndYearWrapper {
-//     visibility: hidden;
-// }
 
 
 .rdrCalendarWrapper {

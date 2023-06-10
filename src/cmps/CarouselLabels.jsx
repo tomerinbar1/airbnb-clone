@@ -22,7 +22,8 @@ export function CarouselLabels({ categories }) {
     ev.preventDefault()
     if (newIndex < 0) {
       newIndex = pages.length - 1
-    } else if (newIndex >= pages.length) {
+    // } else if (newIndex >= pages.length) {
+    } else if (newIndex >= 3) {
       newIndex = 0
     }
     setActiveIndex(newIndex)

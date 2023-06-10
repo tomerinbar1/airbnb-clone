@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom'
 export const AppHeader = () => {
   const location = useLocation()
   const urlSearchParams = new URLSearchParams(location.search)
-  console.log('params', urlSearchParams);
+  // console.log('params', urlSearchParams);
   
   const searchBarRef = useRef(null)
   const [isSearchOpen, setIsSearchOpen] = useState(false)

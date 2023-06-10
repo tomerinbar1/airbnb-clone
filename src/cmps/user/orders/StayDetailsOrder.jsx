@@ -43,10 +43,10 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
 
     const orderParams = {
         checkIn: params.checkIn
-            ? new Date(+params.checkIn)
+            ? (+params.checkIn)
             : '',
         checkOut: params.checkOut
-            ? new Date(+params.checkOut)
+            ? (+params.checkOut)
             : '',
         guests: {
             adults: +guestsFromParams.adults || 1,
@@ -55,6 +55,21 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
             pets: +guestsFromParams.pets || 0,
         }
     }
+
+    // const orderParams = {
+    //     checkIn: params.checkIn
+    //         ? new Date(+params.checkIn)
+    //         : '',
+    //     checkOut: params.checkOut
+    //         ? new Date(+params.checkOut)
+    //         : '',
+    //     guests: {
+    //         adults: +guestsFromParams.adults || 1,
+    //         children: +guestsFromParams.children || 0,
+    //         infants: +guestsFromParams.infants || 0,
+    //         pets: +guestsFromParams.pets || 0,
+    //     }
+    // }
 
 
     function getGuestsCount() {
@@ -72,9 +87,6 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
 
     function onReserveBtn(){
         const paramsForBookingGuests = JSON.stringify(updatedsearchParams.guests)
-
-        // navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${ guestsParams|| 1}`)
-
         navigate(`/book/${stay._id}?checkIn=${updatedsearchParams.checkIn}&checkOut=${updatedsearchParams.checkOut}&guests=${ paramsForBookingGuests|| 1}`)
 
     }

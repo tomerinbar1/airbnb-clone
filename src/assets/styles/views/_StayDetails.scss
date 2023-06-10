@@ -13,8 +13,11 @@
   }
   
   .stay-details-info {
+    margin-top: 40px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+
     .stay-details-info-left {
       display: flex;
       flex-direction: column;

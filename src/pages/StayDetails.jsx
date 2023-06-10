@@ -14,6 +14,10 @@ import { GalleryModal } from '../cmps/GalleryModal.jsx'
 import { LearnMoreModal } from '../cmps/LearnMoreModal.jsx'
 import { ReviewsModal } from '../cmps/ReviewsModal.jsx'
 import { DetailsMap } from '../cmps/DetailsMap.jsx'
+import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
+
+
+
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
@@ -21,6 +25,7 @@ export const StayDetails = () => {
   const [galleryModalIsOpen, setGalleryModalIsOpen] = useState(false)
   const [learnMoreModalIsOpen, setLearnMoreModalIsOpen] = useState(false)
   const [reviewsModalIsOpen, setReviewsModalIsOpen] = useState(false)
+  const [openTab, setOpenTab] = useState(null)
 
   useEffect(() => {
     const loadStaysOnDetails = async () => {
@@ -88,7 +93,10 @@ export const StayDetails = () => {
           <DetailsDateRange />
         </div>
 
-        <div className="stay-details-info-right"> // Order Modal // </div>
+        <div className="stay-details-order-container">
+        <StayDetailsOrder stay={stay} openTab={openTab} setOpenTab={setOpenTab} />
+            </div>
+
       </div>
 
       <hr className="custom-hr" />
