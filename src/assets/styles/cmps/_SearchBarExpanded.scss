@@ -102,10 +102,21 @@
         height: 48px;
         padding-top: 3px;
         margin-top: 7px;
-        color: $clr11;
         align-self: center;
         position: fixed;
         right: 10px;
+
+        &.expand {
+            width: 110px;
+            border-radius: 25px;
+
+            transition: 0.4s;
+
+            span{
+                color:$clr11 ;
+            }
+
+        }
 
         i {
             position: absolute;

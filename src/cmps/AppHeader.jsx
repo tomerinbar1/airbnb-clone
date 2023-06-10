@@ -12,7 +12,7 @@ export const AppHeader = () => {
   const [selectedTab, setSelectedTab] = useState("location")
   const stayId = useSelector(storeState => storeState.stayModule.stayId)
 
-  function handleTabsUBMIT() {
+  function handleTabSubmit() {
     if (selectedTab === 'location') setSelectedTab('checkIn')
     if (selectedTab === 'checkIn') setSelectedTab('checkOut')
     if (selectedTab === 'checkOut') setSelectedTab('guests')
