@@ -9,7 +9,6 @@ import { DateSelect } from "./DateSelect"
 
 export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen }) {
     const navigate = useNavigate()
-
     const [selected, setSelected] = useState([])
     const [fromValue, setFromValue] = useState('')
     const [toValue, setToValue] = useState('')
@@ -21,31 +20,26 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
         pets: 0,
     })
 
-    function onSetFilter(filterBy) {
-        setFilterBy(filterBy)
-        // if (filterBy.txt.length > 0) setSelectedTab("")
-    }
 
     const onChangeTxt = (value) => {
-        onSetFilter({ ...filterBy, txt: value })
+        setFilterBy({ ...filterBy, txt: value })
     }
 
     const onChangeLocation = (value) => {
         if (value === "I'm flexible") value = ""
-        onSetFilter({ ...filterBy, location: value })
+        setFilterBy({ ...filterBy, location: value })
     }
 
     const onChangeGuests = (value) => {
         const totalCount = Object.values(value).reduce((acc, curr) => acc + curr)
-        onSetFilter({ ...filterBy, guests: totalCount })
+        setFilterBy({ ...filterBy, guests: totalCount })
     }
 
     const onChangeDates = (value) => {
-        const fromValueTimeStmp = new Date(value.checkIn).getTime()
-        const toValueTimeStmp = Date.parse(value.checkOut)
-        onSetFilter({ ...filterBy, checkIn: fromValueTimeStmp, checkOut: toValueTimeStmp })
+        const toValueTimeStmp = new Date(value.checkIn).getTime()
+        const fromValueTimeStmp = new Date(value.checkOut).getTime()
+        setFilterBy({ ...filterBy, checkIn: fromValueTimeStmp, checkOut: toValueTimeStmp })
     }
-
 
     const getGuestsSubTitleCount = (guestsCount) => {
         const { adults, children, infants, pets } = guestsCount
@@ -76,6 +70,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
     }
 
     const guestsParams = JSON.stringify(guestsCount)
+    const totalGuests = guestsCount.adults + guestsCount.children
 
     function checkForActiveClass(category) {
         return (selectedTab === category) ? ' active' : ''
@@ -83,7 +78,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
 
     const submitFilter = (ev) => {
         ev.preventDefault()
-        navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${guestsParams || 1}&checkIn=${filterBy.checkIn}&checkOut=${filterBy.checkOut}`)
+        navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&totalGuests=${totalGuests}&guests=${guestsParams}&checkIn=${filterBy.checkIn}&checkOut=${filterBy.checkOut}`)
     }
 
     const dynClass = isSearchOpen ? "" : "folded"
@@ -103,9 +98,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
             </div>
             {(selectedTab === "checkIn" && isSearchOpen) &&
                 <DateSelect
-                    fromValue={fromValue}
                     setFromValue={setFromValue}
-                    toValue={toValue}
                     setToValue={setToValue}
                     setSelected={setSelected}
                     selected={selected}
@@ -140,7 +133,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                 </div>
             </div>
 
-            <button  className="search-btn">
+            <button className="search-btn">
                 <i className="fa-solid fa-magnifying-glass"></i>
             </button>
             {(selectedTab === "guest" && isSearchOpen) && <div className={`guests-pick  ${dynClass}`}>
