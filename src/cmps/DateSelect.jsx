@@ -5,7 +5,6 @@ import 'react-day-picker/dist/style.css'
 export function DateSelect({ onChangeDates, selected, setSelected, fromValue, setFromValue, toValue, setToValue }) {
 
     const handleRangeSelect = (range) => {
-        console.log('range', range);
         setSelected(range)
         if (range?.from) {
             setFromValue(format(range.from, 'MMM d'))

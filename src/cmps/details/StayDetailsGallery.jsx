@@ -1,7 +1,25 @@
-import showAllPhotos from '../assets/img/common/show-all-photos.svg'
+import { useEffect } from 'react'
+import showAllPhotos from '../../assets/img/common/show-all-photos.svg'
 
 export const StayDetailsGallery = ({ imgUrls, onOpenModal }) => {
-  
+
+  useEffect(() => {
+    const galery = document.querySelector('.stay-details-img')
+    const tochangeheader = document.querySelector('.app-header')
+    const galeryObserver = new IntersectionObserver(onHeaderObserved, {
+      threshold: 0,
+    })
+    galeryObserver.observe(galery)
+    
+    function onHeaderObserved(entries) {
+      entries.forEach((entry) => {
+
+        tochangeheader.style.position = entry.isIntersecting ? '' : 'fixed'
+      })
+    }
+
+  }, [])
+
   return (
     <div onClick={(e) => onOpenModal(e, 'gallery-modal')} data-modal="gallery-modal" className="stay-details-img">
       <div className="main-photo">

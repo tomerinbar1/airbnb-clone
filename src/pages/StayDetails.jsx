@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
-import { StayDetailsHeader } from '../cmps/StayDetailsHeader.jsx'
-import { StayDetailsGallery } from '../cmps/StayDetailsGallery.jsx'
-import { DetailsBasicInfo } from '../cmps/DetailsBasicInfo.jsx'
-import { DetailsFeaturesInfo } from '../cmps/DetailsFeaturesInfo.jsx'
-import { DetailsSleepInfo } from '../cmps/DetailsSleepInfo.jsx'
-import { DetailsDescription } from '../cmps/DetailsDescription.jsx'
-import { DetailsDateRange } from '../cmps/DetailsDateRange.jsx'
-import { DetailsAmenities } from '../cmps/DetailsAmenities.jsx'
-import { DetailsReviews } from '../cmps/DetailsReviews.jsx'
-import { GalleryModal } from '../cmps/GalleryModal.jsx'
-import { LearnMoreModal } from '../cmps/LearnMoreModal.jsx'
-import { ReviewsModal } from '../cmps/ReviewsModal.jsx'
-import { DetailsMap } from '../cmps/DetailsMap.jsx'
+import { StayDetailsHeader } from '../cmps/details/StayDetailsHeader.jsx'
+import { StayDetailsGallery } from '../cmps/details/StayDetailsGallery.jsx'
+import { DetailsBasicInfo } from '../cmps/details/DetailsBasicInfo.jsx'
+import { DetailsFeaturesInfo } from '../cmps/details/DetailsFeaturesInfo.jsx'
+import { DetailsSleepInfo } from '../cmps/details/DetailsSleepInfo.jsx'
+import { DetailsDescription } from '../cmps/details/DetailsDescription.jsx'
+import { DetailsDateRange } from '../cmps/details/DetailsDateRange.jsx'
+import { DetailsAmenities } from '../cmps/details/DetailsAmenities.jsx'
+import { DetailsReviews } from '../cmps/details/DetailsReviews.jsx'
+import { GalleryModal } from '../cmps/details/GalleryModal.jsx'
+import { LearnMoreModal } from '../cmps/details/LearnMoreModal.jsx'
+import { ReviewsModal } from '../cmps/details/ReviewsModal.jsx'
+import { DetailsMap } from '../cmps/details/DetailsMap.jsx'
+import { setStayId } from '../store/stay.actions.js'
 import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
-
-
 
 
 export const StayDetails = () => {
@@ -34,6 +33,7 @@ export const StayDetails = () => {
       setStay(stayFromParams)
     }
     loadStaysOnDetails()
+    setStayId(stayId)
   }, [])
 
   const onOpenModal = (event, modal) => {
@@ -63,6 +63,7 @@ export const StayDetails = () => {
         stayId={stay._id}
       />
       <StayDetailsGallery imgUrls={stay.imgUrls} onOpenModal={onOpenModal} />
+      {/* <StayDetailsGallery elGallery={elGallery} imgUrls={stay.imgUrls} onOpenModal={onOpenModal} /> */}
       <div className="stay-details-info">
         <div className="stay-details-info-left">
           <DetailsBasicInfo

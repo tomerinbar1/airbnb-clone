@@ -7,6 +7,7 @@ import {
   SET_STAYS,
   SET_IS_LOADING,
   UPDATE_STAY,
+  SET_STAY_ID,
   REQUEST_STAYS,
 } from './stay.reducer.js'
 
@@ -50,4 +51,8 @@ export async function saveStay(stay) {
     console.log('stay action -> Cannot save stay', err)
     throw err
   }
+}
+
+export function setStayId(stayId) {
+  store.dispatch({ type: SET_STAY_ID, stayId })
 }

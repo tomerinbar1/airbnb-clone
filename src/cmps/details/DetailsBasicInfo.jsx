@@ -1,13 +1,23 @@
+import React, { useEffect, useState } from 'react' 
+
 export const DetailsBasicInfo = ({ host, capacity, bathrooms, bedrooms }) => {
+  const [hostImg, setHostImg] = useState(null)
+
   const getHostImg = () => {
     const gender = Math.random() < 0.5 ? 'male' : 'female'
     // console.log(gender);
     const randomNumber = Math.floor(Math.random() * 78)
     // console.log(randomNumber);
-    const imagePath = `../assets/img/usersImgs/${gender}/${randomNumber}.jpg`
+    import( `../../assets/img/usersImgs/${gender}/${randomNumber}.jpg`).then((image) => {
+      // console.log(image);
+      setHostImg(image.default)
+    })
     // console.log(imagePath);
-    return imagePath
   }
+
+  useEffect(() => {
+    getHostImg()
+  }, [])
 
   return (
     <div className="basic-info-details">
@@ -21,7 +31,7 @@ export const DetailsBasicInfo = ({ host, capacity, bathrooms, bedrooms }) => {
         <span className="space-dot">·</span>
         <span>{bathrooms} bath</span>
       </div>
-      <img src={getHostImg()} alt="Host" />
+     { hostImg &&  <img src={hostImg} alt="Host" /> }
     </div>
   )
 }

@@ -27,10 +27,11 @@ function App() {
               <Route path='/trip' element={<MyTrips />}/>
               <Route path='/wishlist' element={<Wishlist />} />
               <Route path='/book/:stayId' element ={<BookStay/>} />
+              {/* <Route path="/book/:stayId" element={<Book />} /> */}
             </Routes>
           </main>
           <AppFooter />
-          <UserMsg />
+          {/* <UserMsg /> */}
         </section>
       </Router>
     </Provider>

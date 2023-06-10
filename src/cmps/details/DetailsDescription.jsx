@@ -1,4 +1,4 @@
-import showMore from '../assets/img/common/showMore.svg'
+import showMore from '../../assets/img/common/showMore.svg'
 
 export const DetailsDescription = ({ summary }) => {
   return (
