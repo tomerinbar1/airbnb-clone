@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 
-export function SearchBar({ onExpandSearch, isSearchOpen,isStayId }) {
+export function SearchBar({ onExpandSearch, isSearchOpen, isStayId }) {
 
 
     function onSearchHandle(key) {
@@ -13,11 +13,11 @@ export function SearchBar({ onExpandSearch, isSearchOpen,isStayId }) {
     return (
 
         <div className={`search-bar  ${dynClass}`}>
-          { !isStayId &&  <> 
-          <button onClick={() => onSearchHandle("where")} className="anywhere-search-btn">Anywhere</button>
-           <button onClick={() => onSearchHandle("week")} className="anyweek-search-btn">Any week</button>
-       </>}
-        <button onClick={() => onSearchHandle("guests")} className="add-guests-search-btn">Add guests</button> 
+            {!isStayId && <>
+                <button onClick={() => onSearchHandle("where")} className="anywhere-search-btn">Anywhere</button>
+                <button onClick={() => onSearchHandle("week")} className="anyweek-search-btn">Any week</button>
+            </>}
+            <button onClick={() => onSearchHandle("guests")} className="add-guests-search-btn">{isStayId? "Start your search": "Add guests"}</button>
             <button onClick={() => onSearchHandle("search")} className="search-btn">
                 <i className="fa-solid fa-magnifying-glass"></i>
             </button>

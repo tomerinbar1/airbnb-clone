@@ -12,13 +12,6 @@ export const AppHeader = () => {
   const [selectedTab, setSelectedTab] = useState("location")
   const stayId = useSelector(storeState => storeState.stayModule.stayId)
 
-  function handleTabsUBMIT() {
-    if (selectedTab === 'location') setSelectedTab('checkIn')
-    if (selectedTab === 'checkIn') setSelectedTab('checkOut')
-    if (selectedTab === 'checkOut') setSelectedTab('guests')
-  }
-
-
   function onExpandSearch() {
     setIsSearchOpen(prevState => !prevState)
     toggleOpenClass()
@@ -40,6 +33,7 @@ export const AppHeader = () => {
         setSelectedTab={setSelectedTab}
         isSearchOpen={isSearchOpen}
         selectedTab={selectedTab}
+        onExpandSearch={onExpandSearch}
       />
       <Navbar />
 

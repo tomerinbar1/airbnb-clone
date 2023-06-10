@@ -1,8 +1,14 @@
-export const DetailsAmenities = ({ amenities }) => {
+export const DetailsAmenities = ({ amenities, onOpenModal }) => {
   const sliceAmenities = (start, end) => {
-    return amenities
-      .slice(start, end)
-      .map((amenity, idx) => <li key={idx}>{amenity}</li>)
+    return amenities.slice(start, end).map((amenity, idx) => (
+      <li key={idx}>
+        <img
+          src={require(`../../assets/img/amenities/${amenity}.svg`)}
+          alt={amenity}
+        />
+        {amenity}
+      </li>
+    ))
   }
 
   const leftAmenities = sliceAmenities(0, 5)
@@ -19,7 +25,11 @@ export const DetailsAmenities = ({ amenities }) => {
           <ul>{rightAmenities}</ul>
         </div>
       </div>
-      <button className="show-all-amenities-btn">
+      <button
+        onClick={e => onOpenModal(e, 'amenities-modal')}
+        data-modal="amenities-modal"
+        className="show-all-amenities-btn"
+      >
         Show all {amenities.length} amenities
       </button>
     </div>

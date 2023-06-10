@@ -17,13 +17,13 @@ export function StayIndex() {
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
   // const i = Object.fromEntries(searchParams.entries())
-  const { txt, location: locationFromParams, totalGuests: totalGuestsFromParams, checkIn: checkinFromParams, checkOut: checkOutFromParams } = Object.fromEntries(searchParams.entries())
+  const { type, txt, location: locationFromParams, totalGuests: totalGuestsFromParams, checkIn: checkinFromParams, checkOut: checkOutFromParams } = Object.fromEntries(searchParams.entries())
 
   useEffect(() => {
-    const filterBy = { txt, location: locationFromParams, guests: totalGuestsFromParams, checkIn: checkinFromParams, checkOut: checkOutFromParams }
-    // console.log('filterBy', filterBy)
+    const filterBy = { type, txt, location: locationFromParams, guests: totalGuestsFromParams, checkIn: checkinFromParams, checkOut: checkOutFromParams }
+    console.log('filterBy', filterBy)
     loadStays(filterBy)
-  }, [txt, locationFromParams, totalGuestsFromParams, checkinFromParams, checkOutFromParams])
+  }, [type, txt, locationFromParams, totalGuestsFromParams, checkinFromParams, checkOutFromParams])
 
   useEffect(() => {
     setStayId(null)

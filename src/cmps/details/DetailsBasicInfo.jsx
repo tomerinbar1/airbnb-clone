@@ -5,14 +5,10 @@ export const DetailsBasicInfo = ({ host, capacity, bathrooms, bedrooms }) => {
 
   const getHostImg = () => {
     const gender = Math.random() < 0.5 ? 'male' : 'female'
-    // console.log(gender);
     const randomNumber = Math.floor(Math.random() * 78)
-    // console.log(randomNumber);
     import( `../../assets/img/usersImgs/${gender}/${randomNumber}.jpg`).then((image) => {
-      // console.log(image);
       setHostImg(image.default)
     })
-    // console.log(imagePath);
   }
 
   useEffect(() => {

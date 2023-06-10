@@ -27,14 +27,27 @@
   }
   .rdp-caption_label {
     font-size: rem(16px);
-    font-family: cereal-medium;
+    font-family: quickSand-Medium;
+    color: #222222;
   }
   .rdp-head_row {
     font-size: rem(16px);
   }
   .rdp-tbody {
-    font-size: rem(16px);
+    font-size: rem(14px);
+    .rdp-day_selected {
+      background-color: $clr13;
+      color: black;
+    }
+
+    .rdp-day_range_start.rdp-day_selected,
+    .rdp-day_range_end.rdp-day_selected {
+      background-color: black;
+      border-radius: 50%;
+      color: white;
+    }
   }
+
   a {
     display: flex;
     justify-content: flex-end;

@@ -1,12 +1,26 @@
-import React from "react";
+import { useState } from "react"
+import { useNavigate } from "react-router"
 
 export const CarouselItemLabels = ({ page, width }) => {
+  const [isActive, setIsActive] = useState("")
+  const navigate = useNavigate()
+
+  function helloFromLabel(name) {
+    setIsActive(name)
+    navigate(`/?type=${name}`)
+  }
+
+
+
   return (
     <div className="carousel-item" style={{ width: width }}>
-      {page.map((icon , index) => {
+      {page.map((icon, index) => {
         return (
-          <span key={index} className="category-carousel-item">
-            <img
+          <span
+            onClick={() => helloFromLabel(icon.name)} key={index}
+            className={`category-carousel-item ${isActive === icon.name ? 'active' : ''}`}
+          >
+            <img className="category-icon"
               style={{ width: '25px', height: '25px' }}
               src={require(`../assets/img/categories/${icon.url}.png`)}
               alt={icon.url}

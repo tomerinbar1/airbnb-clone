@@ -1,8 +1,7 @@
 import { StayReviewsStat } from './StayReviewsStat'
-import {makeId} from '../../services/util.service.js'
+import { makeId } from '../../services/util.service.js'
 
 export const DetailsReviews = ({ reviews, onOpenModal }) => {
-  
   // average rates
 
   const averageRates = reviews => {
@@ -30,67 +29,60 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
   const avgRates = averageRates(reviews)
 
   const sliceAvgRates = (start, end) => {
-    return avgRates.slice(start, end).map((rate) => (
+    return avgRates.slice(start, end).map(rate => (
       <li key={makeId()}>
         <div className="avg-data-wrapper">
           <div className="avg-type">{rate.type}</div>
           <div className="avg-num">
-          <progress id="file" value={rate.avg} max="5" />
+            <progress id="file" value={rate.avg} max="5" />
             {rate.avg}
           </div>
-        </div> 
+        </div>
       </li>
     ))
   }
 
-  // reviews
-
-  function renderReview(review,idx) {
-    const truncatedTxt =
-      review.txt.length > 150 ? review.txt.slice(0, 150) + '...' : review.txt
-    const showMoreButton =
-      review.txt.length > 150 ? (
-        <a
-          onClick={e => onOpenModal(e, 'reviews-modal')}
-          data-modal="reviews-modal"
-        >
-          Show More
-        </a>
-      ) : null
-
-    return (
-      <div className="user-review" key={idx}>
-        <div className="user-review-header">
-          <img src={review.by.imgUrl} alt="guest"
-        onError={e =>
-          (e.target.src =
-            'http://xsgames.co/randomusers/assets/avatars/male/2.jpg')
-        } />
-          <div className="review-head-txt">
-            <h2>{review.by.fullname}</h2>
-            <p>Sep 2023</p>
-          </div>
-        </div>
-        <div className="user-review-body">
-          <p>{truncatedTxt}</p>
-          {showMoreButton}
-        </div>
-      </div>
-    )
+  const getProfileImg = () => {
+    const gender = Math.random() < 0.5 ? 'male' : 'female'
+    const randomNumber = Math.floor(Math.random() * 78)
+    const images = require.context('../../assets/img/usersImgs/', true)
+    const itemItem = images(`./${gender}/${randomNumber}.jpg`)
+    return itemItem
   }
 
-  function renderReviews(column) {
-    if (column === 'left') {
-      const leftReviews = reviews.slice(0, 3)
-      return leftReviews.map((review,idx) => renderReview(review,idx))
-    }
+  // reviews
 
-    if (column === 'right') {
-      const rightReviews = reviews.slice(3, 6)
-      return rightReviews.map((review,idx) => renderReview(review,idx))
-    }
+  const RenderReview = ({ reviews }) => {
+    return reviews.map(review => {
+      const truncatedTxt =
+        review.txt.length > 150 ? review.txt.slice(0, 150) + '...' : review.txt
+      const showMoreButton =
+        review.txt.length > 150 ? (
+          <a
+            onClick={e => onOpenModal(e, 'reviews-modal')}
+            data-modal="reviews-modal"
+          >
+            Show More
+          </a>
+        ) : null
 
-    return []
+      const img = ''
+      return (
+        <div className="user-review" key={makeId()}>
+          <div className="user-review-header">
+            <img src={getProfileImg()} alt="User" />
+            <div className="review-head-txt">
+              <h2>{review.by.fullname}</h2>
+              <p>Sep 2023</p>
+            </div>
+          </div>
+          <div className="user-review-body">
+            <p>{truncatedTxt}</p>
+            {showMoreButton}
+          </div>
+        </div>
+      )
+    })
   }
 
   return (
@@ -107,8 +99,7 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
         </div>
       </section>
       <section className="reviews-wrapper">
-        {renderReviews('left')}
-        {renderReviews('right')}
+        <RenderReview reviews={reviews.slice(0,6)} />
         <div className="show-all-reviews-btn">
           <button
             onClick={e => onOpenModal(e, 'reviews-modal')}

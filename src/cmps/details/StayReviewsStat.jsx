@@ -1,6 +1,6 @@
 import star from '../../assets/img/common/reviews-star.svg'
 
-export const StayReviewsStat = ({ reviews }) => {
+export const StayReviewsStat = ({ reviews, onOpenModal }) => {
   const averageRates = reviews => {
     const revAvgS = reviews.map(review => {
       const { rate } = review
@@ -28,7 +28,8 @@ export const StayReviewsStat = ({ reviews }) => {
         {averageRates(reviews)}
       </span>
       <span className="space-dot">·</span>
-      <a href="#">{numOfReviews()} reviews</a>
+      <a  onClick={e => onOpenModal(e, 'reviews-modal')}
+            data-modal="reviews-modal">{numOfReviews()} reviews</a>
     </div>
   )
 }

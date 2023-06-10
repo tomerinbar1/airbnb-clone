@@ -7,7 +7,7 @@ import { GuestSelect } from "./GuestSelect"
 import { DateSelect } from "./DateSelect"
 
 
-export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen }) {
+export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,onExpandSearch }) {
     const navigate = useNavigate()
     const [selected, setSelected] = useState([])
     const [fromValue, setFromValue] = useState('')
@@ -28,6 +28,12 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
     const onChangeLocation = (value) => {
         if (value === "I'm flexible") value = ""
         setFilterBy({ ...filterBy, location: value })
+        setSelectedTab('checkIn')
+    }
+    const onChangeDates = (value) => {
+        const toValueTimeStmp = new Date(value.checkIn).getTime()
+        const fromValueTimeStmp = new Date(value.checkOut).getTime()
+        setFilterBy({ ...filterBy, checkIn: fromValueTimeStmp, checkOut: toValueTimeStmp })
     }
 
     const onChangeGuests = (value) => {
@@ -35,11 +41,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
         setFilterBy({ ...filterBy, guests: totalCount })
     }
 
-    const onChangeDates = (value) => {
-        const toValueTimeStmp = new Date(value.checkIn).getTime()
-        const fromValueTimeStmp = new Date(value.checkOut).getTime()
-        setFilterBy({ ...filterBy, checkIn: fromValueTimeStmp, checkOut: toValueTimeStmp })
-    }
+
 
     const getGuestsSubTitleCount = (guestsCount) => {
         const { adults, children, infants, pets } = guestsCount
@@ -78,6 +80,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
 
     const submitFilter = (ev) => {
         ev.preventDefault()
+        onExpandSearch()
         navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&totalGuests=${totalGuests}&guests=${guestsParams}&checkIn=${filterBy.checkIn}&checkOut=${filterBy.checkOut}`)
     }
 
@@ -89,7 +92,10 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                 <h3>Where</h3>
                 <StayFilterByTxt onChangeTxt={onChangeTxt} />
             </div>
-            {(selectedTab === 'location' && isSearchOpen) && <LocationSelect onChangeLocation={onChangeLocation} />}
+            {(selectedTab === 'location' && isSearchOpen) &&
+                <LocationSelect
+                    onChangeLocation={onChangeLocation}
+                />}
 
 
             <div onClick={() => setSelectedTab("checkIn")} className={`check-in  ${checkForActiveClass("checkIn")} `}>
@@ -103,6 +109,8 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                     setSelected={setSelected}
                     selected={selected}
                     onChangeDates={onChangeDates}
+                    setSelectedTab={setSelectedTab}
+
                 />
 
             }
@@ -112,7 +120,6 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                 <h3>Check out</h3>
                 <div>{checkOutSubtitle(toValue)}</div>
             </div>
-            {/* {(selectedTab === "checkOut" && isSearchOpen) && <div className={`check-in-pick  ${dynClass}`}></div>} */}
             {(selectedTab === "checkOut" && isSearchOpen) &&
                 <DateSelect
                     fromValue={fromValue}
@@ -122,6 +129,8 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                     setSelected={setSelected}
                     selected={selected}
                     onChangeDates={onChangeDates}
+                    setSelectedTab={setSelectedTab}
+
                 />}
 
 
@@ -133,8 +142,10 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
                 </div>
             </div>
 
-            <button className="search-btn">
+            <button className={`search-btn ${isSearchOpen ? "expand" : ""}`}>
                 <i className="fa-solid fa-magnifying-glass"></i>
+
+                {isSearchOpen && <span>Search</span>}
             </button>
             {(selectedTab === "guest" && isSearchOpen) && <div className={`guests-pick  ${dynClass}`}>
                 <GuestSelect

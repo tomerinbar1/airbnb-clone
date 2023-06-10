@@ -1,6 +1,5 @@
 import Modal from 'react-modal'
 import { StayReviewsStat } from './StayReviewsStat'
-import { makeId } from '../../services/util.service'
 
 export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
   const averageRates = reviews => {
@@ -45,7 +44,7 @@ const RenderReview = (review,idx) => {
       return (
         <div className="user-review" key={idx}>
           <div className="user-review-header">
-            <img src={review.by.imgUrl} alt="" />
+            <img src={getProfileImg()} alt="" />
             <div className="review-head-txt">
               <h2>{review.by.fullname}</h2>
               <p>Sep 2023</p>
@@ -57,6 +56,15 @@ const RenderReview = (review,idx) => {
         </div>
       )
   }
+
+  const getProfileImg = () => {
+    const gender = Math.random() < 0.5 ? 'male' : 'female'
+    const randomNumber = Math.floor(Math.random() * 78)
+    const images = require.context('../../assets/img/usersImgs/', true)
+    const itemItem = images(`./${gender}/${randomNumber}.jpg`)
+    return itemItem
+  }
+
 
   return (
     <Modal

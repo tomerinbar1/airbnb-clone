@@ -21,7 +21,7 @@ export const stayService = {
 window.cs = stayService
 
 function getDefaultFilter() {
-    return { txt: '', location:'', guests:1 ,checkIn:'',checkOut:'' }
+    return { txt: '', location: '', guests: 1, checkIn: '', checkOut: '', type: '', price: '' }
 }
 async function getStays(filterBy = getDefaultFilter()) {
     return await httpService.get(BASE_URL, filterBy)
@@ -38,7 +38,7 @@ async function remove(stayId) {
 async function save(stay) {
     var savedStay
     if (stay._id) {
-        savedStay = await httpService.put(BASE_URL+stay._id, stay)
+        savedStay = await httpService.put(BASE_URL + stay._id, stay)
 
     } else {
         savedStay = await httpService.post(BASE_URL, stay)
@@ -55,34 +55,34 @@ async function addStayMsg(stayId, txt) {
 
 function getEmptyStay() {
     const stay = {
-      name: '',
-      type: '',
-      imgUrls: '',
-      price: '',
-      summary: '',
-      capacity: '',
-      amenities: [],
-      labels: [],
-      host: {
-        _id: 'u101',
-        fullname: 'Davit Pok',
-        imgUrl: '',
-      },
-      loc: {
-        country: '',
-        countryCode: '',
-        city: '',
-        address: '',
-        lat: '',
-        lng: '',
-      },
-      reviews: [],
-      likedByUsers: [],
+        name: '',
+        type: '',
+        imgUrls: '',
+        price: '',
+        summary: '',
+        capacity: '',
+        amenities: [],
+        labels: [],
+        host: {
+            _id: 'u101',
+            fullname: 'Davit Pok',
+            imgUrl: '',
+        },
+        loc: {
+            country: '',
+            countryCode: '',
+            city: '',
+            address: '',
+            lat: '',
+            lng: '',
+        },
+        reviews: [],
+        likedByUsers: [],
     }
-  
+
     return stay
-  }
-  
+}
+
 
 
 
