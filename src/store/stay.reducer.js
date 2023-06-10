@@ -35,7 +35,7 @@ export function stayReducer(state = initialState, action) {
         storageService.saveToStorage('stays', action.stays)
       return { ...state, stays: action.stays }
     case REMOVE_STAY:
-      stays = state.stays.filter(c => c._id !== action.stayId)
+      stays = state.stays.filter(s => s._id !== action.stayId)
       return { ...state, stays }
     case ADD_STAY:
       stays = [...state.stays, action.stay]
