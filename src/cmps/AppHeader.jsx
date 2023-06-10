@@ -1,7 +1,7 @@
 import { SearchBar } from "./SearchBar"
 import { Logo } from "./Logo"
 import { Navbar } from "./Navbar"
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { SearchBarExpanded } from "./SearchBarExpanded"
 import { useSelector } from "react-redux"
 
@@ -35,7 +35,6 @@ export const AppHeader = () => {
         <div onClick={() => onExpandSearch()} className="main-screen-full">
         </div>}
       <Logo />
-      {/* {!isSearchOpen && <SearchBar onExpandSearch={onExpandSearch} />} */}
       <SearchBar isStayId={stayId} onExpandSearch={onExpandSearch} isSearchOpen={isSearchOpen} />
       <SearchBarExpanded
         setSelectedTab={setSelectedTab}
