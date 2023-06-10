@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import share from '../assets/img/common/share.svg'
-import heart from '../assets/img/common/heart.svg'
+import share from '../../assets/img/common/share.svg'
+import heart from '../../assets/img/common/heart.svg'
 import { useLocation } from 'react-router-dom'
 
 export const SaveShare = ({ stayId }) => {

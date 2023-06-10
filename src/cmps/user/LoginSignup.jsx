@@ -6,23 +6,21 @@ import {login , signup} from '../../store/user.action.js'
 
 // const { useState } = React
 
-export function LoginSignup({ onChangeLoginStatus, isSignup, setIsSignup, onCloseModal }) {
+export function LoginSignup({ onChangeLoginStatus, onCloseModal }) {
 
     const [credentials, setCredentials] = useState({
         username: '',
         password: '',
         fullname: '',
       })
-      const [users, setUsers] = useState([])
 
 
     function clearState() {
         setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
-        // setIsSignup(false)
       }
 
-    function onSubmit(credentials) {
-        isSignup ? onSignup(credentials) : onLogin(credentials)
+    function onSubmit(credentials , isSignUp) {
+      isSignUp ? onSignup(credentials) : onLogin(credentials)
     }
 
     async function onLogin( credentials) {
@@ -50,27 +48,13 @@ export function LoginSignup({ onChangeLoginStatus, isSignup, setIsSignup, onClos
         console.log('signup')
       }
     
-    // function login(credentials) {
-     
-    //     userService.login(credentials)
-    //         .then(onChangeLoginStatus)
-    //         .then(() => { showSuccessMsg('Logged in successfully') })
-    //         .catch((err) => { showErrorMsg('Oops try again') })
-    // }
-
-    // function onSignup(credentials) {
-    //     userService.signup(credentials)
-    //         .then(onChangeLoginStatus)
-    //         .then(() => { showSuccessMsg('Signed in successfully') })
-    //         .catch((err) => { showErrorMsg('Oops try again') })
-    // }
-
 
     return (
         <div className="credentials-page">
             <CredentialsForm
                 onSubmit={onSubmit}
-                isSignup={isSignup}
+                // isSignup={isSignUp}
+                // setIsSignUp={setIsSignUp}
             />
   
         </div >

@@ -14,7 +14,7 @@ export function UserMenu() {
 
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
-    const [isSignup, setIsSignup] = useState(false)
+    // const [isSignup, setIsSignup] = useState(false)
 
 
     async function onLogout() {
@@ -35,16 +35,14 @@ export function UserMenu() {
 
     const onOpenModal = (event, modal, boolean) => {
         event.preventDefault()
-
         if (modal === 'login-modal') {
-            setIsSignup(boolean)
+            // setIsSignup(boolean)
             setIsLoginModalOpen(true)
         }
     }
 
     const onCloseModal = () => {
         setIsLoginModalOpen(false)
-        // setIsSignupModalOpen(false)
     }
 
     function toggleUserMenu() {
@@ -60,9 +58,10 @@ export function UserMenu() {
                 {isUserMenuOpen && <UserMenuOpen onOpenModal={onOpenModal} user={user} onLogout={onLogout} />}
             </div>
 
-            <section className='connection-modals'>
+            <section className='signing-modals'>
                 <LoginModal isLoginModalOpen={isLoginModalOpen} onCloseModal={onCloseModal}
-                    onChangeLoginStatus={onChangeLoginStatus} isSignup={isSignup} setIsSignup={setIsSignup} onLogout={onLogout} />
+                    onChangeLoginStatus={onChangeLoginStatus} />
+                    {/* onChangeLoginStatus={onChangeLoginStatus} isSignup={isSignup} setIsSignup={setIsSignup} onLogout={onLogout} /> */}
                 {/* <SignupModal isSignupModalOpen={isSignupModalOpen} onCloseModal={onCloseModal} /> */}
             </section>
 

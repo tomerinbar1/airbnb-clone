@@ -6,16 +6,10 @@ import { useState } from 'react'
 
 
 
-export function DatePicker({ onSetField }) {
-    const checkIn = new Date()
-    const checkOut = new Date()
+export function DatePicker({ onSetField, checkIn, checkOut }) {
+    checkIn = checkIn ?  new Date(checkIn) : new Date()
+    checkOut = checkOut ?  new Date(checkOut) : new Date()
     const monthsToShow = 2
-
-
-    // checkIn = checkIn || new Date()
-    // checkOut = checkOut || new Date()
-
-
 
     const [range, setRange] = useState([
         {
@@ -38,9 +32,6 @@ export function DatePicker({ onSetField }) {
 
 
     return (
-
-
-        
         <DateRange
             editableDateInputs={true}
             onChange={handleChange}
@@ -48,10 +39,10 @@ export function DatePicker({ onSetField }) {
             ranges={range}
             months={monthsToShow}
             direction="horizontal"
-            rangeColors={['black']}
+            rangeColors={['#F7F7F7']}
             showDateDisplay={false}
             showMonthAndYearPickers={false}
-            className="calendar-element"
+            className='date-picker'
         // disabledDates=[]
 
         />

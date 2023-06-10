@@ -1,5 +1,5 @@
 import { StayReviewsStat } from './StayReviewsStat'
-import {makeId} from '../services/util.service.js'
+import {makeId} from '../../services/util.service.js'
 
 export const DetailsReviews = ({ reviews, onOpenModal }) => {
   
@@ -45,7 +45,7 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
 
   // reviews
 
-  function renderReview(review) {
+  function renderReview(review,idx) {
     const truncatedTxt =
       review.txt.length > 150 ? review.txt.slice(0, 150) + '...' : review.txt
     const showMoreButton =
@@ -59,7 +59,7 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
       ) : null
 
     return (
-      <div className="user-review" key={review._id}>
+      <div className="user-review" key={idx}>
         <div className="user-review-header">
           <img src={review.by.imgUrl} alt="guest"
         onError={e =>
@@ -82,12 +82,12 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
   function renderReviews(column) {
     if (column === 'left') {
       const leftReviews = reviews.slice(0, 3)
-      return leftReviews.map(review => renderReview(review))
+      return leftReviews.map((review,idx) => renderReview(review,idx))
     }
 
     if (column === 'right') {
       const rightReviews = reviews.slice(3, 6)
-      return rightReviews.map(review => renderReview(review))
+      return rightReviews.map((review,idx) => renderReview(review,idx))
     }
 
     return []
@@ -109,7 +109,6 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
       <section className="reviews-wrapper">
         {renderReviews('left')}
         {renderReviews('right')}
-
         <div className="show-all-reviews-btn">
           <button
             onClick={e => onOpenModal(e, 'reviews-modal')}

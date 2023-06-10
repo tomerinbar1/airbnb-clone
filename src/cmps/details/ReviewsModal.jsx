@@ -1,6 +1,6 @@
 import Modal from 'react-modal'
 import { StayReviewsStat } from './StayReviewsStat'
-import { makeId } from '../services/util.service'
+import { makeId } from '../../services/util.service'
 
 export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
   const averageRates = reviews => {
@@ -27,9 +27,9 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
 
   const avgRates = averageRates(reviews)
 
-  const avgRatesList = avgRates.map((rate) => {
+  const avgRatesList = avgRates.map((rate,idx) => {
     return (
-      <li key={makeId()}>
+      <li key={idx}>
         <div className="avg-data-wrapper">
           <div className="avg-type">{rate.type}</div>
           <div className="avg-num">
@@ -41,10 +41,9 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
     )
   })
 
-  function renderReview(reviews) {
-    return reviews.map(review => {
+const RenderReview = (review,idx) => {
       return (
-        <div className="user-review" key={review._id}>
+        <div className="user-review" key={idx}>
           <div className="user-review-header">
             <img src={review.by.imgUrl} alt="" />
             <div className="review-head-txt">
@@ -57,7 +56,6 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
           </div>
         </div>
       )
-    })
   }
 
   return (
@@ -77,7 +75,9 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
           <div className="search-reviews">
             <input type="text" placeholder="Search reviews" />
           </div>
-          <div className="list-reviews">{renderReview(reviews)}</div>
+          <div className="list-reviews">
+            {reviews.map((review,idx) => RenderReview(review,idx))}
+          </div>
         </section>
       </div>
     </Modal>

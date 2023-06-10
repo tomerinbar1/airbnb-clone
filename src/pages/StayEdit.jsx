@@ -67,7 +67,7 @@ export function StayEdit() {
             const stay = await stayService.getById(stayId)
             setStayToEdit(stay)
             setStay(stay)
-            console.log(stay)
+            // console.log(stay)
         }
         catch (err) {
             console.log('Had issued in stay edit:', err)
