@@ -16,6 +16,20 @@ export function StayPreview({stay}) {
     setIsHeartClicked(prev=>!prev)
   }
 
+  function getRandomDateRange() {
+    const randomMonth = Math.floor(Math.random() * 12);
+    const numberOfDays = new Date(2023, randomMonth + 1, 0).getDate();
+    const randomStartDay = Math.floor(Math.random() * numberOfDays) + 1;
+    const randomEndDay = Math.floor(Math.random() * (numberOfDays - randomStartDay + 1)) + randomStartDay;
+    const monthNames = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ];
+    const monthName = monthNames[randomMonth];
+    const dateRange = `${monthName} ${randomStartDay} - ${randomEndDay}`
+  
+    return dateRange
+  }
   return (
     <section className='stay-preview'>
       <Link className="details-a-link" to={`/stay/${stay._id}/${location.search}`}>
@@ -31,8 +45,8 @@ export function StayPreview({stay}) {
         <section className="stay-preview-txt">
           <span className="stay-preview-location">{stay.loc.address}</span>
           <StayPreviewStar reviews={reviews} />
-          <span className="stay-preview-distance"> X kilometers away </span>
-          <span className="stay-preview-dates"> Aug 4 - 9 </span>
+          <span className="stay-preview-distance"> {stay.type} </span>
+          <span className="stay-preview-dates"> {getRandomDateRange()} </span>
           <span className="stay-preview-price">${stay.price}<span className="stay-preview-night"> night </span></span>
         </section>
         
