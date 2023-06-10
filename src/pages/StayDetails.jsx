@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useSearchParams } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
 import { StayDetailsHeader } from '../cmps/details/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/details/StayDetailsGallery.jsx'
@@ -16,15 +16,22 @@ import { ReviewsModal } from '../cmps/details/ReviewsModal.jsx'
 import { DetailsMap } from '../cmps/details/DetailsMap.jsx'
 import { setStayId } from '../store/stay.actions.js'
 import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
+import { DisplayList } from '../cmps/details/DisplayList.jsx'
 
+const CHECKOUT_INFO = ['House rules', 'Check-in: 4:00 PM - 9:00 PM','Checkout before 10:00 AM','2 guests maximum']
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
-  const { stayId } = useParams()
+  const params = useParams()
+  const [searchParams] = useSearchParams()
+  const { stayId } = params
   const [galleryModalIsOpen, setGalleryModalIsOpen] = useState(false)
   const [learnMoreModalIsOpen, setLearnMoreModalIsOpen] = useState(false)
   const [reviewsModalIsOpen, setReviewsModalIsOpen] = useState(false)
   const [openTab, setOpenTab] = useState(null)
+
+  const checkIn = searchParams.get('checkIn')
+  const checkOut = searchParams.get('checkOut')
 
   useEffect(() => {
     const loadStaysOnDetails = async () => {
@@ -91,7 +98,7 @@ export const StayDetails = () => {
 
           <hr className="custom-hr" />
 
-          <DetailsDateRange />
+          <DetailsDateRange checkIn={checkIn} checkOut={checkOut} />
         </div>
 
         <div className="stay-details-order-container">
@@ -143,13 +150,9 @@ export const StayDetails = () => {
         <div className="things-to-know">
           <h1>Things to know</h1>
           <div className="things-to-know-list">
-            <ul>
-              <li>House rules</li>
-              <li>Check-in: 4:00 PM - 9:00 PM</li>
-              <li>Checkout before 10:00 AM</li>
-              <li>2 guests maximum</li>
+            <DisplayList list={CHECKOUT_INFO}>
               <a href="">Show more</a>
-            </ul>
+            </DisplayList>
             <ul>
               <li>Safety & property</li>
               <li>Carbon monoxide alarm</li>
