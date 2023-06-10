@@ -23,7 +23,6 @@ export function stayReducer(state = initialState, action) {
     // Stays
     case SET_IS_LOADING:
       return { ...state, isLoading: action.isLoading }
-
     case REQUEST_STAYS:
       const staysFromCache = storageService.loadFromStorage('stays')
       if (staysFromCache) {

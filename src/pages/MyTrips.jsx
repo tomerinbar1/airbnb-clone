@@ -1,8 +1,132 @@
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { userService } from '../services/user.service'
+import { orderService } from '../services/order.service'
 
 
-export function MyTrips(){
+export function MyTrips() {
+    const user = useSelector((state) => state.userModule.user)
+    const [localUser, setLocalUser] = useState(null)
+    console.log('localUser', localUser)
 
-    return(
-        <section></section>
+    useEffect(() => {
+        loadUser()
+    }, [user])
+
+
+
+    async function loadUser() {
+        if (!user._id) return
+        try {
+            const userFromDb = await userService.getById(user._id)
+            setLocalUser(userFromDb)
+            console.log('userFromDb', userFromDb)
+        } catch (err) {
+            console.log('Had issues in getting user', err)
+        }
+    }
+
+    async function onRemoveOrder(order) {
+        await removeFromOrderCollection(order._id)
+        await updateLocalUser(order)
+        await updateUserDb()
+    }
+
+    async function updateLocalUser(order) {
+        const userOrders = localUser.orders
+        const idx = userOrders.indexOf(order)
+        userOrders.splice(idx, 1)
+        console.log(userOrders)
+        setLocalUser({ ...localUser, orders: userOrders })
+        //    { ...localUser, orders: [...localUser.orders, order] };
+    }
+
+    async function updateUserDb() {
+        try {
+            const updatedUser = await userService.update(localUser)
+            console.log('updatedUser', updatedUser)
+            console.log('User updated')
+        } catch {
+            console.log('Cannot remove order')
+        }
+    }
+
+
+
+    async function removeFromOrderCollection(orderId) {
+        console.log(orderId)
+
+        try {
+            await orderService.remove(orderId)
+            console.log('Order removed')
+        }
+        catch (err) {
+            console.log('Cannot remove order')
+        }
+    }
+
+
+
+    // function onDeleteOrder(orderId) {
+    //     console.log(orderId)
+    //     orderService.remove(orderId)
+    // }
+
+    function getGuestsCount(guests) {
+        const guestsCount = Object.values(guests)
+            .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        // console.log('guestsCount' , guestsCount)
+        return guestsCount
+    }
+
+    if (!localUser || !localUser.orders) return <h3>Loading...</h3>
+
+    return (
+        <section className="my-trips-page">
+            {(localUser.orders.length === 0) && <h2>No trips</h2>}
+
+
+
+            {(localUser.orders.length > 0) &&
+                <section className='orders'>
+                    <h2 className="my-trips-header">My trips</h2>
+                    <table className='my-trips-table'>
+                        <thead>
+                            <tr key="key">
+                                <th key="key1" >Stay</th>
+                                <th key="key2" >Arrival</th>
+                                <th key="key3" >Departure</th>
+                                <th key="key4" >Guests</th>
+                                <th key="key5" > Total price</th>
+                                <th key="key6">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {localUser.orders.map(order => {
+                                // console.log(order)
+                                return (
+                                    <tr key={order._id}>
+                                        <td>{order.stayName}</td>
+                                        <td>{new Date(order.startDate).toLocaleDateString('en-US')}</td>
+                                        <td>{new Date(order.endDate).toLocaleDateString('en-US')}</td>
+                                        <td>{getGuestsCount(order.guests)}</td>
+                                        <td>{order.totalPrice}</td>
+                                        <td>{order.status}</td>
+                                        <td>
+                                            <button className='delete-order-btn' onClick={() => onRemoveOrder(order)}>Delete order</button>
+                                        </td>
+                                    </tr>
+
+                                )
+                            })}
+                        </tbody>
+                    </table>
+
+                </section>
+            }
+
+
+
+        </section >
     )
 }

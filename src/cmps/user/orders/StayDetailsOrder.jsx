@@ -87,7 +87,7 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
 
     function onReserveBtn(){
         const paramsForBookingGuests = JSON.stringify(updatedsearchParams.guests)
-        navigate(`/book/${stay._id}?checkIn=${updatedsearchParams.checkIn}&checkOut=${updatedsearchParams.checkOut}&guests=${ paramsForBookingGuests|| 1}`)
+        navigate(`/book/${stay._id}?checkIn=${updatedsearchParams.checkIn}&checkOut=${updatedsearchParams.checkOut}&guests=${ paramsForBookingGuests|| 1}&stayName=${stay.name}`)
 
     }
 

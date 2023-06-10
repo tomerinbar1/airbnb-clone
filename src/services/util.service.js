@@ -8,7 +8,8 @@ export const utilService = {
     randomPastTime,
     debounce,
     totalDays,
-    ShortFormattedDate
+    ShortFormattedDate,
+    formattedDate
     
 }
 
@@ -47,6 +48,12 @@ function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+
+function formattedDate(timeStamp) {
+    const date = new Date(timeStamp)
+    return String(date.getDate()).padStart(2, '0') + "/" + String((date.getMonth() + 1)).padStart(2,'0') + "/" + date.getFullYear()
+  }
+  
 
 function randomPastTime() {
     const HOUR = 1000 * 60 * 60

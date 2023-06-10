@@ -19,8 +19,8 @@ export function UserMenu() {
 
     async function onLogout() {
         try {
-            await logout()
             navigate('/')
+            await logout()
             showSuccessMsg(`Bye now`)
             console.log('logout')
         } catch (err) {
