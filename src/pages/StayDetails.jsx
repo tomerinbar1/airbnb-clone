@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
 import { loadStays } from '../store/stay.actions.js'
+import { setStayId } from '../store/stay.actions.js'
 import { StayDetailsHeader } from '../cmps/details/StayDetailsHeader.jsx'
 import { StayDetailsGallery } from '../cmps/details/StayDetailsGallery.jsx'
 import { DetailsBasicInfo } from '../cmps/details/DetailsBasicInfo.jsx'
@@ -10,11 +11,11 @@ import { DetailsDescription } from '../cmps/details/DetailsDescription.jsx'
 import { DetailsDateRange } from '../cmps/details/DetailsDateRange.jsx'
 import { DetailsAmenities } from '../cmps/details/DetailsAmenities.jsx'
 import { DetailsReviews } from '../cmps/details/DetailsReviews.jsx'
+import { DetailsMap } from '../cmps/details/DetailsMap.jsx'
 import { GalleryModal } from '../cmps/details/GalleryModal.jsx'
 import { LearnMoreModal } from '../cmps/details/LearnMoreModal.jsx'
 import { ReviewsModal } from '../cmps/details/ReviewsModal.jsx'
-import { DetailsMap } from '../cmps/details/DetailsMap.jsx'
-import { setStayId } from '../store/stay.actions.js'
+import { AmenitiesModal } from '../cmps/details/AmenitiesModal.jsx'
 import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
 import { DisplayList } from '../cmps/details/DisplayList.jsx'
 
@@ -22,13 +23,14 @@ const CHECKOUT_INFO = ['House rules', 'Check-in: 4:00 PM - 9:00 PM','Checkout be
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
-  const params = useParams()
   const [searchParams] = useSearchParams()
-  const { stayId } = params
   const [galleryModalIsOpen, setGalleryModalIsOpen] = useState(false)
   const [learnMoreModalIsOpen, setLearnMoreModalIsOpen] = useState(false)
   const [reviewsModalIsOpen, setReviewsModalIsOpen] = useState(false)
+  const [amenitiesModalIsOpen, setAmenitiesModalIsOpen] = useState(false)
   const [openTab, setOpenTab] = useState(null)
+  const params = useParams()
+  const { stayId } = params
 
   const checkIn = searchParams.get('checkIn')
   const checkOut = searchParams.get('checkOut')
@@ -51,6 +53,8 @@ export const StayDetails = () => {
       setLearnMoreModalIsOpen(true)
     } else if (modal === 'reviews-modal') {
       setReviewsModalIsOpen(true)
+    } else if (modal === 'amenities-modal') {
+      setAmenitiesModalIsOpen(true)
     }
   }
 
@@ -58,6 +62,7 @@ export const StayDetails = () => {
     setGalleryModalIsOpen(false)
     setLearnMoreModalIsOpen(false)
     setReviewsModalIsOpen(false)
+    setAmenitiesModalIsOpen(false)
   }
 
   if (!stay) return <div>Loading...</div>
@@ -68,9 +73,9 @@ export const StayDetails = () => {
         reviews={stay.reviews}
         loc={stay.loc.address}
         stayId={stay._id}
+        onOpenModal={onOpenModal}
       />
       <StayDetailsGallery imgUrls={stay.imgUrls} onOpenModal={onOpenModal} />
-      {/* <StayDetailsGallery elGallery={elGallery} imgUrls={stay.imgUrls} onOpenModal={onOpenModal} /> */}
       <div className="stay-details-info">
         <div className="stay-details-info-left">
           <DetailsBasicInfo
@@ -94,7 +99,7 @@ export const StayDetails = () => {
           />
 
           <hr className="custom-hr" />
-          <DetailsAmenities amenities={stay.amenities} />
+          <DetailsAmenities amenities={stay.amenities} onOpenModal={onOpenModal} />
 
           <hr className="custom-hr" />
 
@@ -184,9 +189,14 @@ export const StayDetails = () => {
           onCloseModal={onCloseModal}
         />
         <ReviewsModal
+          reviews={stay.reviews}
           reviewsModalIsOpen={reviewsModalIsOpen}
           onCloseModal={onCloseModal}
-          reviews={stay.reviews}
+        />
+        <AmenitiesModal
+          amenities={stay.amenities}
+          amenitiesModalIsOpen={amenitiesModalIsOpen}
+          onCloseModal={onCloseModal}
         />
       </div>
     </section>
