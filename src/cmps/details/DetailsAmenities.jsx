@@ -1,4 +1,38 @@
 export const DetailsAmenities = ({ amenities, onOpenModal }) => {
+  const items = [
+    'Air conditioning',
+    'Carbon monoxide alarm',
+    'Cooking basics',
+    'Dedicated workspace',
+    'Hair dryer',
+    'Elevator',
+    'Essentials',
+    'Free parking on premises',
+    'Garden view',
+    'Heating',
+    'Iron',
+    'Kitchen',
+    'lockBox',
+    'Mountain view',
+    'Private hot tub',
+    'Private patio or balcony',
+    'Shampoo',
+    'Smoke alarm',
+    'TV',
+    'Washer machine',
+    'Wifi',
+  ]
+
+  const renderDescription = imageName => {
+    const matchingItem = items.find(item =>
+      item.toLowerCase().includes(imageName.toLowerCase())
+    )
+    if (matchingItem) {
+      return <p>{matchingItem}</p>
+    }
+    return null
+  }
+
   const sliceAmenities = (start, end) => {
     return amenities.slice(start, end).map((amenity, idx) => (
       <li key={idx}>
@@ -6,7 +40,7 @@ export const DetailsAmenities = ({ amenities, onOpenModal }) => {
           src={require(`../../assets/img/amenities/${amenity}.svg`)}
           alt={amenity}
         />
-        {amenity}
+        {renderDescription(amenity)}
       </li>
     ))
   }

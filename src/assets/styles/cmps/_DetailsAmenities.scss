@@ -4,30 +4,31 @@
   h1 {
     font-family: Cereal-Book;
     font-size: rem(22px);
-    padding-bottom: 12px;
+    padding-bottom: 24px;
     margin: 0;
   }
   .amenities-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    height: 200px;
     font-size: rem(16px);
     font-family: Cereal-Regular;
     line-height: 23px;
-    margin-bottom: 38px;
     ul {
       list-style: none;
-      padding-inline-start: 42px;
+      padding: 0;
+      margin: 0;
       li {
         display: flex;
         align-items: center;
-
         padding-bottom: 16px;
-            img {
-            width: 30px;
-            height: 30px;
-            margin-right: 15px;
-          }
+        img {
+          width: 30px;
+          height: 30px;
+          margin-right: 15px;
+        }
+      }
+      li:last-child {
+        padding-bottom: 0;
       }
     }
   }

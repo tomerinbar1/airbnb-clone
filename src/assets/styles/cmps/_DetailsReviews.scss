@@ -1,10 +1,11 @@
 .reviews-details-wrapper {
   padding-block: 48px;
-  .rating-details {
+  .rating-details-data {
     display: flex;
     align-items: center;
     font-size: rem(22px);
     font-family: cereal-Medium;
+    margin-bottom: 32px;
     img {
       width: 14px;
       height: 14px;
@@ -21,7 +22,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 36px);
-    padding-top: 24px;
     padding-bottom: 24px;
     ul {
       list-style: none;

@@ -11,7 +11,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 900px;
+  width: 780px;
   height: 90%;
   background-color: white;
   overflow-y: hidden;
@@ -86,31 +86,32 @@
       padding: 40px 24px 24px;
       margin: 0;
       .amenity-wrapper {
-        .main-amenity {
+        li {
           display: flex;
+          align-items: center;
           padding-block: 24px;
           img {
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             margin-right: 15px;
           }
           p {
             font-family: Cereal-Regular;
-            font-size: 16px;
+            font-size: rem(16px);
             margin: 0;
             text-transform: capitalize;
           }
         }
-        .custom-hr {
-          position: relative;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 1px;
-          border: none;
-          background-color: #cdcdcd;
-          margin: 0;
-        }
+      }
+      .custom-hr {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        border: none;
+        background-color: #DDDDDD;
+        margin: 0;
       }
     }
   }

@@ -153,10 +153,11 @@
     }
 
     .reviews-list {
-      width: 600px;
+      max-width: 600px;
       .list-reviews{
         overflow-y: scroll;
         height: 90%;
+        padding-inline: 24px;
       }
       .user-review {
         margin-bottom: 40px;
