@@ -30,7 +30,8 @@
         border-right: 1px solid $clr12 ;
         font-weight: bold;
         width: 107px;
-        font-family: cerealBold, sans-serif;
+        color: $clr8;
+        font-family: airbnb-cereal-bold ;
         font-weight: bold;
     }
 
@@ -38,13 +39,17 @@
         border-right: 1px solid $clr12 ;
         font-weight: bold;
         width: 98px;
-        font-family: cerealBold, sans-serif;
+        font-family: airbnb-cereal-bold ;
+        color: $clr8;
+
     }
 
     .add-guests-search-btn {
         font-weight: 100;
         width: 106px;
-        font-family: cereal, sans-serif;
+        font-family: cereal-Book ;
+        color: $clr16;
+
     }
 
     .search-btn {
