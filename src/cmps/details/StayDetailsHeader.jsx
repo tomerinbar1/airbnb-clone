@@ -1,5 +1,5 @@
 import { StayReviewsStat } from './StayReviewsStat'
-import { SaveShare } from './SaveShare'
+import { SaveShare } from '../SaveShare'
 
 export const StayDetailsHeader = ({
   stayTitle,
