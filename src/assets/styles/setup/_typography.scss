@@ -77,22 +77,28 @@
 
 @font-face {
   font-family: quickSand-Regular;
-  src: url(../../fonts/misc/Quicksand-Regular.ttf);
+  src: url(../../fonts/Quicksand/Quicksand-Regular.ttf);
 }
 @font-face {
   font-family: quickSand-Light;
-  src: url(../../fonts/misc/Quicksand-Light.ttf);
+  src: url(../../fonts/Quicksand/Quicksand-Light.ttf);
 }
 @font-face {
   font-family: quickSand-Medium;
-  src: url(../../fonts/misc/Quicksand-Medium.ttf);
+  src: url(../../fonts/Quicksand/Quicksand-Medium.ttf);
 }
 @font-face {
   font-family: quickSand-SemiBold;
-  src: url(../../fonts/misc/Quicksand-SemiBold.ttf);
+  src: url(../../fonts/Quicksand/Quicksand-SemiBold.ttf);
 }
 @font-face {
   font-family: quickSand-Bold;
-  src: url(../../fonts/misc/Quicksand-Bold.ttf);
+  src: url(../../fonts/Quicksand/Quicksand-Bold.ttf);
 }
 
+// Airmojix
+
+@font-face {
+  font-family: airmojix;
+  src: url(../../fonts/airmojix/airmojix-Regular.woff2);
+}
