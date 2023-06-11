@@ -1,5 +1,5 @@
 .stay-details-order-container {
-//   margin-top: 41px;
+    //   margin-top: 41px;
 
     .order-modal {
         // position: relative;
@@ -10,22 +10,52 @@
         color: $clr8;
         background-color: $clr11;
         width: 372px;
-        height: fit-content;
+        // height: fit-content;
         display: flex;
         flex-direction: column;
 
+        
+        .check-availability{
+            // height: rem(48px);
+            height: 48px;
+            font-size: 16px;
+            font-family: $font1;
+        }
 
         .order-modal-header {
             display: flex;
             justify-content: space-between;
+
+            .price-per-night {
+                width: 25%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-family: $font1;
+
+                .price {
+                    font-weight: 800;
+                    font-size: 22px;
+                }
+
+                .word-night {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+
+            }
         }
 
         .reservation-details {
             display: flex;
             flex-direction: column;
+            font-family: $font1;
+            font-size: 16px;
 
             .no-charge-msg {
                 align-self: center;
+                font-size: 14px;
+                margin: 10px;
             }
 
             .reserve-btn {
@@ -37,31 +67,78 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 227px;
+            // height: 227px;
             position: relative;
 
+
+            .guests {
+                width: 320px;
+                position: relative;
+                top: -4px;
+
+                .guests-close {
+                    height: 56px;
+                    border-right: 1px solid #222222;
+                    border-left: 1px solid #222222;
+                    border-bottom: 1px solid #222222;
+                    display: flex;
+                    align-items: center;
+                    z-index: -1;
+
+                    button {
+                        background-color: #22222200;
+                    }
+
+                    .guests-open{
+                        // height: 408px;
+                        width: 322px;
+                        border-radius: 0;
+                        box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 0px 1px;
+                        .guest-select-row{
+                            padding: 0;
+                            font-size: 16px;
+                            font-family: $font1;
+                            .counter-value{
+                                margin: 5px;
+                            }
+                        }
+                    }
+                }
+            }
 
 
         }
 
 
         .picker-container {
-            // position: absolute;
-            // margin-bottom: 15px;
-            // border-radius: 8px;
 
             .picker-btns {
+                width: 100%;
+                height: 100%;
                 display: flex;
-                flex-direction: column;
-                // padding-inline-start: 20px;
-                // padding-top: 10px;
-                // border-radius: 8px;
-                top: 0;
+                top: 5px;
+
+                .clean-button {
+                    width: 157px;
+                    height: 56px;
+                    border: 1px solid #222222;
+                    background-color: rgba(0, 0, 0, 0);
+                    margin: 0;
+                    margin-top: 20px;
+                }
+
+                .picker {
+                    width: 160px;
+                    height: 56px;
+                }
 
                 &.active {
+                    display: flex;
                     position: absolute;
-                    border-radius: 8px;
+                    transform: translateY(20%);
                     z-index: 3;
+                    margin-top: 8px;
+                    background-color: $clr11;
                 }
             }
         }
@@ -69,122 +146,60 @@
 
         // 661 / 509
         .date-picker-container {
-            display: inline-flex;
-            position: relative;
+            background-color: $clr11;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
+            border-radius: 16px;
+            position: absolute;
             height: rem(509px);
             width: rem(661px);
-            border: 1px solid #ccc;
-            // left: 50%;
-            top: 40px;
-            transform: translateX(-50%);
+            top: 29px;
+            transform: translateX(-47%);
+
+            .date-range-wrapper {
+                padding: 5px;
+                padding-top: 0;
+            }
 
 
+            .date-picker-header {
+                margin-left: 35px;
 
-            .close-open-picker-btn {
-                position: absolute;
-                // top: 100%;
-                // z-index: 6;
-                bottom: 100%;
+                h4 {
+                    font-family: $font1;
+                    margin-top: 22px;
+                    margin-bottom: 12px;
+                    padding: 0px;
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+
+                h5 {
+                    font-family: $font1;
+                    font-weight: 300;
+                    font-size: 14px;
+
+                    margin-top: 0;
+                    margin-bottom: 40px;
+                }
+            }
+
+            .open-picker-btns {
+                display: flex;
+                flex-direction: column;
+
+                .close-open-picker-btn {
+                    align-self: flex-end;
+                    height: 34px;
+                    width: 70px;
+                    background-color: #222222;
+                    color: $clr11;
+                    border-radius: 8px;
+                    margin: 10px 30px
+                }
             }
 
 
         }
     }
-
-}
-
-
-
-.rdrCalendarWrapper {
-    padding-top: 20px;
-    width: 100%;
-    position: absolute;
-    right: 28px;
-    left: 25px;
-
-
-    // .rdrMonts {
-    //     width: 100%;
-    // }
-
-    .rdrMonthAndYearPickers {
-        display: none;
-    }
-
-    .rdrMonthName {
-        text-align: center;
-        //   color: $clr-text-primary;
-        font-size: 1rem;
-        font-family: $font1 ;
-    }
-
-}
-
-// width: 50%;
-// height: 345px;
-// background-color: rgba(255, 255, 255, 0);
-// position: absolute;
-// z-index: 5;
-
-
-.rdrMonthAndYearWrapper {
-    position: absolute;
-    right: 28px;
-    left: 25px;
-}
-
-.rdrMonthAndYearPickers {
-    visibility: hidden;
-}
-
-.rdrMonthName {
-    text-align: center;
-    // color: $clr-text-primary;
-    font-size: 1rem;
-    font-family: $font1;
-}
-
-.rdrCalendarWrapper {
-
-    .rdrDay {
-        font-family: $font1;
-    }
-
-    .rdrDays {
-        font-family: $font1;
-        line-height: 18px;
-    }
-
-    .rdrDayPassive {
-        display: none;
-    }
-
-    // width: 100%;
-
-    .rdrNextPrevButton {
-        background-color: transparent;
-    }
-
-
-
-    .rdrMonthAndYearWrapper {
-        min-width: minmax(500px, 100vw);
-    }
-
-    .rdrMonthAndYearPickers {
-        display: none;
-    }
-
-
-    // .rdrMonth {
-    //     min-width: 100%;
-    //     width: inherit;
-    // }
-
-    .rdrWeekDay {
-        font-family: $font1;
-    }
-
-
 
 }

@@ -32,7 +32,7 @@ export const Book = () => {
   const serviceFee = 15
   // console.log('addedOrder', addedOrder)
   // console.log('order', order)
-  console.log('localUser', localUser)
+  // console.log('localUser', localUser)
 
 
 
@@ -81,7 +81,7 @@ async function updateUserDb() {
         const updatedUser = { ...localUser, orders: [...localUser.orders, order] };
         setLocalUser(updatedUser)
        const savedUser = await userService.update(updatedUser)
-        console.log('savedUser' , savedUser)
+        // console.log('savedUser' , savedUser)
         console.log('User DB updated')
 
     } catch (err) {
@@ -130,10 +130,7 @@ function handleOrder(stay) {
 }
 
 function onMyTripsBtn() {
-
     navigate(`/trip`)
-    // navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&guests=${guestsParams || 1}&checkIn=${filterBy.checkIn}&checkOut=${filterBy.checkOut}`)
-
 }
 
 function getGuestsCount() {
@@ -143,16 +140,13 @@ function getGuestsCount() {
   return guestsCount
 }
 
-
-
-
   async function getStay() {
     const stay = await stayService.getById(stayId)
     setStay(stay)
   }
 
+  
   if (!stay || !order) return <div>Loading...</div>
-
   const { name, type, imgUrls, reviews } = stay
 
   return (
@@ -169,9 +163,10 @@ function getGuestsCount() {
               <div className="book-details-trip-date">
                 <div className="date-info">
                   <h3>Dates</h3>
-                  {/* <p>Jun 10 - 15</p> */}
+                  <p>
                   {utilService.formattedDate(order.startDate)} -{' '}
                     {utilService.formattedDate(order.endDate)}
+                    </p>
                 </div>
                 <div className="book-details-edit">
                   <a href="#">Edit</a>
@@ -180,8 +175,10 @@ function getGuestsCount() {
               <div className="book-details-trip-guests">
                 <div className="guest-info">
                   <h3>Guests</h3>
-                  {/* <p>1 guest</p> */}
-                  {getGuestsCount()} <span>guests</span>
+                  <span className='guest-count'>
+                  {getGuestsCount()} 
+                  </span>
+                  <span>guests</span>
                 </div>
                 <div className="book-details-edit">
                   <a href="#">Edit</a>

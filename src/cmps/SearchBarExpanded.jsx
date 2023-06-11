@@ -7,7 +7,7 @@ import { GuestSelect } from "./GuestSelect"
 import { DateSelect } from "./DateSelect"
 
 
-export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen }) {
+export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,onExpandSearch }) {
     const navigate = useNavigate()
     const [selected, setSelected] = useState([])
     const [fromValue, setFromValue] = useState('')
@@ -80,6 +80,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen })
 
     const submitFilter = (ev) => {
         ev.preventDefault()
+        onExpandSearch()
         navigate(`/?txt=${filterBy.txt}&location=${filterBy.location}&totalGuests=${totalGuests}&guests=${guestsParams}&checkIn=${filterBy.checkIn}&checkOut=${filterBy.checkOut}`)
     }
 

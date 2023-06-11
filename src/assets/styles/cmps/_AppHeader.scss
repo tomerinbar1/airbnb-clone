@@ -42,6 +42,14 @@
             }
         }
 
+        .expanded-search-bar {
+            position: relative;
+            margin: 0 auto;
+            top: 0;
+            left: 0;
+            translate: -5% 120%;
+        }
+
     }
 
     .main-screen-full {
@@ -60,6 +68,11 @@
         background-image: url('../../img/icons/logo.png');
         background-position: center;
         background-size: cover;
+
+        img {
+            fill: $clr1;
+
+        }
     }
 
     .main-logo {

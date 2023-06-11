@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { DayPicker } from 'react-day-picker'
 
 export const DetailsDateRange = ({ checkIn, checkOut }) => {
+  
   const [fromValue, setFromValue] = useState(
     checkIn ? new Date(parseInt(checkIn)) : undefined
   )
