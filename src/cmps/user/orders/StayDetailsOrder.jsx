@@ -177,6 +177,7 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
                             {getGuestsCount()}
                             <span className='guests-count'>GUESTS</span>
                             
+                            {/* <span className='guest-count'>GUESTS</span> */}
                         </button>
                         {openTab === 'guests' && (
                             <section className="guests-open">
