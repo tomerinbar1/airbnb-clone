@@ -10,7 +10,7 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
   const handleChange = event => {
     setSearchTerm(event.target.value)
   }
-  
+
   useEffect(() => {
     const results = reviews.filter(review =>
       review.txt.toLowerCase().includes(searchTerm.toLowerCase())
