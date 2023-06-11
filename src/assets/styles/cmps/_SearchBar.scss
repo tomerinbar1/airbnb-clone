@@ -33,6 +33,8 @@
         font-family: airbnb-cereal-bold ;
         height: 50%;
         align-self: center;
+        opacity: 0.85;
+
     }
 
     .anyweek-search-btn {
@@ -42,7 +44,11 @@
         color: $clr8;
         height: 50%;
         align-self: center;
+        opacity: 0.85;
 
+        p{
+            transform: translateX(-5px);
+        }
     }
 
     .add-guests-search-btn {
