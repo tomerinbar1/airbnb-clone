@@ -5,6 +5,7 @@ import { LocationSelect } from "./LocationSelect"
 import { StayFilterByTxt } from "./StayFilterByTxt"
 import { GuestSelect } from "./GuestSelect"
 import { DateSelect } from "./DateSelect"
+import classes from "../cmps/user/orders/btn-square-color.module.css"
 
 
 export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, onExpandSearch }) {
@@ -121,7 +122,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, o
             }
 
             <div onClick={() => setSelectedTab("checkOut")} className={`check-out  ${checkForActiveClass("checkOut")} `}>
-          
+
                 <div className="checkOut-wrapper">
                     <div className="checkOut-wrapper-header">Check out</div>
                     <div className="checkOut-sub-header">{checkOutSubtitle(toValue)}</div>
@@ -142,12 +143,12 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, o
                 />}
 
             <div onClick={() => setSelectedTab("guest")} className={`guests  ${checkForActiveClass("guest")} `}>
-          
+
                 <div className="guests-wraper">
                     <div className="guests-wraper-header">Who</div>
                     <div className="guests-sub-header">{getGuestsSubTitleCount(guestsCount)}</div>
                 </div>
-        
+
             </div>
 
             <button className={`search-btn ${isSearchOpen ? "expand" : ""}`}>

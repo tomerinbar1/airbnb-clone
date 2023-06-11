@@ -30,7 +30,7 @@
         border-right: 1px solid $clr12 ;
         width: 107px;
         color: $clr8;
-        font-family: airbnb-cereal-bold ;
+        font-family: airbnb-cereal-bold;
         height: 50%;
         align-self: center;
         opacity: 0.85;
@@ -39,19 +39,20 @@
     .anyweek-search-btn {
         border-right: 1px solid $clr12 ;
         width: 98px;
-        font-family: airbnb-cereal-bold ;
+        font-family: airbnb-cereal-bold;
         color: $clr8;
         height: 50%;
         align-self: center;
         opacity: 0.85;
-        p{
+
+        p {
             transform: translateX(-5px);
         }
     }
 
     .add-guests-search-btn {
         width: 106px;
-        font-family: airbnb-cereal-W_Bk ;
+        font-family: airbnb-cereal-W_Bk;
         color: $clr17;
         // display: flex;
         align-self: center;
@@ -72,6 +73,8 @@
 
         i {
             color: white;
+            font-size: 13px;
+            margin-bottom: 3px;
         }
     }
 }

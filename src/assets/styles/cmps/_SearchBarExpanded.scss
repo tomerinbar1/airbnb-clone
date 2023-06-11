@@ -165,6 +165,8 @@
             width: 110px;
             border-radius: 25px;
             transition: 0.4s;
+            background-image: radial-gradient(circle, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 5.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
+
 
             span {
                 color: $clr11 ;
