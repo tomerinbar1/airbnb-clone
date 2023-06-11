@@ -2,26 +2,33 @@ import { useEffect } from 'react'
 import showAllPhotos from '../../assets/img/common/show-all-photos.svg'
 
 export const StayDetailsGallery = ({ imgUrls, onOpenModal }) => {
-
   useEffect(() => {
-    const galery = document.querySelector('.stay-details-img')
+    const galery = document.querySelector('.details-gallery-wrapper')
     const tochangeheader = document.querySelector('.app-header')
     const galeryObserver = new IntersectionObserver(onHeaderObserved, {
       threshold: 0,
     })
     galeryObserver.observe(galery)
-    
-    function onHeaderObserved(entries) {
-      entries.forEach((entry) => {
 
+    function onHeaderObserved(entries) {
+      entries.forEach(entry => {
         tochangeheader.style.position = entry.isIntersecting ? '' : 'fixed'
       })
     }
-
   }, [])
 
   return (
-    <div onClick={(e) => onOpenModal(e, 'gallery-modal')} data-modal="gallery-modal" className="stay-details-img">
+    <section
+      onClick={e => onOpenModal(e, 'gallery-modal')}
+      data-modal="gallery-modal"
+      className="details-gallery-wrapper"
+    >
+      <div className="all-imgs-btn">
+        <button>
+          <img src={showAllPhotos} alt="show all photos" />
+          Show all photos
+        </button>
+      </div>
       <div className="main-photo">
         <img src={`${imgUrls[0]}`} alt="main-img" />
       </div>
@@ -38,13 +45,7 @@ export const StayDetailsGallery = ({ imgUrls, onOpenModal }) => {
           alt="small-img-4"
           style={{ borderBottomRightRadius: '0.5em' }}
         />
-        <div className="all-imgs-btn">
-          <button>
-            <img src={showAllPhotos} alt="" />
-            Show all photos
-          </button>
-        </div>
       </div>
-    </div>
+    </section>
   )
 }
