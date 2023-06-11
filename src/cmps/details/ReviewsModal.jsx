@@ -80,9 +80,9 @@ const RenderReview = (review,idx) => {
           <ul>{avgRatesList}</ul>
         </section>
         <section className="reviews-list">
-          <div className="search-reviews">
+          {/* <div className="search-reviews">
             <input type="text" placeholder="Search reviews" />
-          </div>
+          </div> */}
           <div className="list-reviews">
             {reviews.map((review,idx) => RenderReview(review,idx))}
           </div>
