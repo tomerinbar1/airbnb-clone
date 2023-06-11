@@ -7,7 +7,7 @@ import { GuestSelect } from "./GuestSelect"
 import { DateSelect } from "./DateSelect"
 
 
-export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,onExpandSearch }) {
+export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, onExpandSearch }) {
     const navigate = useNavigate()
     const [selected, setSelected] = useState([])
     const [fromValue, setFromValue] = useState('')
@@ -89,18 +89,25 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,on
         <form onSubmit={submitFilter} className={`expanded-search-bar ${dynClass}`}>
 
             <div onClick={() => setSelectedTab("location")} className={`location  ${checkForActiveClass("location")}`}>
-                <h3>Where</h3>
-                <StayFilterByTxt onChangeTxt={onChangeTxt} />
+
+                <div className="location-wrapper">
+                    <div className="location-wrapper-header">Where</div>
+                    <StayFilterByTxt onChangeTxt={onChangeTxt} />
+                </div>
+
             </div>
             {(selectedTab === 'location' && isSearchOpen) &&
                 <LocationSelect
                     onChangeLocation={onChangeLocation}
                 />}
 
-
             <div onClick={() => setSelectedTab("checkIn")} className={`check-in  ${checkForActiveClass("checkIn")} `}>
-                <h3>Check in</h3>
-                <div>{checkInSubtitle(fromValue)}</div>
+
+                <div className="checkIn-wrapper">
+                    <div>Check in</div>
+                    <div>{checkInSubtitle(fromValue)}</div>
+                </div>
+
             </div>
             {(selectedTab === "checkIn" && isSearchOpen) &&
                 <DateSelect
@@ -110,15 +117,16 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,on
                     selected={selected}
                     onChangeDates={onChangeDates}
                     setSelectedTab={setSelectedTab}
-
                 />
-
             }
 
-
             <div onClick={() => setSelectedTab("checkOut")} className={`check-out  ${checkForActiveClass("checkOut")} `}>
-                <h3>Check out</h3>
-                <div>{checkOutSubtitle(toValue)}</div>
+          
+                <div className="checkOut-wrapper">
+                    <div>Check out</div>
+                    <div>{checkOutSubtitle(toValue)}</div>
+                </div>
+
             </div>
             {(selectedTab === "checkOut" && isSearchOpen) &&
                 <DateSelect
@@ -133,13 +141,13 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,on
 
                 />}
 
-
-
             <div onClick={() => setSelectedTab("guest")} className={`guests  ${checkForActiveClass("guest")} `}>
-                <div>
-                    <h3 className="guests-txt">Who</h3>
+          
+                <div className="guests-wraper">
+                    <div className="guests-txt">Who</div>
                     <div>{getGuestsSubTitleCount(guestsCount)}</div>
                 </div>
+        
             </div>
 
             <button className={`search-btn ${isSearchOpen ? "expand" : ""}`}>
@@ -147,6 +155,7 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,on
 
                 {isSearchOpen && <span>Search</span>}
             </button>
+
             {(selectedTab === "guest" && isSearchOpen) && <div className={`guests-pick  ${dynClass}`}>
                 <GuestSelect
                     onChangeGuests={onChangeGuests}
