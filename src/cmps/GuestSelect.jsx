@@ -20,7 +20,7 @@ export function GuestSelect({onChangeGuests,guestsCount,setGuestsCount}) {
         },
         {
             label: 'Pets',
-            subLabel: <a href="">Bringing a Service Animal?</a>,
+            subLabel: 'Bring in a Service Animal!',
             field: 'pets'
         }
     ]
