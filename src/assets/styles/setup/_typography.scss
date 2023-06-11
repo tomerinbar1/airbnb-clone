@@ -5,6 +5,14 @@
   src: url(../../fonts/cereal/AirbnbCerealLight.ttf);
 }
 @font-face {
+  font-family: cereal-Book;
+  src: url(../../fonts/cereal/AirbnbCerealBook.ttf);
+}
+@font-face {
+  font-family: cereal-Medium;
+  src: url(../../fonts/cereal/AirbnbCerealMedium.ttf);
+}
+@font-face {
   font-family: cereal-Bold;
   src: url(../../fonts/cereal/AirbnbCerealBold.ttf);
 }
@@ -12,18 +20,9 @@
   font-family: cereal-ExBold;
   src: url(../../fonts/cereal/AirbnbCerealExtraBold.ttf);
 }
-
-@font-face {
-  font-family: cereal-Book;
-  src: url(../../fonts/cereal/AirbnbCerealBook.ttf);
-}
 @font-face {
   font-family: cereal-Black;
   src: url(../../fonts/cereal/AirbnbCerealBlack.ttf);
-}
-@font-face {
-  font-family: cereal-Medium;
-  src: url(../../fonts/cereal/AirbnbCerealMedium.ttf);
 }
 
 // airbnb
@@ -34,13 +33,12 @@
 }
 @font-face {
   font-family: airbnb-cereal-book;
-  src: url(../../fonts/misc/Quicksand-Bold.ttf);
+  src: url(../../fonts/airbnb-cereal-font/Airbnb_Cereal-Book.woff2);
 }
 @font-face {
   font-family: airbnb-cereal-medium;
-  src: url(../../fonts/misc/Quicksand-Bold.ttf);
+  src: url(../../fonts/airbnb-cereal-font/Airbnb_Cereal-Medium.woff2);
 }
-
 
 // Cereal WIDE
 @font-face {
