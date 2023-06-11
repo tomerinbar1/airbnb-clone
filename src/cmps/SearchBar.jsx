@@ -22,7 +22,9 @@ export function SearchBar({ onExpandSearch, isSearchOpen, isStayId }) {
                     <p>Any week</p>
                 </button>
             </>}
-            <button onClick={() => onSearchHandle("guests")} className="add-guests-search-btn">{isStayId ? "Start your search" : "Add guests"}</button>
+            <button onClick={() => onSearchHandle("guests")} className="add-guests-search-btn">
+                <p>{isStayId ? "Start your search" : "Add guests"}</p>
+            </button>
             <button onClick={() => onSearchHandle("search")} className="search-btn">
                 <i className="fa-solid fa-magnifying-glass"></i>
             </button>
