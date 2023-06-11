@@ -58,9 +58,9 @@
                 margin: 10px;
             }
 
-            .reserve-btn {
-                height: rem(48px);
-            }
+            // .reserve-btn {
+            //     height: rem(48px);
+            // }
         }
 
         .user-prefs {
@@ -84,6 +84,10 @@
                     display: flex;
                     align-items: center;
                     z-index: -1;
+
+                    .guests-count{
+                        padding: 5px;
+                    }
 
                     button {
                         background-color: #22222200;
