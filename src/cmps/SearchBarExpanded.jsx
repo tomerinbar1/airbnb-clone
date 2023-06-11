@@ -31,8 +31,8 @@ export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen,on
         setSelectedTab('checkIn')
     }
     const onChangeDates = (value) => {
-        const toValueTimeStmp = new Date(value.checkIn).getTime()
-        const fromValueTimeStmp = new Date(value.checkOut).getTime()
+        const toValueTimeStmp = new Date(value.checkOut).getTime()
+        const fromValueTimeStmp = new Date(value.checkIn).getTime()
         setFilterBy({ ...filterBy, checkIn: fromValueTimeStmp, checkOut: toValueTimeStmp })
     }
 
