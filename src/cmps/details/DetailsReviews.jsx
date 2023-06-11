@@ -87,7 +87,7 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
 
   return (
     <div className="reviews-details-wrapper">
-      <div className="rating-details">
+      <div className="rating-details-data">
         <StayReviewsStat reviews={reviews} />
       </div>
       <section className="reviews-avg-data">

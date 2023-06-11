@@ -65,20 +65,22 @@
     background-color: transparent;
     border: 1px solid black;
   }
-  .rdp-cell{
+  .rdp-weeknumber,
+  .rdp-day {
     width: 45px;
     height: 45px;
     line-height: 18px;
   }
 }
 
-a {
-  display: flex;
-  justify-content: flex-end;
-  font-size: rem(14px);
-  margin: 0;
-  padding-right: 34px;
-  font-family: cereal-regular;
-  color: #222222;
-  text-decoration: underline;
+.date-range-bottom {
+  a {
+    display: flex;
+    justify-content: flex-end;
+    font-size: rem(14px);
+    margin: 0;
+    font-family: cereal-regular;
+    color: #222222;
+    text-decoration: underline;
+  }
 }
