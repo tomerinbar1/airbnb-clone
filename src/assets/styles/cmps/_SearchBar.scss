@@ -28,28 +28,27 @@
 
     .anywhere-search-btn {
         border-right: 1px solid $clr12 ;
-        font-weight: bold;
         width: 107px;
         color: $clr8;
         font-family: airbnb-cereal-bold ;
-        font-weight: bold;
+        height: 50%;
+        align-self: center;
     }
 
     .anyweek-search-btn {
         border-right: 1px solid $clr12 ;
-        font-weight: bold;
         width: 98px;
         font-family: airbnb-cereal-bold ;
         color: $clr8;
+        height: 50%;
+        align-self: center;
 
     }
 
     .add-guests-search-btn {
-        font-weight: 100;
         width: 106px;
-        font-family: cereal-Book ;
-        color: $clr16;
-
+        font-family: airbnb-cereal-W_Bk ;
+        color: $clr17;
     }
 
     .search-btn {
@@ -60,6 +59,7 @@
         padding-top: 3px;
         margin-top: 6px;
         margin-left: 4%;
+        margin-right: 6px;
 
         i {
             color: white;
