@@ -1,19 +1,51 @@
-.stay-details-img {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding-top: 16px;
-  grid-gap: 7px;
-  width: 100%;
+.details-gallery-wrapper {
+  padding-top: 24px;
+  display: flex;
+  position: relative;
+  height: 493.4px;
+  gap: 8px;
+
+  .all-imgs-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    z-index: 1;
+    button {
+      display: flex;
+      align-items: center;
+      background-color: #f7f7f7;
+      color: black;
+      border: 1px solid black;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: cereal-Medium;
+      font-size: rem(14px);
+      color: #222222;
+
+      img {
+        margin-right: 8px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+    &:hover {
+      filter: brightness(95%);
+      transition: all 0.3s ease-in-out;
+    }
+  }
 
   .main-photo {
+    display: flex;
+    flex: 1;
+
     img {
-      width: 100%;
       object-fit: cover;
-      aspect-ratio: 1/1;
       border-top-left-radius: 0.5em;
       border-bottom-left-radius: 0.5em;
       cursor: pointer;
     }
+
     &:hover {
       filter: brightness(80%);
       transition: all 0.2s ease-in-out;
@@ -21,54 +53,20 @@
   }
 
   .small-photos {
-    position: relative;
+    display: flex;
     flex: 1;
-    aspect-ratio: 1/1;
-    width: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 7px;
+    flex-wrap: wrap;
+    gap: 8px;
 
-    img {
-      max-height: 560px;
-      width: 100%;
-      aspect-ratio: 1/1;
+    > img {
+      height: calc(50% - 4px);
+      width: calc(50% - 4px);
       object-fit: cover;
       cursor: pointer;
     }
-    :hover:not(button) {
+    :not(.all-imgs-btn):hover {
       filter: brightness(80%);
       transition: all 0.2s ease-in-out;
-    }
-
-    .all-imgs-btn {
-      position: absolute;
-      bottom: 20px;
-      right: 25px;
-
-      button {
-        display: flex;
-        align-items: center;
-        background-color: #f7f7f7;
-        color: black;
-        border: 1px solid black;
-        padding: 7px 14px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-family: cereal-Medium;
-        font-size: rem(14px);
-        color: #222222;
-
-        img {
-          margin-right: 8px;
-          height: 16px;
-          width: 16px;
-        }
-      }
-      &:hover {
-        filter: brightness(95%);
-        transition: all 0.3s ease-in-out;
-      }
     }
   }
 }

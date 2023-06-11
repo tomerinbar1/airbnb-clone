@@ -19,7 +19,12 @@ import { AmenitiesModal } from '../cmps/details/AmenitiesModal.jsx'
 import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
 import { DisplayList } from '../cmps/details/DisplayList.jsx'
 
-const CHECKOUT_INFO = ['House rules', 'Check-in: 4:00 PM - 9:00 PM','Checkout before 10:00 AM','2 guests maximum']
+const CHECKOUT_INFO = [
+  'House rules',
+  'Check-in: 4:00 PM - 9:00 PM',
+  'Checkout before 10:00 AM',
+  '2 guests maximum',
+]
 
 export const StayDetails = () => {
   const [stay, setStay] = useState(null)
@@ -28,12 +33,29 @@ export const StayDetails = () => {
   const [learnMoreModalIsOpen, setLearnMoreModalIsOpen] = useState(false)
   const [reviewsModalIsOpen, setReviewsModalIsOpen] = useState(false)
   const [amenitiesModalIsOpen, setAmenitiesModalIsOpen] = useState(false)
+  const [ScrollBarIsShow, setShowScrollBar] = useState(true)
   const [openTab, setOpenTab] = useState(null)
   const params = useParams()
   const { stayId } = params
 
   const checkIn = searchParams.get('checkIn')
   const checkOut = searchParams.get('checkOut')
+
+  const CloseScrollBar = () => {
+    setShowScrollBar(false)
+  }
+
+  const showScrollBar = () => {
+    setShowScrollBar(true)
+  }
+
+  useEffect(() => {
+    if (ScrollBarIsShow) {
+      document.body.style.overflow = 'unset';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  }, [ScrollBarIsShow]);
 
   useEffect(() => {
     const loadStaysOnDetails = async () => {
@@ -49,12 +71,16 @@ export const StayDetails = () => {
     event.preventDefault()
     if (modal === 'gallery-modal') {
       setGalleryModalIsOpen(true)
+      CloseScrollBar()
     } else if (modal === 'learn-more-modal') {
       setLearnMoreModalIsOpen(true)
+      CloseScrollBar()
     } else if (modal === 'reviews-modal') {
       setReviewsModalIsOpen(true)
+      CloseScrollBar()
     } else if (modal === 'amenities-modal') {
       setAmenitiesModalIsOpen(true)
+      CloseScrollBar()
     }
   }
 
@@ -63,6 +89,7 @@ export const StayDetails = () => {
     setLearnMoreModalIsOpen(false)
     setReviewsModalIsOpen(false)
     setAmenitiesModalIsOpen(false)
+    showScrollBar()
   }
 
   if (!stay) return <div>Loading...</div>
@@ -99,7 +126,10 @@ export const StayDetails = () => {
           />
 
           <hr className="custom-hr" />
-          <DetailsAmenities amenities={stay.amenities} onOpenModal={onOpenModal} />
+          <DetailsAmenities
+            amenities={stay.amenities}
+            onOpenModal={onOpenModal}
+          />
 
           <hr className="custom-hr" />
 
@@ -107,9 +137,12 @@ export const StayDetails = () => {
         </div>
 
         <div className="stay-details-order-container">
-        <StayDetailsOrder stay={stay} openTab={openTab} setOpenTab={setOpenTab} />
-            </div>
-
+          <StayDetailsOrder
+            stay={stay}
+            openTab={openTab}
+            setOpenTab={setOpenTab}
+          />
+        </div>
       </div>
 
       <hr className="custom-hr" />
