@@ -1,7 +1,23 @@
+import { useEffect, useState } from 'react'
+
 import Modal from 'react-modal'
 import { StayReviewsStat } from './StayReviewsStat'
 
 export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchResults, setSearchResults] = useState([])
+
+  const handleChange = event => {
+    setSearchTerm(event.target.value)
+  }
+
+  useEffect(() => {
+    const results = reviews.filter(review =>
+      review.txt.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    setSearchResults(results)
+  }, [searchTerm, reviews])
+
   const averageRates = reviews => {
     const ratings = reviews.reduce((acc, review) => {
       const { rate } = review
@@ -26,7 +42,7 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
 
   const avgRates = averageRates(reviews)
 
-  const avgRatesList = avgRates.map((rate,idx) => {
+  const avgRatesList = avgRates.map((rate, idx) => {
     return (
       <li key={idx}>
         <div className="avg-data-wrapper">
@@ -40,21 +56,21 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
     )
   })
 
-const RenderReview = (review,idx) => {
-      return (
-        <div className="user-review" key={idx}>
-          <div className="user-review-header">
-            <img src={getProfileImg()} alt="" />
-            <div className="review-head-txt">
-              <h2>{review.by.fullname}</h2>
-              <p>Sep 2023</p>
-            </div>
-          </div>
-          <div className="user-review-body">
-            <p>{review.txt}</p>
+  const RenderReview = (review, idx) => {
+    return (
+      <div className="user-review" key={idx}>
+        <div className="user-review-header">
+          <img src={getProfileImg()} alt="" />
+          <div className="review-head-txt">
+            <h2>{review.by.fullname}</h2>
+            <p>Sep 2023</p>
           </div>
         </div>
-      )
+        <div className="user-review-body">
+          <p>{review.txt}</p>
+        </div>
+      </div>
+    )
   }
 
   const getProfileImg = () => {
@@ -64,7 +80,6 @@ const RenderReview = (review,idx) => {
     const itemItem = images(`./${gender}/${randomNumber}.jpg`)
     return itemItem
   }
-
 
   return (
     <Modal
@@ -80,11 +95,16 @@ const RenderReview = (review,idx) => {
           <ul>{avgRatesList}</ul>
         </section>
         <section className="reviews-list">
-          {/* <div className="search-reviews">
-            <input type="text" placeholder="Search reviews" />
-          </div> */}
+          <div className="search-reviews">
+            <input
+              type="text"
+              placeholder="Search reviews"
+              value={searchTerm}
+              onChange={handleChange}
+            />
+          </div>
           <div className="list-reviews">
-            {reviews.map((review,idx) => RenderReview(review,idx))}
+            {searchResults.map((review, idx) => RenderReview(review, idx))}
           </div>
         </section>
       </div>
