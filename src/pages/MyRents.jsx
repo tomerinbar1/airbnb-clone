@@ -1,18 +1,26 @@
 import { useEffect } from "react"
+import { useState } from "react"
+import { orderService } from "../services/order.service.js"
 
 
 export function MyRents() {
     const [rents, setRents] = useState([])
 
     useEffect(() => {
-        loadRents(filterBy)
+        loadRents()
     }, [])
 
 
-    async function loadRents(filterBy) {
-        const rents = await rentService.query(filterBy)
+    async function loadRents(filterBy = "") {
+        const rents = await orderService.query(filterBy)
         setRents(rents)
 
+    }
+
+    function getGuestsCount(guests) {
+        const guestsCount = Object.values(guests)
+            .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        return guestsCount
     }
 
 
