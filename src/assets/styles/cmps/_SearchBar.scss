@@ -28,22 +28,37 @@
 
     .anywhere-search-btn {
         border-right: 1px solid $clr12 ;
-        font-weight: bold;
         width: 107px;
-        font-family: cerealBold, sans-serif;
+        color: $clr8;
+        font-family: airbnb-cereal-bold;
+        height: 50%;
+        align-self: center;
+        opacity: 0.85;
     }
 
     .anyweek-search-btn {
         border-right: 1px solid $clr12 ;
-        font-weight: bold;
         width: 98px;
-        font-family: cerealBold, sans-serif;
+        font-family: airbnb-cereal-bold;
+        color: $clr8;
+        height: 50%;
+        align-self: center;
+        opacity: 0.85;
+
+        p {
+            transform: translateX(-5px);
+        }
     }
 
     .add-guests-search-btn {
-        font-weight: 100;
         width: 106px;
-        font-family: cereal, sans-serif;
+        font-family: airbnb-cereal-W_Bk;
+        color: $clr17;
+        // display: flex;
+        align-self: center;
+
+        height: 50%;
+
     }
 
     .search-btn {
@@ -54,9 +69,12 @@
         padding-top: 3px;
         margin-top: 6px;
         margin-left: 4%;
+        margin-right: 6px;
 
         i {
             color: white;
+            font-size: 13px;
+            margin-bottom: 3px;
         }
     }
 }

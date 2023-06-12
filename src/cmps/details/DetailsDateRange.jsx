@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 import { DayPicker } from 'react-day-picker'
 
 export const DetailsDateRange = ({ checkIn, checkOut }) => {
-  
   const [fromValue, setFromValue] = useState(
     checkIn ? new Date(parseInt(checkIn)) : undefined
   )
@@ -82,14 +81,16 @@ export const DetailsDateRange = ({ checkIn, checkOut }) => {
         selected={{ from: fromValue, to: toValue }}
         numberOfMonths={2}
       />
-      <a
-        onClick={() => {
-          setFromValue(undefined)
-          setToValue(undefined)
-        }}
-      >
-        Clear dates
-      </a>
+      <div className="date-range-bottom">
+        <a
+          onClick={() => {
+            setFromValue(undefined)
+            setToValue(undefined)
+          }}
+        >
+          Clear dates
+        </a>
+      </div>
     </div>
   )
 }

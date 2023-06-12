@@ -5,20 +5,52 @@ export const AmenitiesModal = ({
   amenities,
   amenitiesModalIsOpen,
 }) => {
-  const amenitiesList = amenities.map((amenity, idx) => {
-    return (
-      <li className="amenity-wrapper" key={idx}>
-        <div className="main-amenity">
-          <img
-            src={require(`../../assets/img/amenities/${amenity}.svg`)}
-            alt={amenity}
-          />
-          <p>{amenity}</p>
-        </div>
-        <hr className="custom-hr" />
-      </li>
+  const items = [
+    'Air conditioning',
+    'Carbon monoxide alarm',
+    'Cooking basics',
+    'Dedicated workspace',
+    'Hair dryer',
+    'Elevator',
+    'Essentials',
+    'Free parking on premises',
+    'Garden view',
+    'Heating',
+    'Iron',
+    'Kitchen',
+    'lockBox',
+    'Mountain view',
+    'Private hot tub',
+    'Private patio or balcony',
+    'Shampoo',
+    'Smoke alarm',
+    'TV',
+    'Washer machine',
+    'Wifi',
+  ]
+
+  const renderDescription = imageName => {
+    const matchingItem = items.find(item =>
+      item.toLowerCase().includes(imageName.toLowerCase())
     )
-  })
+    if (matchingItem) {
+      return <p>{matchingItem}</p>
+    }
+    return null
+  }
+
+  const amenityList = amenities.map((amenity, idx) => (
+    <div className="amenity-wrapper">
+      <li key={idx}>
+        <img
+          src={require(`../../assets/img/amenities/${amenity}.svg`)}
+          alt={amenity}
+        />
+        {renderDescription(amenity)}
+      </li>
+      <hr className="custom-hr" />
+    </div>
+  ))
 
   return (
     <Modal
@@ -32,7 +64,7 @@ export const AmenitiesModal = ({
         <h1>What this place offers</h1>
       </div>
       <div className="amenities-modal-body">
-        <ul>{amenitiesList}</ul>
+        <ul>{amenityList}</ul>
       </div>
     </Modal>
   )

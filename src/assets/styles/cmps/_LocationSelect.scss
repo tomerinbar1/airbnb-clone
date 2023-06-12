@@ -4,19 +4,22 @@
     background-color:$clr11;
     top: 0;
     left: 0;
-    width: 478px;
-    height: 500px;
+    width: 492px;
+    height: 481px;
     border-radius: 30px;
     border: 1px solid $clr12;
     margin-top: 10px;
     transform: translateY(13%);
     visibility: visible;
+    padding-top: 40px;
+    padding-left: 47px;
+    letter-spacing: 0.2px;
     cursor: auto;
 
 
     .location-pick-header{
         font-size: rem(14px);
-        font-family: cerealBold;
+        font-family: airbnb-cereal-W_Bd;
         line-height: rem(18px);
         margin: 0 0 28px 5px;
     }
@@ -38,7 +41,8 @@
             font-size: rem(14px);
             line-height: rem(18px);
             margin-top: 8px;
-
+            opacity: 0.8;
+            
         }
     }
 

@@ -1,5 +1,4 @@
 .expanded-search-bar {
-    width: 85.3%;
     width: 850px;
     height: 65px;
     background-color: $clr13;
@@ -14,8 +13,10 @@
     translate: -50% 0%;
     align-items: center;
     border: solid 1px $clr12;
-
     transition: all 0.4s;
+    letter-spacing: 0.8px;
+
+    
 
     &.folded {
         visibility: hidden;
@@ -28,23 +29,35 @@
     &>* {
         height: 100%;
         border-radius: 100vw;
-        flex-grow: 1;
-        padding-left: 30px;
+        // flex-grow: 1;
+        // padding-left: 30px;
     }
 
-    h3 {
-        font-size: rem(12px);
-        font-family: circular-Book;
-        height: 18px;
-    }
 
     .location {
         width: 38%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 20px;
+
+
+        .location-wrapper {
+            width: 100%;
+            height: 70%;
+            border-right: 1px solid $clr12;
+            padding-left: 10px;
+
+            .location-wrapper-header{
+                font-family: airbnb-cereal-W_Bd;
+                font-size: 12px;
+            }
+        }
 
         input {
             border: none;
             background-color: inherit;
-
+            font-size: 14px;
         }
 
         input[type="text"]:focus {
@@ -56,8 +69,6 @@
             background-color: $clr11;
             box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
         }
-
-
     }
 
     .location:not(.active):hover {
@@ -67,12 +78,32 @@
     .check-in,
     .check-out {
         width: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 20px;
+
+
+        .checkIn-wrapper,
+        .checkOut-wrapper {
+            width: 100%;
+            height: 70%;
+            border-right: 1px solid $clr12;
+
+            .checkIn-wrapper-header, .checkOut-wrapper-header{
+                font-family: airbnb-cereal-W_Bd;
+                font-size: 12px;
+            }
+        }
+
+        .checkIn-sub-header, .checkOut-sub-header{
+            font-family: airbnb-cereal-W_Lt;
+            font-size: 14px;
+        }
 
         &.active {
             background-color: $clr11;
             box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-
-
         }
 
         &:not(.active):hover {
@@ -82,8 +113,29 @@
 
     .guests {
         width: 31%;
+        flex: 1;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 20px;
+
+
+        .guests-wraper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 70%;
+
+            .guests-wraper-header{
+                font-family: airbnb-cereal-W_Bd;
+                font-size: 12px;
+            }
+
+            .guests-sub-header{
+                font-family: airbnb-cereal-W_Lt;
+                font-size: 14px;
+            }
+        }
 
         &.active {
             background-color: $clr11;
@@ -105,15 +157,23 @@
         align-self: center;
         position: fixed;
         right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &.expand {
             width: 110px;
             border-radius: 25px;
-
             transition: 0.4s;
+            background-image: radial-gradient(circle, rgb(255, 56, 92) 0%, rgb(230, 30, 77) 5.5%, rgb(227, 28, 95) 40%, rgb(215, 4, 102) 57.5%, rgb(189, 30, 89) 75%, rgb(189, 30, 89) 100%);
 
-            span{
-                color:$clr11 ;
+
+            span {
+                color: $clr11 ;
+                margin-left: 25px;
+                font-size: 16px;
+                font-family: airbnb-cereal-W_Bd;
+                // transform: translateY(-1.5px);
             }
 
         }

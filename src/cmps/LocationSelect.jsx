@@ -15,7 +15,9 @@ export function LocationSelect({ onChangeLocation }) {
 
     return (
         <div className="location-pick">
+
             <div className="location-pick-header">Search by region</div>
+
             <div className="location-grid-container">
                 {locations.map(location => {
                     return (
@@ -28,6 +30,8 @@ export function LocationSelect({ onChangeLocation }) {
                     )
                 })}
             </div>
+
+            
         </div>
     )
 }
