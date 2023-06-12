@@ -1,50 +1,157 @@
 .stay-details-order-container {
-    //   margin-top: 41px;
 
     .order-modal {
-        // position: relative;
+        // height: fit-content;
         border: 1px solid $clr9;
         border-radius: 12px;
         padding: 24px;
+        padding-bottom: 20px;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
         color: $clr8;
         background-color: $clr11;
         width: 372px;
-        // height: fit-content;
         display: flex;
         flex-direction: column;
 
-        
-        .check-availability{
+        .order-modal-header {
+            display: flex;
+            margin-bottom: 24px;
+            align-content: end;
+            justify-content: space-between;
+            height: 27px;
+
+            .stay-rate {
+                display: flex;
+                align-items: center;
+
+                >* {
+                    // padding-block-start: 6px;
+                    // align-items: end;
+                    // justify-self: end;
+                }
+
+                // span {
+                //     // padding-block-start: 9px;
+                // }
+
+                .stay-rate-reviews {
+                    font-size: 0.7778em;
+                    color: $clr15;
+                    font-family: $font1;
+                    padding-inline-start: 4px;
+                    // justify-self: end;
+
+                    // padding-block-start: 6px;
+                }
+
+                .stay-preview-star {
+
+                    translate: -10% -4%;
+
+                    .stay-preview-avg {
+                        // padding-inline-start: 4px;
+                        font-size: 0.7778em;
+                        font-weight: 600;
+                        font-family: $font1;
+                    }
+
+
+                    img {
+                        width: 12px;
+                        height: 12px;
+                        position: relative;
+                        // top: 3px;
+                        // right: 4px;
+                    }
+                }
+
+            }
+
+
+            .price-per-night {
+                width: 25%;
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+                font-family: $font1;
+
+                .price {
+                    font-weight: 800;
+                    font-size: 22px;
+                    font-family: inherit;
+                    align-self: center;
+                    // justify-self: center;
+                }
+
+                .word-night {
+                    font-size: 16px;
+                    font-weight: 400;
+                    padding-inline-start: 5px;
+                    // padding-left: 4px;
+                }
+
+            }
+        }
+
+        .no-charge-msg {
+            text-align: center;
+            font-size: 14px;
+            font-family: cereal-regular;
+            margin-top: 17px;
+            line-height: 18px;
+            font-weight: 400px;
+            text-size-adjust: 100%;
+            line-break: strict;
+            color: $clr8;
+        }
+
+
+
+        .check-availability {
             // height: rem(48px);
             height: 48px;
             font-size: 16px;
             font-family: $font1;
         }
 
-        .order-modal-header {
-            display: flex;
-            justify-content: space-between;
 
-            .price-per-night {
-                width: 25%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-family: $font1;
 
-                .price {
-                    font-weight: 800;
-                    font-size: 22px;
-                }
+        .price-summary {
+            margin-top: 20px;
+            font-size: 1rem;
+            font-family: cereal-regular;
+            font-weight: 400;
+            margin-bottom: 0;
 
-                .word-night {
-                    font-size: 16px;
-                    font-weight: 400;
-                    padding-left: 5px;
-                }
+            .nigths-price-calc {
+                text-decoration: underline;
+                // margin-bottom: 4px;
 
             }
+
+            .fees {
+                padding-top: 10px;
+                margin-bottom: 1px;
+                text-decoration: underline;
+            }
+
+            .total-price {
+                margin-top: 21px;
+                padding-top: 21px;
+                border-top: 1px solid rgb(221, 221, 221);
+                font-size: 1rem;
+                font-weight: 600;
+                color: $clr18;
+                font-family: cereal-bold;
+            }
+
+            .total-price,
+            .nigths-price-calc,
+            .fees {
+                display: flex;
+                justify-content: space-between;
+            }
+
         }
 
         .reservation-details {
@@ -53,23 +160,20 @@
             font-family: $font1;
             font-size: 16px;
 
-            .no-charge-msg {
-                align-self: center;
-                font-size: 14px;
-                margin: 10px;
-            }
 
-            // .reserve-btn {
-            //     height: rem(48px);
-            // }
         }
 
         .user-prefs {
+            // background-color: lightcoral;
+            height: 227px;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             // height: 227px;
             position: relative;
+
 
 
             .guests {
@@ -79,31 +183,46 @@
 
                 .guests-close {
                     height: 56px;
-                    border-right: 1px solid #222222;
-                    border-left: 1px solid #222222;
-                    border-bottom: 1px solid #222222;
                     display: flex;
-                    align-items: center;
-                    z-index: -1;
+                    flex-direction: column;
+                    padding-inline-start: 12px;
 
-                    .guests-count{
-                        padding: 5px;
+                    .order-heading {
+                        padding-block-start: 11px;
+                        margin: 0;
                     }
 
-                    button {
-                        background-color: #22222200;
+                    .guests-count {
+                        padding: 0;
+                        position: relative;
+                        bottom: 2px;
+                        // background-color: palegoldenrod;
+
+                        a {
+                            color: $clr8;
+                            margin: 0;
+                            padding: 0;
+                            background-color: #22222200;
+                            font-size: 0.875em;
+                            font-family: circular-regular;
+                            line-height: 0;
+
+                        }
                     }
 
-                    .guests-open{
+
+                    .guests-open {
                         // height: 408px;
                         width: 322px;
                         border-radius: 0;
                         box-shadow: rgba(0, 0, 0, 0.07) 0px 0px 0px 1px;
-                        .guest-select-row{
+
+                        .guest-select-row {
                             padding: 0;
                             font-size: 16px;
                             font-family: $font1;
-                            .counter-value{
+
+                            .counter-value {
                                 margin: 5px;
                             }
                         }
@@ -115,39 +234,80 @@
         }
 
 
-        .picker-container {
+        .dates-guests-container {
+            height: 112.5px;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 16px;
+            border: 1px solid $clr16;
+            width: 322px;
+            border-radius: 8px;
+            color: rgb(34, 34, 34) !important;
+            font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+            font-weight: 400 !important;
+            font-size: 16px !important;
+            line-height: 20px !important;
 
             .picker-btns {
                 width: 100%;
-                height: 100%;
+                // height: 100%;
                 display: flex;
                 top: 5px;
 
-                .clean-button {
-                    width: 157px;
-                    height: 56px;
-                    border: 1px solid #222222;
+
+
+                .check-in-btn,
+                .check-out-btn {
+                    overflow: hidden;
+                    width: 100%;
+                    min-height: 56px;
                     background-color: rgba(0, 0, 0, 0);
                     margin: 0;
-                    margin-top: 20px;
+                    border-bottom: 1px solid rgb(176, 176, 176);
+                    padding: 10px 12px 12px 12px;
+                    // padding-block-start: 26px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    span {
+                        font-size: 14px;
+                        font-family: cereal-regular;
+                        font-weight: 400;
+                        color: rgb(113, 113, 113);
+
+                    }
                 }
 
-                .picker {
-                    width: 160px;
-                    height: 56px;
+                .check-out-btn {
+                    border-left: 1px solid rgb(176, 176, 176);
                 }
+
+
 
                 &.active {
                     display: flex;
                     position: absolute;
-                    transform: translateY(20%);
+                    background-color: white;
+                    transform: translateY(70%);
                     z-index: 3;
-                    margin-top: 8px;
+                    margin-top: 7px;
                     background-color: $clr11;
-                }
+                    border: 2px solid #000;
+                    border-radius: 8px;
+                    z-index: 3;     
+                    width: 95.5%; 
+                    margin-left: 12px;
+
+                        }
             }
         }
 
+        .order-heading {
+            font-size: 10px;
+            font-family: cereal-regular;
+            font-weight: 800;
+        }
 
         // 661 / 509
         .date-picker-container {
@@ -158,20 +318,64 @@
             height: rem(509px);
             width: rem(661px);
             top: 29px;
-            transform: translateX(-47%);
+            transform: translateX(-46.5%);
 
             .date-range-wrapper {
                 padding: 5px;
                 padding-top: 0;
             }
 
+            .rdp-months {
+                padding-block-start: 10px;
+                display: flex;
+                justify-content: space-between;
+
+                // flex-direction: column;
+                // &:last-child {
+                //     margin-inline-start: 20px
+                // }
+                // &:first-child {
+                //     margin-inline-end: 40px
+                // }
+                // >* {
+                //     width: 294px !important;
+                //     margin: 0;
+                //     padding: 0;
+                // }
+
+                // .rdp-table {
+                //     margin-block-start: 6px;
+                //     margin-inline-end: 0;
+                //     width: 294px;
+
+                //     .rdp-head {}
+
+                //     .rdp-tbody {
+                //         position: relative;
+                //         top: 3px;
+                //         width: 100%;
+
+                //         .rdp-day {
+                //             width: 50px;
+                //         }
+
+                //         tr {
+                //             width: 100%;
+                //             // vertical-align: middle;
+                //         }
+                //     }
+                // }
+            }
+
 
             .date-picker-header {
-                margin-left: 35px;
+                margin-inline-start: 32px;
+                margin-block-end: 35px;
+
 
                 h4 {
                     font-family: $font1;
-                    margin-top: 22px;
+                    margin-top: 25px;
                     margin-bottom: 12px;
                     padding: 0px;
                     font-size: 22px;
@@ -181,10 +385,10 @@
                 h5 {
                     font-family: $font1;
                     font-weight: 300;
-                    font-size: 14px;
+                    font-size: 0.875em;
 
                     margin-top: 0;
-                    margin-bottom: 40px;
+                    // margin-bottom: 40px;
                 }
             }
 
@@ -199,7 +403,7 @@
                     background-color: #222222;
                     color: $clr11;
                     border-radius: 8px;
-                    margin: 10px 30px
+                    margin: 10px 33px 10px 0;
                 }
             }
 
@@ -207,8 +411,4 @@
         }
     }
 
-}
-
-.guest-count{
-    padding: 5px;
 }

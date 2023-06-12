@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import classes from './btn-square-color.module.css'
+// import classes from '../../../assets/styles/cmps/order/_OrderModalBtn.scss'
 
 export function ReserveButton({ children, ...props }) {
   const buttonRef = useRef(null)
