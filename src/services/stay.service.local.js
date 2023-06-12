@@ -16,7 +16,6 @@ export const stayServiceLocal = {
   remove,
   getEmptyStay,
   getDefaultFilter
-  // addstayMsg
 }
 window.cs = stayServiceLocal
 
@@ -68,21 +67,6 @@ async function save(stay) {
   return savedstay
 }
 
-// async function addstayMsg(stayId, txt) {
-//     // Later, this is all done by the backend
-//     const stay = await getById(stayId)
-//     if (!stay.msgs) stay.msgs = []
-
-//     const msg = {
-//         id: utilService.makeId(),
-//         by: userService.getLoggedinUser(),
-//         txt
-//     }
-//     stay.msgs.push(msg)
-//     await storageService.put(STORAGE_KEY, stay)
-
-//     return msg
-// }
 
 function getEmptyStay() {
   const stay = {

@@ -1,5 +1,7 @@
 import { httpService } from './http.service'
 
+const BASE_URL = 'order/'
+
 
 export const orderService = {
     query,
@@ -7,41 +9,27 @@ export const orderService = {
     remove,
     getById,
     getEmptyOrder,
-    addOrderMsg,
-    removeOrderMsg
 }
 
-async function query(filterBy = { stayId: '' }) {
-    //should maybe be in body?
-    var queryStr = (!filterBy) ? '' : `?stayId=${filterBy.stayId || ''}`
-    return await httpService.get(`order${queryStr}`)
+async function query(filterBy) {
+    return await httpService.get(BASE_URL , filterBy)
 }
 
 async function getById(orderId) {
-    return await httpService.get(`order/${orderId}`)
+    return await httpService.get(BASE_URL + orderId)
 }
 
 async function remove(orderId) {
-    return await httpService.delete(`order/${orderId}`)
+    return await httpService.delete(BASE_URL + orderId)
 }
 
 async function save(order) {
-    // console.log('order from front service:' ,order)
     if (order._id) {
-        return await httpService.put(`order/${order._id}`, order)
+        return await httpService.put(BASE_URL+order._id, order)
     } else {
-        return await httpService.post(`order`, order)
+        return await httpService.post(BASE_URL, order)
     }
 }
-
-async function addOrderMsg(orderId, msg) {
-    return await httpService.post(`order/${orderId}/msg`, msg)
-}
-
-async function removeOrderMsg(orderId, msgId) {
-    return await httpService.delete(`order/${orderId}/msg/${msgId}`)
-}
-
 
 function getEmptyOrder() {
     return {

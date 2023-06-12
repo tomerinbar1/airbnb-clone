@@ -27,6 +27,7 @@ export function MyTrips() {
     }
 
     async function onRemoveOrder(order) {
+        // console.log(order)
         await removeFromOrderCollection(order._id)
         await updateLocalUser(order)
         await updateUserDb()
@@ -36,9 +37,7 @@ export function MyTrips() {
         const userOrders = localUser.orders
         const idx = userOrders.indexOf(order)
         userOrders.splice(idx, 1)
-        // console.log(userOrders)
         setLocalUser({ ...localUser, orders: userOrders })
-        //    { ...localUser, orders: [...localUser.orders, order] };
     }
 
     async function updateUserDb() {
@@ -54,6 +53,7 @@ export function MyTrips() {
 
 
     async function removeFromOrderCollection(orderId) {
+        // console.log(orderId)
         try {
             await orderService.remove(orderId)
             console.log('Order removed')
@@ -107,7 +107,6 @@ export function MyTrips() {
                                             <button className='delete-order-btn' onClick={() => onRemoveOrder(order)}>Delete order</button>
                                         </td>
                                     </tr>
-
                                 )
                             })}
                         </tbody>
