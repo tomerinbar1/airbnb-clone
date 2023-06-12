@@ -1,25 +1,17 @@
-// import { Link } from 'react-router-dom'
 import share from '../assets/img/common/share.svg'
 import heart from '../assets/img/common/heart.svg'
-import { useLocation } from 'react-router-dom'
 
-export const SaveShare = ({ stayId }) => {
-
-  const location = useLocation()
-
+export const SaveShare = ({onOpenModal}) => {
   return (
     <div className="save-share-details">
-      <a href="#">
+      <a onClick={e => onOpenModal(e, 'share-modal')} data-modal="share-modal">
         <img src={share} alt="share" />
         Share
       </a>
-      <a href="#">
+      <a>
         <img src={heart} alt="save" />
         Save
       </a>
-      {/* <div>
-        <Link to={`/edit/${stayId}/${location.search}`}>Edit</Link>
-      </div> */}
     </div>
   )
 }

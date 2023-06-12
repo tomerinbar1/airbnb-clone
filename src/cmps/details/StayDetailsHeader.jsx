@@ -5,7 +5,6 @@ export const StayDetailsHeader = ({
   stayTitle,
   reviews,
   loc,
-  stayId,
   onOpenModal,
 }) => {
   return (
@@ -22,7 +21,7 @@ export const StayDetailsHeader = ({
           </div>
         </div>
         <div className="sub-header-details-right">
-          <SaveShare stayId={stayId} />
+          <SaveShare onOpenModal={onOpenModal}/>
         </div>
       </div>
     </header>
