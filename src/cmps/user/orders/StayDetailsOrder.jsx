@@ -200,14 +200,14 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
                     </section>
                     {/*///// GUESTS//////*/}
 
-                    <section className='guests'>
+                    <section className='guests' onClick={() => (openTab === 'guests' ? setOpenTab(null) : setOpenTab('guests'))}>
                         <section className='guests-close'>
                             <span className='order-heading'>GUESTS</span>
                             <span className='guests-count guests-btn'>
-                                <a className='guests-count' onClick={() => (openTab === 'guests' ? setOpenTab(null) : setOpenTab('guests'))} >
+                                <span className='guests-count'  >
                                     {getGuestsCount()}
                                     <span className='guests-count-word'> {guestsCountWords} </span>
-                                </a>
+                                </span>
                             </span>
                             {openTab === 'guests' && (
                                 <section className="guests-open">
