@@ -29,7 +29,6 @@ async function getStays(filterBy = getDefaultFilter()) {
 
 function getById(stayId) {
     return httpService.get(BASE_URL + stayId)
-    // return httpService.get(`/${stayId}`)
 }
 
 async function remove(stayId) {
