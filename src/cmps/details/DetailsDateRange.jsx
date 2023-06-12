@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { stayService } from '../../services/stay.service'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { DayPicker } from 'react-day-picker'
 
 export const DetailsDateRange = ({ checkIn, checkOut }) => {
@@ -12,6 +12,10 @@ export const DetailsDateRange = ({ checkIn, checkOut }) => {
   )
   const [stay, setStay] = useState(null)
   const { stayId } = useParams()
+  const navigate = useNavigate()
+
+console.log('fromValue', fromValue, 'toValue', toValue);
+
 
   useEffect(() => {
     getStay()
@@ -23,26 +27,17 @@ export const DetailsDateRange = ({ checkIn, checkOut }) => {
   }
 
   const onChangeDates = date => {
-    if (fromValue && toValue) {
-      setToValue(undefined)
-      setFromValue(date)
-      return
-    }
     if (!fromValue) {
       setFromValue(date)
-    }
-
-    if (!toValue && fromValue) {
+    } else if (!toValue) {
       setToValue(date)
     }
+    const checkInTimestamp = fromValue ? fromValue : undefined;
+    const checkOutTimestamp = toValue ? toValue : undefined;
 
-    // const fromValueTimeStmp = new Date(value.from).getTime()
-    // const toValueTimeStmp = Date.parse(value.to)
-    // onSetFilter({
-    //   ...filterBy,
-    //   checkIn: fromValueTimeStmp,
-    //   checkOut: toValueTimeStmp,
-    // })
+    navigate(
+      `/stay/${stayId}?checkIn=${checkInTimestamp}&checkOut=${checkOutTimestamp}`
+    )
   }
 
   function nightCount(checkIn, checkOut) {

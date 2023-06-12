@@ -12,6 +12,7 @@ import { Book } from './pages/Book'
 import { BookStay } from './pages/bookStay'
 import '../src/assets/styles/main.scss'
 import { MyTrips } from './pages/MyTrips'
+import { MyRents } from './pages/MyRents'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/edit/:stayId" element={<StayEdit />} />
               <Route path="/stay/:stayId" element={<StayDetails />} />
               <Route path='/trip' element={<MyTrips />}/>
+              <Route path='/rent' element={<MyRents />}/>
               <Route path='/wishlist' element={<Wishlist />} />
               {/* <Route path='/book/:stayId' element ={<BookStay/>} /> */}
               <Route path="/book/:stayId" element={<Book />} />
