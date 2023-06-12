@@ -12,7 +12,7 @@ export const orderService = {
 }
 
 async function query(filterBy) {
-    return await httpService.get(BASE_URL , filterBy)
+    return await httpService.get(BASE_URL, filterBy)
 }
 
 async function getById(orderId) {
@@ -24,8 +24,9 @@ async function remove(orderId) {
 }
 
 async function save(order) {
+    console.log('order in service', order);
     if (order._id) {
-        return await httpService.put(BASE_URL+order._id, order)
+        return await httpService.put(BASE_URL + order._id, order)
     } else {
         return await httpService.post(BASE_URL, order)
     }
@@ -33,16 +34,16 @@ async function save(order) {
 
 function getEmptyOrder() {
     return {
-        stayId:'',
+        stayId: '',
         stayName: '',
-        hostId:'',
-        guests : { adults: 0, kids: 0, infants: 0, pets: 0 },
-        startDate:'',
-        endDate:'',
-        nightsPrice:'',
-        cleaningFee:'',
-        serviceFee:'',
-        totalPrice:'',
+        hostId: '',
+        guests: { adults: 0, kids: 0, infants: 0, pets: 0 },
+        startDate: '',
+        endDate: '',
+        nightsPrice: '',
+        cleaningFee: '',
+        serviceFee: '',
+        totalPrice: '',
         msgs: [],
         status: 'pending',
         renter: '',
