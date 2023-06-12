@@ -27,6 +27,7 @@ export function MyTrips() {
     }
 
     async function onRemoveOrder(order) {
+        // console.log(order)
         await removeFromOrderCollection(order._id)
         await updateLocalUser(order)
         await updateUserDb()
@@ -54,6 +55,7 @@ export function MyTrips() {
 
 
     async function removeFromOrderCollection(orderId) {
+        console.log(orderId)
         try {
             await orderService.remove(orderId)
             console.log('Order removed')

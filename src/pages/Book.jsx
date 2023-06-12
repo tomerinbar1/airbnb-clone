@@ -21,6 +21,7 @@ export const Book = () => {
   const [order, setOrder] = useState(null)
   const [isBooked, setIsBooked] = useState(false)
   const [localUser, setLocalUser] = useState(null)
+  const [orderToSave, setOrderToSave] = useState(null)
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -30,10 +31,6 @@ export const Book = () => {
   const { checkIn, checkOut, guests, stayName } = Object.fromEntries(searchParams.entries())
   const cleaningFee = 6
   const serviceFee = 15
-  // console.log('addedOrder', addedOrder)
-  // console.log('order', order)
-  // console.log('localUser', localUser)
-
 
 
   useEffect(() => {
@@ -49,69 +46,69 @@ export const Book = () => {
     getStay()
   }, [])
 
-
-
-
+  useEffect(() => {
+    if(!orderToSave) return
+    updateUserDb()
+  }, [orderToSave])
 
   async function onConfirmBtn() {
     try {
-        await saveOrder()
-         updateUserDb()
-        setIsBooked(true)
+      await saveOrder()
+      setIsBooked(true)
     } catch (err) {
-        console.log('Had issues in booking', err);
+      console.log('Had issues in booking', err);
     }
-}
+  }
 
 
-async function saveOrder() {
+  async function saveOrder() {
     try {
-        const addedOrder = await orderService.save(order)
-        setOrder(addedOrder)
-        // setLocalUser((prevUser) => ({ ...prevUser, orders: [...prevUser.orders, addedOrder] }))
+      const addedOrder = await orderService.save(order)
+      setOrderToSave(addedOrder)
+      console.log(addedOrder)
     } catch (err) {
-        console.log('Had issues in booking', err)
+      console.log('Had issues in booking', err)
     }
-}
+  }
 
 
-async function updateUserDb() {
+  async function updateUserDb() {
 
     try {
-        const updatedUser = { ...localUser, orders: [...localUser.orders, order] };
-        setLocalUser(updatedUser)
-       const savedUser = await userService.update(updatedUser)
-        // console.log('savedUser' , savedUser)
-        console.log('User DB updated')
+      const updatedUser = { ...localUser, orders: [...localUser.orders, orderToSave] }
+      setLocalUser(updatedUser)
+      const savedUser = await userService.update(updatedUser)
+      console.log('savedUser', savedUser)
+      console.log('User DB updated')
 
     } catch (err) {
-        console.log('Had issues in updating user', err)
+      console.log('Had issues in updating user', err)
     }
-}
+  }
 
 
-async function loadUser() {
+  async function loadUser() {
     try {
-        if (!user) return
-        const userFromDb = await userService.getById(user._id)
-        setLocalUser(userFromDb)
+      if (!user) return
+      const userFromDb = await userService.getById(user._id)
+      setLocalUser(userFromDb)
     } catch (err) {
-        console.log('Had issues in getting user', err)
+      console.log('Had issues in getting user', err)
     }
-}
+  }
 
-async function loadOrderDetails() {
+  async function loadOrderDetails() {
     try {
-        const stay = await stayService.getById(stayId)
-        const orderToSet = handleOrder(stay)
-        setOrder(orderToSet)
-        // if(user) setLocalUser((prevUser) => ({ ...prevUser, orders: [...prevUser.orders, orderToSet] }))
+      const stay = await stayService.getById(stayId)
+      const orderToSet = handleOrder(stay)
+      setOrder(orderToSet)
+      // if(user) setLocalUser((prevUser) => ({ ...prevUser, orders: [...prevUser.orders, orderToSet] }))
     } catch (err) {
-        console.log('Had issues loading reservation', err)
+      console.log('Had issues loading reservation', err)
     }
-}
+  }
 
-function handleOrder(stay) {
+  function handleOrder(stay) {
     const orderToSet = orderService.getEmptyOrder()
     orderToSet.stayId = stayId
     orderToSet.stayName = stayName
@@ -125,27 +122,27 @@ function handleOrder(stay) {
     orderToSet.cleaningFee = +((cleaningFee * orderToSet.nightsPrice) / 100).toFixed(2)
     orderToSet.totalPrice = +(orderToSet.nightsPrice + orderToSet.cleaningFee + orderToSet.serviceFee).toFixed(2)
     orderToSet.renter = user || ''
-    orderToSet.createdAt= +new Date()
+    orderToSet.createdAt = +new Date()
     return orderToSet
-}
+  }
 
-function onMyTripsBtn() {
+  function onMyTripsBtn() {
     navigate(`/trip`)
-}
+  }
 
-function getGuestsCount() {
-  const guestsCount = Object.values(order.guests)
+  function getGuestsCount() {
+    const guestsCount = Object.values(order.guests)
       .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-  // console.log('guestsCount' , guestsCount)
-  return guestsCount
-}
+    // console.log('guestsCount' , guestsCount)
+    return guestsCount
+  }
 
   async function getStay() {
     const stay = await stayService.getById(stayId)
     setStay(stay)
   }
 
-  
+
   if (!stay || !order) return <div>Loading...</div>
   const { name, type, imgUrls, reviews } = stay
 
@@ -164,9 +161,9 @@ function getGuestsCount() {
                 <div className="date-info">
                   <h3>Dates</h3>
                   <p>
-                  {utilService.formattedDate(order.startDate)} -{' '}
+                    {utilService.formattedDate(order.startDate)} -{' '}
                     {utilService.formattedDate(order.endDate)}
-                    </p>
+                  </p>
                 </div>
                 <div className="book-details-edit">
                   <a href="#">Edit</a>
@@ -176,7 +173,7 @@ function getGuestsCount() {
                 <div className="guest-info">
                   <h3>Guests</h3>
                   <span className='guest-count'>
-                  {getGuestsCount()} 
+                    {getGuestsCount()}
                   </span>
                   <span>guests</span>
                 </div>
@@ -188,24 +185,24 @@ function getGuestsCount() {
 
             <hr className="custom-hr" />
             {user ? (
-                <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
+              <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
 
-                </button>
+              </button>
             ) : (
-                // <OrderLoginModal/>
-                <LoginSignup />
+              // <OrderLoginModal/>
+              <LoginSignup />
             )
             }
 
             {isBooked && (
-                <section className='reservation-success'>
-                    <h3 className="reservation-success-msg">
-                        Reservation success!
-                    </h3>
-                    <button className="my-trips-btn" onClick={onMyTripsBtn}>
-                        My trips
-                    </button>
-                </section>
+              <section className='reservation-success'>
+                <h3 className="reservation-success-msg">
+                  Reservation success!
+                </h3>
+                <button className="my-trips-btn" onClick={onMyTripsBtn}>
+                  My trips
+                </button>
+              </section>
 
             )}
 
@@ -270,7 +267,7 @@ function getGuestsCount() {
               <h1>Price details</h1>
               <div className="per-night-price-wrapper">
                 <div className="per-night-price">
-                ${stay.price.toLocaleString()} x {order.totalDays} nights
+                  ${stay.price.toLocaleString()} x {order.totalDays} nights
                 </div>
                 <div className="sub-total-price">
                   <h3>${order.nightsPrice}</h3>
