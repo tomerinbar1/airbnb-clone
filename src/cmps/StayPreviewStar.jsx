@@ -14,7 +14,9 @@ export const StayPreviewStar = ({ reviews }) => {
   if (!reviews) return <div>Loading...</div>
   return (
     <div className="stay-preview-star">
-      <img src={star} alt="" />{getAvg()}
+      <img src={star} alt="" />
+      <span className='stay-preview-avg'> {getAvg()}</span>
+     
     </div>
   )
 }

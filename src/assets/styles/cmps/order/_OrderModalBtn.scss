@@ -1,4 +1,4 @@
-.btnSquareColor {
+.reserveBtn {
     padding: 13px 23px;
     width: 100%;
     min-width: 200px;
@@ -18,11 +18,9 @@
     font-family: cereal-Medium;
     font-size: 1rem;
     line-height: 20px;
-    margin: 0;
-    height: 48px;
 }
 
-.btnSquareColor:active {
+.reserveBtn:active {
     animation: press 1s forwards;
     transition: .3s;
 }
