@@ -16,6 +16,7 @@ import { GalleryModal } from '../cmps/details/GalleryModal.jsx'
 import { LearnMoreModal } from '../cmps/details/LearnMoreModal.jsx'
 import { ReviewsModal } from '../cmps/details/ReviewsModal.jsx'
 import { AmenitiesModal } from '../cmps/details/AmenitiesModal.jsx'
+import { ShareModal } from '../cmps/details/ShareModal.jsx'
 import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
 import { DisplayList } from '../cmps/details/DisplayList.jsx'
 
@@ -33,6 +34,7 @@ export const StayDetails = () => {
   const [learnMoreModalIsOpen, setLearnMoreModalIsOpen] = useState(false)
   const [reviewsModalIsOpen, setReviewsModalIsOpen] = useState(false)
   const [amenitiesModalIsOpen, setAmenitiesModalIsOpen] = useState(false)
+  const [shareModalIsOpen, setShareModalIsOpen] = useState(false)
   const [ScrollBarIsShow, setShowScrollBar] = useState(true)
   const [openTab, setOpenTab] = useState(null)
   const params = useParams()
@@ -81,6 +83,9 @@ export const StayDetails = () => {
     } else if (modal === 'amenities-modal') {
       setAmenitiesModalIsOpen(true)
       CloseScrollBar()
+    } else if (modal === 'share-modal') {
+      setShareModalIsOpen(true)
+      CloseScrollBar()
     }
   }
 
@@ -89,6 +94,7 @@ export const StayDetails = () => {
     setLearnMoreModalIsOpen(false)
     setReviewsModalIsOpen(false)
     setAmenitiesModalIsOpen(false)
+    setShareModalIsOpen(false)
     showScrollBar()
   }
 
@@ -96,10 +102,11 @@ export const StayDetails = () => {
   return (
     <section className="stay-details">
       <StayDetailsHeader
+        bathrooms={stay.bathrooms}
+        bedrooms={stay.bedrooms}
         stayTitle={stay.name}
         reviews={stay.reviews}
         loc={stay.loc.address}
-        stayId={stay._id}
         onOpenModal={onOpenModal}
       />
       <StayDetailsGallery imgUrls={stay.imgUrls} onOpenModal={onOpenModal} />
@@ -109,8 +116,6 @@ export const StayDetails = () => {
             capacity={stay.capacity}
             host={stay.host.fullname}
             imgUrl={stay.host.imgUrl}
-            bathrooms={stay.bathrooms}
-            bedrooms={stay.bedrooms}
           />
           <hr className="custom-hr" />
 
@@ -230,6 +235,15 @@ export const StayDetails = () => {
           amenities={stay.amenities}
           amenitiesModalIsOpen={amenitiesModalIsOpen}
           onCloseModal={onCloseModal}
+        />
+        <ShareModal 
+          shareModalIsOpen={shareModalIsOpen}
+          onCloseModal={onCloseModal}
+          type={stay.type}
+          loc={stay.loc.city}
+          bathrooms={stay.bathrooms}
+          bedrooms={stay.bedrooms}
+          imgUrl={stay.imgUrls[0]}
         />
       </div>
     </section>
