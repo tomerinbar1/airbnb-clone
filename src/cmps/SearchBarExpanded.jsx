@@ -5,7 +5,7 @@ import { LocationSelect } from "./LocationSelect"
 import { StayFilterByTxt } from "./StayFilterByTxt"
 import { GuestSelect } from "./GuestSelect"
 import { DateSelect } from "./DateSelect"
-import classes from "../cmps/user/orders/btn-square-color.module.css"
+// import classes from "../cmps/user/orders/btn-square-color.module.css"
 
 
 export function SearchBarExpanded({ selectedTab, setSelectedTab, isSearchOpen, onExpandSearch }) {

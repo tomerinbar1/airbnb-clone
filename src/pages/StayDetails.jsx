@@ -17,7 +17,7 @@ import { LearnMoreModal } from '../cmps/details/LearnMoreModal.jsx'
 import { ReviewsModal } from '../cmps/details/ReviewsModal.jsx'
 import { AmenitiesModal } from '../cmps/details/AmenitiesModal.jsx'
 import { ShareModal } from '../cmps/details/ShareModal.jsx'
-import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
+import { StayDetailsOrder } from '../cmps/orders/StayDetailsOrder.jsx'
 import { DisplayList } from '../cmps/details/DisplayList.jsx'
 import { setFooterToDisplay } from '../store/stay.actions.js'
 const CHECKOUT_INFO = [
