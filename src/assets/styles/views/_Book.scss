@@ -83,8 +83,8 @@
     .good-price-section {
       width: 100%;
       // background-color: aqua;
-      padding-left: 22px;
       padding: 24px;
+      padding-left: 22px;
       padding-top: 22px;
       font-size: 0.8888em;
       color: $clr8;
@@ -93,6 +93,7 @@
       font-family: cereal-regular;
       line-height: 20px;
       position: relative;
+      margin-bottom: 22px;
 
 
       .good-price-header {
@@ -102,7 +103,7 @@
 
       }
 
-      .good-price-content{
+      .good-price-content {
         max-width: 417px;
         // background-color: gray;
       }
@@ -111,10 +112,11 @@
         position: absolute;
         top: 22px;
         right: 7.5%;
-        img{
+
+        img {
           width: 32px;
           height: 32px;
-      
+
         }
       }
     }
@@ -135,10 +137,12 @@
       }
 
       .book-details {
-        h2 {
-          font-family: montserrat-Regular;
+        width: 100%;
+        color: $clr8;
+        .your-trip-header {
+          font-family: airbnb-cereal-medium;
           font-size: rem(22px);
-          padding-bottom: 24px;
+          padding-bottom: 14px;
           margin: 0;
         }
 
@@ -150,7 +154,7 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            padding-bottom: 24px;
+            padding-bottom: 10px;
 
             h3 {
               font-family: circular-Regular;
@@ -158,10 +162,14 @@
             }
 
             .date-info {
+              .date-info-header {
+                font-family: airbnb-cereal-medium;
+                font-size: 0.8888em;
+              }
 
               p {
-                font-family: $font1;
-                padding-top: 8px;
+                font-size: 0.8888em;
+                font-family: airbnb-cereal-book;
                 margin: 0;
               }
             }
@@ -180,23 +188,27 @@
             justify-content: space-between;
             align-items: baseline;
 
-            h3 {
-              font-family: circular-Regular;
-              margin: 0;
+            .guests-header {
+              font-family: airbnb-cereal-medium;
+              font-size: 0.8888em;
             }
 
-            p {
-              font-family: circular-Medium;
-              padding-top: 8px;
-              margin: 0;
-            }
+         
 
             .guest-info {
               font-family: $font1;
               padding-top: 8px;
               margin: 0;
               height: 70px;
+              margin-bottom: 21px;
 
+              
+              .guest-info-content {
+                padding-top: 2px;
+                font-size: 0.8888em;
+                font-family: airbnb-cereal-book;
+                margin: 0;
+              }
               .guest-count {
                 padding-right: 5px;
                 padding-top: 10px;

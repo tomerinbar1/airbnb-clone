@@ -168,11 +168,11 @@ export const Book = () => {
           </section>
           <section className="book-details-wrapper">
             <div className="book-details">
-              <h2>Your trip</h2>
+              <div className='your-trip-header'>Your trip</div>
               <div className="book-details-trip-info">
                 <div className="book-details-trip-date">
                   <div className="date-info">
-                    <h3>Dates</h3>
+                    <span className='date-info-header'>Dates</span>
                     <p>
                       {utilService.formattedDate(order.startDate)} -{' '}
                       {utilService.formattedDate(order.endDate)}
@@ -184,12 +184,17 @@ export const Book = () => {
                 </div>
                 <div className="book-details-trip-guests">
                   <div className="guest-info">
-                    <h3>Guests</h3>
+                    <div className='guests-header'>Guests</div>
+                    
+                    <div className="guest-info-content">
+
                     <span className='guest-count'>
                       {getGuestsCount()}
                     </span>
                     <span>guests</span>
                   </div>
+                  </div>
+
                   <div className="book-details-edit">
                     <a href="#">Edit</a>
                   </div>
@@ -197,15 +202,7 @@ export const Book = () => {
               </div>
 
               <hr className="custom-hr" />
-              {user ? (
-                <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
-
-                </button>
-              ) : (
-                // <OrderLoginModal/>
-                <LoginSignup />
-              )
-              }
+           
 
               {isBooked && (
                 <section className='reservation-success'>
@@ -253,7 +250,14 @@ export const Book = () => {
               </div>
 
               <hr className="custom-hr" />
+              {user ? (
+                <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
 
+                </button>
+              ) : (
+                <LoginSignup />
+              )
+              }
               <div className="book-terms"></div>
             </div>
           </section>
