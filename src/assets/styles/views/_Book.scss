@@ -1,9 +1,6 @@
 .book-page-wrapper {
   margin: auto;
   max-width: 1120px;
-  // position: relative;
-  // display: flex;
-
 
   .my-trips-btn,
   .confirm-btn {
@@ -16,20 +13,14 @@
 
   .book-details-header {
     display: flex;
-
     padding-top: 56px;
     padding-bottom: 13px;
     font-family: airbnb-cereal-medium;
     font-size: rem(32px);
     padding-bottom: 40px;
+    position: relative;
 
-
-
-
-
-
-
-    .book-return-btn {
+    .arrow-back-header {
       position: absolute;
       display: flex;
       align-items: center;
@@ -41,7 +32,7 @@
       margin: 0;
       border-radius: 50%;
       left: -50px;
-      top: 57px;
+      top: 59px;
 
       img {
         width: 16px;
@@ -49,9 +40,33 @@
       }
     }
 
-    & .book-return-btn:hover {
+    button:hover {
       background-color: rgba(0, 0, 0, 0.03);
     }
+
+    // .book-return-btn {
+    //   position: absolute;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   background-color: transparent;
+    //   height: 48px;
+    //   width: 48px;
+    //   padding: 0;
+    //   margin: 0;
+    //   border-radius: 50%;
+    //   left: -50px;
+    //   top: 57px;
+
+    //   img {
+    //     width: 16px;
+    //     height: 16px;
+    //   }
+    // }
+
+    // & .book-return-btn:hover {
+    //   background-color: rgba(0, 0, 0, 0.03);
+    // }
   }
 
   .book-page-container {
