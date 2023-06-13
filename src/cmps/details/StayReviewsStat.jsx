@@ -23,13 +23,15 @@ export const StayReviewsStat = ({ reviews, onOpenModal }) => {
 
   return (
     <div className="rating-details">
-      <span>
-        <img src={star} alt="" />
-        {averageRates(reviews)}
+      <span className='reviews-avg'>
+        <img className='star-reviews' src={star} alt="" />
+        <span className='reviews-span'>
+          {averageRates(reviews)}
+        </span>
       </span>
-      <span className="space-dot">·</span>
-      <a  onClick={e => onOpenModal(e, 'reviews-modal')}
-            data-modal="reviews-modal">{numOfReviews()} reviews</a>
+      {/* <span className="space-dot">·</span> */}
+      <a className='reviews-count' onClick={e => onOpenModal(e, 'reviews-modal')}
+        data-modal="reviews-modal">({numOfReviews()} reviews)</a>
     </div>
   )
 }

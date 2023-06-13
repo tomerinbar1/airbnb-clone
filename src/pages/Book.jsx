@@ -261,12 +261,12 @@ export const Book = () => {
         <section className="book-summary-details">
           <div className="order-details">
             <div className="order-details-header">
-              <img src={imgUrls[1]} alt="" />
+              <img className='stay-img' src={imgUrls[1]} alt="" />
               <div className="book-stay-basic-wrapper">
                 <div className="order-details-header-text">
                   <div className="book-stay-basic">
                     <span className='stay-type'>{type}</span>
-                    <span className='stay-name'>{name}</span>
+                    <div className='stay-name'>{name}</div>
                   </div>
                 </div>
                 <div className="book-stay-reviews">
@@ -276,7 +276,7 @@ export const Book = () => {
             </div>
             {/* <hr className="custom-hr" /> */}
             <div className="order-details-price-summary">
-              <span className='price-details-header'>Price details</span>
+              <div className='price-details-header'>Price details</div>
               <div className="per-night-price-wrapper">
                 <div className="per-night-price">
                   ${stay.price.toLocaleString()} x {order.totalDays} nights
@@ -306,9 +306,9 @@ export const Book = () => {
 
               <div className="taxes-wrapper">
                 <div className="taxes">
-                  <span>Taxes</span>
+                  Taxes
                 </div>
-                <div className="fee-price">
+                <div className="fee-price-taxes">
                   <span>${order.cleaningFee}</span>
                 </div>
               </div>
