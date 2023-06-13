@@ -4,6 +4,7 @@ import copylink from '../../assets/img/common/copylink.svg'
 import facebook from '../../assets/img/common/facebook.svg'
 import whatsapp from '../../assets/img/common/whatsapp.svg'
 import email from '../../assets/img/common/email.svg'
+import close from '../../assets/img/common/close.svg'
 
 export const ShareModal = ({
   type,
@@ -41,7 +42,7 @@ export const ShareModal = ({
         <div>
           <div className="share-modal-header">
             <h1>Share this place</h1>
-            <button onClick={() => onCloseModal()}>X</button>
+            <button onClick={() => onCloseModal()}><img src={close} alt="img" /></button>
             <div className="share-modal-details">
               <img src={imgUrl} alt="img" />
               <p>

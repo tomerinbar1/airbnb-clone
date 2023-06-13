@@ -61,15 +61,21 @@
       }
       button {
         position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: transparent;
-        font-size: 16px;
-        height: 30px;
-        width: 30px;
-        border-radius: 8px;
+        left: 16px;
+        top: 16px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
         padding: 0;
         margin: 0;
-        left: 10px;
-        top: 15px;
+        img {
+          width: 16px;
+          height: 16px;
+        }
       }
       & button:hover {
         background-color: rgba(0, 0, 0, 0.05);

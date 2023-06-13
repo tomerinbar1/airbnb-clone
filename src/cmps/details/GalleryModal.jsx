@@ -1,5 +1,6 @@
 import Modal from 'react-modal'
 import { SaveShare } from '../SaveShare'
+import goback from '../../assets/img/common/goback.svg'
 
 export const GalleryModal = ({ imgUrls, galleryModalIsOpen, onCloseModal }) => {
   return (
@@ -11,7 +12,9 @@ export const GalleryModal = ({ imgUrls, galleryModalIsOpen, onCloseModal }) => {
     >
       <section className="gallery-modal-wrapper">
         <div className="gallery-modal-header">
-          <button onClick={() => onCloseModal()}>{'\u003C'}</button>
+          <button onClick={() => onCloseModal()}>
+          <img src={goback} />
+          </button>
           <SaveShare />
         </div>
         <section className="imgs-container">

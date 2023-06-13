@@ -75,12 +75,22 @@
       height: 60px;
       align-items: center;
       button {
+        position: absolute;
         background-color: transparent;
-        font-size: 25px;
         height: 35px;
         width: 35px;
+        left: 16px;
+        top: 16px;
         border-radius: 50%;
-        margin-left: 25px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 16px;
+          height: 16px;
+        }
       }
       & button:hover {
         background-color: rgba(0, 0, 0, 0.03);

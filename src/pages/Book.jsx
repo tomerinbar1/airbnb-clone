@@ -2,6 +2,7 @@
 // import { useParams } from 'react-router-dom'
 // import { stayService } from '../services/stay.service'
 import { StayReviewsStat } from '../cmps/details/StayReviewsStat'
+import goback from '../assets/img/common/goback.svg'
 
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
@@ -152,8 +153,8 @@ export const Book = () => {
   return (
     <div className="book-page-wrapper">
       <div className="book-details-header">
+        <button><img src={goback} alt="" /></button>
         <h1>Request to book</h1>
-        <button className="book-return-btn">{'\u003C'}</button>
       </div>
       <main className="book-page-main">
         <section className="book-details-wrapper">

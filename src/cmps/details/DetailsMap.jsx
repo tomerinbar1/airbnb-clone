@@ -1,7 +1,6 @@
 import GoogleMapReact from 'google-map-react'
-import { Fahouse } from 'react-icons'
 
-export const DetailsMap = ({ name, summary, loc }) => {
+export const DetailsMap = ({address, summary, loc }) => {
   const KEY_API = 'AIzaSyCSTYpS7R9HWo0VhmC5M81BkN-O0jP-o0I'
 
   const lan = loc.lat
@@ -38,7 +37,7 @@ export const DetailsMap = ({ name, summary, loc }) => {
         />
       </div>
       <div className="place-info">
-        <h3>{name}</h3>
+        <h3>{address}</h3>
         <p>{summary}</p>
         <a href="">Show more</a>
       </div>
