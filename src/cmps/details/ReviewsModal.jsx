@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import Modal from 'react-modal'
 import { StayReviewsStat } from './StayReviewsStat'
+import close from '../../assets/img/common/close.svg'
 
 export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -89,7 +90,7 @@ export const ReviewsModal = ({ onCloseModal, reviewsModalIsOpen, reviews }) => {
       overlayClassName="Overlay-reviews"
     >
       <div className="reviews-modal-wrapper">
-        <button onClick={() => onCloseModal()}>X</button>
+      <button onClick={() => onCloseModal()}><img src={close} alt="img" /></button>
         <section className="rating-details flex column">
           <StayReviewsStat reviews={reviews} />
           <ul>{avgRatesList}</ul>

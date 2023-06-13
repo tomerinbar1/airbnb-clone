@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { orderService } from "../services/order.service.js"
-import { DashDropdown } from "../cmps/user/orders/DashboardDropdown.jsx"
+import { DashDropdown } from "../cmps/orders/DashboardDropdown.jsx"
 import PieChartt from "../cmps/user/PieChart.jsx"
-import MyBarChart from '../cmps/user/orders/BarChart.jsx'
+import MyBarChart from '../cmps/orders/BarChart.jsx'
 import MyAreaChart from "../cmps/user/MyAreaChart.jsx"
 import MyPieChart from '../cmps/user/MyPieChart.jsx'
 

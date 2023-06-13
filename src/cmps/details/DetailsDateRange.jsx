@@ -14,9 +14,6 @@ export const DetailsDateRange = ({ checkIn, checkOut }) => {
   const { stayId } = useParams()
   const navigate = useNavigate()
 
-console.log('fromValue', fromValue, 'toValue', toValue);
-
-
   useEffect(() => {
     getStay()
   }, [])
@@ -32,8 +29,8 @@ console.log('fromValue', fromValue, 'toValue', toValue);
     } else if (!toValue) {
       setToValue(date)
     }
-    const checkInTimestamp = fromValue ? fromValue : undefined;
-    const checkOutTimestamp = toValue ? toValue : undefined;
+    const checkInTimestamp = fromValue ? fromValue : undefined
+    const checkOutTimestamp = toValue ? toValue : undefined
 
     navigate(
       `/stay/${stayId}?checkIn=${checkInTimestamp}&checkOut=${checkOutTimestamp}`

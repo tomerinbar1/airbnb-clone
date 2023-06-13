@@ -4,10 +4,10 @@ import { DatePicker } from './DatePicker';
 import { useState, useEffect } from 'react'
 
 import { useLocation, useSearchParams, useNavigate } from 'react-router-dom'
-import { utilService } from '../../../services/util.service';
+import { utilService } from '../../services/util.service';
 import { GuestOrderSelect } from './GuestOrderSelect';
 import { ReserveButton } from './ReserveButton';
-import { StayPreviewStar } from '../../StayPreviewStar';
+import { StayPreviewStar } from '../StayPreviewStar';
 
 
 

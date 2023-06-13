@@ -1,7 +1,6 @@
-// import { useState, useEffect } from 'react'
-// import { useParams } from 'react-router-dom'
-// import { stayService } from '../services/stay.service'
+
 import { StayReviewsStat } from '../cmps/details/StayReviewsStat'
+import goback from '../assets/img/common/goback.svg'
 
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
@@ -10,9 +9,8 @@ import { stayService } from "../services/stay.service"
 import { orderService } from '../services/order.service'
 import { utilService } from '../services/util.service'
 import { LoginSignup } from '../cmps/user/LoginSignup'
-import { userService } from '../services/user.service' 
+import { userService } from '../services/user.service'
 import { setFooterToDisplay } from '../store/stay.actions.js'
-
 
 export const Book = () => {
   const [stay, setStay] = useState(null)
@@ -50,7 +48,7 @@ export const Book = () => {
   }, [])
 
   useEffect(() => {
-    if(!orderToSave) return
+    if (!orderToSave) return
     updateUserDb()
   }, [orderToSave])
 
@@ -152,101 +150,114 @@ export const Book = () => {
   return (
     <div className="book-page-wrapper">
       <div className="book-details-header">
-        <h1>Request to book</h1>
-        <button className="book-return-btn">{'\u003C'}</button>
+        {/* <button><img src={goback} alt="" /></button> */}
+        <span className='confirm-header'>Confirm and pay</span>
       </div>
-      <main className="book-page-main">
-        <section className="book-details-wrapper">
-          <div className="book-details">
-            <h2>Your trip</h2>
-            <div className="book-details-trip-info">
-              <div className="book-details-trip-date">
-                <div className="date-info">
-                  <h3>Dates</h3>
-                  <p>
-                    {utilService.formattedDate(order.startDate)} -{' '}
-                    {utilService.formattedDate(order.endDate)}
-                  </p>
+
+      <section className='book-page-container'>
+        <main className="book-page-main">
+
+
+
+          <section className='good-price-section'>
+            <span className='good-price-header'>  Good price.</span>
+            <span className='good-price-contant'>  Your dates are $35 less than the avg. nightly rate over the last 3 months.</span>
+            <span className='price-tag-icon'></span>
+
+          </section>
+          <section className="book-details-wrapper">
+            <div className="book-details">
+              <h2>Your trip</h2>
+              <div className="book-details-trip-info">
+                <div className="book-details-trip-date">
+                  <div className="date-info">
+                    <h3>Dates</h3>
+                    <p>
+                      {utilService.formattedDate(order.startDate)} -{' '}
+                      {utilService.formattedDate(order.endDate)}
+                    </p>
+                  </div>
+                  <div className="book-details-edit">
+                    <a href="#">Edit</a>
+                  </div>
                 </div>
-                <div className="book-details-edit">
-                  <a href="#">Edit</a>
+                <div className="book-details-trip-guests">
+                  <div className="guest-info">
+                    <h3>Guests</h3>
+                    <span className='guest-count'>
+                      {getGuestsCount()}
+                    </span>
+                    <span>guests</span>
+                  </div>
+                  <div className="book-details-edit">
+                    <a href="#">Edit</a>
+                  </div>
                 </div>
               </div>
-              <div className="book-details-trip-guests">
-                <div className="guest-info">
-                  <h3>Guests</h3>
-                  <span className='guest-count'>
-                    {getGuestsCount()}
-                  </span>
-                  <span>guests</span>
-                </div>
-                <div className="book-details-edit">
-                  <a href="#">Edit</a>
-                </div>
-              </div>
-            </div>
 
-            <hr className="custom-hr" />
-            {user ? (
-              <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
+              <hr className="custom-hr" />
+              {user ? (
+                <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
 
-              </button>
-            ) : (
-              // <OrderLoginModal/>
-              <LoginSignup />
-            )
-            }
-
-            {isBooked && (
-              <section className='reservation-success'>
-                <h3 className="reservation-success-msg">
-                  Reservation success!
-                </h3>
-                <button className="my-trips-btn" onClick={onMyTripsBtn}>
-                  My trips
                 </button>
-              </section>
+              ) : (
+                // <OrderLoginModal/>
+                <LoginSignup />
+              )
+              }
 
-            )}
+              {isBooked && (
+                <section className='reservation-success'>
+                  <h3 className="reservation-success-msg">
+                    Reservation success!
+                  </h3>
+                  <button className="my-trips-btn" onClick={onMyTripsBtn}>
+                    My trips
+                  </button>
+                </section>
 
-            <div className="book-payments-form">
-              <h2>Choose how to pay</h2>
-            </div>
+              )}
 
-            <hr className="custom-hr" />
+              <div className="book-payments-form">
+                <h2>Choose how to pay</h2>
+              </div>
 
-            <div className="book-required">
-              <h2>Required for your trip</h2>
-              <div className="required-info">
-                <div className="message">
-                  <div className="host-contact-details">
-                    <h3>Message the Host</h3>
-                    <p>
-                      Let the host know why you’re travelling and when you’ll
-                      check in.
-                    </p>
+              <hr className="custom-hr" />
+
+              <div className="book-required">
+                <h2>Required for your trip</h2>
+                <div className="required-info">
+                  <div className="message">
+                    <div className="host-contact-details">
+                      <h3>Message the Host</h3>
+                      <p>
+                        Let the host know why you’re travelling and when you’ll
+                        check in.
+                      </p>
+                    </div>
+
+                    <button className="book-add-btn">Add</button>
                   </div>
 
-                  <button className="book-add-btn">Add</button>
-                </div>
-
-                <div className="phone-number">
-                  <div className="host-contact-details">
-                    <h3>Phone number</h3>
-                    <p>
-                      Add and confirm your phone number to get trip updates.
-                    </p>
+                  <div className="phone-number">
+                    <div className="host-contact-details">
+                      <h3>Phone number</h3>
+                      <p>
+                        Add and confirm your phone number to get trip updates.
+                      </p>
+                    </div>
+                    <button className="book-add-btn">Add</button>
                   </div>
-                  <button className="book-add-btn">Add</button>
                 </div>
               </div>
+
+              <hr className="custom-hr" />
+
+              <div className="book-terms"></div>
             </div>
+          </section>
+        </main>
 
-            <hr className="custom-hr" />
-
-            <div className="book-terms"></div>
-          </div>
-        </section>
         <section className="book-summary-details">
           <div className="order-details">
             <div className="order-details-header">
@@ -254,58 +265,68 @@ export const Book = () => {
               <div className="book-stay-basic-wrapper">
                 <div className="order-details-header-text">
                   <div className="book-stay-basic">
-                    <h5>{type}</h5>
-                    <h3>{name}</h3>
+                    <span className='stay-type'>{type}</span>
+                    <span className='stay-name'>{name}</span>
                   </div>
                 </div>
                 <div className="book-stay-reviews">
                   <StayReviewsStat reviews={reviews} />
-                  <span className="space-dot">·</span>
-                  <p>Superhost</p>
                 </div>
               </div>
             </div>
-            <hr className="custom-hr" />
+            {/* <hr className="custom-hr" /> */}
             <div className="order-details-price-summary">
-              <h1>Price details</h1>
+              <span className='price-details-header'>Price details</span>
               <div className="per-night-price-wrapper">
                 <div className="per-night-price">
                   ${stay.price.toLocaleString()} x {order.totalDays} nights
                 </div>
                 <div className="sub-total-price">
-                  <h3>${order.nightsPrice}</h3>
+                  <span>${order.nightsPrice}</span>
                 </div>
               </div>
 
               <div className="service-fee-wrapper">
                 <div className="service-fee">
-                  <h3>Airist service fee</h3>
+                  <span>Airist service fee</span>
                 </div>
                 <div className="fee-price">
-                  <h3>${order.serviceFee}</h3>
+                  <span>${order.serviceFee}</span>
                 </div>
               </div>
               <div className="service-fee-wrapper cleaning-fee-wrapper">
                 <div className="service-fee cleaning-fee">
-                  <h3>Airist cleaning fee</h3>
+                  <span>Airist cleaning fee</span>
+                </div>
+
+                <div className="fee-price">
+                  <span>${order.cleaningFee}</span>
+                </div>
+              </div>
+
+              <div className="taxes-wrapper">
+                <div className="taxes">
+                  <span>Taxes</span>
                 </div>
                 <div className="fee-price">
-                  <h3>${order.cleaningFee}</h3>
+                  <span>${order.cleaningFee}</span>
                 </div>
               </div>
 
             </div>
-            <hr className="custom-hr" />
+            {/* <hr className="custom-hr" /> */}
             <div className="total-price">
               <div className="total-price-wrapper">
-                <h3>Total (USD)</h3>
-                <h3>${order.totalPrice}</h3>
+                <span>Total <span className='currency'>(USD)</span></span>
+                <span>${order.totalPrice}</span>
 
               </div>
             </div>
           </div>
         </section>
-      </main>
+      </section>
+
+
     </div>
   )
 }
