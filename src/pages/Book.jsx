@@ -150,7 +150,7 @@ export const Book = () => {
   return (
     <div className="book-page-wrapper">
       <div className="book-details-header">
-        <button><img src={goback} alt="" /></button>
+        {/* <button><img src={goback} alt="" /></button> */}
         <span className='confirm-header'>Confirm and pay</span>
       </div>
 
