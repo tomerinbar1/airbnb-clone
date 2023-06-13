@@ -1,61 +1,109 @@
 import React, { PureComponent } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    "AnswerRef": "one",
+    "Text": "5 out of 50 throws",
+    "Score": 0,
+    "RespondentPercentage": 12,
+    "Rank": 1
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    "AnswerRef": "two",
+    "Text": "25 out of 50 throws",
+    "Score": 0,
+    "RespondentPercentage": 32,
+    "Rank": 2
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    "AnswerRef": "three",
+    "Text": "30 out of 50 throws",
+    "Score": 1,
+    "RespondentPercentage": 41,
+    "Rank": 3
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+    "AnswerRef": "four",
+    "Text": "None of the above",
+    "Score": 0,
+    "RespondentPercentage": 16,
+    "Rank": 4
+  }
+]
 
-export default class MyBarChart extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/tiny-bar-chart-35meb';
+class CustomizedLabel extends PureComponent {
 
   render() {
-    return (
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart width={150} height={40} data={data}>
-          <Bar dataKey="uv" fill="#95adbe" />
-        </BarChart>
-      </ResponsiveContainer>
-    );
+    const { x, y, fill, value } = this.props;
+    console.log('value', value, 'x', x, 'y', y, 'fill', fill);
+    return <text
+      x={x}
+      y={y}
+      dy={-4}
+      fontSize='16'
+      fontFamily='sans-serif'
+      fill={fill}
+      textAnchor="center">{value}</text>
+  }
+}
+
+
+export default class MyBarChart extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: props.orders || [],
+      dateStat: []
+    }
+  }
+
+  getAvgPriceAccordingToDate() {
+    const { orders } = this.props
+    const dateStat = orders.reduce((acc, order) => {
+      const orderDate = new Date(order.createdAt).toLocaleDateString('en-GB', { month: 'short', day: 'numeric' })
+      acc.push({ date: orderDate, price: order.totalPrice })
+      return acc
+
+    }, [])
+    return dateStat.slice(0, 4)
+  }
+
+
+  render() {
+    const data = this.getAvgPriceAccordingToDate()
+    return data.length && (
+      <BarChart
+        width={225}
+        height={260}
+        data={data}
+        margin={{ top: 5, right: 0, left: 0, bottom: 25 }}>
+        <XAxis
+          dataKey="date"
+          fontSize='16'
+          fontFamily="sans-serif"
+          tickSize
+          dy='25'
+        />
+        <YAxis hide />
+        <CartesianGrid
+          vertical={false}
+          stroke="#ebf3f0"
+        />
+        <Bar
+          dataKey="price"
+          barSize={170}
+          fontSize='16'
+          fontFamily="sans-serif"
+          label={<CustomizedLabel />}
+        >
+          {
+            data.map((entry, index) => (
+              <Cell fill='#61bf93' fontSize='16' />
+            ))
+          }
+        </Bar>
+      </BarChart>
+    )
   }
 }
