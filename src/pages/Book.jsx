@@ -10,7 +10,8 @@ import { stayService } from "../services/stay.service"
 import { orderService } from '../services/order.service'
 import { utilService } from '../services/util.service'
 import { LoginSignup } from '../cmps/user/LoginSignup'
-import { userService } from '../services/user.service'
+import { userService } from '../services/user.service' 
+import { setFooterToDisplay } from '../store/stay.actions.js'
 
 
 export const Book = () => {
@@ -44,6 +45,8 @@ export const Book = () => {
 
   useEffect(() => {
     getStay()
+    setFooterToDisplay(false)
+
   }, [])
 
   useEffect(() => {

@@ -6,12 +6,14 @@ export const UPDATE_STAY = 'UPDATE_STAY'
 export const SET_IS_LOADING = 'SET_IS_LOADING'
 export const REQUEST_STAYS = 'REQUEST_STAYS'
 export const SET_STAY_ID = 'SET_STAY_ID'
+export const SET_FOOTER_DISPLAY = 'SET_FOOTER_DISPLAY'
 // export const UNDO_REMOVE_STAY = 'UNDO_REMOVE_STAY'
 
 const initialState = {
   stays: [],
   isLoading: false,
   stayId: null,
+  isFooterShown: true
   // lastRemovedStay: null
 }
 
@@ -53,6 +55,9 @@ export function stayReducer(state = initialState, action) {
 
     case SET_STAY_ID:
       return { ...state, stayId: action.stayId }
+
+    case SET_FOOTER_DISPLAY:
+      return { ...state, isFooterShown: action.val }
 
     default:
       return state

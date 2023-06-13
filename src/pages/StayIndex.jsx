@@ -8,6 +8,9 @@ import { StayList } from '../cmps/StayList.jsx'
 import { LabelsFilter } from '../cmps/LabelsFilter.jsx'
 import { useLocation } from 'react-router-dom'
 import { setStayId } from '../store/stay.actions.js'
+import { setFooterToDisplay } from '../store/stay.actions.js'
+
+
 
 
 export function StayIndex() {
@@ -27,6 +30,8 @@ export function StayIndex() {
 
   useEffect(() => {
     setStayId(null)
+    setFooterToDisplay(true)
+
   }, [])
 
   if (isLoading) return <div>Loading...</div>

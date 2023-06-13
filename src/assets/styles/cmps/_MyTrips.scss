@@ -9,6 +9,7 @@
     padding-top: 9px;
     margin-block-end: 42px;
     font-size: 2em;
+    // color: ;
   }
 
   .my-trips-table {
@@ -64,11 +65,20 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background-color: yellow;
+        background-color: orange;
         z-index: 3;
         text-align: start;
         margin: auto 0;
         margin-right: 8px;
+
+        &.Approved{
+          background-color: green;
+        }
+        &.Canceled{
+          background-color: red;
+        }
+     
+
         // margin: 0 auto;
       }
     }

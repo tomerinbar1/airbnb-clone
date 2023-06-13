@@ -27,7 +27,7 @@ export function UserMenuOpen({ user, onOpenModal, onLogout }) {
                 ) : (
                     <section className='menu-links'>
                         <Link to='/trip'>Trips</Link>
-                        {/* <Link to='/wishlist'>Wishlist</Link> */}
+                        <Link to='/rent'>Orders</Link>
                         {/* <Link to='/user/inbox'>Messages</Link> */}
 
                     <button className='logout' onClick={onLogout}>

@@ -19,7 +19,7 @@ import { AmenitiesModal } from '../cmps/details/AmenitiesModal.jsx'
 import { ShareModal } from '../cmps/details/ShareModal.jsx'
 import { StayDetailsOrder } from '../cmps/user/orders/StayDetailsOrder.jsx'
 import { DisplayList } from '../cmps/details/DisplayList.jsx'
-
+import { setFooterToDisplay } from '../store/stay.actions.js'
 const CHECKOUT_INFO = [
   'House rules',
   'Check-in: 4:00 PM - 9:00 PM',
@@ -39,6 +39,7 @@ export const StayDetails = () => {
   const [openTab, setOpenTab] = useState(null)
   const params = useParams()
   const { stayId } = params
+
 
   const checkIn = searchParams.get('checkIn')
   const checkOut = searchParams.get('checkOut')
@@ -67,6 +68,8 @@ export const StayDetails = () => {
     }
     loadStaysOnDetails()
     setStayId(stayId)
+    setFooterToDisplay(false)
+
   }, [])
 
   const onOpenModal = (event, modal) => {
@@ -236,7 +239,7 @@ export const StayDetails = () => {
           amenitiesModalIsOpen={amenitiesModalIsOpen}
           onCloseModal={onCloseModal}
         />
-        <ShareModal 
+        <ShareModal
           shareModalIsOpen={shareModalIsOpen}
           onCloseModal={onCloseModal}
           type={stay.type}

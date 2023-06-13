@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export function Dropdown ({onRemoveOrder, order}){
+export function DashDropdown ({handleOrderChange, order}){
     const [isOpen, setIsOpen] = useState(false)
     // console.log(isOpen)
     const toggleDropdown = () => {
@@ -15,12 +15,13 @@ export function Dropdown ({onRemoveOrder, order}){
                 {/* <span className="arrow-down"></span> */}
             </button>
             {isOpen && (
+                
                 <ul className="dropdown-menu">
-                    <li onClick={() => onRemoveOrder(order)}>Delete
+                    <li onClick={() => handleOrderChange(order._id, 0)}>Decline
                     {/* <li> <button className='delete-order-btn' onClick={() => onRemoveOrder(order)}>Delete order</button> */}
                     </li>
-                    {/* <li>Option</li> 
-                    <li>Option</li>  */}
+                    {/* <li>Option</li>  */}
+                    {/* <li>Option</li>  */}
                 </ul>
             )}
         </div>

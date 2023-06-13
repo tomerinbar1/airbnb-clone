@@ -1,10 +1,13 @@
+import { useSelector } from 'react-redux'
 import footer from '../assets/img/icons/footer-icon.jpeg'
 
 
 export const AppFooter = () => {
+    const isFooterShown = useSelector(storeState => storeState.stayModule.isFooterShown)
+
 
     
-
+if (!isFooterShown) return <div></div>
     return (
         <footer className="app-footer full">
 

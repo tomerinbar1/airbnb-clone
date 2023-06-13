@@ -1,6 +1,15 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import { orderService } from "../services/order.service.js"
+import { DashDropdown } from "../cmps/user/orders/DashboardDropdown.jsx"
+import PieChartt from "../cmps/user/PieChart.jsx"
+import MyBarChart from '../cmps/user/orders/BarChart.jsx'
+import MyAreaChart from "../cmps/user/MyAreaChart.jsx"
+import MyPieChart from '../cmps/user/MyPieChart.jsx'
+
+import { setFooterToDisplay } from '../store/stay.actions.js'
+
+
 
 
 export function MyRents() {
@@ -8,6 +17,7 @@ export function MyRents() {
     const [orderToChange, setOrderToChange] = useState(null)
 
     useEffect(() => {
+        setFooterToDisplay(false)
         loadOrders()
     }, [])
 
@@ -56,8 +66,32 @@ export function MyRents() {
             {(!orders || !orders.length) && <h2>Get help with getting Orders!</h2>}
 
             <section className='orders container'>
-                <h2 className="orders-header">My orders</h2>
+                <h2 className="orders-header">Performance</h2>
 
+
+                <section className="dash-info-container">
+                    <section className="dash-info">
+                    <MyBarChart />
+
+                    </section>
+                    <section className="dash-info pie">
+                        < PieChartt />
+                    </section>
+                    <section className="dash-info bar">
+                        <MyBarChart />
+                    </section>
+                    <section className="dash-info area">
+                    < PieChartt />
+
+                        {/* <MyPieChart/> */}
+                    </section>
+
+
+
+                </section>
+
+
+                <h2 className="table-header">My orders</h2>
                 <table className='orders-table'>
                     <thead>
                         <tr key="key">
@@ -72,17 +106,27 @@ export function MyRents() {
                     </thead>
                     <tbody>
                         {orders.map(order => {
+                            const dynClass = order.status
+
                             return (
                                 <tr key={order._id}>
                                     <td>{order.stayName}</td>
                                     <td>{new Date(order.startDate).toLocaleDateString('en-US')}</td>
                                     <td>{new Date(order.endDate).toLocaleDateString('en-US')}</td>
-                                    <td>{getGuestsCount(order.guests)}</td>
+                                    <td className='guests-count-td'>{getGuestsCount(order.guests)}</td>
                                     <td>{order.totalPrice}</td>
-                                    <td>{order.status}</td>
+                                    <td>
+                                        <span className='status'>
+                                            <span className={`colorful-dot ${dynClass}`}></span>
+
+                                            {order.status}
+                                        </span>
+
+
+                                    </td>
                                     <td>
                                         <button onClick={() => handleOrderChange(order._id, 1)} >Approve</button>
-                                        <button onClick={() => handleOrderChange(order._id, 0)} >Cancel</button>
+                                        <DashDropdown order={order} handleOrderChange={handleOrderChange} />
                                     </td>
                                 </tr>
 

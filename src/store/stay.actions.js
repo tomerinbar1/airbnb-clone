@@ -8,6 +8,7 @@ import {
   SET_IS_LOADING,
   UPDATE_STAY,
   SET_STAY_ID,
+  SET_FOOTER_DISPLAY,
   REQUEST_STAYS,
 } from './stay.reducer.js'
 
@@ -55,4 +56,8 @@ export async function saveStay(stay) {
 
 export function setStayId(stayId) {
   store.dispatch({ type: SET_STAY_ID, stayId })
+}
+
+export function setFooterToDisplay(val) {
+  store.dispatch({ type: SET_FOOTER_DISPLAY, val })
 }

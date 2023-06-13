@@ -4,6 +4,10 @@ import { userService } from '../services/user.service'
 import { orderService } from '../services/order.service'
 import { Dropdown } from '../cmps/user/Dropdown'
 
+import { setFooterToDisplay } from '../store/stay.actions.js'
+
+
+
 
 export function MyTrips() {
     const user = useSelector((state) => state.userModule.user)
@@ -11,6 +15,7 @@ export function MyTrips() {
     // console.log('localUser', localUser)
 
     useEffect(() => {
+        setFooterToDisplay(false)
         loadUser()
     }, [user])
 
@@ -97,10 +102,11 @@ export function MyTrips() {
                         </thead>
                         <tbody>
                             {localUser.orders.map(order => {
+                                const dynClass = order.status
                                 // console.log(order)
                                 return (
 
-                                    <tr  className='trip-row' key={order._id}>
+                                    <tr className='trip-row' key={order._id}>
                                         <td>{order.stayName}</td>
                                         <td>{new Date(order.startDate).toLocaleDateString('en-US')}</td>
                                         <td>{new Date(order.endDate).toLocaleDateString('en-US')}</td>
@@ -108,15 +114,15 @@ export function MyTrips() {
                                         <td>{order.totalPrice}</td>
                                         <td className='status-td'>
                                             <span className='status'>
-                                                <span className='colorful-dot'></span>
+                                                <span className={`colorful-dot ${dynClass}`}></span>
 
                                                 {order.status}
                                             </span>
                                         </td>
                                         <td>
-                                          <Dropdown order={order} onRemoveOrder={onRemoveOrder}/>
-                                              
-                                       
+                                            <Dropdown order={order} onRemoveOrder={onRemoveOrder} />
+
+
                                             {/* <button className='delete-order-btn' onClick={() => onRemoveOrder(order)}>Delete order</button> */}
                                         </td>
                                     </tr>
