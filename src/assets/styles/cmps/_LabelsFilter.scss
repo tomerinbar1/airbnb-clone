@@ -63,6 +63,8 @@
     .carousel-label-back {
         align-self: flex-start;
         position: absolute;
+        margin-top: 10px;
+
         color: #2F2F2F;
         z-index: 2;
 
@@ -84,6 +86,7 @@
     .carousel-label-forward {
         align-self: flex-end;
         position: absolute;
+        margin-top: 10px;
         color: #2F2F2F;
         z-index: 2;
 
