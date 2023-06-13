@@ -1,6 +1,7 @@
 
 import { StayReviewsStat } from '../cmps/details/StayReviewsStat'
 import goback from '../assets/img/common/goback.svg'
+import priceTag from '../assets/img/common/priceTag.svg'
 
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
@@ -161,8 +162,8 @@ export const Book = () => {
 
           <section className='good-price-section'>
             <span className='good-price-header'>  Good price.</span>
-            <span className='good-price-contant'>  Your dates are $35 less than the avg. nightly rate over the last 3 months.</span>
-            <span className='price-tag-icon'></span>
+            <div className='good-price-content'>  Your dates are $35 less than the avg. nightly rate over the last 3 months.</div>
+            <span className='price-tag-icon'><img src={priceTag} alt="" /></span>
 
           </section>
           <section className="book-details-wrapper">

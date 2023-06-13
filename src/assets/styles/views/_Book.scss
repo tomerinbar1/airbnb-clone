@@ -83,22 +83,40 @@
     .good-price-section {
       width: 100%;
       // background-color: aqua;
-      padding-top: 20px;
       padding-left: 22px;
+      padding: 24px;
+      padding-top: 22px;
       font-size: 0.8888em;
-      font-family: cereal-regular;
       color: $clr8;
       border: 1px solid rgb(221, 221, 221);
       border-radius: 12px;
+      font-family: cereal-regular;
+      line-height: 20px;
+      position: relative;
 
 
       .good-price-header {
         display: block;
+        font-family: airbnb-cereal-medium;
+        margin-bottom: 9px;
+
       }
 
-      .good-price-contant {}
+      .good-price-content{
+        max-width: 417px;
+        // background-color: gray;
+      }
 
-      .price-tag-icon {}
+      .price-tag-icon {
+        position: absolute;
+        top: 22px;
+        right: 7.5%;
+        img{
+          width: 32px;
+          height: 32px;
+      
+        }
+      }
     }
 
     .book-details-wrapper {
