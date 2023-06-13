@@ -1,4 +1,5 @@
 import Modal from 'react-modal'
+import close from '../../assets/img/common/close.svg'
 
 export const AmenitiesModal = ({
   onCloseModal,
@@ -40,8 +41,8 @@ export const AmenitiesModal = ({
   }
 
   const amenityList = amenities.map((amenity, idx) => (
-    <div className="amenity-wrapper">
-      <li key={idx}>
+    <div className="amenity-wrapper" key={idx}>
+      <li>
         <img
           src={require(`../../assets/img/amenities/${amenity}.svg`)}
           alt={amenity}
@@ -60,7 +61,9 @@ export const AmenitiesModal = ({
       overlayClassName="Overlay-amenities"
     >
       <div className="amenities-modal-header">
-        <button onClick={() => onCloseModal()}>X</button>
+        <button onClick={() => onCloseModal()}>
+          <img src={close} />
+        </button>
         <h1>What this place offers</h1>
       </div>
       <div className="amenities-modal-body">

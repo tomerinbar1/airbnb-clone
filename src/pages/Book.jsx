@@ -1,5 +1,7 @@
 
 import { StayReviewsStat } from '../cmps/details/StayReviewsStat'
+import goback from '../assets/img/common/goback.svg'
+
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -148,8 +150,8 @@ export const Book = () => {
   return (
     <div className="book-page-wrapper">
       <div className="book-details-header">
+        <button><img src={goback} alt="" /></button>
         <span className='confirm-header'>Confirm and pay</span>
-        <button className="book-return-btn">{'\u003C'}</button>
       </div>
 
       <section className='book-page-container'>
