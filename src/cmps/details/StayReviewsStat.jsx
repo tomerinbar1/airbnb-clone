@@ -30,9 +30,9 @@ export const StayReviewsStat = ({ reviews, onOpenModal }) => {
           {averageRates(reviews)}
         </span>
       </span>
-      {/* <span className="space-dot">·</span> */}
+      <span className="space-dot">·</span>
       <a className='reviews-count' onClick={e => onOpenModal(e, 'reviews-modal')}
-        data-modal="reviews-modal">({numOfReviews()} reviews)</a>
+        data-modal="reviews-modal">{numOfReviews()} reviews</a>
     </div>
   )
 }
