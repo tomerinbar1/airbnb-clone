@@ -5,23 +5,13 @@ import { DashDropdown } from "../cmps/orders/DashboardDropdown.jsx"
 import { setFooterToDisplay } from '../store/stay.actions.js'
 import MyBarChart from "../cmps/user/BarChart.jsx"
 import MyPieChart from "../cmps/user/PieChart.jsx"
-// import { setFooterToDisplay } from '../store/stay.actions.js'
+import MyDaysBarChart from "../cmps/user/BarChartDays.jsx"
+import PieColoredChart from "../cmps/user/PieColoredChart.jsx"
 
 
 export function MyRents() {
     const [orders, setOrders] = useState([])
     const [orderToChange, setOrderToChange] = useState(null)
-
-    // const dataBar = [
-    //     { name: 'Page A', uv: 200, pv: 2400, amt: 240 },
-    //     { name: 'Page B', uv: 250, pv: 2400, amt: 240 },
-    //     { name: 'Page C', uv: 300, pv: 2400, amt: 2400 },
-    //     { name: 'Page D', uv: 400, pv: 240, amt: 2400 },
-    //     { name: 'Page E', uv: 400, pv: 2400, amt: 2400 }
-    // ]
-
-
-
 
     useEffect(() => {
         setFooterToDisplay(false)
@@ -80,15 +70,15 @@ export function MyRents() {
                 <section className="dash-info-container">
 
                     <section className="dash-info">
-                        <MyBarChart orders={orders} format={1} />
+                        <MyBarChart orders={orders} />
                     </section>
 
                     <section className="dash-info ">
-                        < MyPieChart />
+                        < PieColoredChart />
                     </section>
 
                     <section className="dash-info ">
-                        <MyBarChart orders={orders} format={0} />
+                        <MyDaysBarChart orders={orders} />
                     </section>
 
                     <section className="dash-info ">
