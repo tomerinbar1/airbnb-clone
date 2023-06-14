@@ -164,19 +164,16 @@ export const Book = () => {
 
   function getSecondPaymenDate() {
     const oneMonthFromToday = new Date()
-
     oneMonthFromToday.setMonth(oneMonthFromToday.getMonth() + 1)
-
     const formattedDate = oneMonthFromToday.toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
       year: 'numeric'
     })
-    // console.log(formattedDate)
     return formattedDate
   }
 
-  function getFormattedDate(timestamp){
+  function getFormattedDate(timestamp) {
     const date = new Date(timestamp)
     const options = { year: 'numeric', month: 'short', day: 'numeric' }
     return date.toLocaleDateString('en-US', options)
@@ -203,6 +200,7 @@ export const Book = () => {
 
         {!isBooked && (
           <div>
+
             <button className='arrow-back-header' onClick={onGoBack}><img src={goback} alt="" /></button>
             <span className='confirm-header'>Confirm and pay</span>
           </div>
@@ -269,62 +267,42 @@ export const Book = () => {
               <div className='cancelation-policy'>
                 <div className='cancelation-header'>
                   Cancellation policy
-                  {/* <section>
+                </div>
+                <span className='free-cancel'>
                   Free cancellation for 48 hours.
-                    </section>            */}
-                  {/* <section>
-                    Cancel before Jul 13 for a partial refund.
-                    </section> */}
+                </span>
+                <span className='cancel-before'>
+                  Cancel before {getSecondPaymenDate()} for a partial refund.
+                </span>
+
+              </div>
+
+              <div className='rules-container'>
+                <div className='rules-header'>
+                  Ground rules
                 </div>
+
+                <section className='rules-content'>
+                  We ask every guest to remember a few simple things about what makes a great guest.
+                  <ul className='rules-list'>
+                    <li> Follow the house rules</li>
+                    <li>Treat your Host’s home like your own</li>
+                  </ul>
+                </section>
               </div>
-
-              <div className='pay-with-container'>
-                <div className='pay-with-header'>
-                  Ground rules                </div>
-              </div>
-
-
-
-
-
-              {/* 
-              <div className="book-required">
-                <h2>Required for your trip</h2>
-                <div className="required-info">
-                  <div className="message">
-                    <div className="host-contact-details">
-                      <h3>Message the Host</h3>
-                      <p>
-                        Let the host know why you’re travelling and when you’ll
-                        check in.
-                      </p>
-                    </div>
-
-                    <button className="book-add-btn">Add</button>
-                  </div>
-
-                  <div className="phone-number">
-                    <div className="host-contact-details">
-                      <h3>Phone number</h3>
-                      <p>
-                        Add and confirm your phone number to get trip updates.
-                      </p>
-                    </div>
-                    <button className="book-add-btn">Add</button>
-                  </div>
-                </div>
-              </div>
-
-              <hr className="custom-hr" /> */}
 
               {user ? (
                 !isBooked &&
-                <section className='confirm-btn'>
-                  <ReserveButton children={'Confirm and pay'} onClick={onConfirmBtn} />
+                <section>
+                  <div className='terms'> By selecting the button below, I agree to the 
+                  Host's House Rules, Ground rules for guests, Airbnb's Rebooking and 
+                  Refund Policy, Pay Less Upfront Terms, and that Airbnb can charge my payment method if I’m responsible for damage.
+                  </div>
+                  <section className='confirm-btn'>
+                    <ReserveButton children={'Confirm and pay'} onClick={onConfirmBtn} />
+                  </section>
                 </section>
-                // <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
 
-                // </button>
               ) : (
                 <LoginSignup />
               )
@@ -335,10 +313,14 @@ export const Book = () => {
           </section>
         </main>
 
-        <section className="book-summary-details">
+        <div className="book-summary-details">
+              
           <div className="order-details">
+
             <div className="order-details-header">
+
               <img className='stay-img' src={imgUrls[1]} alt="" />
+            
               <div className="book-stay-basic-wrapper">
                 <div className="order-details-header-text">
                   <div className="book-stay-basic">
@@ -437,7 +419,9 @@ export const Book = () => {
             }
 
           </div>
-        </section>
+
+
+        </div>
       </section>
 
 

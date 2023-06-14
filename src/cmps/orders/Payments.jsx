@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaymenDate }) {
     const [selectedOption, setSelectedOption] = useState('')
-    const [isFullClicked, setIsFullClicked] = useState(false)
+    const [isFullClicked, setIsFullClicked] = useState(true)
     const [isPartClicked, setIsPartClicked] = useState(false)
+    const fullRef = useRef(null)
+    const partRef = useRef(null)
 
     const handleOptionChange = (event) => {
         // console.log(event.target.value)
@@ -12,6 +14,8 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
             setIsFullClicked(true)
             setIsPartClicked(false)
             setIsPayments(false)
+            // fullRef.current.classList.add('active')
+            // partRef.current.style.classList.remove('active')
 
         }
         if (event.target.value === 'payments') {
@@ -33,7 +37,7 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
         <div className="book-payments-form">
             <div className='choose-payment-header'>Choose how to pay</div>
             <div className='payments-container'>
-                <label className='pay-full'>
+                <label ref={partRef} className='pay-full'>
                     <div>
                         <section className='payments-header'> Pay in full </section>
                         <section className='payments-content'>Pay the total( ${order.totalPrice}) now and you're all set.</section>
@@ -48,7 +52,7 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
                     />
                 </label>
 
-                <label className='payments'>
+                <label ref={fullRef} className='payments'>
                     <div >
                         <section className='payments-header'>Pay part now, part later</section>
                         <section className='payments-content'>
