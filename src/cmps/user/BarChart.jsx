@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { PureComponent } from 'react'
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 const data = [
   {
     "AnswerRef": "one",
@@ -34,8 +34,7 @@ const data = [
 class CustomizedLabel extends PureComponent {
 
   render() {
-    const { x, y, fill, value } = this.props;
-    console.log('value', value, 'x', x, 'y', y, 'fill', fill);
+    const { x, y, fill, value } = this.props
     return <text
       x={x}
       y={y}
@@ -54,27 +53,62 @@ export default class MyBarChart extends PureComponent {
 
     this.state = {
       data: props.orders || [],
+      format: props.format || 'daily',
       dateStat: []
     }
   }
 
-  getAvgPriceAccordingToDate() {
-    const { orders } = this.props
-    const dateStat = orders.reduce((acc, order) => {
-      const orderDate = new Date(order.createdAt).toLocaleDateString('en-GB', { month: 'short', day: 'numeric' })
-      acc.push({ date: orderDate, price: order.totalPrice })
-      return acc
-
-    }, [])
-    return dateStat.slice(0, 4)
+  setSumFormat() {
+    const { format } = this.props
+    console.log('format', format);
+    return format
   }
 
+  getDailyIncome() {
+    const { orders } = this.props
+    const dateStat = orders.reduce((result, order) => {
+      const orderDate = new Date(order.createdAt).toLocaleDateString()
+      const existingOrder = result.find(item => item.date === orderDate);
+
+      if (existingOrder) {
+        existingOrder.price += order.totalPrice;
+      } else {
+        result.push({ date: orderDate, price: order.totalPrice });
+      }
+      return result
+    }, [])
+    console.log('dateStat', dateStat);
+    return dateStat
+  }
+
+  getMonthlyIncome() {
+    const { orders } = this.props
+    const dateStat = orders.reduce((result, order) => {
+      const orderDate = new Date(order.createdAt);
+      const month = orderDate.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+      const date = `${month}`;
+      const existingMonth = result.find(item => item.date === date);
+
+      if (existingMonth) {
+        existingMonth.price += order.totalPrice;
+      } else {
+        result.push({
+          date,
+          price: order.totalPrice,
+        })
+      }
+
+      return result
+    }, []);
+    return dateStat
+  }
 
   render() {
-    const data = this.getAvgPriceAccordingToDate()
+    const format = this.setSumFormat()
+    const data = this.setSumFormat()? this.getDailyIncome() : this.getMonthlyIncome()
     return data.length && (
       <BarChart
-        width={225}
+        width={250}
         height={260}
         data={data}
         margin={{ top: 5, right: 0, left: 0, bottom: 25 }}>
@@ -92,14 +126,14 @@ export default class MyBarChart extends PureComponent {
         />
         <Bar
           dataKey="price"
-          barSize={170}
-          fontSize='16'
+          barSize={100}
+          fontSize='14'
           fontFamily="sans-serif"
           label={<CustomizedLabel />}
         >
           {
             data.map((entry, index) => (
-              <Cell fill='#61bf93' fontSize='16' />
+              <Cell key={index} fill='#5942ce' fontSize='16' />
             ))
           }
         </Bar>
