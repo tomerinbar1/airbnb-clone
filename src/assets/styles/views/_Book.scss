@@ -139,6 +139,7 @@
       .book-details {
         width: 100%;
         color: $clr8;
+
         .your-trip-header {
           font-family: airbnb-cereal-medium;
           font-size: rem(22px);
@@ -183,6 +184,8 @@
             }
           }
 
+
+
           .book-details-trip-guests {
             display: flex;
             justify-content: space-between;
@@ -193,7 +196,7 @@
               font-size: 0.8888em;
             }
 
-         
+
 
             .guest-info {
               font-family: $font1;
@@ -202,13 +205,14 @@
               height: 70px;
               margin-bottom: 21px;
 
-              
+
               .guest-info-content {
                 padding-top: 2px;
                 font-size: 0.8888em;
                 font-family: airbnb-cereal-book;
                 margin: 0;
               }
+
               .guest-count {
                 padding-right: 5px;
                 padding-top: 10px;
@@ -229,14 +233,8 @@
           }
         }
 
-        .book-payments-form {
-          h2 {
-            font-family: montserrat-Regular;
-            font-size: rem(22px);
-            padding-top: 32px;
-            margin: 0;
-          }
-        }
+
+
 
         .book-required {
           padding-top: 32px;
@@ -575,4 +573,115 @@
     }
   }
 
+
+
+  .cancelation-policy,
+  .pay-with-container {
+    margin-top: 33px;
+    border-top: 1px solid rgb(221, 221, 221);
+    ;
+  }
+
+  .cancelation-header,
+  .pay-with-header {
+    padding-top: 27px;
+    font-family: airbnb-cereal-medium;
+    font-size: rem(22px);
+  }
+
+
+
+
+
+
+}
+
+.book-payments-form {
+  position: relative;
+
+
+
+
+  .payments-container {
+    margin-top: 17px;
+    line-height: 20px;
+
+
+    input::after {
+      content: '';
+      width: 22px;
+      height: 22px;
+      background-color: rgb(147, 49, 49);
+    }
+
+    .fa-solid.fa-circle-dot {
+      margin-top: 2px;
+      position: absolute;
+      right: 13px;
+      font-size: 22px;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+
+    }
+
+
+    .button-input {
+      margin-top: 2px;
+      position: absolute;
+      right: 13px;
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      background-color: #B0B0B0;
+
+    }
+
+
+  }
+
+  .choose-payment-header {
+    font-family: airbnb-cereal-medium;
+    font-size: rem(22px);
+    padding-top: 29px;
+    margin: 0;
+  }
+
+
+
+  .payments {
+    padding: 16px;
+    border-left: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
+    border-radius: 0px 0px 8px 8px;
+  }
+
+
+  .pay-full {
+    border: 1px solid rgb(221, 221, 221);
+    padding: 16px;
+
+    border-radius: 8px 8px 0px 0px !important;
+
+  }
+
+  .payments-header {
+    font-size: 0.8889em;
+    font-family: airbnb-cereal-medium;
+
+  }
+
+  .payments-content {
+    font-size: 0.8889em;
+    padding-top: 3px;
+    font-family: airbnb-cereal-book;
+
+  }
+
+  .pay-full,
+  .payments {
+    display: flex;
+    justify-content: space-between;
+  }
 }

@@ -12,6 +12,7 @@ import { utilService } from '../services/util.service'
 import { LoginSignup } from '../cmps/user/LoginSignup'
 import { userService } from '../services/user.service'
 import { setFooterToDisplay } from '../store/stay.actions.js'
+import { Payments } from '../cmps/orders/Payments'
 
 export const Book = () => {
   const [stay, setStay] = useState(null)
@@ -185,14 +186,14 @@ export const Book = () => {
                 <div className="book-details-trip-guests">
                   <div className="guest-info">
                     <div className='guests-header'>Guests</div>
-                    
+
                     <div className="guest-info-content">
 
-                    <span className='guest-count'>
-                      {getGuestsCount()}
-                    </span>
-                    <span>guests</span>
-                  </div>
+                      <span className='guest-count'>
+                        {getGuestsCount()}
+                      </span>
+                      <span>guests</span>
+                    </div>
                   </div>
 
                   <div className="book-details-edit">
@@ -202,7 +203,7 @@ export const Book = () => {
               </div>
 
               <hr className="custom-hr" />
-           
+
 
               {isBooked && (
                 <section className='reservation-success'>
@@ -216,12 +217,39 @@ export const Book = () => {
 
               )}
 
-              <div className="book-payments-form">
-                <h2>Choose how to pay</h2>
+              <Payments order={order} />
+
+              {/* <hr className="custom-hr" /> */}
+
+
+              <div className='pay-with-container'>
+                <div className='pay-with-header'>
+                  Pay with
+                </div>
               </div>
 
-              <hr className="custom-hr" />
+              <div className='cancelation-policy'>
+                <div className='cancelation-header'>
+                  Cancellation policy
+                  {/* <section>
+                  Free cancellation for 48 hours.
+                    </section>            */}
+                  {/* <section>
+                    Cancel before Jul 13 for a partial refund.
+                    </section> */}
+                </div>
+              </div>
 
+              <div className='pay-with-container'>
+                <div className='pay-with-header'>
+                Ground rules                </div>
+              </div>
+
+
+
+
+
+              {/* 
               <div className="book-required">
                 <h2>Required for your trip</h2>
                 <div className="required-info">
@@ -249,7 +277,7 @@ export const Book = () => {
                 </div>
               </div>
 
-              <hr className="custom-hr" />
+              <hr className="custom-hr" /> */}
               {user ? (
                 <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
 
