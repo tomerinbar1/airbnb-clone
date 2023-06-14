@@ -8,13 +8,12 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
     const partRef = useRef(null)
 
     const handleOptionChange = (event) => {
-        // console.log(event.target.value)
         setSelectedOption(event.target.value)
         if (event.target.value === 'full') {
             setIsFullClicked(true)
             setIsPartClicked(false)
             setIsPayments(false)
-            // fullRef.current.classList.add('active')
+            fullRef.current.classList.add('active')
             // partRef.current.style.classList.remove('active')
 
         }
@@ -22,11 +21,10 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
             setIsFullClicked(false)
             setIsPartClicked(true)
             setIsPayments(true)
-
         }
     }
 
- 
+
 
     const dynClassFull = isFullClicked ? 'fa-solid fa-circle-dot active' : 'button-input'
     const dynClassPart = isPartClicked ? 'fa-solid fa-circle-dot active' : 'button-input'
@@ -42,9 +40,10 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
                         <section className='payments-header'> Pay in full </section>
                         <section className='payments-content'>Pay the total( ${order.totalPrice}) now and you're all set.</section>
                     </div>
-                    <input 
+                    <input
+                        ref={fullRef}
                         style={{ color: "none" }}
-                         className={dynClassFull}
+                        className={dynClassFull}
                         type="radio"
                         value="full"
                         checked={selectedOption === 'full'}
@@ -52,7 +51,7 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
                     />
                 </label>
 
-                <label ref={fullRef} className='payments'>
+                <label className='payments'>
                     <div >
                         <section className='payments-header'>Pay part now, part later</section>
                         <section className='payments-content'>

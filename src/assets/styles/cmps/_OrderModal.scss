@@ -264,7 +264,7 @@
             width: 322px;
             border-radius: 8px;
             color: rgb(34, 34, 34) !important;
-            font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+            font-family: airbnb-cereal-book;
             font-weight: 400 !important;
             font-size: 16px !important;
             line-height: 20px !important;
@@ -330,8 +330,8 @@
             font-weight: 800;
         }
 
-        // 661 / 509
         .date-picker-container {
+            font-family: airbnb-cereal-medium;
             background-color: $clr11;
             box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
             border-radius: 16px;
@@ -350,42 +350,6 @@
                 padding-block-start: 10px;
                 display: flex;
                 justify-content: space-between;
-
-                // flex-direction: column;
-                // &:last-child {
-                //     margin-inline-start: 20px
-                // }
-                // &:first-child {
-                //     margin-inline-end: 40px
-                // }
-                // >* {
-                //     width: 294px !important;
-                //     margin: 0;
-                //     padding: 0;
-                // }
-
-                // .rdp-table {
-                //     margin-block-start: 6px;
-                //     margin-inline-end: 0;
-                //     width: 294px;
-
-                //     .rdp-head {}
-
-                //     .rdp-tbody {
-                //         position: relative;
-                //         top: 3px;
-                //         width: 100%;
-
-                //         .rdp-day {
-                //             width: 50px;
-                //         }
-
-                //         tr {
-                //             width: 100%;
-                //             // vertical-align: middle;
-                //         }
-                //     }
-                // }
             }
 
 

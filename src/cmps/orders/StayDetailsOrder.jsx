@@ -8,6 +8,7 @@ import { utilService } from '../../services/util.service';
 import { GuestOrderSelect } from './GuestOrderSelect';
 import { ReserveButton } from './ReserveButton';
 import { StayPreviewStar } from '../StayPreviewStar';
+import { StayReviewsOrder } from '../details/StayReviewsOrder';
 
 
 
@@ -61,9 +62,6 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
             pets: +guestsFromParams.pets || 0,
         }
     }
-
-
-
 
 
     function setCheckInOutButtons(type) {
@@ -155,7 +153,10 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
                     <span className='stay-rate'>
                         <StayPreviewStar reviews={stay.reviews} />
                         <span>·</span>
-                        <span className='stay-rate-reviews'>42 reviews</span>
+                        {/* <span className='stay-rate-reviews'>42 reviews</span> */}
+                        <span className='stay-rate-reviews'>
+                            <StayReviewsOrder reviews={stay.reviews} />
+                            </span>
                     </span>
 
                 </section>
