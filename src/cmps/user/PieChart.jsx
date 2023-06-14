@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+  { name: 'Jan', value: 400 },
+  { name: 'Feb', value: 300 },
+  { name: 'Mar', value: 300 },
+  { name: 'Apr', value: 200 },
 ];
 
 const renderActiveShape = (props) => {
@@ -17,8 +17,12 @@ const renderActiveShape = (props) => {
   const sy = cy + (outerRadius + 10) * sin;
   const mx = cx + (outerRadius + 30) * cos;
   const my = cy + (outerRadius + 30) * sin;
-  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
-  const ey = my;
+  
+  const ex = cx + (outerRadius + 30) * cos; // Set ex to the same as mx
+  const ey = cy + (outerRadius + 30) * sin; // Set ey to the same as my
+
+  // const ex = mx + (cos >= 0 ? 1 : -1) * 1;
+  // const ey = my;
   const textAnchor = cos >= 0 ? 'start' : 'end';
 
   return (
@@ -46,15 +50,14 @@ const renderActiveShape = (props) => {
       />
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
-      </text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`${value}`}</text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999"></text>
+      {/* <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">{`(Rate ${(percent * 100).toFixed(2)}%)`}</text> */}
     </g>
   );
 };
 
-export default class PieChartt extends PureComponent {
+export default class MyPieChart extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/pie-chart-with-customized-active-shape-y93si';
 
   state = {
@@ -77,8 +80,8 @@ export default class PieChartt extends PureComponent {
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={40}
+            outerRadius={60}
             fill="#8884d8"
             dataKey="value"
             onMouseEnter={this.onPieEnter}
