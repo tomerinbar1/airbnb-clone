@@ -132,33 +132,11 @@
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .main-layout {
     grid-template-columns: none;
-    .orders {
-      width: 100%;
-      h2 {
-        padding-left: 30px;
-      }
-      .my-trips-table {
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        width: 100%;
-        thead {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          th {
-            font-size: rem(22px);
-            font-family: Circular-Book;
-            padding-inline: 7px;
-          }
-        }
-        tbody{
-          
-        }
-      }
-    }
+  }
+  .my-trips-header {
+    padding-left: 20px;
   }
 }
