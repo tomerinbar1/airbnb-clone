@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { stayService } from '../../services/stay.service'
 import { useParams, useNavigate } from 'react-router-dom'
 import { DayPicker } from 'react-day-picker'
+import { Loader } from '../Loader'
 
 export const DetailsDateRange = ({ checkIn, checkOut }) => {
   const [fromValue, setFromValue] = useState(
@@ -52,7 +53,7 @@ export const DetailsDateRange = ({ checkIn, checkOut }) => {
     return date.toLocaleDateString('en-US', options)
   }
 
-  if (!stay) return <div>Loading...</div>
+  if (!stay) return <Loader />
   return (
     <div className="date-range-wrapper">
       <div className="date-range-header">

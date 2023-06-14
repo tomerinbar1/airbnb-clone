@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { userService } from '../services/user.service'
 import { orderService } from '../services/order.service'
 import { Dropdown } from '../cmps/user/Dropdown'
+import { Loader } from '../cmps/Loader'
 
 import { setFooterToDisplay } from '../store/stay.actions.js'
 
@@ -79,7 +80,7 @@ export function MyTrips() {
         return guestsCount
     }
 
-    if (!localUser || !localUser.orders) return <h3>Loading...</h3>
+    if (!localUser || !localUser.orders) return <Loader />
 
     return (
         <section className="my-trips-page">

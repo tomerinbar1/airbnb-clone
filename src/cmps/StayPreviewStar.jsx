@@ -1,4 +1,5 @@
 import star from '../assets/img/common/reviews-star.svg'
+import { Loader } from './Loader'
 
 export const StayPreviewStar = ({ reviews }) => {
   const getAvg = () => {
@@ -11,7 +12,7 @@ export const StayPreviewStar = ({ reviews }) => {
     return (sum / reviews.length / 6).toFixed(2)
   }
 
-  if (!reviews) return <div>Loading...</div>
+  if (!reviews) return <Loader />
   return (
     <div className="stay-preview-star">
       <img src={star} alt="" />

@@ -9,9 +9,7 @@ import { LabelsFilter } from '../cmps/LabelsFilter.jsx'
 import { useLocation } from 'react-router-dom'
 import { setStayId } from '../store/stay.actions.js'
 import { setFooterToDisplay } from '../store/stay.actions.js'
-
-
-
+import { Loader } from '../cmps/Loader.jsx'
 
 export function StayIndex() {
   // const [stay, setStay] = useState(null)
@@ -20,21 +18,41 @@ export function StayIndex() {
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
   // const i = Object.fromEntries(searchParams.entries())
-  const { type, txt, location: locationFromParams, totalGuests: totalGuestsFromParams, checkIn: checkinFromParams, checkOut: checkOutFromParams } = Object.fromEntries(searchParams.entries())
+  const {
+    type,
+    txt,
+    location: locationFromParams,
+    totalGuests: totalGuestsFromParams,
+    checkIn: checkinFromParams,
+    checkOut: checkOutFromParams,
+  } = Object.fromEntries(searchParams.entries())
 
   useEffect(() => {
-    const filterBy = { type, txt, location: locationFromParams, guests: totalGuestsFromParams, checkIn: checkinFromParams, checkOut: checkOutFromParams }
+    const filterBy = {
+      type,
+      txt,
+      location: locationFromParams,
+      guests: totalGuestsFromParams,
+      checkIn: checkinFromParams,
+      checkOut: checkOutFromParams,
+    }
     // console.log('filterBy', filterBy)
     loadStays(filterBy)
-  }, [type, txt, locationFromParams, totalGuestsFromParams, checkinFromParams, checkOutFromParams])
+  }, [
+    type,
+    txt,
+    locationFromParams,
+    totalGuestsFromParams,
+    checkinFromParams,
+    checkOutFromParams,
+  ])
 
   useEffect(() => {
     setStayId(null)
     setFooterToDisplay(true)
-
   }, [])
 
-  if (isLoading) return <div>Loading...</div>
+  if (stays) return <Loader />
 
   return (
     <section className="index-container">

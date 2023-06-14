@@ -1,4 +1,5 @@
 import star from '../../assets/img/common/reviews-star.svg'
+import { Loader } from '../Loader'
 
 export const StayReviewsStat = ({ reviews, onOpenModal }) => {
   const averageRates = reviews => {
@@ -19,7 +20,7 @@ export const StayReviewsStat = ({ reviews, onOpenModal }) => {
     return reviews.length
   }
 
-  if (!reviews) return <div>Loading...</div>
+  if (!reviews) return <Loader />
 
   return (
     <div className="rating-details">
