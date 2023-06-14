@@ -20,6 +20,8 @@ import { ShareModal } from '../cmps/details/ShareModal.jsx'
 import { StayDetailsOrder } from '../cmps/orders/StayDetailsOrder.jsx'
 import { DisplayList } from '../cmps/details/DisplayList.jsx'
 import { setFooterToDisplay } from '../store/stay.actions.js'
+import { Loader } from '../cmps/Loader.jsx'
+
 const CHECKOUT_INFO = [
   'House rules',
   'Check-in: 4:00 PM - 9:00 PM',
@@ -99,7 +101,7 @@ export const StayDetails = () => {
     showScrollBar()
   }
 
-  if (!stay) return <div>Loading...</div>
+  if (!stay) return <Loader />
   return (
     <section className="stay-details">
       <StayDetailsHeader

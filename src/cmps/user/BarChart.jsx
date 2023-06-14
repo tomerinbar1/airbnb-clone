@@ -50,7 +50,7 @@ class CustomizedLabel extends PureComponent {
 
 export default class MyBarChart extends PureComponent {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       data: props.orders || [],

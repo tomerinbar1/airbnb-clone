@@ -2,6 +2,7 @@
 import { StayReviewsStat } from '../cmps/details/StayReviewsStat'
 import goback from '../assets/img/common/goback.svg'
 import priceTag from '../assets/img/common/priceTag.svg'
+import { Loader } from '../cmps/Loader'
 
 import { useLocation, useParams, useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
@@ -156,7 +157,8 @@ function onGoBack(){
 }
 
 
-  if (!stay || !order) return <div>Loading...</div>
+  // if (!stay || !order) return <div>Loading...</div>
+  if (!stay || !order) return <Loader />
   const { name, type, imgUrls, reviews } = stay
 
   return (

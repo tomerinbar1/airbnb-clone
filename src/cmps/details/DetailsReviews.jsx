@@ -7,24 +7,24 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
   const averageRates = reviews => {
     const ratings = reviews.reduce((acc, review) => {
       const { rate } = review
-      Object.entries(rate).forEach(([type, avg]) => {
-        if (acc.hasOwnProperty(type)) {
-          acc[type].sum += avg
-          acc[type].count += 1
-        } else {
-          acc[type] = { sum: avg, count: 1 }
-        }
+      Object.entries(rate).forEach(([category, avg]) => {
+        acc[category] = acc[category] || { sum: 0, count: 0 }
+        acc[category].sum += avg
+        acc[category].count += 1
       })
       return acc
     }, {})
 
-    const result = Object.entries(ratings).map(([type, { sum, count }]) => ({
-      type,
-      avg: (sum / count).toFixed(2),
-    }))
+    const result = Object.entries(ratings).map(
+      ([category, { sum, count }]) => ({
+        category,
+        avg: (sum / count).toFixed(2),
+      })
+    )
 
     return result
   }
+
 
   const avgRates = averageRates(reviews)
 
@@ -32,7 +32,7 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
     return avgRates.slice(start, end).map(rate => (
       <li key={makeId()}>
         <div className="avg-data-wrapper">
-          <div className="avg-type">{rate.type}</div>
+          <div className="avg-type">{rate.category}</div>
           <div className="avg-num">
             <progress id="file" value={rate.avg} max="5" />
             {rate.avg}
@@ -99,7 +99,7 @@ export const DetailsReviews = ({ reviews, onOpenModal }) => {
         </div>
       </section>
       <section className="reviews-wrapper">
-        <RenderReview reviews={reviews.slice(0,6)} />
+        <RenderReview reviews={reviews.slice(0, 6)} />
         <div className="show-all-reviews-btn">
           <button
             onClick={e => onOpenModal(e, 'reviews-modal')}
