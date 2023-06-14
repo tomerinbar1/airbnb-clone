@@ -122,7 +122,7 @@ export function MyRents() {
 
                                     </td>
                                     <td>
-                                        <button onClick={() => handleOrderChange(order._id, 1)} >Approve</button>
+                                        <button className="approve-btn" onClick={() => handleOrderChange(order._id, 1)} >Approve</button>
                                         <DashDropdown order={order} handleOrderChange={handleOrderChange} />
                                     </td>
                                 </tr>

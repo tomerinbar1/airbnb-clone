@@ -6,7 +6,7 @@
     overflow: hidden;
 
     .orders-header {
-        padding-top: 9px;
+        padding-top: 10px;
         margin-block-end: 42px;
         font-size: 2em;
     }
@@ -32,8 +32,17 @@
         width: 100%;
         border: 1px solid $clr12;
         border-radius: 15px;
-        border-spacing:0 ;
+        border-spacing: 0;
         margin-bottom: 50px;
+
+        .approve-btn {
+            background-color: rgb(47, 255, 144);
+            border-radius: 2em;
+            font-size: 1em;
+            font-family: cereal-regular;
+            padding: 12px;
+            color: $clr8;
+        }
 
         .guests-count-td {
             padding-left: 20px;
@@ -102,7 +111,9 @@
 
 .dropdown-toggle {
     border: none;
-    padding: 10px 20px;
+    // padding: 10px 20px;
+    padding: 0;
+    margin: 0;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0);
 }
