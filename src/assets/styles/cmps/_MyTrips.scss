@@ -25,16 +25,12 @@
     thead,
     tbody {
       width: 100%;
-
     }
-
 
     .trip-row {
       width: 100%;
       height: 100%;
-
     }
-
 
     th {
       padding-inline-start: 15px;
@@ -43,21 +39,16 @@
       font-size: 1em;
       text-align: left;
       letter-spacing: 0.03em;
-
     }
 
     td {
-
       padding-block-start: 25px;
       padding-block-end: 10px;
       padding-inline-start: 15px;
       border-top: 1px solid $clr12 !important;
-
-
     }
 
     .status {
-
       display: flex;
 
       .colorful-dot {
@@ -71,21 +62,18 @@
         margin: auto 0;
         margin-right: 8px;
 
-        &.Approved{
+        &.Approved {
           background-color: green;
         }
-        &.Canceled{
+        &.Canceled {
           background-color: red;
         }
-     
 
         // margin: 0 auto;
       }
     }
-
   }
 }
-
 
 .dropdown {
   position: relative;
@@ -112,7 +100,7 @@
 }
 
 .arrow-down.open {
-  transform: rotate(222deg); 
+  transform: rotate(222deg);
 }
 
 .dropdown-menu {
@@ -133,7 +121,7 @@
     background-color: inherit;
     font-size: 14px;
 
-    &:hover{
+    &:hover {
       background-color: $clr13;
     }
   }
@@ -142,4 +130,35 @@
 .dropdown-menu li {
   padding: 10px 20px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: none;
+    .orders {
+      width: 100%;
+      h2 {
+        padding-left: 30px;
+      }
+      .my-trips-table {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 100%;
+        thead {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          th {
+            font-size: rem(22px);
+            font-family: Circular-Book;
+            padding-inline: 7px;
+          }
+        }
+        tbody{
+          
+        }
+      }
+    }
+  }
 }
