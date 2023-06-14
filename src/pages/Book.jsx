@@ -14,6 +14,8 @@ import { LoginSignup } from '../cmps/user/LoginSignup'
 import { userService } from '../services/user.service'
 import { setFooterToDisplay } from '../store/stay.actions.js'
 import { Payments } from '../cmps/orders/Payments'
+import { ReserveButton } from '../cmps/orders/ReserveButton'
+
 
 export const Book = () => {
   const [stay, setStay] = useState(null)
@@ -24,7 +26,8 @@ export const Book = () => {
   const [isBooked, setIsBooked] = useState(false)
   const [localUser, setLocalUser] = useState(null)
   const [orderToSave, setOrderToSave] = useState(null)
-
+  const [isPayments, setIsPayments] = useState(null)
+  // console.log(isPayments)
   const location = useLocation()
   const navigate = useNavigate()
   const user = useSelector((state) => state.userModule.user)
@@ -47,13 +50,15 @@ export const Book = () => {
   useEffect(() => {
     getStay()
     setFooterToDisplay(false)
-
   }, [])
 
   useEffect(() => {
     if (!orderToSave) return
     updateUserDb()
   }, [orderToSave])
+
+
+
 
   async function onConfirmBtn() {
     try {
@@ -147,20 +152,63 @@ export const Book = () => {
   }
 
 
+  function onGoBack() {
+    window.history.go(-1);
+
+  }
+
+
+  function getPaymentsValue() {
+    return ((order.totalPrice) / 2).toFixed(2)
+  }
+
+  function getSecondPaymenDate() {
+    const oneMonthFromToday = new Date()
+    oneMonthFromToday.setMonth(oneMonthFromToday.getMonth() + 1)
+    const formattedDate = oneMonthFromToday.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    })
+    return formattedDate
+  }
+
+  function getFormattedDate(timestamp) {
+    const date = new Date(timestamp)
+    const options = { year: 'numeric', month: 'short', day: 'numeric' }
+    return date.toLocaleDateString('en-US', options)
+  }
+
+
   if (!stay || !order) return <Loader />
   const { name, type, imgUrls, reviews } = stay
 
   return (
     <div className="book-page-wrapper">
       <div className="book-details-header">
-        <button className='arrow-back-header'><img src={goback} alt="" /></button>
-        <span className='confirm-header'>Confirm and pay</span>
+        {isBooked && (
+          <section className='reservation-success'>
+            <span className='confirm-header'> Reservation success!</span>
+            <section onClick={onMyTripsBtn} className='my-trips-btn-container'>
+              <a className="my-trips-btn" >
+                Go to my trips
+              </a>
+              <button className='arrow-forward-trips'><img src={goback} alt="" /></button>
+            </section>
+          </section>
+        )}
+
+        {!isBooked && (
+          <div>
+
+            <button className='arrow-back-header' onClick={onGoBack}><img src={goback} alt="" /></button>
+            <span className='confirm-header'>Confirm and pay</span>
+          </div>
+        )}
       </div>
 
       <section className='book-page-container'>
         <main className="book-page-main">
-
-
 
           <section className='good-price-section'>
             <span className='good-price-header'>  Good price.</span>
@@ -176,8 +224,10 @@ export const Book = () => {
                   <div className="date-info">
                     <span className='date-info-header'>Dates</span>
                     <p>
-                      {utilService.formattedDate(order.startDate)} -{' '}
-                      {utilService.formattedDate(order.endDate)}
+                      {getFormattedDate(order.startDate)}-{' '}
+                      {getFormattedDate(order.endDate)}
+                      {/* {utilService.formattedDate(order.startDate)}  */}
+                      {/* {utilService.formattedDate(order.endDate)} */}
                     </p>
                   </div>
                   <div className="book-details-edit">
@@ -206,22 +256,7 @@ export const Book = () => {
               <hr className="custom-hr" />
 
 
-              {isBooked && (
-                <section className='reservation-success'>
-                  <h3 className="reservation-success-msg">
-                    Reservation success!
-                  </h3>
-                  <button className="my-trips-btn" onClick={onMyTripsBtn}>
-                    My trips
-                  </button>
-                </section>
-
-              )}
-
-              <Payments order={order} />
-
-              {/* <hr className="custom-hr" /> */}
-
+              <Payments order={order} setIsPayments={setIsPayments} getPaymentsValue={getPaymentsValue} getSecondPaymenDate={getSecondPaymenDate} />
 
               <div className='pay-with-container'>
                 <div className='pay-with-header'>
@@ -232,70 +267,60 @@ export const Book = () => {
               <div className='cancelation-policy'>
                 <div className='cancelation-header'>
                   Cancellation policy
-                  {/* <section>
+                </div>
+                <span className='free-cancel'>
                   Free cancellation for 48 hours.
-                    </section>            */}
-                  {/* <section>
-                    Cancel before Jul 13 for a partial refund.
-                    </section> */}
+                </span>
+                <span className='cancel-before'>
+                  Cancel before {getSecondPaymenDate()} for a partial refund.
+                </span>
+
+              </div>
+
+              <div className='rules-container'>
+                <div className='rules-header'>
+                  Ground rules
                 </div>
+
+                <section className='rules-content'>
+                  We ask every guest to remember a few simple things about what makes a great guest.
+                  <ul className='rules-list'>
+                    <li> Follow the house rules</li>
+                    <li>Treat your Host’s home like your own</li>
+                  </ul>
+                </section>
               </div>
 
-              <div className='pay-with-container'>
-                <div className='pay-with-header'>
-                Ground rules                </div>
-              </div>
-
-
-
-
-
-              {/* 
-              <div className="book-required">
-                <h2>Required for your trip</h2>
-                <div className="required-info">
-                  <div className="message">
-                    <div className="host-contact-details">
-                      <h3>Message the Host</h3>
-                      <p>
-                        Let the host know why you’re travelling and when you’ll
-                        check in.
-                      </p>
-                    </div>
-
-                    <button className="book-add-btn">Add</button>
-                  </div>
-
-                  <div className="phone-number">
-                    <div className="host-contact-details">
-                      <h3>Phone number</h3>
-                      <p>
-                        Add and confirm your phone number to get trip updates.
-                      </p>
-                    </div>
-                    <button className="book-add-btn">Add</button>
-                  </div>
-                </div>
-              </div>
-
-              <hr className="custom-hr" /> */}
               {user ? (
-                <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
+                !isBooked &&
+                <section>
+                  <div className='terms'> By selecting the button below, I agree to the 
+                  Host's House Rules, Ground rules for guests, Airbnb's Rebooking and 
+                  Refund Policy, Pay Less Upfront Terms, and that Airbnb can charge my payment method if I’m responsible for damage.
+                  </div>
+                  <section className='confirm-btn'>
+                    <ReserveButton children={'Confirm and pay'} onClick={onConfirmBtn} />
+                  </section>
+                </section>
 
-                </button>
               ) : (
                 <LoginSignup />
               )
               }
+
               <div className="book-terms"></div>
             </div>
           </section>
         </main>
 
-        <section className="book-summary-details">
+        <div className="book-summary-details">
+              
           <div className="order-details">
+
             <div className="order-details-header">
+
               <img className='stay-img' src={imgUrls[1]} alt="" />
+            
               <div className="book-stay-basic-wrapper">
                 <div className="order-details-header-text">
                   <div className="book-stay-basic">
@@ -347,17 +372,56 @@ export const Book = () => {
                 </div>
               </div>
 
-            </div>
-            {/* <hr className="custom-hr" /> */}
-            <div className="total-price">
-              <div className="total-price-wrapper">
-                <span>Total <span className='currency'>(USD)</span></span>
-                <span>${order.totalPrice}</span>
+              {isPayments &&
+                <div className="total-price-before-payments">
+                  <div className="total-price-wrapper">
+                    <span>Total <span className='currency'>(USD)</span></span>
+                    <span>${order.totalPrice}</span>
 
-              </div>
+                  </div>
+                </div>
+              }
             </div>
+
+
+
+            {!isPayments ? (
+              <div className="total-price">
+                <div className="total-price-wrapper">
+                  <span>Total <span className='currency'>(USD)</span></span>
+                  <span>${order.totalPrice}</span>
+
+                </div>
+              </div>
+
+            ) : (
+              <div className="total-price-payments">
+                <div className="payments-summary">
+
+                  <section className='first-payment'>
+                    <span>Due now </span>
+
+                    <span>${getPaymentsValue()}</span>
+                  </section>
+
+                  <section className='second-payment'>
+                    <span>Due <span>{getSecondPaymenDate()} </span>
+                    </span>
+
+                    <span>${getPaymentsValue()}</span>
+                  </section>
+
+
+                </div>
+              </div>
+            )
+
+            }
+
           </div>
-        </section>
+
+
+        </div>
       </section>
 
 
