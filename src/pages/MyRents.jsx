@@ -5,9 +5,7 @@ import { DashDropdown } from "../cmps/orders/DashboardDropdown.jsx"
 import { setFooterToDisplay } from '../store/stay.actions.js'
 import MyBarChart from "../cmps/user/BarChart.jsx"
 import MyPieChart from "../cmps/user/PieChart.jsx"
-
-
-
+// import { setFooterToDisplay } from '../store/stay.actions.js'
 
 
 export function MyRents() {
@@ -20,8 +18,9 @@ export function MyRents() {
     //     { name: 'Page C', uv: 300, pv: 2400, amt: 2400 },
     //     { name: 'Page D', uv: 400, pv: 240, amt: 2400 },
     //     { name: 'Page E', uv: 400, pv: 2400, amt: 2400 }
-
     // ]
+
+
 
 
     useEffect(() => {
@@ -39,6 +38,7 @@ export function MyRents() {
 
     async function loadOrders(filterBy = "") {
         const orders = await orderService.query(filterBy)
+
         setOrders(orders)
 
     }
@@ -80,7 +80,7 @@ export function MyRents() {
                 <section className="dash-info-container">
 
                     <section className="dash-info">
-                        <MyBarChart orders={orders} />
+                        <MyBarChart orders={orders} format={1} />
                     </section>
 
                     <section className="dash-info ">
@@ -88,7 +88,7 @@ export function MyRents() {
                     </section>
 
                     <section className="dash-info ">
-                        <MyBarChart orders={orders} />
+                        <MyBarChart orders={orders} format={0} />
                     </section>
 
                     <section className="dash-info ">
