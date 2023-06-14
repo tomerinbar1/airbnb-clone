@@ -1,40 +1,28 @@
 import React, { useState } from 'react'
 
-export function Payments({ order }) {
+export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaymenDate }) {
     const [selectedOption, setSelectedOption] = useState('')
     const [isFullClicked, setIsFullClicked] = useState(false)
     const [isPartClicked, setIsPartClicked] = useState(false)
 
     const handleOptionChange = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setSelectedOption(event.target.value)
         if (event.target.value === 'full') {
             setIsFullClicked(true)
             setIsPartClicked(false)
+            setIsPayments(false)
 
         }
         if (event.target.value === 'payments') {
             setIsFullClicked(false)
             setIsPartClicked(true)
+            setIsPayments(true)
+
         }
     }
 
-    function getPaymentsValue() {
-        return ((order.totalPrice) / 2).toFixed(2)
-    }
-    function getSecondPaymenDate() {
-        const oneMonthFromToday = new Date()
-
-        oneMonthFromToday.setMonth(oneMonthFromToday.getMonth() + 1)
-
-        const formattedDate = oneMonthFromToday.toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric'
-        })
-        console.log(formattedDate)
-        return formattedDate
-    }
+ 
 
     const dynClassFull = isFullClicked ? 'fa-solid fa-circle-dot active' : 'button-input'
     const dynClassPart = isPartClicked ? 'fa-solid fa-circle-dot active' : 'button-input'

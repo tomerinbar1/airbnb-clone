@@ -374,7 +374,7 @@
 
     .order-details {
       width: 83%;
-      height: 450px;
+      height: fit-content;
       border: 1px solid rgb(221, 221, 221);
       border-radius: 12px;
       padding: 23px;
@@ -487,7 +487,7 @@
 
     .order-details-price-summary {
       font-family: airbnb-cereal-book;
-      border-bottom: 1px solid rgb(221, 221, 221);
+      // border-bottom: 1px solid rgb(221, 221, 221);
       color: $clr8;
 
       .price-details-header {
@@ -499,7 +499,8 @@
 
       .taxes-wrapper {
         margin-top: 10px;
-        margin-bottom: 21px;
+        // margin-bottom: 21px;
+        margin-bottom: 12px;
         display: flex;
         justify-content: space-between;
 
@@ -591,10 +592,52 @@
     }
   }
 
+  .total-price-before-payments {
+    .total-price-wrapper {
+      display: flex;
+      justify-content: space-between;
+      font-family: cereal-Medium;
+      font-size: rem(16px);
+      margin: 0;
+      padding-bottom: 10px;
+
+      .currency {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .total-price-payments {
+    border-top: 1px solid rgb(221, 221, 221);
+    margin-top: 10px;
+
+    .second-payment,
+    .first-payment{
+      display: flex;
+      justify-content: space-between;
+      // margin-bottom: 5px;
+    }
+
+    .second-payment{
+      padding-top: 12px;
+      font-family: airbnb-cereal-book;
+
+    }
+
+
+    .payments-summary {
+      display: flex;
+      flex-direction: column;
+      font-family: cereal-Medium;
+      font-size: rem(16px);
+      margin: 0;
+      margin-top: 20px;
+    }
+  }
+
   .total-price {
-    margin-top: 21px;
-    // display: flex;
-    // justify-content: space-between;
+    border-top: 1px solid rgb(221, 221, 221);
+    margin-top: 22px;
 
     .total-price-wrapper {
       display: flex;
@@ -602,6 +645,7 @@
       font-family: cereal-Medium;
       font-size: rem(16px);
       margin: 0;
+      margin-top: 21px;
 
       .currency {
         text-decoration: underline;
@@ -610,12 +654,11 @@
   }
 
 
-
   .cancelation-policy,
   .pay-with-container {
     margin-top: 33px;
     border-top: 1px solid rgb(221, 221, 221);
-    ;
+
   }
 
   .cancelation-header,

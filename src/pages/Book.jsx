@@ -26,7 +26,8 @@ export const Book = () => {
   const [isBooked, setIsBooked] = useState(false)
   const [localUser, setLocalUser] = useState(null)
   const [orderToSave, setOrderToSave] = useState(null)
-
+  const [isPayments, setIsPayments] = useState(null)
+  // console.log(isPayments)
   const location = useLocation()
   const navigate = useNavigate()
   const user = useSelector((state) => state.userModule.user)
@@ -151,13 +152,37 @@ export const Book = () => {
   }
 
 
-function onGoBack(){
-  window.history.go(-1);
+  function onGoBack() {
+    window.history.go(-1);
 
-}
+  }
 
 
-  // if (!stay || !order) return <div>Loading...</div>
+  function getPaymentsValue() {
+    return ((order.totalPrice) / 2).toFixed(2)
+  }
+
+  function getSecondPaymenDate() {
+    const oneMonthFromToday = new Date()
+
+    oneMonthFromToday.setMonth(oneMonthFromToday.getMonth() + 1)
+
+    const formattedDate = oneMonthFromToday.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric'
+    })
+    // console.log(formattedDate)
+    return formattedDate
+  }
+
+  function getFormattedDate(timestamp){
+    const date = new Date(timestamp)
+    const options = { year: 'numeric', month: 'short', day: 'numeric' }
+    return date.toLocaleDateString('en-US', options)
+  }
+
+
   if (!stay || !order) return <Loader />
   const { name, type, imgUrls, reviews } = stay
 
@@ -167,15 +192,13 @@ function onGoBack(){
         {isBooked && (
           <section className='reservation-success'>
             <span className='confirm-header'> Reservation success!</span>
-          <section onClick={onMyTripsBtn} className='my-trips-btn-container'>
-            <a className="my-trips-btn" >
-              Go to my trips
-            </a>
-            <button className='arrow-forward-trips'><img src={goback} alt="" /></button>
-
+            <section onClick={onMyTripsBtn} className='my-trips-btn-container'>
+              <a className="my-trips-btn" >
+                Go to my trips
+              </a>
+              <button className='arrow-forward-trips'><img src={goback} alt="" /></button>
+            </section>
           </section>
-          </section>
-
         )}
 
         {!isBooked && (
@@ -184,13 +207,10 @@ function onGoBack(){
             <span className='confirm-header'>Confirm and pay</span>
           </div>
         )}
-
       </div>
 
       <section className='book-page-container'>
         <main className="book-page-main">
-
-
 
           <section className='good-price-section'>
             <span className='good-price-header'>  Good price.</span>
@@ -206,8 +226,10 @@ function onGoBack(){
                   <div className="date-info">
                     <span className='date-info-header'>Dates</span>
                     <p>
-                      {utilService.formattedDate(order.startDate)} -{' '}
-                      {utilService.formattedDate(order.endDate)}
+                      {getFormattedDate(order.startDate)}-{' '}
+                      {getFormattedDate(order.endDate)}
+                      {/* {utilService.formattedDate(order.startDate)}  */}
+                      {/* {utilService.formattedDate(order.endDate)} */}
                     </p>
                   </div>
                   <div className="book-details-edit">
@@ -236,12 +258,7 @@ function onGoBack(){
               <hr className="custom-hr" />
 
 
-
-
-              <Payments order={order} />
-
-              {/* <hr className="custom-hr" /> */}
-
+              <Payments order={order} setIsPayments={setIsPayments} getPaymentsValue={getPaymentsValue} getSecondPaymenDate={getSecondPaymenDate} />
 
               <div className='pay-with-container'>
                 <div className='pay-with-header'>
@@ -373,15 +390,52 @@ function onGoBack(){
                 </div>
               </div>
 
-            </div>
-            {/* <hr className="custom-hr" /> */}
-            <div className="total-price">
-              <div className="total-price-wrapper">
-                <span>Total <span className='currency'>(USD)</span></span>
-                <span>${order.totalPrice}</span>
+              {isPayments &&
+                <div className="total-price-before-payments">
+                  <div className="total-price-wrapper">
+                    <span>Total <span className='currency'>(USD)</span></span>
+                    <span>${order.totalPrice}</span>
 
-              </div>
+                  </div>
+                </div>
+              }
             </div>
+
+
+
+            {!isPayments ? (
+              <div className="total-price">
+                <div className="total-price-wrapper">
+                  <span>Total <span className='currency'>(USD)</span></span>
+                  <span>${order.totalPrice}</span>
+
+                </div>
+              </div>
+
+            ) : (
+              <div className="total-price-payments">
+                <div className="payments-summary">
+
+                  <section className='first-payment'>
+                    <span>Due now </span>
+
+                    <span>${getPaymentsValue()}</span>
+                  </section>
+
+                  <section className='second-payment'>
+                    <span>Due <span>{getSecondPaymenDate()} </span>
+                    </span>
+
+                    <span>${getPaymentsValue()}</span>
+                  </section>
+
+
+                </div>
+              </div>
+            )
+
+            }
+
           </div>
         </section>
       </section>
