@@ -1,7 +1,6 @@
 .my-trips-page {
   max-width: 1120px;
   margin: auto;
-  // background-color: lightcyan;
   font-family: cereal-regular;
   overflow: hidden;
 
@@ -9,7 +8,6 @@
     padding-top: 9px;
     margin-block-end: 42px;
     font-size: 2em;
-    // color: ;
   }
 
   .my-trips-table {
@@ -17,6 +15,9 @@
     border: 1px solid $clr12;
     border-radius: 15px;
     border-collapse: collapse;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
 
     .guests-count-td {
       padding-left: 20px;
