@@ -584,6 +584,7 @@
 
 
     .payments-summary {
+      color: $clr8;
       display: flex;
       flex-direction: column;
       font-family: cereal-Medium;
@@ -621,7 +622,7 @@
 
   .cancelation-policy {
     line-height: 20px;
-    margin-top: 25px;
+    margin-top: 32px;
     border-top: 1px solid rgb(221, 221, 221);
     padding-top: 9px;
 
@@ -704,8 +705,8 @@
     line-height: 20px;
 
     input:checked {
-      accent-color: $clr11; 
-       }
+      accent-color: $clr11;
+    }
 
 
     .fa-solid.fa-circle-dot {
@@ -751,14 +752,22 @@
     border-radius: 0px 0px 8px 8px;
   }
 
+  .active-border {
+    border: none;
+    box-shadow: rgb(34, 34, 34) 0px 0px 0px 2px inset;
+
+  }
 
   .pay-full {
     border: 1px solid rgb(221, 221, 221);
     padding: 16px;
-
     border-radius: 8px 8px 0px 0px !important;
 
+
+
   }
+
+
 
   .payments-header {
     font-size: 0.8889em;

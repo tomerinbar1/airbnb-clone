@@ -36,6 +36,7 @@ function getEmptyOrder() {
     return {
         stayId: '',
         stayName: '',
+        stayImgUrl: '',
         hostId: '',
         guests: { adults: 0, kids: 0, infants: 0, pets: 0 },
         startDate: '',

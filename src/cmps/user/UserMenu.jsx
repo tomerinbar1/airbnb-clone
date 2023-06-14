@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from "react"
 import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
@@ -11,12 +11,17 @@ import { showErrorMsg, showSuccessMsg } from "../../services/event-bus.service"
 export function UserMenu() {
     const user = useSelector((storeState) => storeState.userModule.user)
     const navigate = useNavigate()
+    // console.log(user)
 
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
-    // const [isSignup, setIsSignup] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+    useEffect(() => {
+        setIsLoggedIn(user)
+    }, [user])
 
+    console.log(isLoggedIn)
     async function onLogout() {
         try {
             navigate('/')
@@ -54,15 +59,22 @@ export function UserMenu() {
 
             <div onClick={toggleUserMenu} className="login-header-btn">
                 <div className="login-burger"> </div>
-                <div className="login-user-pic-container"></div>
+                <div className="login-user-pic-container">
+
+                    {isLoggedIn && 
+                        user &&
+                        user.imgUrl &&
+                        <section className='login-user-pic' >
+                          <img src={user.imgUrl} alt="" />  
+                        </section>
+                    }
+                </div>
                 {isUserMenuOpen && <UserMenuOpen onOpenModal={onOpenModal} user={user} onLogout={onLogout} />}
             </div>
 
             <section className='signing-modals'>
                 <LoginModal isLoginModalOpen={isLoginModalOpen} onCloseModal={onCloseModal}
                     onChangeLoginStatus={onChangeLoginStatus} />
-                    {/* onChangeLoginStatus={onChangeLoginStatus} isSignup={isSignup} setIsSignup={setIsSignup} onLogout={onLogout} /> */}
-                {/* <SignupModal isSignupModalOpen={isSignupModalOpen} onCloseModal={onCloseModal} /> */}
             </section>
 
         </React.Fragment>

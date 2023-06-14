@@ -121,6 +121,7 @@ export const Book = () => {
     const orderToSet = orderService.getEmptyOrder()
     orderToSet.stayId = stayId
     orderToSet.stayName = stayName
+    orderToSet.stayImgUrl = stay.imgUrls[0]
     orderToSet.hostId = stay.host._id
     orderToSet.guests = JSON.parse(guests)
     orderToSet.startDate = +checkIn || Date.now()
@@ -214,8 +215,8 @@ export const Book = () => {
             <span className='good-price-header'>  Good price.</span>
             <div className='good-price-content'>  Your dates are $35 less than the avg. nightly rate over the last 3 months.</div>
             <span className='price-tag-icon'><img src={priceTag} alt="" /></span>
-
           </section>
+          
           <section className="book-details-wrapper">
             <div className="book-details">
               <div className='your-trip-header'>Your trip</div>
@@ -253,17 +254,20 @@ export const Book = () => {
                 </div>
               </div>
 
+              {!isBooked && (
+                <section>
               <hr className="custom-hr" />
-
-
+               
+             
               <Payments order={order} setIsPayments={setIsPayments} getPaymentsValue={getPaymentsValue} getSecondPaymenDate={getSecondPaymenDate} />
-
+{/* 
               <div className='pay-with-container'>
                 <div className='pay-with-header'>
                   Pay with
                 </div>
-              </div>
-
+              </div> */}
+              </section>
+               )}
               <div className='cancelation-policy'>
                 <div className='cancelation-header'>
                   Cancellation policy
@@ -276,6 +280,7 @@ export const Book = () => {
                 </span>
 
               </div>
+             
 
               <div className='rules-container'>
                 <div className='rules-header'>

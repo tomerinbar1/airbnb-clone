@@ -96,6 +96,7 @@
         background-color: rgba(0, 0, 0, 0.03);
       }
       .save-share-details {
+        padding-inline-end: 15px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -141,6 +142,7 @@
         .large-image {
           max-width: 741px;
           padding-top: 8px;
+          width: 100%;
           img {
             object-fit: cover;
           }
