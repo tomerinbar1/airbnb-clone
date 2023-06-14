@@ -64,7 +64,7 @@ export function MyRents() {
             {(!orders || !orders.length) && <h2>Get help with getting Orders!</h2>}
 
             <section className='orders container'>
-                <h2 className="orders-header">Performance</h2>
+                <h2 className="orders-header">Statistics</h2>
 
 
                 <section className="dash-info-container">
