@@ -2,15 +2,10 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { orderService } from "../services/order.service.js"
 import { DashDropdown } from "../cmps/orders/DashboardDropdown.jsx"
-import PieChartt from "../cmps/user/PieChart.jsx"
-import MyBarChart from '../cmps/orders/BarChart.jsx'
-import MyAreaChart from "../cmps/user/MyAreaChart.jsx"
-import MyPieChart from '../cmps/user/MyPieChart.jsx'
-
-import { LineChart, Line } from 'recharts';
-// import { RadarChart, Line } from 'recharts';
-
 import { setFooterToDisplay } from '../store/stay.actions.js'
+import MyBarChart from "../cmps/user/BarChart.jsx"
+import MyPieChart from "../cmps/user/PieChart.jsx"
+
 
 
 
@@ -19,14 +14,14 @@ export function MyRents() {
     const [orders, setOrders] = useState([])
     const [orderToChange, setOrderToChange] = useState(null)
 
-    const dataBar = [
-        { name: 'Page A', uv: 200, pv: 2400, amt: 240 },
-        { name: 'Page B', uv: 250, pv: 2400, amt: 240 },
-        { name: 'Page C', uv: 300, pv: 2400, amt: 2400 },
-        { name: 'Page D', uv: 400, pv: 240, amt: 2400 },
-        { name: 'Page E', uv: 400, pv: 2400, amt: 2400 }
+    // const dataBar = [
+    //     { name: 'Page A', uv: 200, pv: 2400, amt: 240 },
+    //     { name: 'Page B', uv: 250, pv: 2400, amt: 240 },
+    //     { name: 'Page C', uv: 300, pv: 2400, amt: 2400 },
+    //     { name: 'Page D', uv: 400, pv: 240, amt: 2400 },
+    //     { name: 'Page E', uv: 400, pv: 2400, amt: 2400 }
 
-    ]
+    // ]
 
 
     useEffect(() => {
@@ -83,30 +78,22 @@ export function MyRents() {
 
 
                 <section className="dash-info-container">
+
                     <section className="dash-info">
                         <MyBarChart orders={orders} />
-
-                    </section>
-                    <section className="dash-info pie">
-
-                        <LineChart width={225} height={225} data={dataBar}>
-                            <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-                        </LineChart>
-                        <LineChart width={225} height={225} data={dataBar}>
-                            <Line type="monotone" dataKey="amt" stroke="#8884d8" />
-                        </LineChart>
-                        {/* < PieChartt /> */}
-                    </section>
-                    <section className="dash-info bar">
-                        {/* <MyBarChart /> */}
-                    </section>
-                    <section className="dash-info area">
-                        {/* < PieChartt /> */}
-
-                        {/* <MyPieChart/> */}
                     </section>
 
+                    <section className="dash-info ">
+                        < MyPieChart />
+                    </section>
 
+                    <section className="dash-info ">
+                        <MyBarChart orders={orders} />
+                    </section>
+
+                    <section className="dash-info ">
+                        < MyPieChart />
+                    </section>
 
                 </section>
 
