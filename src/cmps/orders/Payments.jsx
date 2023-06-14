@@ -13,14 +13,16 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
             setIsFullClicked(true)
             setIsPartClicked(false)
             setIsPayments(false)
-            fullRef.current.classList.add('active')
-            // partRef.current.style.classList.remove('active')
+            fullRef.current.classList.add('active-border')
+            partRef.current.classList.remove('active-border')
 
         }
         if (event.target.value === 'payments') {
             setIsFullClicked(false)
             setIsPartClicked(true)
             setIsPayments(true)
+            fullRef.current.classList.remove('active-border')
+            partRef.current.classList.add('active-border')
         }
     }
 
@@ -35,14 +37,12 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
         <div className="book-payments-form">
             <div className='choose-payment-header'>Choose how to pay</div>
             <div className='payments-container'>
-                <label ref={partRef} className='pay-full'>
+                <label ref={fullRef} className='pay-full active-border'>
                     <div>
                         <section className='payments-header'> Pay in full </section>
                         <section className='payments-content'>Pay the total( ${order.totalPrice}) now and you're all set.</section>
                     </div>
                     <input
-                        ref={fullRef}
-                        style={{ color: "none" }}
                         className={dynClassFull}
                         type="radio"
                         value="full"
@@ -51,7 +51,7 @@ export function Payments({ order, setIsPayments, getPaymentsValue, getSecondPaym
                     />
                 </label>
 
-                <label className='payments'>
+                <label ref={partRef} className='payments'>
                     <div >
                         <section className='payments-header'>Pay part now, part later</section>
                         <section className='payments-content'>

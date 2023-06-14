@@ -254,8 +254,6 @@ export const Book = () => {
               </div>
 
               <hr className="custom-hr" />
-
-
               <Payments order={order} setIsPayments={setIsPayments} getPaymentsValue={getPaymentsValue} getSecondPaymenDate={getSecondPaymenDate} />
 
               <div className='pay-with-container'>
