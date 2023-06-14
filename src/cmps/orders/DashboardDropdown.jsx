@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
-export function DashDropdown ({handleOrderChange, order}){
+import { BsThreeDotsVertical } from 'react-icons/bs'
+
+
+
+export function DashDropdown({ handleOrderChange, order }) {
     const [isOpen, setIsOpen] = useState(false)
     // console.log(isOpen)
     const toggleDropdown = () => {
@@ -10,15 +14,16 @@ export function DashDropdown ({handleOrderChange, order}){
     return (
         <div className="dropdown">
             <button className="dropdown-toggle" onClick={toggleDropdown}>
-                
-                <span className={`arrow-down ${isOpen ? ' open' : ''}`}></span>
+                <BsThreeDotsVertical />
+
+                {/* <span className={`arrow-down ${isOpen ? ' open' : ''}`}></span> */}
                 {/* <span className="arrow-down"></span> */}
             </button>
             {isOpen && (
-                
+
                 <ul className="dropdown-menu">
                     <li onClick={() => handleOrderChange(order._id, 0)}>Decline
-                    {/* <li> <button className='delete-order-btn' onClick={() => onRemoveOrder(order)}>Delete order</button> */}
+                        {/* <li> <button className='delete-order-btn' onClick={() => onRemoveOrder(order)}>Delete order</button> */}
                     </li>
                     {/* <li>Option</li>  */}
                     {/* <li>Option</li>  */}

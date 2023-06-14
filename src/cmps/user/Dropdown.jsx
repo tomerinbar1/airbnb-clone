@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {BsThreeDotsVertical} from 'react-icons/bs'
 
 export function Dropdown ({onRemoveOrder, order}){
     const [isOpen, setIsOpen] = useState(false)
@@ -10,8 +11,8 @@ export function Dropdown ({onRemoveOrder, order}){
     return (
         <div className="dropdown">
             <button className="dropdown-toggle" onClick={toggleDropdown}>
-                
-                <span className={`arrow-down ${isOpen ? ' open' : ''}`}></span>
+                <BsThreeDotsVertical/>
+                {/* <span className={`arrow-down ${isOpen ? ' open' : ''}`}></span> */}
                 {/* <span className="arrow-down"></span> */}
             </button>
             {isOpen && (

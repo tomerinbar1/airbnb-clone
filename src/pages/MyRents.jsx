@@ -5,6 +5,8 @@ import { DashDropdown } from "../cmps/orders/DashboardDropdown.jsx"
 import { setFooterToDisplay } from '../store/stay.actions.js'
 import MyBarChart from "../cmps/user/BarChart.jsx"
 import MyPieChart from "../cmps/user/PieChart.jsx"
+// import { setFooterToDisplay } from '../store/stay.actions.js'
+
 
 export function MyRents() {
     const [orders, setOrders] = useState([])
