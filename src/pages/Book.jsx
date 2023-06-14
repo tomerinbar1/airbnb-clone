@@ -13,6 +13,8 @@ import { LoginSignup } from '../cmps/user/LoginSignup'
 import { userService } from '../services/user.service'
 import { setFooterToDisplay } from '../store/stay.actions.js'
 import { Payments } from '../cmps/orders/Payments'
+import { ReserveButton } from '../cmps/orders/ReserveButton'
+
 
 export const Book = () => {
   const [stay, setStay] = useState(null)
@@ -46,13 +48,15 @@ export const Book = () => {
   useEffect(() => {
     getStay()
     setFooterToDisplay(false)
-
   }, [])
 
   useEffect(() => {
     if (!orderToSave) return
     updateUserDb()
   }, [orderToSave])
+
+
+
 
   async function onConfirmBtn() {
     try {
@@ -146,14 +150,39 @@ export const Book = () => {
   }
 
 
+function onGoBack(){
+  window.history.go(-1);
+
+}
+
+
   if (!stay || !order) return <div>Loading...</div>
   const { name, type, imgUrls, reviews } = stay
 
   return (
     <div className="book-page-wrapper">
       <div className="book-details-header">
-        <button className='arrow-back-header'><img src={goback} alt="" /></button>
-        <span className='confirm-header'>Confirm and pay</span>
+        {isBooked && (
+          <section className='reservation-success'>
+            <span className='confirm-header'> Reservation success!</span>
+          <section onClick={onMyTripsBtn} className='my-trips-btn-container'>
+            <a className="my-trips-btn" >
+              Go to my trips
+            </a>
+            <button className='arrow-forward-trips'><img src={goback} alt="" /></button>
+
+          </section>
+          </section>
+
+        )}
+
+        {!isBooked && (
+          <div>
+            <button className='arrow-back-header' onClick={onGoBack}><img src={goback} alt="" /></button>
+            <span className='confirm-header'>Confirm and pay</span>
+          </div>
+        )}
+
       </div>
 
       <section className='book-page-container'>
@@ -205,17 +234,7 @@ export const Book = () => {
               <hr className="custom-hr" />
 
 
-              {isBooked && (
-                <section className='reservation-success'>
-                  <h3 className="reservation-success-msg">
-                    Reservation success!
-                  </h3>
-                  <button className="my-trips-btn" onClick={onMyTripsBtn}>
-                    My trips
-                  </button>
-                </section>
 
-              )}
 
               <Payments order={order} />
 
@@ -242,7 +261,7 @@ export const Book = () => {
 
               <div className='pay-with-container'>
                 <div className='pay-with-header'>
-                Ground rules                </div>
+                  Ground rules                </div>
               </div>
 
 
@@ -278,14 +297,20 @@ export const Book = () => {
               </div>
 
               <hr className="custom-hr" /> */}
-              {user ? (
-                <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
 
-                </button>
+              {user ? (
+                !isBooked &&
+                <section className='confirm-btn'>
+                  <ReserveButton children={'Confirm and pay'} onClick={onConfirmBtn} />
+                </section>
+                // <button className="confirm-btn" onClick={onConfirmBtn}> Confirm
+
+                // </button>
               ) : (
                 <LoginSignup />
               )
               }
+
               <div className="book-terms"></div>
             </div>
           </section>

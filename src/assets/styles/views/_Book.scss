@@ -2,6 +2,37 @@
   margin: auto;
   max-width: 1120px;
 
+  .my-trips-btn-container {
+
+    .my-trips-btn {
+      font-family: airbnb-cereal-book;
+      font-size: 0.6em;
+      position: relative;
+    }
+
+    .arrow-forward-trips {
+      transform: scaleX(-1);
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      height: 30px;
+      width: 30px;
+      padding: 0;
+      margin: 0;
+      border-radius: 50%;
+      bottom: 44px;
+      left: 130px;
+
+
+      img {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
   .my-trips-btn,
   .confirm-btn {
     width: 100%;
@@ -77,8 +108,13 @@
 
   .book-page-main {
     width: 50%;
+    margin-bottom: 64px;
 
-
+    .confirm-btn {
+      padding: 24px 0;
+      width: 203px;
+      height: 56px;
+    }
 
     .good-price-section {
       width: 100%;
