@@ -24,13 +24,8 @@ export const StayReviewsOrder = ({ reviews}) => {
 
   return (
     <div className="rating-details">
-      {/* <span className='reviews-avg'>
-        <img className='star-reviews' src={star} alt="" />
-        <span className='reviews-span'>
-          {averageRates(reviews)}
-        </span>
-      </span> */}
-      <span className="space-dot">·</span>
+
+      {/* <span className="space-dot">·</span> */}
 
       <a className='reviews-count' >{numOfReviews()} reviews</a>
     </div>

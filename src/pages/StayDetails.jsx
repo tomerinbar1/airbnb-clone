@@ -21,6 +21,8 @@ import { StayDetailsOrder } from '../cmps/orders/StayDetailsOrder.jsx'
 import { DisplayList } from '../cmps/details/DisplayList.jsx'
 import { setFooterToDisplay } from '../store/stay.actions.js'
 import { Loader } from '../cmps/Loader.jsx'
+import priceTag from '../assets/img/common/priceTag.svg'
+
 
 const CHECKOUT_INFO = [
   'House rules',
@@ -145,12 +147,25 @@ export const StayDetails = () => {
         </div>
 
         <div className="stay-details-order-container">
+
+    <section className='order-modal-msg'>
+
+    
           <StayDetailsOrder
             stay={stay}
             openTab={openTab}
             setOpenTab={setOpenTab}
           />
-        </div>
+        
+
+
+          <section className='good-price-section'>
+            <span className='good-price-header'>  Good price.</span>
+            <div className='good-price-content'>  Your dates are $35 less than the avg. nightly rate over the last 3 months.</div>
+            <span className='price-tag-icon'><img src={priceTag} alt="" /></span>
+          </section>
+          </section>
+          </div>
       </div>
 
       <hr className="custom-hr" />

@@ -1,8 +1,57 @@
+.order-modal-msg{
+   position: sticky;
+  top: 130px;
+  margin-bottom: 94px;
+}
+
+.good-price-section {
+  width: 372px;
+  padding: 24px;
+  padding-left: 22px;
+  margin-top: 24px;
+  font-size: 0.8888em;
+  color: $clr8;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  font-family: cereal-regular;
+  line-height: 20px;
+  position: relative;
+  // margin-bottom: 22px;
+  // position: sticky;
+  // top: 0;
+  // bottom: 94px;
+
+  .good-price-header {
+    display: block;
+    font-family: airbnb-cereal-medium;
+    margin-bottom: 9px;
+  }
+
+  .good-price-content {
+    max-width: 417px;
+  }
+
+  .price-tag-icon {
+    position: absolute;
+    top: 20px;
+    // right: 7.5%;
+    right: 10px;
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+
+
+
 .stay-details-order-container {
   .order-modal {
-    position: sticky;
-    top: 130px;
-    margin-bottom: 48px;
+    // position: sticky;
+    // top: 130px;
+    // margin-bottom: 48px;
     // height: fit-content;
     border: 1px solid $clr9;
     border-radius: 12px;
@@ -306,7 +355,6 @@
       font-weight: 800;
     }
 
-    // 661 / 509
     .date-picker-container {
       background-color: $clr11;
       box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px;
@@ -316,6 +364,7 @@
       width: rem(661px);
       top: 29px;
       transform: translateX(-46.5%);
+      z-index: 3;
 
       .date-range-wrapper {
         padding: 5px;
@@ -328,6 +377,18 @@
         justify-content: space-between;
 
       }
+
+      .close-open-picker-btn {
+        align-self: flex-end;
+        height: 34px;
+        width: 70px;
+        background-color: #222222;
+        color: $clr11;
+        border-radius: 8px;
+        margin: 10px 33px 10px 0;
+        position: relative;
+        top: -10px;
+    }
 
       .date-picker-header {
         margin-inline-start: 32px;
@@ -367,24 +428,11 @@
                 display: flex;
                 align-items: center;
 
-                >* {
-                    // padding-block-start: 6px;
-                    // align-items: end;
-                    // justify-self: end;
-                }
-
-                // span {
-                //     // padding-block-start: 9px;
-                // }
-
                 .stay-rate-reviews {
                     font-size: 0.7778em;
                     color: $clr15;
                     font-family: $font1;
                     padding-inline-start: 2px;
-                    // justify-self: end;
-
-                    // padding-block-start: 6px;
                 }
 
                 .stay-preview-star {
@@ -721,15 +769,7 @@
                 display: flex;
                 flex-direction: column;
 
-                .close-open-picker-btn {
-                    align-self: flex-end;
-                    height: 34px;
-                    width: 70px;
-                    background-color: #222222;
-                    color: $clr11;
-                    border-radius: 8px;
-                    margin: 10px 33px 10px 0;
-                }
+           
             }
 
 

@@ -214,8 +214,8 @@ export const Book = () => {
             <span className='good-price-header'>  Good price.</span>
             <div className='good-price-content'>  Your dates are $35 less than the avg. nightly rate over the last 3 months.</div>
             <span className='price-tag-icon'><img src={priceTag} alt="" /></span>
-
           </section>
+          
           <section className="book-details-wrapper">
             <div className="book-details">
               <div className='your-trip-header'>Your trip</div>

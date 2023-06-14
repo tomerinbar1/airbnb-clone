@@ -153,7 +153,6 @@ export function StayDetailsOrder({ stay, setOpenTab, openTab }) {
                     <span className='stay-rate'>
                         <StayPreviewStar reviews={stay.reviews} />
                         <span>·</span>
-                        {/* <span className='stay-rate-reviews'>42 reviews</span> */}
                         <span className='stay-rate-reviews'>
                             <StayReviewsOrder reviews={stay.reviews} />
                             </span>
