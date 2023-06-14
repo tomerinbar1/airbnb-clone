@@ -34,9 +34,6 @@ export function MyTrips() {
     }
 
     async function onRemoveOrder(order) {
-        // const confirmVal = confirm("Delete trip?")
-        // if (confirmVal){}
-        // console.log(order)
         await removeFromOrderCollection(order._id)
         await updateLocalUser(order)
         await updateUserDb()
@@ -93,26 +90,26 @@ export function MyTrips() {
                         <thead>
                             <tr key="key">
                                 <th key="key1" >Stay</th>
+                                <th key="key1" ></th>
+                                <th key="key4" >Guests</th>
                                 <th key="key2" >Arrival</th>
                                 <th key="key3" >Departure</th>
-                                <th key="key4" >Guests</th>
                                 <th key="key5" > Total price</th>
                                 <th className='status-th' key="key6">Status</th>
-                                {/* <th key="key7">Actions</th> */}
                             </tr>
                         </thead>
                         <tbody>
                             {localUser.orders.map(order => {
                                 const dynClass = order.status
-                                // console.log(order)
+                                console.log(order)
                                 return (
-
                                     <tr className='trip-row' key={order._id}>
-                                        <td>{order.stayName}</td>
+                                        <td className='stay-name-td'> <span className='stay-name'> {order.stayName}</span></td>
+                                        <td className='stay-img-td'> <div className='stay-img'> <img src={order.stayImgUrl} alt=""/> </div></td>
+                                        <td className='guests-count-td'>{getGuestsCount(order.guests)}</td>
                                         <td>{new Date(order.startDate).toLocaleDateString('en-US')}</td>
                                         <td>{new Date(order.endDate).toLocaleDateString('en-US')}</td>
-                                        <td className='guests-count-td'>{getGuestsCount(order.guests)}</td>
-                                        <td>{order.totalPrice}</td>
+                                        <td className='total-price-td'>${order.totalPrice}</td>
                                         <td className='status-td'>
                                             <span className='status'>
                                                 <span className={`colorful-dot ${dynClass}`}></span>
@@ -122,12 +119,8 @@ export function MyTrips() {
                                         </td>
                                         <td>
                                             <Dropdown order={order} onRemoveOrder={onRemoveOrder} />
-
-
-                                            {/* <button className='delete-order-btn' onClick={() => onRemoveOrder(order)}>Delete order</button> */}
                                         </td>
                                     </tr>
-
                                 )
                             })}
                         </tbody>
