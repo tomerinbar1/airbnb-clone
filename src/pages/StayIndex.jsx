@@ -52,7 +52,7 @@ export function StayIndex() {
     setFooterToDisplay(true)
   }, [])
 
-  if (!isLoading) return <Loader />
+  if (isLoading) return <Loader />
 
   return (
     <section className="index-container">
