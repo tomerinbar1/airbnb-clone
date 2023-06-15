@@ -21,7 +21,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   return (
     <text className='chart-font'
       x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {data[index].name}
+      {/* {data[index].name} */}
     </text>
   );
 };

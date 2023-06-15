@@ -66,8 +66,8 @@ export function MyRents() {
             <section className='orders container'>
                 <h2 className="orders-header">Statistics</h2>
                 <div className="rent-headers">
-                    <h2 className="table-header">Half-Yearly Revenue</h2>
-                    <h2 className="table-header">Weekly Income</h2>
+                    <h2 className="table-header">Yearly Revenue</h2>
+                    <h2 className="table-header">Monthly Income</h2>
                 </div>
 
 
