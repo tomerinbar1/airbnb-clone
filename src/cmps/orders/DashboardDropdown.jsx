@@ -12,7 +12,7 @@ export function DashDropdown({ handleOrderChange, order }) {
     };
 
     return (
-        <div className="dropdown">
+        <div className="">
             <button className="dropdown-toggle" onClick={toggleDropdown}>
                 <BsThreeDotsVertical />
 
