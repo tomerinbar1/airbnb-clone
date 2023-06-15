@@ -84,7 +84,9 @@ export default class MyDaysBarChart extends PureComponent {
                         data.map((entry, index) => (
                             <Cell
                                 key={`cell-${index}`}
-                                fill={entry.price === maxPrice ? '#00FF00' : '#5942ce'}
+                                // fill={entry.price === maxPrice ? '#96d7b4' : '#88f5bb'}
+                                fill={entry.price === maxPrice ? '#04A2AC' : '#BCE6E5'}
+
                                 fontSize='16' />
                         ))
                     }

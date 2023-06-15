@@ -10,7 +10,7 @@ const data = [
   { name: 'Jun', value: 2.7 }, 
 ]
 
-const COLORS = ['#0088FE', '#0088FE', '#0088FE', '#0088FE', '#00FF00', '#0088FE']
+const COLORS = ['#86eced', '#86eced', '#86eced', '#86eced', '#04A2AC', '#86eced']
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
