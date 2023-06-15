@@ -7,7 +7,7 @@ const data = [
   { name: 'Mon', value: 260 },
   { name: 'Tues', value: 300 },
   { name: 'Wed', value: 303 },
-  { name: 'Thur', value: 300}
+  { name: 'Thur', value: 300 }
 ]
 
 const COLORS = ['#0088FE', '#0088FE', '#0088FE', '#00FF00', '#0088FE', '#0088FE']
@@ -15,11 +15,17 @@ const COLORS = ['#0088FE', '#0088FE', '#0088FE', '#00FF00', '#0088FE', '#0088FE'
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.6;
-  const x = cx +1+ radius * Math.cos(-midAngle * RADIAN);
+  const x = cx + 1 + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + 70 * Math.sin(-midAngle * RADIAN);
 
   return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+    <text
+      x={x}
+      y={y}
+      fill="white"
+      textAnchor={x > cx ? 'start' : 'end'}
+      className='chart-font'
+      dominantBaseline="central">
       {data[index].name}
     </text>
   );

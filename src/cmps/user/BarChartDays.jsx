@@ -12,9 +12,9 @@ class CustomizedLabel extends PureComponent {
                 y={y}
                 dy={-4}
                 fontSize='16'
-                fontFamily='sans-serif'
                 fill={fill}
                 textAnchor="center"
+                className='chart-font'
             >{formattedValue}
 
             </text>
@@ -36,8 +36,8 @@ export default class MyDaysBarChart extends PureComponent {
     getDemoDays() {
         const data = [
             { date: '10/6 ', price: 356 },
-            { date: '11/6 ', price: 223 },
-            { date: '12/6 ', price: 0 },
+            { date: '11/6 ', price: 183 },
+            { date: '12/6 ', price: 350 },
             { date: '13/6 ', price: 560 },
             { date: '14/6 ', price: 223 },
             { date: '15/6 ', price: 400 }

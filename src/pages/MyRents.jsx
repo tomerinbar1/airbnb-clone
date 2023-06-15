@@ -92,7 +92,7 @@ export function MyRents() {
                 <table className='orders-table'>
                     <thead>
                         <tr key="key">
-                            <th key="key1" >Stay</th>
+                            <th key="key1" >Property</th>
                             <th key="key2" >Arrival</th>
                             <th key="key3" >Departure</th>
                             <th key="key4" >Guests</th>

@@ -7,7 +7,7 @@ const data = [
   { name: 'Mar', value: 2.8 },
   { name: 'Apr', value: 4.5 },
   { name: 'May', value: 5.2 },
-  { name: 'Jun', value: 2.7 }, 
+  { name: 'Jun', value: 2.7 },
 ]
 
 const COLORS = ['#0088FE', '#0088FE', '#0088FE', '#0088FE', '#00FF00', '#0088FE']
@@ -19,7 +19,8 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+    <text className='chart-font'
+      x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
       {data[index].name}
     </text>
   );
