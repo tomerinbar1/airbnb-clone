@@ -84,10 +84,11 @@ export const Book = () => {
   async function updateUserDb() {
 
     try {
-      const updatedUser = { ...localUser, orders: [...localUser.orders, orderToSave] }
+      // const updatedUser = { ...localUser, orders: [...localUser.orders, orderToSave] }
+      const updatedUser = { ...localUser, orders: [orderToSave, ...localUser.orders] }
       setLocalUser(updatedUser)
       const savedUser = await userService.update(updatedUser)
-      console.log('savedUser', savedUser)
+      // console.log('savedUser', savedUser)
       console.log('User DB updated')
 
     } catch (err) {

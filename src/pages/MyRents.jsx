@@ -98,7 +98,7 @@ export function MyRents() {
                             <th key="key4" >Guests</th>
                             <th key="key5" >Total price</th>
                             <th key="key6" >Status</th>
-                            <th key="key7" >Actions</th>
+                            <th className="actions-td" key="key7" >Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -122,8 +122,11 @@ export function MyRents() {
 
                                     </td>
                                     <td>
-                                        <button onClick={() => handleOrderChange(order._id, 1)} >Approve</button>
+                                        <button className="approve-btn" onClick={() => handleOrderChange(order._id, 1)} >Approve</button>
+                                    </td>
+                                    <td className="drop-down">
                                         <DashDropdown order={order} handleOrderChange={handleOrderChange} />
+
                                     </td>
                                 </tr>
 
