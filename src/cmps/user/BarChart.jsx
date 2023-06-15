@@ -12,9 +12,9 @@ class CustomizedLabel extends PureComponent {
         y={y}
         dy={-4}
         fontSize='16'
-        fontFamily='sans-serif'
         fill={fill}
         textAnchor="center"
+        className='chart-font'
       >{formattedValue}
 
       </text>

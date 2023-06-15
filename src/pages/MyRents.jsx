@@ -65,6 +65,11 @@ export function MyRents() {
 
             <section className='orders container'>
                 <h2 className="orders-header">Statistics</h2>
+                <div className="rent-headers">
+                    <h2 className="table-header">Half-Yearly Revenue</h2>
+                    <h2 className="table-header">Weekly Income</h2>
+                </div>
+
 
 
                 <section className="dash-info-container">
@@ -92,7 +97,7 @@ export function MyRents() {
                 <table className='orders-table'>
                     <thead>
                         <tr key="key">
-                            <th key="key1" >Stay</th>
+                            <th key="key1" >Property</th>
                             <th key="key2" >Arrival</th>
                             <th key="key3" >Departure</th>
                             <th key="key4" >Guests</th>
@@ -111,7 +116,7 @@ export function MyRents() {
                                     <td>{new Date(order.startDate).toLocaleDateString('en-US')}</td>
                                     <td>{new Date(order.endDate).toLocaleDateString('en-US')}</td>
                                     <td className='guests-count-td'>{getGuestsCount(order.guests)}</td>
-                                    <td>{order.totalPrice}</td>
+                                    <td>${order.totalPrice}</td>
                                     <td>
                                         <span className='status'>
                                             <span className={`colorful-dot ${dynClass}`}></span>
